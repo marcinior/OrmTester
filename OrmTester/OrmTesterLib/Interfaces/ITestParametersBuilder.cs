@@ -1,4 +1,4 @@
-﻿namespace OrmTesterLib.Interfaces
+﻿namespace OrmTesterLib.TestCore
 {
     public interface ITestParametersBuilder
     {

@@ -1,5 +1,4 @@
-﻿using OrmTesterLib.Interfaces;
-using System;
+﻿using System;
 
 namespace OrmTesterLib.TestCore
 {
@@ -12,7 +11,7 @@ namespace OrmTesterLib.TestCore
             this.testParameters = new TestParameters();
         }
 
-        public TestParameters GetTestParameters => this.testParameters;
+        public TestParameters GetTestParameters() => this.testParameters;
 
 
         public ITestParametersBuilder TestBulkCreateManyToMany(int testRepetitions = 10)
