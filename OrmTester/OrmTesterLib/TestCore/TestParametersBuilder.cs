@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OrmTesterLib.Interfaces;
+using System;
 
 namespace OrmTesterLib.TestCore
 {
@@ -76,85 +77,85 @@ namespace OrmTesterLib.TestCore
 
         public ITestParametersBuilder TestBulkUpdateOneToOne(int testRepetitions = 10)
         {
-            testParameters.BulkUpdateOneToMany = (true, testRepetitions).ToTuple();
+            testParameters.BulkUpdateOneToOne = (true, testRepetitions).ToTuple();
             return this;
         }
 
         public ITestParametersBuilder TestBulkUpdayeOneToMany(int testRepetitions = 10)
         {
-            testParameters.BulkUpdateOneToOne = (true, testRepetitions).ToTuple();
+            testParameters.BulkUpdateOneToMany = (true, testRepetitions).ToTuple();
             return this;
         }
 
-        public ITestParametersBuilder TestSingleCreateManyToMany()
+        public ITestParametersBuilder TestSingleCreateManyToMany(int testRepetitions = 10)
         {
-            testParameters.SingleCreateManyToMany = true;
+            testParameters.SingleCreateManyToMany = (true, testRepetitions).ToTuple();
             return this;
         }
 
-        public ITestParametersBuilder TestSingleCreateNoRelationship()
+        public ITestParametersBuilder TestSingleCreateNoRelationship(int testRepetitions = 10)
         {
-            testParameters.SingleCreateNoRelationship = true;
+            testParameters.SingleCreateNoRelationship = (true, testRepetitions).ToTuple();
             return this;
         }
 
-        public ITestParametersBuilder TestSingleCreateOneToMany()
+        public ITestParametersBuilder TestSingleCreateOneToMany(int testRepetitions = 10)
         {
-            testParameters.SingleCreateOneToMany = true;
+            testParameters.SingleCreateOneToMany = (true, testRepetitions).ToTuple();
             return this;
         }
 
-        public ITestParametersBuilder TestSingleCreateOneToOne()
+        public ITestParametersBuilder TestSingleCreateOneToOne(int testRepetitions = 10)
         {
-            testParameters.SingleCreateOneToOne = true;
+            testParameters.SingleCreateOneToOne = (true, testRepetitions).ToTuple();
             return this;
         }
 
-        public ITestParametersBuilder TestSingleDeleteManyToMany()
+        public ITestParametersBuilder TestSingleDeleteManyToMany(int testRepetitions = 10)
         {
-            testParameters.SingleDeleteManyToMany = true;
+            testParameters.SingleDeleteManyToMany = (true, testRepetitions).ToTuple();
             return this;
         }
 
-        public ITestParametersBuilder TestSingleDeleteNoRelationship()
+        public ITestParametersBuilder TestSingleDeleteNoRelationship(int testRepetitions = 10)
         {
-            testParameters.SingleDeleteNoRelationship = true;
+            testParameters.SingleDeleteNoRelationship = (true, testRepetitions).ToTuple();
             return this;
         }
 
-        public ITestParametersBuilder TestSingleDeleteOneToMany()
+        public ITestParametersBuilder TestSingleDeleteOneToMany(int testRepetitions = 10)
         {
-            testParameters.SingleDeleteOneToMany = true;
+            testParameters.SingleDeleteOneToMany = (true, testRepetitions).ToTuple();
             return this;
         }
 
-        public ITestParametersBuilder TestSingleDeleteOneToOne()
+        public ITestParametersBuilder TestSingleDeleteOneToOne(int testRepetitions = 10)
         {
-            testParameters.SingleDeleteOneToOne = true;
+            testParameters.SingleDeleteOneToOne = (true, testRepetitions).ToTuple();
             return this;
         }
 
-        public ITestParametersBuilder TestSingleUpdateManyToMany()
+        public ITestParametersBuilder TestSingleUpdateManyToMany(int testRepetitions = 10)
         {
-            testParameters.SingleUpdateManyToMany = true;
+            testParameters.SingleUpdateManyToMany = (true, testRepetitions).ToTuple();
             return this;
         }
 
-        public ITestParametersBuilder TestSingleUpdateNoRelationship()
+        public ITestParametersBuilder TestSingleUpdateNoRelationship(int testRepetitions = 10)
         {
-            testParameters.SingleUpdateNoRelationship = true;
+            testParameters.SingleUpdateNoRelationship = (true, testRepetitions).ToTuple();
             return this;
         }
 
-        public ITestParametersBuilder TestSingleUpdateOneToMany()
+        public ITestParametersBuilder TestSingleUpdateOneToMany(int testRepetitions = 10)
         {
-            testParameters.SingleUpdateOneToMany = true;
+            testParameters.SingleUpdateOneToMany = (true, testRepetitions).ToTuple();
             return this;
         }
 
-        public ITestParametersBuilder TestSingleUpdateOneToOne()
+        public ITestParametersBuilder TestSingleUpdateOneToOne(int testRepetitions = 10)
         {
-            testParameters.SingleUpdateOneToOne = true;
+            testParameters.SingleUpdateOneToOne = (true, testRepetitions).ToTuple();
             return this;
         }
     }

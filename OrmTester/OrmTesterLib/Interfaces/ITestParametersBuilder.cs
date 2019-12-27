@@ -1,12 +1,12 @@
-﻿namespace OrmTesterLib.TestCore
+﻿namespace OrmTesterLib.Interfaces
 {
     public interface ITestParametersBuilder
     {
-        ITestParametersBuilder TestSingleCreateNoRelationship();
+        ITestParametersBuilder TestSingleCreateNoRelationship(int testRepetitions = 10);
 
-        ITestParametersBuilder TestSingleUpdateNoRelationship();
+        ITestParametersBuilder TestSingleUpdateNoRelationship(int testRepetitions = 10);
 
-        ITestParametersBuilder TestSingleDeleteNoRelationship();
+        ITestParametersBuilder TestSingleDeleteNoRelationship(int testRepetitions = 10);
 
         ITestParametersBuilder TestBulkCreateNoRelationship(int testRepetitions = 10);
 
@@ -14,11 +14,11 @@
 
         ITestParametersBuilder TestBulkDeleteNoRelationship(int testRepetitions = 10);
 
-        ITestParametersBuilder TestSingleCreateOneToOne();
+        ITestParametersBuilder TestSingleCreateOneToOne(int testRepetitions = 10);
 
-        ITestParametersBuilder TestSingleUpdateOneToOne();
+        ITestParametersBuilder TestSingleUpdateOneToOne(int testRepetitions = 10);
 
-        ITestParametersBuilder TestSingleDeleteOneToOne();
+        ITestParametersBuilder TestSingleDeleteOneToOne(int testRepetitions = 10);
 
         ITestParametersBuilder TestBulkCreateOneToOne(int testRepetitions = 10);
 
@@ -26,11 +26,11 @@
 
         ITestParametersBuilder TestBulkDeleteOneToOne(int testRepetitions = 10);
 
-        ITestParametersBuilder TestSingleCreateOneToMany();
+        ITestParametersBuilder TestSingleCreateOneToMany(int testRepetitions = 10);
 
-        ITestParametersBuilder TestSingleUpdateOneToMany();
+        ITestParametersBuilder TestSingleUpdateOneToMany(int testRepetitions = 10);
 
-        ITestParametersBuilder TestSingleDeleteOneToMany();
+        ITestParametersBuilder TestSingleDeleteOneToMany(int testRepetitions = 10);
 
         ITestParametersBuilder TestBulkCreateOneToMany(int testRepetitions = 10);
 
@@ -38,11 +38,11 @@
 
         ITestParametersBuilder TestBulkDeleteOneToMany(int testRepetitions = 10);
 
-        ITestParametersBuilder TestSingleCreateManyToMany();
+        ITestParametersBuilder TestSingleCreateManyToMany(int testRepetitions = 10);
 
-        ITestParametersBuilder TestSingleUpdateManyToMany();
+        ITestParametersBuilder TestSingleUpdateManyToMany(int testRepetitions = 10);
 
-        ITestParametersBuilder TestSingleDeleteManyToMany();
+        ITestParametersBuilder TestSingleDeleteManyToMany(int testRepetitions = 10);
 
         ITestParametersBuilder TestBulkCreateManyToMany(int testRepetitions = 10);
 

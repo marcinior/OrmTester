@@ -41,10 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\OperationType.cs" />
+    <Compile Include="Enums\RelationshipType.cs" />
+    <Compile Include="Interfaces\ITestOperations.cs" />
     <Compile Include="Interfaces\ITestParametersBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestCore\BaseTester.cs" />
+    <Compile Include="TestCore\StatisticParameter.cs" />
     <Compile Include="TestCore\TestParameters.cs" />
     <Compile Include="TestCore\TestParametersBuilder.cs" />
+    <Compile Include="TestCore\TestResult.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

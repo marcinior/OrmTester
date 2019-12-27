@@ -4,29 +4,29 @@ namespace OrmTesterLib.TestCore
 {
     public class TestParameters
     {
-        public bool SingleCreateNoRelationship { get; set; }
+        public Tuple<bool, int> SingleCreateNoRelationship { get; set; }
 
-        public bool SingleCreateOneToOne { get; set; }
+        public Tuple<bool, int> SingleCreateOneToOne { get; set; }
 
-        public bool SingleCreateOneToMany { get; set; }
+        public Tuple<bool, int> SingleCreateOneToMany { get; set; }
 
-        public bool SingleCreateManyToMany { get; set; }
+        public Tuple<bool, int> SingleCreateManyToMany { get; set; }
 
-        public bool SingleUpdateNoRelationship { get; set; }
+        public Tuple<bool, int> SingleUpdateNoRelationship { get; set; }
 
-        public bool SingleUpdateOneToOne { get; set; }
+        public Tuple<bool, int> SingleUpdateOneToOne { get; set; }
 
-        public bool SingleUpdateOneToMany { get; set; }
+        public Tuple<bool, int> SingleUpdateOneToMany { get; set; }
 
-        public bool SingleUpdateManyToMany { get; set; }
+        public Tuple<bool, int> SingleUpdateManyToMany { get; set; }
 
-        public bool SingleDeleteNoRelationship { get; set; }
+        public Tuple<bool, int> SingleDeleteNoRelationship { get; set; }
 
-        public bool SingleDeleteOneToOne { get; set; }
+        public Tuple<bool, int> SingleDeleteOneToOne { get; set; }
 
-        public bool SingleDeleteOneToMany { get; set; }
+        public Tuple<bool, int> SingleDeleteOneToMany { get; set; }
 
-        public bool SingleDeleteManyToMany { get; set; }
+        public Tuple<bool, int> SingleDeleteManyToMany { get; set; }
 
         public Tuple<bool, int> BulkCreateNoRelationship { get; set; }
 
