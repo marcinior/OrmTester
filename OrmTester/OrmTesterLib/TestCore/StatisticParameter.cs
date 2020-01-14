@@ -12,7 +12,7 @@ namespace OrmTesterLib.TestCore
 
         public double EfStandardDeviation { get; set; }
 
-        public double NHiberanteStandardDeviaton { get; set; }
+        public double NHiberanteStandardDeviation { get; set; }
 
         public OperationType OperationType { get; set; }
 
