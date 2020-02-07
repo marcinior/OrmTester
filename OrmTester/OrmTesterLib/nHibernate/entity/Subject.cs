@@ -1,21 +1,24 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace OrmTesterLib.nHibernate.entity
 {
     class Subject
     {
-        public int SubjectId { get; set; }
+        public virtual int SubjectId { get; set; }
 
-        public string SubjectName { get; set; }
+        public virtual string SubjectName { get; set; }
 
-        public DateTime CreatedAt { get; set; }
+        public virtual DateTime CreatedAt { get; set; }
 
-        public DateTime UpdatedAt { get; set; }
+        public virtual DateTime UpdatedAt { get; set; }
 
-        public short Ects { get; set; }
+        public virtual byte Ects { get; set; }
 
-        public short ClassesYear { get; set; }
+        public virtual byte ClassesYear { get; set; }
 
+        public virtual ExamType ExamType { get; set; }
 
+        public virtual List<StudentSubject> StudentSubject { get; set; }
     }
 }

@@ -4,12 +4,12 @@ namespace OrmTesterLib.nHibernate.entity
 {
     class Index
     {
-        public int IndexId { get; set; }
+        public virtual int IndexId { get; set; }
 
-        public string IndexNumber { get; set; }
+        public virtual string IndexNumber { get; set; }
 
-        public DateTime CreatedAt { get; set; }
+        public virtual DateTime CreatedAt { get; set; }
 
-        public DateTime UpdatedAt { get; set; }
+        public virtual DateTime UpdatedAt { get; set; }
     }
 }

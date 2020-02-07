@@ -2,8 +2,8 @@
 {
     class StudentSubject
     {
-        public int Id { get; set; }
-        public int StudentId { get; set; }
-        public int SubjectId { get; set; }
+        public virtual int Id { get; set; }
+        public virtual Student StudentId { get; set; }
+        public virtual Subject SubjectId { get; set; }
     }
 }
