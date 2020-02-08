@@ -41,17 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NHibernate\entity\Class.cs" />
-    <Compile Include="NHibernate\entity\ClassMapper.cs" />
-    <Compile Include="NHibernate\entity\Index.cs" />
-    <Compile Include="NHibernate\entity\IndexMapper.cs" />
-    <Compile Include="NHibernate\entity\Student.cs" />
-    <Compile Include="NHibernate\entity\StudentMapper.cs" />
-    <Compile Include="NHibernate\entity\StudentSubject.cs" />
-    <Compile Include="NHibernate\entity\StudentSubjectMapper.cs" />
-    <Compile Include="NHibernate\entity\Subject.cs" />
-    <Compile Include="NHibernate\entity\SubjectMapper.cs" />
-    <Compile Include="NHibernate\nHibernateTester.cs" />
+    <Compile Include="entity\Class.cs" />
+    <Compile Include="entity\ClassMapper.cs" />
+    <Compile Include="entity\Index.cs" />
+    <Compile Include="entity\IndexMapper.cs" />
+    <Compile Include="entity\Student.cs" />
+    <Compile Include="entity\StudentMapper.cs" />
+    <Compile Include="entity\StudentSubject.cs" />
+    <Compile Include="entity\StudentSubjectMapper.cs" />
+    <Compile Include="entity\Subject.cs" />
+    <Compile Include="entity\SubjectMapper.cs" />
+    <Compile Include="nHibernateTester.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
