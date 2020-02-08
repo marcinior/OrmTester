@@ -1,7 +1,8 @@
-﻿using System;
+﻿using OrmTesterLib.nHibernate.entity;
+using System;
 using System.Collections.Generic;
 
-namespace OrmTesterLib.nHibernate.entity
+namespace OrmTesterLib.NHibernate.entity
 {
     class Subject
     {

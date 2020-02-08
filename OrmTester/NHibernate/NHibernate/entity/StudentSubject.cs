@@ -1,4 +1,4 @@
-﻿namespace OrmTesterLib.nHibernate.entity
+﻿namespace OrmTesterLib.NHibernate.entity
 {
     class StudentSubject
     {
