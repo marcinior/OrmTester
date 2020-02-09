@@ -2,7 +2,7 @@
 
 namespace EntityFramework.Entity
 {
-    public class StudentSubjects
+    public class StudentSubject
     {
         [Key]
         public int StudentSubjectId { get; set; }
