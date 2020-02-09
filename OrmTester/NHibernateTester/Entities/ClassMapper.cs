@@ -1,11 +1,6 @@
 ﻿using FluentNHibernate.Mapping;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace OrmTesterLib.NHibernate.entity
+namespace NHibernateTester.Entities
 {
     class ClassMapper : ClassMap<Class>
     {
@@ -19,5 +14,6 @@ namespace OrmTesterLib.NHibernate.entity
             Map(classObject => classObject.Year).Not.Nullable();
             HasMany(classObject => classObject.Student);
         }
+       
     }
 }

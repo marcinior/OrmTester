@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace OrmTesterLib.NHibernate.entity
+namespace NHibernateTester.Entities
 {
-    class Class
+    public class Class
     {
         public virtual int ClassId { get; set; }
 

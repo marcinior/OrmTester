@@ -1,10 +1,10 @@
-﻿using OrmTesterLib.nHibernate.entity;
+﻿using NHibernateTester.Enums;
 using System;
 using System.Collections.Generic;
 
-namespace OrmTesterLib.NHibernate.entity
+namespace NHibernateTester.Entities
 {
-    class Student
+    public class Student
     {
         public virtual int StudentId { get; set; }
 

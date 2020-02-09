@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace OrmTesterLib.NHibernate.entity
+namespace NHibernateTester.Entities
 {
-    class Index
+    public class Index
     {
         public virtual int IndexId { get; set; }
 

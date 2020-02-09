@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrmTesterLib.NHibernate.entity
+namespace NHibernateTester.Entities
 {
     class StudentMapper : ClassMap<Student>
     {
@@ -18,7 +18,7 @@ namespace OrmTesterLib.NHibernate.entity
             Map(student => student.Gender).Not.Nullable();
             References(student => student.IndexId);
             Map(student => student.LastName).Length(45).Not.Nullable();
-            Map(student => student.Pesel).Length(11).Nullable();            
+            Map(student => student.Pesel).Length(11).Nullable();
             Map(student => student.CreatedAt).Not.Nullable();
             Map(student => student.UpdatedAt).Not.Nullable();
             HasMany(student => student.StudentSubject);

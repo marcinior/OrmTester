@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrmTesterLib.NHibernate.entity
+namespace NHibernateTester.Entities
 {
-    class SubjectMapper :ClassMap<Subject>
+    class SubjectMapper : ClassMap<Subject>
     {
         public SubjectMapper()
         {

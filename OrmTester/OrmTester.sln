@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFramework", "EntityFramework\EntityFramework.csproj", "{96B3E413-DACF-4D41-873E-4BF5B5D4EFB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernate", "NHibernate\NHibernate.csproj", "{0871E03F-E6C1-4520-BA48-367280624BC3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernateTester", "NHibernateTester\NHibernateTester.csproj", "{1716205F-EB97-42F6-996E-7AA2936297FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,10 @@ Global
 		{96B3E413-DACF-4D41-873E-4BF5B5D4EFB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96B3E413-DACF-4D41-873E-4BF5B5D4EFB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96B3E413-DACF-4D41-873E-4BF5B5D4EFB3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0871E03F-E6C1-4520-BA48-367280624BC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0871E03F-E6C1-4520-BA48-367280624BC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0871E03F-E6C1-4520-BA48-367280624BC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0871E03F-E6C1-4520-BA48-367280624BC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1716205F-EB97-42F6-996E-7AA2936297FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1716205F-EB97-42F6-996E-7AA2936297FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1716205F-EB97-42F6-996E-7AA2936297FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1716205F-EB97-42F6-996E-7AA2936297FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

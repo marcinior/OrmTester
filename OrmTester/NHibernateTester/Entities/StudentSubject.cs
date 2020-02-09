@@ -1,6 +1,6 @@
-﻿namespace OrmTesterLib.NHibernate.entity
+﻿namespace NHibernateTester.Entities
 {
-    class StudentSubject
+    public class StudentSubject
     {
         public virtual int Id { get; set; }
         public virtual Student StudentId { get; set; }
