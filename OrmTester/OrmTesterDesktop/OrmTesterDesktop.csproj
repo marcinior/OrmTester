@@ -94,5 +94,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NHibernateTester\NHibernateTester.csproj">
+      <Project>{1716205F-EB97-42F6-996E-7AA2936297FE}</Project>
+      <Name>NHibernateTester</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
