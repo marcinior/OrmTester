@@ -42,14 +42,14 @@ namespace EntityFramework
                 .IsRequired(true)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.Entity<StudentSubjects>()
+            builder.Entity<StudentSubject>()
                 .HasOne(ss => ss.Subject)
                 .WithMany(s => s.StudentSubjects)
                 .HasForeignKey(ss => ss.SubjectId)
                 .IsRequired(true)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.Entity<StudentSubjects>()
+            builder.Entity<StudentSubject>()
                 .HasOne(ss => ss.Student)
                 .WithMany(s => s.StudentSubjects)
                 .HasForeignKey(ss => ss.StudentId)

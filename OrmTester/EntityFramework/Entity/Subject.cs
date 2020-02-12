@@ -29,6 +29,6 @@ namespace EntityFramework.Entity
         [Required]
         public ExamType ExamType { get; set; }
 
-        public IList<StudentSubjects> StudentSubjects { get; set; }
+        public IList<StudentSubject> StudentSubjects { get; set; }
     }
 }
