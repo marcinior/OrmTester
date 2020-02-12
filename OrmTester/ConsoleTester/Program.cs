@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EntityFramework;
+using OrmTesterLib.TestCore;
+using System;
 
 namespace ConsoleTester
 {
@@ -10,6 +8,37 @@ namespace ConsoleTester
     {
         static void Main(string[] args)
         {
+            TestParametersBuilder testParametersBuilder = new TestParametersBuilder();
+            testParametersBuilder
+                .TestSingleCreateNoRelationship(5)
+                .TestSingleUpdateNoRelationship(5)
+                .TestSingleDeleteNoRelationship(5)
+                .TestBulkCreateNoRelationship(2)
+                .TestBulkUpdateNoRelationship(2)
+                .TestBulkDeleteNoRelationship(2)
+                .TestSingleCreateOneToOne()
+                .TestSingleUpdateOneToOne()
+                .TestSingleDeleteOneToOne()
+                .TestBulkCreateOneToOne(1)
+                .TestBulkUpdateOneToOne(1)
+                .TestBulkDeleteOneToOne(1)
+                .TestSingleCreateOneToMany()
+                .TestSingleUpdateOneToMany()
+                .TestSingleDeleteOneToMany()
+                .TestBulkCreateOneToMany(1)
+                .TestBulkUpdateOneToMany(1)
+                .TestBulkDeleteOneToMany(1)
+                .TestSingleCreateManyToMany()
+                .TestSingleUpdateManyToMany()
+                .TestSingleDeleteManyToMany()
+                .TestBulkCreateManyToMany(1)
+                .TestBulkUpdateManyToMany(1)
+                .TestBulkDeleteManyToMany(1);
+
+            EntityFrameworkTester entityFrameworkTester = new EntityFrameworkTester(testParametersBuilder);
+            var results = entityFrameworkTester.RunTests(entityFrameworkTester);
+            results.ForEach(r => Console.WriteLine($"Operation: {r.OperationType} IsBulk: {r.IsBulkTest} Realationship: {r.RelationshipType} Execution Time: {r.ExecutionTime.TotalMilliseconds}"));
+            Console.ReadKey();
         }
     }
 }
