@@ -21,7 +21,7 @@ namespace EntityFramework.Entity
         public DateTime UpdatedAt { get; set; }
 
         [Required]
-        public byte ECTS { get; set; }
+        public byte Ects { get; set; }
 
         [Required]
         public byte ClassYear { get; set; }

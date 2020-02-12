@@ -34,7 +34,7 @@
 
         ITestParametersBuilder TestBulkCreateOneToMany(int testRepetitions = 10);
 
-        ITestParametersBuilder TestBulkUpdayeOneToMany(int testRepetitions = 10);
+        ITestParametersBuilder TestBulkUpdateOneToMany(int testRepetitions = 10);
 
         ITestParametersBuilder TestBulkDeleteOneToMany(int testRepetitions = 10);
 

@@ -21,15 +21,15 @@ namespace EntityFramework
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Student>()
-                .HasIndex(s => s.PESEL)
+                .HasIndex(s => s.Pesel)
                 .IsUnique(true);
 
             builder.Entity<Student>()
                 .HasOne(s => s.Index)
                 .WithOne(i => i.Student)
                 .HasForeignKey<Student>(s => s.IndexForeignKey)
-                .IsRequired(true)
-                .OnDelete(DeleteBehavior.Cascade);
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.SetNull);
 
             builder.Entity<Index>()
                 .HasIndex(i => i.IndexNumber)
@@ -39,8 +39,8 @@ namespace EntityFramework
                 .HasOne(s => s.Class)
                 .WithMany(c => c.Students)
                 .HasForeignKey(s => s.ClassId)
-                .IsRequired(true)
-                .OnDelete(DeleteBehavior.Cascade);
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.SetNull);
 
             builder.Entity<StudentSubject>()
                 .HasOne(ss => ss.Subject)
@@ -64,5 +64,7 @@ namespace EntityFramework
         public DbSet<Subject> Subjects { get; set; }
 
         public DbSet<Student> Students { get; set; }
+
+        public DbSet<StudentSubject> StudentSubjects { get; set; }
     }
 }

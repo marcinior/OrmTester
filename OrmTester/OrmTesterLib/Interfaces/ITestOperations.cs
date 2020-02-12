@@ -44,7 +44,7 @@ namespace OrmTesterLib.Interfaces
 
         TimeSpan SingleDeleteManyToMany();
 
-        TimeSpan BulkDeleteNoRelationship();
+        TimeSpan BulkDeleteWithoutRelationship();
 
         TimeSpan BulkDeleteOneToOne();
 

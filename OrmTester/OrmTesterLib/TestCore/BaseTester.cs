@@ -89,7 +89,7 @@ namespace OrmTesterLib.TestCore
             if (testParameters.SingleDeleteManyToMany?.Item1 == true)
             {
                 testResults.AddRange(
-                    ExecuteMultipleTests(OperationType.Delete, RelationshipType.ManyToMany, testParameters.SingleDeleteManyToMany.Item2, testOperations.BulkDeleteManyToMany));
+                    ExecuteMultipleTests(OperationType.Delete, RelationshipType.ManyToMany, testParameters.SingleDeleteManyToMany.Item2, testOperations.SingleDeleteManyToMany));
             }
 
             if (testParameters.BulkCreateNoRelationship?.Item1 == true)
@@ -143,7 +143,7 @@ namespace OrmTesterLib.TestCore
             if (testParameters.BulkDeleteNoRelationship?.Item1 == true)
             {
                 testResults.AddRange(
-                    ExecuteMultipleTests(OperationType.Delete, RelationshipType.None, testParameters.BulkDeleteNoRelationship.Item2, testOperations.BulkDeleteNoRelationship, true));
+                    ExecuteMultipleTests(OperationType.Delete, RelationshipType.None, testParameters.BulkDeleteNoRelationship.Item2, testOperations.BulkDeleteWithoutRelationship, true));
             }
 
             if (testParameters.BulkDeleteOneToOne?.Item1 == true)

@@ -33,13 +33,13 @@ namespace EntityFramework.Entity
         public Gender Gender { get; set; }
 
         [StringLength(11)]         
-        public string PESEL { get; set; }
+        public string Pesel { get; set; }
 
-        public int IndexForeignKey { get; set; }
+        public int? IndexForeignKey { get; set; }
 
         public Index Index { get; set; }
 
-        public int ClassId { get; set; }
+        public int? ClassId { get; set; }
 
         public Class Class { get; set; }
 
