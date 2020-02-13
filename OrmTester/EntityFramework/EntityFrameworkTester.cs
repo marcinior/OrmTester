@@ -21,6 +21,7 @@ namespace EntityFramework
             db.Classes.RemoveRange(db.Classes);
             db.StudentSubjects.RemoveRange(db.StudentSubjects);
             db.Students.RemoveRange(db.Students);
+            db.Subjects.RemoveRange(db.Subjects);
             db.SaveChanges();
         }
 
@@ -213,7 +214,7 @@ namespace EntityFramework
                 s.FirstName = "Name";
                 s.LastName = "Surname";
                 s.BirthDate = DateTime.Now.AddYears(-25);
-                s.UpdatedAt = DateTime.Now;
+                s.UpdatedAt = DateTime.Now.AddDays(1);
             });
 
             subjects.ForEach(s =>
@@ -222,7 +223,7 @@ namespace EntityFramework
                 s.Ects = 8;
                 s.ExamType = ExamType.PROJECT;
                 s.SubjectName = "New Subject";
-                s.UpdatedAt = DateTime.Now;
+                s.UpdatedAt = DateTime.Now.AddDays(1);
             });
 
             db.Students.UpdateRange(students);
@@ -251,7 +252,7 @@ namespace EntityFramework
                 s.FirstName = "Name";
                 s.LastName = "Surname";
                 s.BirthDate = DateTime.Now.AddYears(-25);
-                s.UpdatedAt = DateTime.Now;
+                s.UpdatedAt = DateTime.Now.AddDays(1);
             });
             db.Students.UpdateRange(students);
 
@@ -275,7 +276,7 @@ namespace EntityFramework
             db.Students.AddRange(students);
             db.SaveChanges();
 
-            indexes.ForEach(i => i.UpdatedAt = DateTime.Now);
+            indexes.ForEach(i => i.UpdatedAt = DateTime.Now.AddDays(1));
             db.Indexes.UpdateRange(indexes);
 
             Stopwatch stopwatch = new Stopwatch();
@@ -295,7 +296,7 @@ namespace EntityFramework
             classes.ForEach(c =>
             {
                 c.DegreeCourse = "Elektrotechnika";
-                c.UpdatedAt = DateTime.Now;
+                c.UpdatedAt = DateTime.Now.AddDays(1);
                 c.Year = 6;
                 c.GroupNumber = 11;
             });
@@ -487,13 +488,13 @@ namespace EntityFramework
             student.FirstName = "Name";
             student.LastName = "Surname";
             student.BirthDate = DateTime.Now.AddYears(-25);
-            student.UpdatedAt = DateTime.Now;
+            student.UpdatedAt = DateTime.Now.AddDays(1);
 
             subject.ClassYear = 1;
             subject.Ects = 8;
             subject.ExamType = ExamType.PROJECT;
             subject.SubjectName = "New Subject";
-            subject.UpdatedAt = DateTime.Now;
+            subject.UpdatedAt = DateTime.Now.AddDays(1);
 
             db.Students.Update(student);
             db.Subjects.Update(subject);
@@ -522,7 +523,7 @@ namespace EntityFramework
             student.FirstName = "Name";
             student.LastName = "Surname";
             student.BirthDate = DateTime.Now.AddYears(-25);
-            student.UpdatedAt = DateTime.Now;
+            student.UpdatedAt = DateTime.Now.AddDays(1);
 
             db.Students.Update(student);
             Stopwatch stopwatch = new Stopwatch();
@@ -543,7 +544,7 @@ namespace EntityFramework
             db.Students.Add(student);
             db.SaveChanges();
 
-            index.UpdatedAt = DateTime.Now;
+            index.UpdatedAt = DateTime.Now.AddDays(1);
             db.Indexes.Update(index);
 
             Stopwatch stopwatch = new Stopwatch();
@@ -562,7 +563,7 @@ namespace EntityFramework
 
             @class.DegreeCourse = "Elektrotechnika";
             @class.GroupNumber = 11;
-            @class.UpdatedAt = DateTime.Now;
+            @class.UpdatedAt = DateTime.Now.AddDays(1);
             @class.Year = 6;
 
             Stopwatch stopwatch = new Stopwatch();
