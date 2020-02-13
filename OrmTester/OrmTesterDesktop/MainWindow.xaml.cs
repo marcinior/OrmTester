@@ -23,7 +23,6 @@ namespace OrmTesterDesktop
     {
         public MainWindow()
         {
-            new NHibernateTesterClass();
             InitializeComponent();
         }
     }

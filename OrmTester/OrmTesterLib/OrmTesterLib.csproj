@@ -89,6 +89,7 @@
     <Compile Include="TestCore\TestParameters.cs" />
     <Compile Include="TestCore\TestParametersBuilder.cs" />
     <Compile Include="TestCore\TestResult.cs" />
+    <Compile Include="Generators\DataGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
