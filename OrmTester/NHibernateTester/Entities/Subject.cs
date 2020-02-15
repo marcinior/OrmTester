@@ -20,6 +20,11 @@ namespace NHibernateTester.Entities
 
         public virtual ExamType ExamType { get; set; }
 
-        public virtual List<StudentSubject> StudentSubject { get; set; }
+        public virtual IList<StudentSubject> StudentSubject { get; set; }
+
+        public Subject()
+        {
+            StudentSubject = new List<StudentSubject>();
+        }
     }
 }

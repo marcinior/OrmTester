@@ -90,7 +90,6 @@
     <Compile Include="Enums\ExamType.cs" />
     <Compile Include="Enums\Gender.cs" />
     <Compile Include="NHibernateDataGenerator.cs" />
-    <Compile Include="NHibernateTesterClass.cs" />
     <Compile Include="NHibernateTestOperations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -13,7 +13,7 @@ namespace NHibernateTester.Entities
         {
             Id(student => student.StudentId);
             Map(student => student.BirthDate).Not.Nullable();
-            References(student => student.ClassId).Not.Nullable();
+            References(student => student.ClassId);
             Map(student => student.FirstName).Length(20).Not.Nullable();
             Map(student => student.Gender).Not.Nullable();
             References(student => student.IndexId);

@@ -36,7 +36,7 @@ namespace NHibernateTester
             };
         }
 
-        public static List<Index> GenerateIndices(int count)
+        public static List<Index> GetIndices(int count)
         {
             var indices = new List<Index>();
             for(var i = 0; i < count; i++)
