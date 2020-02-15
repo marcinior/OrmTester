@@ -4,14 +4,16 @@ using EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EntityFramework.Migrations
 {
     [DbContext(typeof(EfDbContext))]
-    partial class EfDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200209122610_updatedAcronyms")]
+    partial class updatedAcronyms
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -72,7 +74,7 @@ namespace EntityFramework.Migrations
 
                     b.Property<DateTime>("BirthDate");
 
-                    b.Property<int?>("ClassId");
+                    b.Property<int>("ClassId");
 
                     b.Property<DateTime>("CreatedAt");
 
@@ -82,7 +84,7 @@ namespace EntityFramework.Migrations
 
                     b.Property<int>("Gender");
 
-                    b.Property<int?>("IndexForeignKey");
+                    b.Property<int>("IndexForeignKey");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -98,8 +100,7 @@ namespace EntityFramework.Migrations
                     b.HasIndex("ClassId");
 
                     b.HasIndex("IndexForeignKey")
-                        .IsUnique()
-                        .HasFilter("[IndexForeignKey] IS NOT NULL");
+                        .IsUnique();
 
                     b.HasIndex("Pesel")
                         .IsUnique()
@@ -124,7 +125,7 @@ namespace EntityFramework.Migrations
 
                     b.HasIndex("SubjectId");
 
-                    b.ToTable("StudentSubjects");
+                    b.ToTable("StudentSubject");
                 });
 
             modelBuilder.Entity("EntityFramework.Entity.Subject", b =>
@@ -157,12 +158,12 @@ namespace EntityFramework.Migrations
                     b.HasOne("EntityFramework.Entity.Class", "Class")
                         .WithMany("Students")
                         .HasForeignKey("ClassId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("EntityFramework.Entity.Index", "Index")
                         .WithOne("Student")
                         .HasForeignKey("EntityFramework.Entity.Student", "IndexForeignKey")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("EntityFramework.Entity.StudentSubject", b =>

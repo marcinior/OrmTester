@@ -81,7 +81,7 @@ namespace OrmTesterLib.TestCore
             return this;
         }
 
-        public ITestParametersBuilder TestBulkUpdayeOneToMany(int testRepetitions = 10)
+        public ITestParametersBuilder TestBulkUpdateOneToMany(int testRepetitions = 10)
         {
             testParameters.BulkUpdateOneToMany = (true, testRepetitions).ToTuple();
             return this;
