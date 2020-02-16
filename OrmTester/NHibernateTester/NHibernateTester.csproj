@@ -89,7 +89,8 @@
     <Compile Include="Entities\SubjectMapper.cs" />
     <Compile Include="Enums\ExamType.cs" />
     <Compile Include="Enums\Gender.cs" />
-    <Compile Include="NHibernateTesterClass.cs" />
+    <Compile Include="NHibernateDataGenerator.cs" />
+    <Compile Include="NHibernateTestOperations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +107,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OrmTesterLib\OrmTesterLib.csproj">
+      <Project>{f50c4181-475d-4b34-bcc4-d184a8f3bf3a}</Project>
+      <Name>OrmTesterLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

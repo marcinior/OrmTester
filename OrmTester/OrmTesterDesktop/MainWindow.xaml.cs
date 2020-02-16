@@ -23,10 +23,8 @@ namespace OrmTesterDesktop
     {
         public List<MainWindowViewModel> TestResults { get; set; }
         public MainWindow()
-        {            
-            InitializeComponent();
+        {
             DataContext = this;
-            new NHibernateTesterClass();
         }
     }
 }

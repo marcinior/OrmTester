@@ -14,6 +14,6 @@ namespace NHibernateTester.Entities
             Map(classObject => classObject.Year).Not.Nullable();
             HasMany(classObject => classObject.Student);
         }
-       
+
     }
 }
