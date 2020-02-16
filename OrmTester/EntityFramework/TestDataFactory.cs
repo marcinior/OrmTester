@@ -4,23 +4,23 @@ using System.Collections.Generic;
 
 namespace EntityFramework
 {
-    internal class TestDataFactory
+    internal static class TestDataFactory
     {
-        private Random random;
+        private static readonly Random random;
 
-        public TestDataFactory()
+        static TestDataFactory()
         {
             random = new Random();
         }
 
-        public Index GetIndex() => new Index
+        public static Index GetIndex() => new Index
         {
             CreatedAt = DateTime.Now,
             UpdatedAt = DateTime.Now,
             IndexNumber = (char)random.Next(65,90) + random.Next(100000, 999999).ToString()
         };
 
-        public Class GetClass() => new Class
+        public static Class GetClass() => new Class
         {
             GroupNumber = Convert.ToByte(random.Next(1, 10)),
             Year = Convert.ToByte(random.Next(1, 5)),
@@ -29,7 +29,7 @@ namespace EntityFramework
             UpdatedAt = DateTime.Now
         };
 
-        public List<Class> GetClasses(int count)
+        public static List<Class> GetClasses(int count)
         {
             List<Class> classes = new List<Class>();
             for (int i = 0; i < count; i++)
@@ -38,7 +38,7 @@ namespace EntityFramework
             return classes;
         }
 
-        public Student GetStudent() => new Student
+        public static Student GetStudent() => new Student
         {
             FirstName = "Jan",
             LastName = "Nowak",
@@ -49,7 +49,7 @@ namespace EntityFramework
             Pesel = random.Next(100000, 999999) +  random.Next(10000, 99999).ToString()
         };
 
-        public Subject GetSubject() => new Subject
+        public static Subject GetSubject() => new Subject
         {
             SubjectName = "dfsdfsd",
             CreatedAt = DateTime.Now,
@@ -59,7 +59,7 @@ namespace EntityFramework
             ClassYear = Convert.ToByte(random.Next(1, 5)),
         };
 
-        public List<Index> GetIndexes(int count)
+        public  static List<Index> GetIndexes(int count)
         {
             List<Index> indexes = new List<Index>();
             for (int i = 0; i < count; i++)
@@ -68,7 +68,7 @@ namespace EntityFramework
             return indexes;
         }
 
-        public List<Student> GetStudents(int count)
+        public static List<Student> GetStudents(int count)
         {
             List<Student> students = new List<Student>();
             for (int i = 0; i < count; i++)
@@ -77,7 +77,7 @@ namespace EntityFramework
             return students;
         }
 
-        public List<Subject> GetSubjects(int count)
+        public static List<Subject> GetSubjects(int count)
         {
             List<Subject> subjects = new List<Subject>();
             for (int i = 0; i < count; i++)

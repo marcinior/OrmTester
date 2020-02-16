@@ -11,12 +11,10 @@ namespace EntityFramework
     public class EntityFrameworkTester : BaseTester, ITestOperations
     {
         private EfDbContext db;
-        private TestDataFactory testDataFactory;
 
         public EntityFrameworkTester(TestParametersBuilder testParametersBuilder) : base(testParametersBuilder)
         {
             db = new EfDbContext();
-            testDataFactory = new TestDataFactory();
             db.Indexes.RemoveRange(db.Indexes);
             db.Classes.RemoveRange(db.Classes);
             db.StudentSubjects.RemoveRange(db.StudentSubjects);
@@ -25,12 +23,17 @@ namespace EntityFramework
             db.SaveChanges();
         }
 
+        ~EntityFrameworkTester()
+        {
+            db.Dispose();
+        }
+
         public TimeSpan BulkCreateManyToMany()
         {
-            var students = testDataFactory.GetStudents(3);
+            var students = TestDataFactory.GetStudents(3);
             db.Students.AddRange(students);
 
-            var subjects = testDataFactory.GetSubjects(3);
+            var subjects = TestDataFactory.GetSubjects(3);
             subjects.ForEach(s =>
             {
                 s.StudentSubjects = new List<StudentSubject>();
@@ -54,10 +57,10 @@ namespace EntityFramework
 
         public TimeSpan BulkCreateOneToMany()
         {
-            var students = testDataFactory.GetStudents(500);
+            var students = TestDataFactory.GetStudents(500);
             db.Students.AddRange(students);
 
-            Class @class = testDataFactory.GetClass();
+            Class @class = TestDataFactory.GetClass();
             @class.Students = new List<Student>(students);
             db.Classes.Add(@class);
 
@@ -71,10 +74,10 @@ namespace EntityFramework
 
         public TimeSpan BulkCreateOneToOne()
         {
-            var indexes = testDataFactory.GetIndexes(500);
+            var indexes = TestDataFactory.GetIndexes(500);
             db.Indexes.AddRange(indexes);
 
-            var students = testDataFactory.GetStudents(500);
+            var students = TestDataFactory.GetStudents(500);
             for (int i = 0; i < students.Count; i++)
                 students[i].Index = indexes[i];
 
@@ -90,7 +93,7 @@ namespace EntityFramework
 
         public TimeSpan BulkCreateWithoutRelationship()
         {
-            var classes = testDataFactory.GetClasses(500);
+            var classes = TestDataFactory.GetClasses(500);
             db.Classes.AddRange(classes);
 
             Stopwatch stopwatch = new Stopwatch();
@@ -103,10 +106,10 @@ namespace EntityFramework
 
         public TimeSpan BulkDeleteManyToMany()
         {
-            var students = testDataFactory.GetStudents(3);
+            var students = TestDataFactory.GetStudents(3);
             db.Students.AddRange(students);
 
-            var subjects = testDataFactory.GetSubjects(3);
+            var subjects = TestDataFactory.GetSubjects(3);
             subjects.ForEach(s =>
             {
                 s.StudentSubjects = new List<StudentSubject>();
@@ -134,7 +137,7 @@ namespace EntityFramework
 
         public TimeSpan BulkDeleteWithoutRelationship()
         {
-            var classes = testDataFactory.GetClasses(500);
+            var classes = TestDataFactory.GetClasses(500);
             db.Classes.AddRange(classes);
             db.SaveChanges();
 
@@ -149,10 +152,10 @@ namespace EntityFramework
 
         public TimeSpan BulkDeleteOneToMany()
         {
-            var students = testDataFactory.GetStudents(500);
+            var students = TestDataFactory.GetStudents(500);
             db.Students.AddRange(students);
 
-            Class @class = testDataFactory.GetClass();
+            Class @class = TestDataFactory.GetClass();
             @class.Students = new List<Student>(students);
             db.Classes.Add(@class);
             db.SaveChanges();
@@ -169,10 +172,10 @@ namespace EntityFramework
 
         public TimeSpan BulkDeleteOneToOne()
         {
-            var indexes = testDataFactory.GetIndexes(500);
+            var indexes = TestDataFactory.GetIndexes(500);
             db.Indexes.AddRange(indexes);
 
-            var students = testDataFactory.GetStudents(500);
+            var students = TestDataFactory.GetStudents(500);
             for (int i = 0; i < students.Count; i++)
                 students[i].Index = indexes[i];
 
@@ -191,10 +194,10 @@ namespace EntityFramework
 
         public TimeSpan BulkUpdateManyToMany()
         {
-            var students = testDataFactory.GetStudents(3);
+            var students = TestDataFactory.GetStudents(3);
             db.Students.AddRange(students);
 
-            var subjects = testDataFactory.GetSubjects(3);
+            var subjects = TestDataFactory.GetSubjects(3);
             subjects.ForEach(s =>
             {
                 s.StudentSubjects = new List<StudentSubject>();
@@ -239,10 +242,10 @@ namespace EntityFramework
 
         public TimeSpan BulkUpdateOneToMany()
         {
-            var students = testDataFactory.GetStudents(500);
+            var students = TestDataFactory.GetStudents(500);
             db.Students.AddRange(students);
 
-            Class @class = testDataFactory.GetClass();
+            Class @class = TestDataFactory.GetClass();
             @class.Students = new List<Student>(students);
             db.Classes.Add(@class);
             db.SaveChanges();
@@ -266,10 +269,10 @@ namespace EntityFramework
 
         public TimeSpan BulkUpdateOneToOne()
         {
-            var indexes = testDataFactory.GetIndexes(500);
+            var indexes = TestDataFactory.GetIndexes(500);
             db.Indexes.AddRange(indexes);
 
-            var students = testDataFactory.GetStudents(500);
+            var students = TestDataFactory.GetStudents(500);
             for (int i = 0; i < students.Count; i++)
                 students[i].Index = indexes[i];
 
@@ -289,7 +292,7 @@ namespace EntityFramework
 
         public TimeSpan BulkUpdateWithoutRelationship()
         {
-            var classes = testDataFactory.GetClasses(500);
+            var classes = TestDataFactory.GetClasses(500);
             db.Classes.AddRange(classes);
             db.SaveChanges();
 
@@ -312,10 +315,10 @@ namespace EntityFramework
 
         public TimeSpan SingleCreateManyToMany()
         {
-            Student student = testDataFactory.GetStudent();
+            Student student = TestDataFactory.GetStudent();
             db.Students.Add(student);
 
-            Subject subject = testDataFactory.GetSubject();
+            Subject subject = TestDataFactory.GetSubject();
             subject.StudentSubjects = new List<StudentSubject>
             {
                 new StudentSubject()
@@ -336,10 +339,10 @@ namespace EntityFramework
 
         public TimeSpan SingleCreateOneToMany()
         {
-            Student student = testDataFactory.GetStudent();
+            Student student = TestDataFactory.GetStudent();
             db.Students.Add(student);
 
-            Class @class = testDataFactory.GetClass();
+            Class @class = TestDataFactory.GetClass();
             @class.Students = new List<Student>
             {
                 student
@@ -356,10 +359,10 @@ namespace EntityFramework
 
         public TimeSpan SingleCreateOneToOne()
         {
-            Index index = testDataFactory.GetIndex();
+            Index index = TestDataFactory.GetIndex();
             db.Indexes.Add(index);
 
-            Student student = testDataFactory.GetStudent();
+            Student student = TestDataFactory.GetStudent();
             student.Index = index;
             db.Students.Add(student);
 
@@ -373,7 +376,7 @@ namespace EntityFramework
 
         public TimeSpan SingleCreateWithoutRelationship()
         {
-            Class c = testDataFactory.GetClass();
+            Class c = TestDataFactory.GetClass();
             db.Classes.Add(c);
 
             Stopwatch stopwatch = new Stopwatch();
@@ -386,10 +389,10 @@ namespace EntityFramework
 
         public TimeSpan SingleDeleteManyToMany()
         {
-            Student student = testDataFactory.GetStudent();
+            Student student = TestDataFactory.GetStudent();
             db.Students.Add(student);
 
-            Subject subject = testDataFactory.GetSubject();
+            Subject subject = TestDataFactory.GetSubject();
             StudentSubject studentSubject = new StudentSubject()
             {
                 Student = student,
@@ -414,10 +417,10 @@ namespace EntityFramework
 
         public TimeSpan SingleDeleteOneToMany()
         {
-            Student student = testDataFactory.GetStudent();
+            Student student = TestDataFactory.GetStudent();
             db.Students.Add(student);
 
-            Class @class = testDataFactory.GetClass();
+            Class @class = TestDataFactory.GetClass();
             @class.Students = new List<Student>
             {
                 student
@@ -436,10 +439,10 @@ namespace EntityFramework
 
         public TimeSpan SingleDeleteOneToOne()
         {
-            Index index = testDataFactory.GetIndex();
+            Index index = TestDataFactory.GetIndex();
             db.Indexes.Add(index);
 
-            Student student = testDataFactory.GetStudent();
+            Student student = TestDataFactory.GetStudent();
             student.Index = index;
             db.Students.Add(student);
             db.SaveChanges();
@@ -455,7 +458,7 @@ namespace EntityFramework
 
         public TimeSpan SingleDeleteWithoutRelationship()
         {
-            Class @class = testDataFactory.GetClass();
+            Class @class = TestDataFactory.GetClass();
             db.Classes.Add(@class);
             db.SaveChanges();
 
@@ -470,10 +473,10 @@ namespace EntityFramework
 
         public TimeSpan SingleUpdateManyToMany()
         {
-            Student student = testDataFactory.GetStudent();
+            Student student = TestDataFactory.GetStudent();
             db.Students.Add(student);
 
-            Subject subject = testDataFactory.GetSubject();
+            Subject subject = TestDataFactory.GetSubject();
             subject.StudentSubjects = new List<StudentSubject>
             {
                 new StudentSubject()
@@ -509,10 +512,10 @@ namespace EntityFramework
 
         public TimeSpan SingleUpdateOneToMany()
         {
-            Student student = testDataFactory.GetStudent();
+            Student student = TestDataFactory.GetStudent();
             db.Students.Add(student);
 
-            Class @class = testDataFactory.GetClass();
+            Class @class = TestDataFactory.GetClass();
             @class.Students = new List<Student>
             {
                 student
@@ -536,10 +539,10 @@ namespace EntityFramework
 
         public TimeSpan SingleUpdateOneToOne()
         {
-            Index index = testDataFactory.GetIndex();
+            Index index = TestDataFactory.GetIndex();
             db.Indexes.Add(index);
 
-            Student student = testDataFactory.GetStudent();
+            Student student = TestDataFactory.GetStudent();
             student.Index = index;
             db.Students.Add(student);
             db.SaveChanges();
@@ -557,7 +560,7 @@ namespace EntityFramework
 
         public TimeSpan SingleUpdateWithoutRelationship()
         {
-            Class @class = testDataFactory.GetClass();
+            Class @class = TestDataFactory.GetClass();
             db.Classes.Add(@class);
             db.SaveChanges();
 
