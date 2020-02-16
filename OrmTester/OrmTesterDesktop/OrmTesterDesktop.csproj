@@ -69,6 +69,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -83,7 +84,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -98,6 +99,10 @@
     <ProjectReference Include="..\NHibernateTester\NHibernateTester.csproj">
       <Project>{1716205F-EB97-42F6-996E-7AA2936297FE}</Project>
       <Name>NHibernateTester</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OrmTesterLib\OrmTesterLib.csproj">
+      <Project>{F50C4181-475D-4B34-BCC4-D184A8F3BF3A}</Project>
+      <Name>OrmTesterLib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

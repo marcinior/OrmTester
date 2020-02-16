@@ -21,10 +21,12 @@ namespace OrmTesterDesktop
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<MainWindowViewModel> TestResults { get; set; }
         public MainWindow()
-        {
-            new NHibernateTesterClass();
+        {            
             InitializeComponent();
+            DataContext = this;
+            new NHibernateTesterClass();
         }
     }
 }

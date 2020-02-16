@@ -4,9 +4,54 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrmTesterDesktop"
+        xmlns:p="clr-namespace:OrmTesterDesktop.Properties"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0">
+            <Label Content="{x:Static p:Resources.RelationshipType}"/>
+            <CheckBox x:Name="ManyToMany" Content="{x:Static p:Resources.ManyToMany}"/>
+            <StackPanel Margin="15,0,0,0" IsEnabled="{Binding ElementName=ManyToMany, Path=IsChecked}">
+                <CheckBox x:Name="ManyToManyBulk" Content="{x:Static p:Resources.Bulk}"/>
+                <CheckBox x:Name="ManyToManySingle" Content="{x:Static p:Resources.Single}"/>
+            </StackPanel>
+            <CheckBox x:Name="OneToMany" Content="{x:Static p:Resources.OneToMany}"/>
+            <StackPanel Margin="15,0,0,0" IsEnabled="{Binding ElementName=OneToMany, Path=IsChecked}">
+                <CheckBox x:Name="OneToManyBulk" Content="{x:Static p:Resources.Bulk}"/>
+                <CheckBox x:Name="OneToManySingle" Content="{x:Static p:Resources.Single}"/>
+            </StackPanel>
+            <CheckBox x:Name="OneToOne" Content="{x:Static p:Resources.OneToOne}"/>
+            <StackPanel Margin="15,0,0,0" IsEnabled="{Binding ElementName=OneToOne, Path=IsChecked}">
+                <CheckBox x:Name="OneToOneBulk" Content="{x:Static p:Resources.Bulk}"/>
+                <CheckBox x:Name="OneToOneSingle" Content="{x:Static p:Resources.Single}"/>
+            </StackPanel>
+            <CheckBox x:Name="None" Content="{x:Static p:Resources.None}"/>
+            <StackPanel Margin="15,0,0,0" IsEnabled="{Binding ElementName=None, Path=IsChecked}">
+                <CheckBox x:Name="NoneBulk" Content="{x:Static p:Resources.Bulk}"/>
+                <CheckBox x:Name="NoneSingle" Content="{x:Static p:Resources.Single}"/>
+            </StackPanel>
+            <Button Margin="0,15,0,0" Content="Przeprowadź test"/>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="0" Grid.Column="1">
+            <ListView ItemsSource="{Binding Source=TestResults}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel IsEnabled="False">
+                            <WrapPanel></WrapPanel>
+                            <WrapPanel></WrapPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollViewer>
     </Grid>
 </Window>
