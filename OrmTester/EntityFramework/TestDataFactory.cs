@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace EntityFramework
 {
-    internal static class TestDataFactory
+    internal class TestDataFactory
     {
         private static readonly Random random;
 
