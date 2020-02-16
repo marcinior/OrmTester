@@ -563,5 +563,10 @@ namespace NHibernateTester
         {
             session.Dispose();
         }
+
+        ~NHibernateTestOperations()
+        {
+            this.Dispose();
+        }
     }
 }
