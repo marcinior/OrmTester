@@ -70,6 +70,15 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Execute test.
+        /// </summary>
+        public static string ExecuteTest {
+            get {
+                return ResourceManager.GetString("ExecuteTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Many to many.
         /// </summary>
         public static string ManyToMany {

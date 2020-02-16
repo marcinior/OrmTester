@@ -21,24 +21,32 @@
             <CheckBox x:Name="ManyToMany" Content="{x:Static p:Resources.ManyToMany}"/>
             <StackPanel Margin="15,0,0,0" IsEnabled="{Binding ElementName=ManyToMany, Path=IsChecked}">
                 <CheckBox x:Name="ManyToManyBulk" Content="{x:Static p:Resources.Bulk}"/>
+                <TextBox PreviewTextInput="NumberValidationTextBox" IsEnabled="{Binding ElementName=ManyToManyBulk, Path=IsChecked}"/>
                 <CheckBox x:Name="ManyToManySingle" Content="{x:Static p:Resources.Single}"/>
+                <TextBox PreviewTextInput="NumberValidationTextBox" IsEnabled="{Binding ElementName=ManyToManySingle, Path=IsChecked}"/>
             </StackPanel>
             <CheckBox x:Name="OneToMany" Content="{x:Static p:Resources.OneToMany}"/>
             <StackPanel Margin="15,0,0,0" IsEnabled="{Binding ElementName=OneToMany, Path=IsChecked}">
                 <CheckBox x:Name="OneToManyBulk" Content="{x:Static p:Resources.Bulk}"/>
+                <TextBox PreviewTextInput="NumberValidationTextBox" IsEnabled="{Binding ElementName=OneToManyBulk, Path=IsChecked}"/>
                 <CheckBox x:Name="OneToManySingle" Content="{x:Static p:Resources.Single}"/>
+                <TextBox PreviewTextInput="NumberValidationTextBox" IsEnabled="{Binding ElementName=OneToManySingle, Path=IsChecked}"/>
             </StackPanel>
             <CheckBox x:Name="OneToOne" Content="{x:Static p:Resources.OneToOne}"/>
             <StackPanel Margin="15,0,0,0" IsEnabled="{Binding ElementName=OneToOne, Path=IsChecked}">
                 <CheckBox x:Name="OneToOneBulk" Content="{x:Static p:Resources.Bulk}"/>
+                <TextBox PreviewTextInput="NumberValidationTextBox" IsEnabled="{Binding ElementName=OneToOneBulk, Path=IsChecked}"/>
                 <CheckBox x:Name="OneToOneSingle" Content="{x:Static p:Resources.Single}"/>
+                <TextBox PreviewTextInput="NumberValidationTextBox" IsEnabled="{Binding ElementName=OneToOneSingle, Path=IsChecked}"/>
             </StackPanel>
             <CheckBox x:Name="None" Content="{x:Static p:Resources.None}"/>
             <StackPanel Margin="15,0,0,0" IsEnabled="{Binding ElementName=None, Path=IsChecked}">
                 <CheckBox x:Name="NoneBulk" Content="{x:Static p:Resources.Bulk}"/>
+                <TextBox PreviewTextInput="NumberValidationTextBox" IsEnabled="{Binding ElementName=NoneBulk, Path=IsChecked}"/>
                 <CheckBox x:Name="NoneSingle" Content="{x:Static p:Resources.Single}"/>
+                <TextBox PreviewTextInput="NumberValidationTextBox" IsEnabled="{Binding ElementName=NoneSingle, Path=IsChecked}"/>
             </StackPanel>
-            <Button Margin="0,15,0,0" Content="Przeprowadź test"/>
+            <Button Margin="0,15,0,0" Content="{x:Static p:Resources.ExecuteTest}"/>
         </StackPanel>
 
         <ScrollViewer Grid.Row="0" Grid.Column="1">

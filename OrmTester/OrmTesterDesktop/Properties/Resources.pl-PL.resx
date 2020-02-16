@@ -118,27 +118,27 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bulk" xml:space="preserve">
-    <value>Bulk</value>
+    <value>Grupowy</value>
   </data>
   <data name="ExecuteTest" xml:space="preserve">
-    <value>Execute test</value>
+    <value>Przeprowadź test</value>
   </data>
   <data name="ManyToMany" xml:space="preserve">
-    <value>Many to many</value>
+    <value>Wiele do wielu</value>
   </data>
   <data name="None" xml:space="preserve">
-    <value>None</value>
+    <value>Brak</value>
   </data>
   <data name="OneToMany" xml:space="preserve">
-    <value>One to many</value>
+    <value>Jeden do wielu</value>
   </data>
   <data name="OneToOne" xml:space="preserve">
-    <value>One to one</value>
+    <value>Jeden do jednego</value>
   </data>
   <data name="RelationshipType" xml:space="preserve">
-    <value>Relationship type</value>
+    <value>Rodzaj relacji</value>
   </data>
   <data name="Single" xml:space="preserve">
-    <value>Single</value>
+    <value>Pojedynczy</value>
   </data>
 </root>
