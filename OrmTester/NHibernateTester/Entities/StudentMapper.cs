@@ -1,9 +1,4 @@
 ﻿using FluentNHibernate.Mapping;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NHibernateTester.Entities
 {
@@ -13,7 +8,7 @@ namespace NHibernateTester.Entities
         {
             Id(student => student.StudentId);
             Map(student => student.BirthDate).Not.Nullable();
-            References(student => student.ClassId).Not.Nullable();
+            References(student => student.ClassId);
             Map(student => student.FirstName).Length(20).Not.Nullable();
             Map(student => student.Gender).Not.Nullable();
             References(student => student.IndexId);
@@ -21,7 +16,7 @@ namespace NHibernateTester.Entities
             Map(student => student.Pesel).Length(11).Nullable();
             Map(student => student.CreatedAt).Not.Nullable();
             Map(student => student.UpdatedAt).Not.Nullable();
-            HasMany(student => student.StudentSubject);
+            HasMany(student => student.StudentSubject).Inverse();
         }
     }
 }

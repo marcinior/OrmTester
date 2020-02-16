@@ -1,15 +1,10 @@
 ﻿using FluentNHibernate.Mapping;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NHibernateTester.Entities
 {
-    class IndexMapper: ClassMap<Index>
+    class IndexMapper : ClassMap<Index>
     {
-        public IndexMapper() 
+        public IndexMapper()
         {
             Id(index => index.IndexId);
             Map(index => index.IndexNumber).Not.Nullable().Length(7);

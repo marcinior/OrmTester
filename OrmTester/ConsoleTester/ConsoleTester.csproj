@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>ConsoleTester.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.EntityFrameworkCore, Version=2.2.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.EntityFrameworkCore.2.2.4\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
@@ -122,6 +125,10 @@
     <ProjectReference Include="..\EntityFramework\EntityFramework.csproj">
       <Project>{9030f1f6-362d-4012-91d9-1b7f7bb0188d}</Project>
       <Name>EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NHibernateTester\NHibernateTester.csproj">
+      <Project>{1716205F-EB97-42F6-996E-7AA2936297FE}</Project>
+      <Name>NHibernateTester</Name>
     </ProjectReference>
     <ProjectReference Include="..\OrmTesterLib\OrmTesterLib.csproj">
       <Project>{F50C4181-475D-4B34-BCC4-D184A8F3BF3A}</Project>
