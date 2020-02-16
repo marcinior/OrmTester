@@ -1,9 +1,4 @@
 ﻿using FluentNHibernate.Mapping;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NHibernateTester.Entities
 {
@@ -18,7 +13,7 @@ namespace NHibernateTester.Entities
             Map(subject => subject.SubjectName).Not.Nullable();
             Map(subject => subject.CreatedAt).Not.Nullable();
             Map(subject => subject.UpdatedAt).Not.Nullable();
-            HasMany(subject => subject.StudentSubject);
+            HasMany(subject => subject.StudentSubject).Inverse();
         }
     }
 }

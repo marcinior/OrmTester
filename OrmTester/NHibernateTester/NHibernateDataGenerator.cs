@@ -1,8 +1,8 @@
 ﻿using NHibernateTester.Entities;
+using NHibernateTester.Enums;
+using OrmTesterLib.Generators;
 using System;
 using System.Collections.Generic;
-using OrmTesterLib.Generators;
-using NHibernateTester.Enums;
 
 namespace NHibernateTester
 {
@@ -39,7 +39,7 @@ namespace NHibernateTester
         public static List<Index> GetIndices(int count)
         {
             var indices = new List<Index>();
-            for(var i = 0; i < count; i++)
+            for (var i = 0; i < count; i++)
             {
                 var index = GetIndex(i + 1);
                 indices.Add(index);
@@ -61,7 +61,7 @@ namespace NHibernateTester
         public static List<Class> GetClasses(int count)
         {
             var classes = new List<Class>();
-            for(var i = 0; i<count; i++)
+            for (var i = 0; i < count; i++)
             {
                 var @class = GetClass();
                 classes.Add(@class);
@@ -86,7 +86,7 @@ namespace NHibernateTester
         public static List<Subject> GetSubjects(int count)
         {
             var subjects = new List<Subject>();
-            for(var i = 0; i< count; i++)
+            for (var i = 0; i < count; i++)
             {
                 var subject = GetSubject();
                 subjects.Add(subject);
