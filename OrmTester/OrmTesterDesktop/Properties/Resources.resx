@@ -126,11 +126,23 @@
   <data name="EfAverage" xml:space="preserve">
     <value>Entity Framework average time</value>
   </data>
+  <data name="EfCoefficentOfVariation" xml:space="preserve">
+    <value>Entity Framework coefficient of variation</value>
+  </data>
   <data name="EfStandardDeviation" xml:space="preserve">
     <value>Entity Framework standard deviation</value>
   </data>
   <data name="ExecuteTest" xml:space="preserve">
     <value>Execute test</value>
+  </data>
+  <data name="ExportToCSV" xml:space="preserve">
+    <value>Export tests excel file</value>
+  </data>
+  <data name="ExportToFile" xml:space="preserve">
+    <value>Export tests to file</value>
+  </data>
+  <data name="GenerateDiagram" xml:space="preserve">
+    <value>Generate diagram</value>
   </data>
   <data name="ManyToMany" xml:space="preserve">
     <value>Many to many</value>
@@ -140,6 +152,9 @@
   </data>
   <data name="NHibernateAverage" xml:space="preserve">
     <value>nHibernate average time</value>
+  </data>
+  <data name="NHibernateCoefficentOfVariation" xml:space="preserve">
+    <value>nHibernate coefficient of variation</value>
   </data>
   <data name="None" xml:space="preserve">
     <value>None</value>
@@ -156,7 +171,13 @@
   <data name="RelationshipType" xml:space="preserve">
     <value>Relationship type</value>
   </data>
+  <data name="Repetitions" xml:space="preserve">
+    <value>Repetitions</value>
+  </data>
   <data name="Single" xml:space="preserve">
     <value>Single</value>
+  </data>
+  <data name="TestName" xml:space="preserve">
+    <value>Test name</value>
   </data>
 </root>

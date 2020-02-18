@@ -1,4 +1,5 @@
 ﻿using NHibernateTester;
+using OrmTesterLib.StatisticParametersCalculator;
 using OrmTesterLib.TestCore;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,21 @@ namespace OrmTesterDesktop
         {
             Regex regex = new Regex(@"\d+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void ExecuteTestsButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ExportToFileButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ExportToCsvButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

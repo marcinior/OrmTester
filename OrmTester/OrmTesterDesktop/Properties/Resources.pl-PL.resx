@@ -126,11 +126,23 @@
   <data name="EfAverage" xml:space="preserve">
     <value>Entity Framework średni czas wykonania operacji</value>
   </data>
+  <data name="EfCoefficentOfVariation" xml:space="preserve">
+    <value>Entity Framework współczynnik zmienności </value>
+  </data>
   <data name="EfStandardDeviation" xml:space="preserve">
     <value>Entity Framework odchylenie standardowe</value>
   </data>
   <data name="ExecuteTest" xml:space="preserve">
     <value>Przeprowadź test</value>
+  </data>
+  <data name="ExportToCSV" xml:space="preserve">
+    <value>Wyeksportuj do excela</value>
+  </data>
+  <data name="ExportToFile" xml:space="preserve">
+    <value>Wyeksportuj do pliku</value>
+  </data>
+  <data name="GenerateDiagram" xml:space="preserve">
+    <value>Wygeneruj wykres</value>
   </data>
   <data name="ManyToMany" xml:space="preserve">
     <value>Wiele do wielu</value>
@@ -140,6 +152,9 @@
   </data>
   <data name="NHibernateAverage" xml:space="preserve">
     <value>nHibernate średni czas wykonania operacji</value>
+  </data>
+  <data name="NHibernateCoefficentOfVariation" xml:space="preserve">
+    <value>nHibernate współczynnik zmienności</value>
   </data>
   <data name="None" xml:space="preserve">
     <value>Brak</value>
@@ -156,7 +171,13 @@
   <data name="RelationshipType" xml:space="preserve">
     <value>Rodzaj relacji</value>
   </data>
+  <data name="Repetitions" xml:space="preserve">
+    <value>Powtórzenia</value>
+  </data>
   <data name="Single" xml:space="preserve">
     <value>Pojedynczy</value>
+  </data>
+  <data name="TestName" xml:space="preserve">
+    <value>Typ testu</value>
   </data>
 </root>

@@ -88,6 +88,15 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Entity Framework coefficient of variation.
+        /// </summary>
+        public static string EfCoefficentOfVariation {
+            get {
+                return ResourceManager.GetString("EfCoefficentOfVariation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Entity Framework standard deviation.
         /// </summary>
         public static string EfStandardDeviation {
@@ -102,6 +111,33 @@ namespace OrmTesterDesktop.Properties {
         public static string ExecuteTest {
             get {
                 return ResourceManager.GetString("ExecuteTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Export tests excel file.
+        /// </summary>
+        public static string ExportToCSV {
+            get {
+                return ResourceManager.GetString("ExportToCSV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Export tests to file.
+        /// </summary>
+        public static string ExportToFile {
+            get {
+                return ResourceManager.GetString("ExportToFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Generate diagram.
+        /// </summary>
+        public static string GenerateDiagram {
+            get {
+                return ResourceManager.GetString("GenerateDiagram", resourceCulture);
             }
         }
         
@@ -129,6 +165,15 @@ namespace OrmTesterDesktop.Properties {
         public static string NHibernateAverage {
             get {
                 return ResourceManager.GetString("NHibernateAverage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu nHibernate coefficient of variation.
+        /// </summary>
+        public static string NHibernateCoefficentOfVariation {
+            get {
+                return ResourceManager.GetString("NHibernateCoefficentOfVariation", resourceCulture);
             }
         }
         
@@ -178,11 +223,29 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Repetitions.
+        /// </summary>
+        public static string Repetitions {
+            get {
+                return ResourceManager.GetString("Repetitions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Single.
         /// </summary>
         public static string Single {
             get {
                 return ResourceManager.GetString("Single", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Test name.
+        /// </summary>
+        public static string TestName {
+            get {
+                return ResourceManager.GetString("TestName", resourceCulture);
             }
         }
     }
