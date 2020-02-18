@@ -70,6 +70,33 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Difference between averages.
+        /// </summary>
+        public static string Difference {
+            get {
+                return ResourceManager.GetString("Difference", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Entity Framework average time.
+        /// </summary>
+        public static string EfAverage {
+            get {
+                return ResourceManager.GetString("EfAverage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Entity Framework standard deviation.
+        /// </summary>
+        public static string EfStandardDeviation {
+            get {
+                return ResourceManager.GetString("EfStandardDeviation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Execute test.
         /// </summary>
         public static string ExecuteTest {
@@ -84,6 +111,24 @@ namespace OrmTesterDesktop.Properties {
         public static string ManyToMany {
             get {
                 return ResourceManager.GetString("ManyToMany", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu nHibernate standard deviation.
+        /// </summary>
+        public static string NHiberanteStandardDeviation {
+            get {
+                return ResourceManager.GetString("NHiberanteStandardDeviation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu nHibernate average time.
+        /// </summary>
+        public static string NHibernateAverage {
+            get {
+                return ResourceManager.GetString("NHibernateAverage", resourceCulture);
             }
         }
         
@@ -111,6 +156,15 @@ namespace OrmTesterDesktop.Properties {
         public static string OneToOne {
             get {
                 return ResourceManager.GetString("OneToOne", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Operation Type.
+        /// </summary>
+        public static string OperationType {
+            get {
+                return ResourceManager.GetString("OperationType", resourceCulture);
             }
         }
         

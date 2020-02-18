@@ -6,14 +6,14 @@
         xmlns:local="clr-namespace:OrmTesterDesktop"
         xmlns:p="clr-namespace:OrmTesterDesktop.Properties"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="500" Width="1300">
+    <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Grid.Column="0">
@@ -50,16 +50,18 @@
         </StackPanel>
 
         <ScrollViewer Grid.Row="0" Grid.Column="1">
-            <ListView ItemsSource="{Binding Source=TestResults}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel IsEnabled="False">
-                            <WrapPanel></WrapPanel>
-                            <WrapPanel></WrapPanel>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <DataGrid ItemsSource="{Binding TestResults}" Width="Auto" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{x:Static p:Resources.OperationType}"/>
+                    <DataGridTextColumn Header="{x:Static p:Resources.RelationshipType}"/>
+                    <DataGridCheckBoxColumn Header="{x:Static p:Resources.Bulk}"/>
+                    <DataGridTextColumn Header="{x:Static p:Resources.EfStandardDeviation}"/>
+                    <DataGridTextColumn Header="{x:Static p:Resources.EfAverage}"/>
+                    <DataGridTextColumn Header="{x:Static p:Resources.Difference}"/>
+                    <DataGridTextColumn Header="{x:Static p:Resources.NHibernateAverage}"/>
+                    <DataGridTextColumn Header="{x:Static p:Resources.NHiberanteStandardDeviation}"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </ScrollViewer>
     </Grid>
 </Window>

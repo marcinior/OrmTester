@@ -120,11 +120,26 @@
   <data name="Bulk" xml:space="preserve">
     <value>Bulk</value>
   </data>
+  <data name="Difference" xml:space="preserve">
+    <value>Difference between averages</value>
+  </data>
+  <data name="EfAverage" xml:space="preserve">
+    <value>Entity Framework average time</value>
+  </data>
+  <data name="EfStandardDeviation" xml:space="preserve">
+    <value>Entity Framework standard deviation</value>
+  </data>
   <data name="ExecuteTest" xml:space="preserve">
     <value>Execute test</value>
   </data>
   <data name="ManyToMany" xml:space="preserve">
     <value>Many to many</value>
+  </data>
+  <data name="NHiberanteStandardDeviation" xml:space="preserve">
+    <value>nHibernate standard deviation</value>
+  </data>
+  <data name="NHibernateAverage" xml:space="preserve">
+    <value>nHibernate average time</value>
   </data>
   <data name="None" xml:space="preserve">
     <value>None</value>
@@ -134,6 +149,9 @@
   </data>
   <data name="OneToOne" xml:space="preserve">
     <value>One to one</value>
+  </data>
+  <data name="OperationType" xml:space="preserve">
+    <value>Operation Type</value>
   </data>
   <data name="RelationshipType" xml:space="preserve">
     <value>Relationship type</value>

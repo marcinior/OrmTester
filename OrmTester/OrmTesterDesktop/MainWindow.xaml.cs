@@ -1,4 +1,5 @@
 ﻿using NHibernateTester;
+using OrmTesterLib.TestCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,9 +23,10 @@ namespace OrmTesterDesktop
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<MainWindowViewModel> TestResults { get; set; }
+        public List<StatisticParameter> TestResults { get; set; }
         public MainWindow()
         {
+            this.TestResults = new List<StatisticParameter>();
             DataContext = this;
             InitializeComponent();
         }
