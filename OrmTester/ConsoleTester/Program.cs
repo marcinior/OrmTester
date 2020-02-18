@@ -1,4 +1,5 @@
 ﻿using EntityFramework;
+using OrmTesterLib.StatisticParametersCalculator;
 using OrmTesterLib.TestCore;
 using System;
 
@@ -38,6 +39,9 @@ namespace ConsoleTester
             EntityFrameworkTester entityFrameworkTester = new EntityFrameworkTester(testParametersBuilder);
             var results = entityFrameworkTester.RunTests(entityFrameworkTester);
             results.ForEach(r => Console.WriteLine($"Operation: {r.OperationType} IsBulk: {r.IsBulkTest} Realationship: {r.RelationshipType} Execution Time: {r.ExecutionTime.TotalMilliseconds}"));
+
+            StatisticParametersCalculator stat = new StatisticParametersCalculator();
+            stat.CalculateStatisticParameters(results, results, null /*new System.Globalization.CultureInfo("pl-PL")*/);
             Console.ReadKey();
         }
     }
