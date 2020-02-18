@@ -118,66 +118,66 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bulk" xml:space="preserve">
-    <value>Bulk</value>
+    <value>Grupowy</value>
   </data>
   <data name="Difference" xml:space="preserve">
-    <value>Difference between averages</value>
+    <value>Różnica średnich</value>
   </data>
   <data name="EfAverage" xml:space="preserve">
-    <value>Entity Framework average time</value>
+    <value>Entity Framework średni czas wykonania operacji</value>
   </data>
   <data name="EfCoefficentOfVariation" xml:space="preserve">
-    <value>Entity Framework coefficient of variation</value>
+    <value>Entity Framework współczynnik zmienności </value>
   </data>
   <data name="EfStandardDeviation" xml:space="preserve">
-    <value>Entity Framework standard deviation</value>
+    <value>Entity Framework odchylenie standardowe</value>
   </data>
   <data name="ExecuteTest" xml:space="preserve">
-    <value>Execute test</value>
+    <value>Przeprowadź test</value>
   </data>
   <data name="ExportToCSV" xml:space="preserve">
-    <value>Export tests excel file</value>
+    <value>Wyeksportuj do excela</value>
   </data>
   <data name="ExportToFile" xml:space="preserve">
-    <value>Export tests to file</value>
+    <value>Wyeksportuj do pliku</value>
   </data>
   <data name="GenerateDiagram" xml:space="preserve">
-    <value>Generate diagram</value>
+    <value>Wygeneruj wykres</value>
   </data>
   <data name="ManyToMany" xml:space="preserve">
-    <value>Many to many</value>
+    <value>Wiele do wielu</value>
   </data>
   <data name="NHiberanteStandardDeviation" xml:space="preserve">
-    <value>nHibernate standard deviation</value>
+    <value>nHibernate odchylenie standardowe</value>
   </data>
   <data name="NHibernateAverage" xml:space="preserve">
-    <value>nHibernate average time</value>
+    <value>nHibernate średni czas wykonania operacji</value>
   </data>
   <data name="NHibernateCoefficentOfVariation" xml:space="preserve">
-    <value>nHibernate coefficient of variation</value>
+    <value>nHibernate współczynnik zmienności</value>
   </data>
   <data name="None" xml:space="preserve">
-    <value>None</value>
+    <value>Brak</value>
   </data>
   <data name="OneToMany" xml:space="preserve">
-    <value>One to many</value>
+    <value>Jeden do wielu</value>
   </data>
   <data name="OneToOne" xml:space="preserve">
-    <value>One to one</value>
+    <value>Jeden do jednego</value>
   </data>
   <data name="OperationType" xml:space="preserve">
-    <value>Operation Type</value>
+    <value>Typ operacji</value>
   </data>
   <data name="RelationshipType" xml:space="preserve">
-    <value>Relationship type</value>
+    <value>Rodzaj relacji</value>
   </data>
   <data name="Repetitions" xml:space="preserve">
-    <value>Repetitions</value>
+    <value>Powtórzenia</value>
   </data>
   <data name="Single" xml:space="preserve">
-    <value>Single</value>
+    <value>Pojedynczy</value>
   </data>
   <data name="TestName" xml:space="preserve">
-    <value>Test name</value>
+    <value>Typ testu</value>
   </data>
 </root>
