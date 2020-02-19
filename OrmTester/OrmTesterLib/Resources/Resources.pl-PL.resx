@@ -129,6 +129,12 @@
   <data name="DifferentCountOfGroupsError" xml:space="preserve">
     <value>Wyniki testów Entity Framework zawierają różną liczbę grup testów niż wyniki testów NHibernate.</value>
   </data>
+  <data name="FileNotExistError" xml:space="preserve">
+    <value>Wskazany plik nie istnieje.</value>
+  </data>
+  <data name="HomeDirectoryPathError" xml:space="preserve">
+    <value>Nieporawna ścieżka do katalogu domowego aplikacji.</value>
+  </data>
   <data name="ManyToMany" xml:space="preserve">
     <value>M:N</value>
   </data>

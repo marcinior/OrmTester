@@ -1,5 +1,8 @@
-﻿namespace OrmTesterLib.StatisticParametersCalculator
+﻿using System;
+
+namespace OrmTesterLib.StatisticParametersCalculator
 {
+    [Serializable]
     public class StatisticParameter
     {
         public string TestName { get; set; }

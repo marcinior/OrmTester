@@ -97,6 +97,24 @@ namespace OrmTesterLib.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Chosen file does not exist..
+        /// </summary>
+        internal static string FileNotExistError {
+            get {
+                return ResourceManager.GetString("FileNotExistError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Incorrect path to application home directory..
+        /// </summary>
+        internal static string HomeDirectoryPathError {
+            get {
+                return ResourceManager.GetString("HomeDirectoryPathError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to M:N.
         /// </summary>
         internal static string ManyToMany {
