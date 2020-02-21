@@ -13,7 +13,7 @@ namespace NHibernateTester.Entities
             Map(subject => subject.SubjectName).Not.Nullable();
             Map(subject => subject.CreatedAt).Not.Nullable();
             Map(subject => subject.UpdatedAt).Not.Nullable();
-            HasMany(subject => subject.StudentSubject).Inverse();
+            HasMany(subject => subject.StudentSubject).Inverse().Cascade.Delete();
         }
     }
 }
