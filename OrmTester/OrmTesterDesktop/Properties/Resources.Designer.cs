@@ -70,6 +70,24 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Create operation.
+        /// </summary>
+        public static string CreateOperation {
+            get {
+                return ResourceManager.GetString("CreateOperation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Delete operation.
+        /// </summary>
+        public static string DeleteOperation {
+            get {
+                return ResourceManager.GetString("DeleteOperation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Difference between averages.
         /// </summary>
         public static string Difference {
@@ -246,6 +264,15 @@ namespace OrmTesterDesktop.Properties {
         public static string TestName {
             get {
                 return ResourceManager.GetString("TestName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Update operation.
+        /// </summary>
+        public static string UpdateOperation {
+            get {
+                return ResourceManager.GetString("UpdateOperation", resourceCulture);
             }
         }
     }

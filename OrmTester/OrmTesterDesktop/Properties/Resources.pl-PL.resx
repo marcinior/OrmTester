@@ -120,6 +120,12 @@
   <data name="Bulk" xml:space="preserve">
     <value>Grupowy</value>
   </data>
+  <data name="CreateOperation" xml:space="preserve">
+    <value>Operacja dodawania</value>
+  </data>
+  <data name="DeleteOperation" xml:space="preserve">
+    <value>Operacja usuwania</value>
+  </data>
   <data name="Difference" xml:space="preserve">
     <value>Różnica średnich</value>
   </data>
@@ -179,5 +185,8 @@
   </data>
   <data name="TestName" xml:space="preserve">
     <value>Typ testu</value>
+  </data>
+  <data name="UpdateOperation" xml:space="preserve">
+    <value>Operacja zmieniania</value>
   </data>
 </root>
