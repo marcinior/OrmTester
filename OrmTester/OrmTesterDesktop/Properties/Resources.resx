@@ -147,14 +147,14 @@
   <data name="ManyToMany" xml:space="preserve">
     <value>Many to many</value>
   </data>
-  <data name="NHiberanteStandardDeviation" xml:space="preserve">
-    <value>nHibernate standard deviation</value>
-  </data>
   <data name="NHibernateAverage" xml:space="preserve">
     <value>nHibernate average time</value>
   </data>
   <data name="NHibernateCoefficentOfVariation" xml:space="preserve">
     <value>nHibernate coefficient of variation</value>
+  </data>
+  <data name="NHibernateStandardDeviation" xml:space="preserve">
+    <value>nHibernate standard deviation</value>
   </data>
   <data name="None" xml:space="preserve">
     <value>None</value>

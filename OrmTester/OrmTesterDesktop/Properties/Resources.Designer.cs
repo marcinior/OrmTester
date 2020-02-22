@@ -151,15 +151,6 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu nHibernate standard deviation.
-        /// </summary>
-        public static string NHiberanteStandardDeviation {
-            get {
-                return ResourceManager.GetString("NHiberanteStandardDeviation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu nHibernate average time.
         /// </summary>
         public static string NHibernateAverage {
@@ -174,6 +165,15 @@ namespace OrmTesterDesktop.Properties {
         public static string NHibernateCoefficentOfVariation {
             get {
                 return ResourceManager.GetString("NHibernateCoefficentOfVariation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu nHibernate standard deviation.
+        /// </summary>
+        public static string NHibernateStandardDeviation {
+            get {
+                return ResourceManager.GetString("NHibernateStandardDeviation", resourceCulture);
             }
         }
         
