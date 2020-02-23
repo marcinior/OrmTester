@@ -1,12 +1,15 @@
 ﻿using NHibernateTester;
+using OrmTesterDesktop.Views;
+using OrmTesterLib.IOService;
 using OrmTesterLib.StatisticParametersCalculator;
 using OrmTesterLib.TestCore;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
+using System.Windows.Forms;
 using System.Windows.Input;
+using CButton = System.Windows.Controls.Button;
 
 namespace OrmTesterDesktop
 {
@@ -16,9 +19,18 @@ namespace OrmTesterDesktop
     public partial class MainWindow : Window
     {
         public MainWindowViewModel ViewModel { get; set; }
+        private OrmTesterIOService iOService;
         public MainWindow()
         {
+            iOService = new OrmTesterIOService();
+            var appView = new ChooseApplicationModeView();
             ViewModel = new MainWindowViewModel();
+            appView.ShowDialog();
+            if (!string.IsNullOrEmpty(appView.FilePath))
+            {
+                this.ViewModel.TestResults = iOService.LoadTestFromFile(appView.FilePath);
+            }
+            
             DataContext = this;
             InitializeComponent();
         }
@@ -31,7 +43,7 @@ namespace OrmTesterDesktop
 
         private void ExecuteTestsButton_Click(object sender, RoutedEventArgs e)
         {
-            if(sender is Button button)
+            if(sender is CButton button)
             {
                 button.IsEnabled = false;
             }
@@ -53,7 +65,7 @@ namespace OrmTesterDesktop
                 this.ViewModel.TestResults = stat.CalculateStatisticParameters(nHibernateTestResults, nHibernateTestResults, CultureInfo.CurrentUICulture);
                 Dispatcher.Invoke(() =>
                 {
-                    if (sender is Button button1)
+                    if (sender is CButton button1)
                     {
                         button1.IsEnabled = true;
                     }
@@ -445,7 +457,12 @@ namespace OrmTesterDesktop
 
         private void ExportToFileButton_Click(object sender, RoutedEventArgs e)
         {
-
+            var dialog = new FolderBrowserDialog();
+            var dialogResult = dialog.ShowDialog();
+            if(dialogResult == System.Windows.Forms.DialogResult.OK)
+            {
+                iOService.SaveTestToFile(dialog.SelectedPath, ViewModel.TestResults);
+            }
         }
 
         private void ExportToCsvButton_Click(object sender, RoutedEventArgs e)

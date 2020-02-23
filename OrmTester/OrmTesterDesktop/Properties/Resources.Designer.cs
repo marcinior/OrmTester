@@ -61,6 +61,15 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Choose application mode.
+        /// </summary>
+        public static string AppMode {
+            get {
+                return ResourceManager.GetString("AppMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Bulk.
         /// </summary>
         public static string Bulk {
@@ -160,6 +169,15 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Load file.
+        /// </summary>
+        public static string LoadFile {
+            get {
+                return ResourceManager.GetString("LoadFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Many to many.
         /// </summary>
         public static string ManyToMany {
@@ -255,6 +273,15 @@ namespace OrmTesterDesktop.Properties {
         public static string Single {
             get {
                 return ResourceManager.GetString("Single", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Start new test.
+        /// </summary>
+        public static string StartNewTest {
+            get {
+                return ResourceManager.GetString("StartNewTest", resourceCulture);
             }
         }
         

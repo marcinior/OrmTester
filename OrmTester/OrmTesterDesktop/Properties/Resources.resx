@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AppMode" xml:space="preserve">
+    <value>Choose application mode</value>
+  </data>
   <data name="Bulk" xml:space="preserve">
     <value>Bulk</value>
   </data>
@@ -150,6 +153,9 @@
   <data name="GenerateDiagram" xml:space="preserve">
     <value>Generate diagram</value>
   </data>
+  <data name="LoadFile" xml:space="preserve">
+    <value>Load file</value>
+  </data>
   <data name="ManyToMany" xml:space="preserve">
     <value>Many to many</value>
   </data>
@@ -182,6 +188,9 @@
   </data>
   <data name="Single" xml:space="preserve">
     <value>Single</value>
+  </data>
+  <data name="StartNewTest" xml:space="preserve">
+    <value>Start new test</value>
   </data>
   <data name="TestName" xml:space="preserve">
     <value>Test name</value>
