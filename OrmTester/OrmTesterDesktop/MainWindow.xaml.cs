@@ -3,6 +3,7 @@ using OrmTesterDesktop.Views;
 using OrmTesterLib.IOService;
 using OrmTesterLib.StatisticParametersCalculator;
 using OrmTesterLib.TestCore;
+using System;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -26,6 +27,11 @@ namespace OrmTesterDesktop
             var appView = new ChooseApplicationModeView();
             ViewModel = new MainWindowViewModel();
             appView.ShowDialog();
+            if(appView.DialogResult == false)
+            {
+                this.Close();
+            }
+
             if (!string.IsNullOrEmpty(appView.FilePath))
             {
                 this.ViewModel.TestResults = iOService.LoadTestFromFile(appView.FilePath);
@@ -468,6 +474,27 @@ namespace OrmTesterDesktop
         private void ExportToCsvButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void TestTypeCheckbox_Click(object sender, RoutedEventArgs e)
+        {
+            this.ViewModel.IsExecuteButtonActive = CheckIfButtonShouldBeEnabled();
+        }
+
+        private bool CheckIfButtonShouldBeEnabled()
+        {
+            return (ManyToMany.IsChecked == true && (ManyToManyBulk.IsChecked == true || ManyToManySingle.IsChecked == true)) ||
+                (OneToMany.IsChecked == true && (OneToManyBulk.IsChecked == true || OneToManySingle.IsChecked == true)) ||
+                (OneToOne.IsChecked == true && (OneToOneBulk.IsChecked == true || OneToOneSingle.IsChecked == true)) ||
+                (None.IsChecked == true && (NoneBulk.IsChecked == true || NoneSingle.IsChecked == true)) ||
+                (ManyToManyUpdate.IsChecked == true && (ManyToManyUpdateBulk.IsChecked == true || ManyToManyUpdateSingle.IsChecked == true)) ||
+                (OneToManyUpdate.IsChecked == true && (OneToManyUpdateBulk.IsChecked == true || OneToManyUpdateSingle.IsChecked == true)) ||
+                (OneToOneUpdate.IsChecked == true && (OneToOneUpdateBulk.IsChecked == true || OneToOneUpdateSingle.IsChecked == true)) ||
+                (NoneRelationshipUpdate.IsChecked == true && (NoneRelationshipUpdateBulk.IsChecked == true || NoneRelationshipUpdateSingle.IsChecked == true)) ||
+                (ManyToManyDelete.IsChecked == true && (ManyToManyDeleteBulk.IsChecked == true || ManyToManyDeleteSingle.IsChecked == true)) ||
+                (OneToManyDelete.IsChecked == true && (OneToManyDeleteBulk.IsChecked == true || OneToManyDeleteSingle.IsChecked == true)) ||
+                (OneToOneDelete.IsChecked == true && (OneToOneDeleteBulk.IsChecked == true || OneToOneDeleteSingle.IsChecked == true)) ||
+                (NoneRelationshipDelete.IsChecked == true && (NoneRelationshipDeleteBulk.IsChecked == true || NoneRelationshipDeleteSingle.IsChecked == true));
         }
     }
 }

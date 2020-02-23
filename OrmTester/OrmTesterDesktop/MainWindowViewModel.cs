@@ -17,6 +17,7 @@ namespace OrmTesterDesktop
         }
 
         private List<StatisticParameter> testResults;
+        private bool isExecuteButtonActive;
 
         public List<StatisticParameter> TestResults
         {
@@ -26,6 +27,15 @@ namespace OrmTesterDesktop
                 testResults = value;
                 NotifyPropertyChanged(nameof(TestResults));
             }
+        }
+
+        public bool IsExecuteButtonActive { 
+            get => isExecuteButtonActive; 
+            set 
+            { 
+                isExecuteButtonActive = value;
+                NotifyPropertyChanged(nameof(IsExecuteButtonActive));
+            } 
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
