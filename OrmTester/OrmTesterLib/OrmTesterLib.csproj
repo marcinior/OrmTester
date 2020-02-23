@@ -83,6 +83,7 @@
     <Compile Include="Enums\RelationshipType.cs" />
     <Compile Include="Interfaces\ITestOperations.cs" />
     <Compile Include="Interfaces\ITestParametersBuilder.cs" />
+    <Compile Include="IOService\OrmTesterIOService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -119,5 +120,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
