@@ -26,7 +26,7 @@ namespace OrmTesterDesktop
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex(@"\d+");
-            e.Handled = regex.IsMatch(e.Text);
+            e.Handled = !regex.IsMatch(e.Text);
         }
 
         private void ExecuteTestsButton_Click(object sender, RoutedEventArgs e)

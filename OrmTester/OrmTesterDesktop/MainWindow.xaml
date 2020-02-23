@@ -76,7 +76,7 @@
                     <CheckBox x:Name="NoneRelationshipDeleteBulk" Content="{x:Static p:Resources.Bulk}"/>
                     <TextBox x:Name="NoneRelationshipDeleteRepetitionsBulk" PreviewTextInput="NumberValidationTextBox" IsEnabled="{Binding ElementName=NoneRelationshipDeleteBulk, Path=IsChecked}" Text="{x:Static p:Resources.Repetitions}"/>
                     <CheckBox x:Name="NoneRelationshipDeleteSingle" Content="{x:Static p:Resources.Single}"/>
-                    <TextBox x:Name="NoneRelationshipDeleteRepetitionsSingle" PreviewTextInput="NumberValidationTextBox" IsEnabled="{Binding ElementName=NoneRelationshipRepetitionSingle, Path=IsChecked}" Text="{x:Static p:Resources.Repetitions}"/>
+                    <TextBox x:Name="NoneRelationshipDeleteRepetitionsSingle" PreviewTextInput="NumberValidationTextBox" IsEnabled="{Binding ElementName=NoneRelationshipDeleteSingle, Path=IsChecked}" Text="{x:Static p:Resources.Repetitions}"/>
                 </StackPanel>
                 <Label Content="{x:Static p:Resources.UpdateOperation}"/>
                 <Label Content="{x:Static p:Resources.RelationshipType}"/>
