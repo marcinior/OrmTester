@@ -11,5 +11,7 @@ namespace NHibernateTester.Entities
         public virtual DateTime CreatedAt { get; set; }
 
         public virtual DateTime UpdatedAt { get; set; }
+
+        public virtual Student Student { get; set; }
     }
 }

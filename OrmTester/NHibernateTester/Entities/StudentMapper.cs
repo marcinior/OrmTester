@@ -11,12 +11,12 @@ namespace NHibernateTester.Entities
             References(student => student.ClassId);
             Map(student => student.FirstName).Length(20).Not.Nullable();
             Map(student => student.Gender).Not.Nullable();
-            References(student => student.IndexId);
+            References(student => student.IndexId).Cascade.Delete();
             Map(student => student.LastName).Length(45).Not.Nullable();
             Map(student => student.Pesel).Length(11).Nullable();
             Map(student => student.CreatedAt).Not.Nullable();
             Map(student => student.UpdatedAt).Not.Nullable();
-            HasMany(student => student.StudentSubject).Inverse();
+            HasMany(student => student.StudentSubject).Inverse().Cascade.Delete();
         }
     }
 }

@@ -10,6 +10,7 @@ namespace NHibernateTester.Entities
             Map(index => index.IndexNumber).Not.Nullable().Length(7);
             Map(index => index.CreatedAt).Not.Nullable();
             Map(index => index.UpdatedAt).Not.Nullable();
+            References(index => index.Student).Cascade.Delete();
         }
     }
 }

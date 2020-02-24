@@ -12,7 +12,7 @@ namespace NHibernateTester.Entities
             Map(classObject => classObject.CreatedAt).Not.Nullable();
             Map(classObject => classObject.UpdatedAt).Not.Nullable();
             Map(classObject => classObject.Year).Not.Nullable();
-            HasMany(classObject => classObject.Student);
+            HasMany(classObject => classObject.Student).Cascade.Delete();
         }
 
     }

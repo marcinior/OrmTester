@@ -1,4 +1,5 @@
 ﻿using EntityFramework;
+using NHibernateTester;
 using OrmTesterLib.StatisticParametersCalculator;
 using OrmTesterLib.TestCore;
 using System;
@@ -36,7 +37,7 @@ namespace ConsoleTester
                 .TestBulkUpdateManyToMany(1)
                 .TestBulkDeleteManyToMany(1);
 
-            EntityFrameworkTester entityFrameworkTester = new EntityFrameworkTester(testParametersBuilder);
+            NHibernateTester.NHibernateTestOperations entityFrameworkTester = new NHibernateTestOperations(testParametersBuilder);
             var results = entityFrameworkTester.RunTests(entityFrameworkTester);
             results.ForEach(r => Console.WriteLine($"Operation: {r.OperationType} IsBulk: {r.IsBulkTest} Realationship: {r.RelationshipType} Execution Time: {r.ExecutionTime.TotalMilliseconds}"));
 
