@@ -20,10 +20,10 @@ namespace OrmTesterDesktop
     public partial class MainWindow : Window
     {
         public MainWindowViewModel ViewModel { get; set; }
-        private OrmTesterIOService iOService;
+        private OrmTesterIOService ioService;
         public MainWindow()
         {
-            iOService = new OrmTesterIOService();
+            ioService = new OrmTesterIOService();
             var appView = new ChooseApplicationModeView();
             ViewModel = new MainWindowViewModel();
             appView.ShowDialog();
@@ -34,7 +34,7 @@ namespace OrmTesterDesktop
 
             if (!string.IsNullOrEmpty(appView.FilePath))
             {
-                this.ViewModel.TestResults = iOService.LoadTestFromFile(appView.FilePath);
+                this.ViewModel.TestResults = ioService.LoadTestFromFile(appView.FilePath);
             }
             
             DataContext = this;
@@ -467,7 +467,7 @@ namespace OrmTesterDesktop
             var dialogResult = dialog.ShowDialog();
             if(dialogResult == System.Windows.Forms.DialogResult.OK)
             {
-                iOService.SaveTestToFile(dialog.SelectedPath, ViewModel.TestResults);
+                ioService.SaveTestToFile(dialog.SelectedPath, ViewModel.TestResults);
             }
         }
 
