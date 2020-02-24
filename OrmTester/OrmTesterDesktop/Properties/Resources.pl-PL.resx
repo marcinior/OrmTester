@@ -117,8 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AppMode" xml:space="preserve">
+    <value>Wybierz tryb działania aplikacji</value>
+  </data>
   <data name="Bulk" xml:space="preserve">
     <value>Grupowy</value>
+  </data>
+  <data name="CreateOperation" xml:space="preserve">
+    <value>Operacja dodawania</value>
+  </data>
+  <data name="DeleteOperation" xml:space="preserve">
+    <value>Operacja usuwania</value>
   </data>
   <data name="Difference" xml:space="preserve">
     <value>Różnica średnich</value>
@@ -144,17 +153,20 @@
   <data name="GenerateDiagram" xml:space="preserve">
     <value>Wygeneruj wykres</value>
   </data>
+  <data name="LoadFile" xml:space="preserve">
+    <value>Załaduj plik testu</value>
+  </data>
   <data name="ManyToMany" xml:space="preserve">
     <value>Wiele do wielu</value>
-  </data>
-  <data name="NHiberanteStandardDeviation" xml:space="preserve">
-    <value>nHibernate odchylenie standardowe</value>
   </data>
   <data name="NHibernateAverage" xml:space="preserve">
     <value>nHibernate średni czas wykonania operacji</value>
   </data>
   <data name="NHibernateCoefficentOfVariation" xml:space="preserve">
     <value>nHibernate współczynnik zmienności</value>
+  </data>
+  <data name="NHibernateStandardDeviation" xml:space="preserve">
+    <value>nHibernate odchylenie standardowe</value>
   </data>
   <data name="None" xml:space="preserve">
     <value>Brak</value>
@@ -177,7 +189,13 @@
   <data name="Single" xml:space="preserve">
     <value>Pojedynczy</value>
   </data>
+  <data name="StartNewTest" xml:space="preserve">
+    <value>Rozpocznij nowy test</value>
+  </data>
   <data name="TestName" xml:space="preserve">
     <value>Typ testu</value>
+  </data>
+  <data name="UpdateOperation" xml:space="preserve">
+    <value>Operacja zmieniania</value>
   </data>
 </root>

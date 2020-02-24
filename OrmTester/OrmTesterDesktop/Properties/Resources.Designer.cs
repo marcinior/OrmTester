@@ -61,11 +61,38 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Choose application mode.
+        /// </summary>
+        public static string AppMode {
+            get {
+                return ResourceManager.GetString("AppMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Bulk.
         /// </summary>
         public static string Bulk {
             get {
                 return ResourceManager.GetString("Bulk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Create operation.
+        /// </summary>
+        public static string CreateOperation {
+            get {
+                return ResourceManager.GetString("CreateOperation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Delete operation.
+        /// </summary>
+        public static string DeleteOperation {
+            get {
+                return ResourceManager.GetString("DeleteOperation", resourceCulture);
             }
         }
         
@@ -142,20 +169,20 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Load file.
+        /// </summary>
+        public static string LoadFile {
+            get {
+                return ResourceManager.GetString("LoadFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Many to many.
         /// </summary>
         public static string ManyToMany {
             get {
                 return ResourceManager.GetString("ManyToMany", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu nHibernate standard deviation.
-        /// </summary>
-        public static string NHiberanteStandardDeviation {
-            get {
-                return ResourceManager.GetString("NHiberanteStandardDeviation", resourceCulture);
             }
         }
         
@@ -174,6 +201,15 @@ namespace OrmTesterDesktop.Properties {
         public static string NHibernateCoefficentOfVariation {
             get {
                 return ResourceManager.GetString("NHibernateCoefficentOfVariation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu nHibernate standard deviation.
+        /// </summary>
+        public static string NHibernateStandardDeviation {
+            get {
+                return ResourceManager.GetString("NHibernateStandardDeviation", resourceCulture);
             }
         }
         
@@ -241,11 +277,29 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Start new test.
+        /// </summary>
+        public static string StartNewTest {
+            get {
+                return ResourceManager.GetString("StartNewTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Test name.
         /// </summary>
         public static string TestName {
             get {
                 return ResourceManager.GetString("TestName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Update operation.
+        /// </summary>
+        public static string UpdateOperation {
+            get {
+                return ResourceManager.GetString("UpdateOperation", resourceCulture);
             }
         }
     }
