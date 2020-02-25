@@ -23,7 +23,7 @@ namespace OrmTesterDesktop
         private OrmTesterIOService ioService;
         public MainWindow()
         {
-            ioService = new OrmTesterIOService();
+            ioService = new OrmTesterIOService(CultureInfo.CurrentUICulture);
             var appView = new ChooseApplicationModeView();
             ViewModel = new MainWindowViewModel();
             appView.ShowDialog();
@@ -67,8 +67,8 @@ namespace OrmTesterDesktop
                 // var entityFrameworkTester = new EntityFrameworkTester(builder);
                 var nHibernateTestResults = nHibernateTester.RunTests(nHibernateTester);
                 //var entityFrameworkTestResults = entityFrameworkTester.RunTests(entityFrameworkTester);
-                StatisticParametersCalculator stat = new StatisticParametersCalculator();
-                this.ViewModel.TestResults = stat.CalculateStatisticParameters(nHibernateTestResults, nHibernateTestResults, CultureInfo.CurrentUICulture);
+                StatisticParametersCalculator stat = new StatisticParametersCalculator(CultureInfo.CurrentUICulture);
+                this.ViewModel.TestResults = stat.CalculateStatisticParameters(nHibernateTestResults, nHibernateTestResults);
                 Dispatcher.Invoke(() =>
                 {
                     if (sender is CButton button1)
