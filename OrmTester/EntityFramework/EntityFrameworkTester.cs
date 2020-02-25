@@ -12,9 +12,9 @@ namespace EntityFramework
     {
         private EfDbContext db;
 
-        public EntityFrameworkTester(TestParametersBuilder testParametersBuilder) : base(testParametersBuilder)
+        public EntityFrameworkTester(TestParametersBuilder testParametersBuilder, string connectionString) : base(testParametersBuilder)
         {
-            db = new EfDbContext();
+            db = new EfDbContext(connectionString);
             db.Indexes.RemoveRange(db.Indexes);
             db.Classes.RemoveRange(db.Classes);
             db.StudentSubjects.RemoveRange(db.StudentSubjects);
