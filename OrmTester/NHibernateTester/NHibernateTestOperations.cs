@@ -16,10 +16,10 @@ namespace NHibernateTester
         private ISessionFactory _sessionFactory;
         private ISession session;
 
-        public NHibernateTestOperations(TestParametersBuilder testParameters) : base(testParameters)
+        public NHibernateTestOperations(TestParametersBuilder testParameters, string connectionString) : base(testParameters)
         {
             var cfg = Fluently.Configure()
-            .Database(MsSqlConfiguration.MsSql2012.ConnectionString(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=NHibernate;Integrated Security=True").ShowSql)
+            .Database(MsSqlConfiguration.MsSql2012.ConnectionString(connectionString).ShowSql)
             .Mappings(m => m.FluentMappings.AddFromAssemblyOf<ClassMapper>()).BuildConfiguration();
             var exporter = new SchemaUpdate(cfg);
             exporter.Execute(false, true);
