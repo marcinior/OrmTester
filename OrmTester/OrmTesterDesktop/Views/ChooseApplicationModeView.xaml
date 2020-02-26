@@ -6,18 +6,18 @@
         xmlns:p="clr-namespace:OrmTesterDesktop.Properties"
         xmlns:local="clr-namespace:OrmTesterDesktop.Views"
         mc:Ignorable="d"
-        Title="ChooseApplicationModeView" Height="250" Width="300">
-    <Grid>
+        Title="Orm Tester - Choose Mode" Height="206.4" Width="333.2" Background="{x:Null}" WindowStartupLocation="CenterScreen" BorderBrush="#FF6F0F0F" ResizeMode="NoResize">
+    <Grid Background="#FF5CDB95">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Grid.ColumnSpan="2" Content="{x:Static p:Resources.AppMode}" HorizontalContentAlignment="Center"/>
-        <Button Grid.Row="1" Grid.Column="0" Content="{x:Static p:Resources.LoadFile}" Click="LoadButton_Click"/>
-        <Button Grid.Row="1" Grid.Column="1" Content="{x:Static p:Resources.StartNewTest}" Click="StartNewTestButton_Click"/>
+        <Button Grid.Column="1" Content="LOAD TEST" Click="LoadButton_Click" Margin="20,99.2,18.4,-142.8" Grid.Row="1" Height="50" FontWeight="Bold" Grid.ColumnSpan="3" Background="#FF05386B" RenderTransformOrigin="0.49,1.8" BorderThickness="0" ClipToBounds="True" Foreground="#FFEDF5E1"/>
+        <Button Content="START NEW TEST" Click="StartNewTestButton_Click" Margin="20,25.2,18.4,-68.8" Grid.Column="1" Grid.Row="1" Height="50" FontWeight="Bold" Grid.ColumnSpan="3" Background="#FF05386B" BorderThickness="0" SnapsToDevicePixels="True" Foreground="#FFEDF5E1"/>
     </Grid>
 </Window>
