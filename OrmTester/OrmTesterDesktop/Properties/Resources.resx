@@ -120,8 +120,26 @@
   <data name="AppMode" xml:space="preserve">
     <value>Choose application mode</value>
   </data>
+  <data name="AverageCreate" xml:space="preserve">
+    <value>CREATE operation average chart</value>
+  </data>
+  <data name="AverageDelete" xml:space="preserve">
+    <value>DELETE operation average chart</value>
+  </data>
+  <data name="AverageUpdate" xml:space="preserve">
+    <value>UPDATE operation average chart</value>
+  </data>
   <data name="Bulk" xml:space="preserve">
     <value>Bulk</value>
+  </data>
+  <data name="CoVCreate" xml:space="preserve">
+    <value>CREATE operation average coefficent of variation chart</value>
+  </data>
+  <data name="CoVDelete" xml:space="preserve">
+    <value>DELETE operation average coefficent of variation chart</value>
+  </data>
+  <data name="CoVUpdate" xml:space="preserve">
+    <value>UPDATE operation average coefficent of variation chart</value>
   </data>
   <data name="CreateOperation" xml:space="preserve">
     <value>Create operation</value>
@@ -152,6 +170,9 @@
   </data>
   <data name="GenerateDiagram" xml:space="preserve">
     <value>Generate diagram</value>
+  </data>
+  <data name="GenerateLabel" xml:space="preserve">
+    <value>Generate</value>
   </data>
   <data name="LoadFile" xml:space="preserve">
     <value>Load file</value>
@@ -185,6 +206,21 @@
   </data>
   <data name="Repetitions" xml:space="preserve">
     <value>Repetitions</value>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>Result, ms</value>
+  </data>
+  <data name="SaveChart" xml:space="preserve">
+    <value>Save chart</value>
+  </data>
+  <data name="SDCreate" xml:space="preserve">
+    <value>CREATE operation average standard deviation chart</value>
+  </data>
+  <data name="SDDelete" xml:space="preserve">
+    <value>DELETE operation average standard deviation chart</value>
+  </data>
+  <data name="SDUpdate" xml:space="preserve">
+    <value>UPDATE operation average standard deviation chart</value>
   </data>
   <data name="Single" xml:space="preserve">
     <value>Single</value>

@@ -1,4 +1,5 @@
 ﻿using NHibernateTester;
+using OrmTesterDesktop.Services;
 using OrmTesterDesktop.Views;
 using OrmTesterLib.IOService;
 using OrmTesterLib.StatisticParametersCalculator;
@@ -75,6 +76,10 @@ namespace OrmTesterDesktop
                     {
                         button1.IsEnabled = true;
                     }
+                    ChartGenerationHelper service = new ChartGenerationHelper
+                    {
+                        StatisticParameters = this.ViewModel.TestResults
+                    };
                 });
             });            
         }
@@ -495,6 +500,11 @@ namespace OrmTesterDesktop
                 (OneToManyDelete.IsChecked == true && (OneToManyDeleteBulk.IsChecked == true || OneToManyDeleteSingle.IsChecked == true)) ||
                 (OneToOneDelete.IsChecked == true && (OneToOneDeleteBulk.IsChecked == true || OneToOneDeleteSingle.IsChecked == true)) ||
                 (NoneRelationshipDelete.IsChecked == true && (NoneRelationshipDeleteBulk.IsChecked == true || NoneRelationshipDeleteSingle.IsChecked == true));
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

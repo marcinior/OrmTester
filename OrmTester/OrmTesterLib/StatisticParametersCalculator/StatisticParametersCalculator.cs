@@ -45,7 +45,10 @@ namespace OrmTesterLib.StatisticParametersCalculator
                 {
                     TestName = efGroupedResults[i].Item1,
                     EfAverage = CalculateAverage(efGroupedResults[i].Item2),
-                    NHibernateAverage = CalculateAverage(nHiberanateGroupedResults[i].Item2)
+                    NHibernateAverage = CalculateAverage(nHiberanateGroupedResults[i].Item2),
+                    RelationshipType = efGroupedResults[i].Item2.FirstOrDefault().RelationshipType,
+                    OperationType = efGroupedResults[i].Item2.FirstOrDefault().OperationType,
+                    IsBulk = efGroupedResults[i].Item2.FirstOrDefault().IsBulkTest
                 };
 
                 statParam.Difference = CalculateDifference(statParam.EfAverage, statParam.NHibernateAverage);

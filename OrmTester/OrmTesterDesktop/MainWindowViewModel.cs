@@ -1,4 +1,7 @@
-﻿using OrmTesterLib.StatisticParametersCalculator;
+﻿using OrmTesterDesktop.Commands;
+using OrmTesterDesktop.Services;
+using OrmTesterLib.Enums;
+using OrmTesterLib.StatisticParametersCalculator;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +16,24 @@ namespace OrmTesterDesktop
     {
         public MainWindowViewModel()
         {
-            this.TestResults = new List<StatisticParameter>();
+            this.chartGenerator = new ChartGenerationHelper();
+            this.TestResults = new List<StatisticParameter>();            
+            this.AverageCommand = new CreateChartCommand(chartGenerator.GenerateAverageBarChart);
+            this.SDCommand = new CreateChartCommand(chartGenerator.GenerateStandardDeviationBarChart);
+            this.CoVCommand = new CreateChartCommand(chartGenerator.GenerateCoefficentOfVariationBarChart);
         }
+
+        public bool AreCreateButtonsAvaileAble { get => this.TestResults.Any(test => test.OperationType == OperationType.Create); }
+        public bool AreUpdateButtonsAvaileAble { get => this.TestResults.Any(test => test.OperationType == OperationType.Update); }
+        public bool AreDeleteButtonsAvaileAble { get => this.TestResults.Any(test => test.OperationType == OperationType.Delete); }
+
+        public CreateChartCommand AverageCommand { get; set; }
+        public CreateChartCommand SDCommand { get; set; }
+        public CreateChartCommand CoVCommand { get; set; }
 
         private List<StatisticParameter> testResults;
         private bool isExecuteButtonActive;
+        private ChartGenerationHelper chartGenerator;
 
         public List<StatisticParameter> TestResults
         {
@@ -25,7 +41,11 @@ namespace OrmTesterDesktop
             set
             {
                 testResults = value;
+                this.chartGenerator.StatisticParameters = value;
                 NotifyPropertyChanged(nameof(TestResults));
+                NotifyPropertyChanged(nameof(AreCreateButtonsAvaileAble));
+                NotifyPropertyChanged(nameof(AreUpdateButtonsAvaileAble));
+                NotifyPropertyChanged(nameof(AreDeleteButtonsAvaileAble));
             }
         }
 
