@@ -1,5 +1,4 @@
-﻿using OrmTesterLib.Enums;
-using OrmTesterLib.TestCore;
+﻿using OrmTesterLib.TestCore;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -11,29 +10,23 @@ namespace OrmTesterLib.StatisticParametersCalculator
     public class StatisticParametersCalculator
     {
         private ResourceManager resourceManager;
-        private CultureInfo cultureInfo;
-        private const string IsBulkTestProperty = "IsBulkTest";
-        private const string OperationTypeProperty = "OperationType";
-        private const string RelationshipTypeProperty = "RelationshipType";
         private const string MissingTestResultsError = "MissingTestResultsError";
         private const string DifferentCountOfGroupsError = "DifferentCountOfGroupsError";
+        private readonly CultureInfo cultureInfo;
 
-        public StatisticParametersCalculator()
+        public StatisticParametersCalculator(CultureInfo cultureInfo)
         {
             resourceManager = new ResourceManager(typeof(Resources.Resources));
+            this.cultureInfo = cultureInfo;
         }
 
-        public List<StatisticParameter> CalculateStatisticParameters(
-            List<TestResult> efTestResults,
-            List<TestResult> nHibernateResults,
-            CultureInfo cultureInfo = null)
+        public List<StatisticParameter> CalculateStatisticParameters(List<TestResult> efTestResults, List<TestResult> nHibernateResults)
         {
             if (efTestResults == null || nHibernateResults == null || efTestResults.Count == 0 || nHibernateResults.Count == 0)
                 throw new ArgumentNullException(resourceManager.GetString(MissingTestResultsError, cultureInfo));
 
-            this.cultureInfo = cultureInfo ?? CultureInfo.CurrentCulture;
-            var efGroupedResults = GetGroupedTestResults(efTestResults);
-            var nHiberanateGroupedResults = GetGroupedTestResults(nHibernateResults);
+            var efGroupedResults = efTestResults.GetGroupedTestResults(cultureInfo);
+            var nHiberanateGroupedResults = nHibernateResults.GetGroupedTestResults(cultureInfo);
 
             if (efGroupedResults.Count != nHiberanateGroupedResults.Count)
                 throw new ArgumentException(resourceManager.GetString(DifferentCountOfGroupsError, cultureInfo));
@@ -83,35 +76,6 @@ namespace OrmTesterLib.StatisticParametersCalculator
         private double CalculateCoefficentOfVariation(double standardDeviation, double average)
         {
             return Math.Round(standardDeviation / average * 100, 2);
-        }
-
-        private List<Tuple<string, List<TestResult>>> GetGroupedTestResults(List<TestResult> testResults)
-        {
-            return testResults
-                .GroupBy(tr => new
-                {
-                    tr.IsBulkTest,
-                    tr.OperationType,
-                    tr.RelationshipType
-                })
-                .Select(group => new Tuple<string, List<TestResult>>(GetTestName(group.Key), group.ToList()))
-                .OrderBy(p => p.Item1)
-                .ToList();
-        }
-
-        private string GetTestName(object key)
-        {
-            string testName = "";
-            Type type = key.GetType();
-            var isBulkTest = (bool)type.GetProperty(IsBulkTestProperty).GetValue(key);
-            var operationType = (OperationType)type.GetProperty(OperationTypeProperty).GetValue(key);
-            var relationshipType = (RelationshipType)type.GetProperty(RelationshipTypeProperty).GetValue(key);
-
-            testName = isBulkTest ? resourceManager.GetString("Bulk", cultureInfo) : resourceManager.GetString("Single", cultureInfo);
-            testName += " " + resourceManager.GetString(operationType.ToString(), cultureInfo) + " ";
-            testName += resourceManager.GetString(relationshipType.ToString(), cultureInfo);
-
-            return testName;
         }
     }
 }

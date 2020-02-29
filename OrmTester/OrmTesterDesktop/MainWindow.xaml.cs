@@ -1,10 +1,12 @@
-﻿using NHibernateTester;
+﻿using EntityFramework;
+using NHibernateTester;
 using OrmTesterDesktop.Services;
 using OrmTesterDesktop.Views;
 using OrmTesterLib.IOService;
 using OrmTesterLib.StatisticParametersCalculator;
 using OrmTesterLib.TestCore;
 using System;
+using System.Configuration;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -24,7 +26,7 @@ namespace OrmTesterDesktop
         private OrmTesterIOService ioService;
         public MainWindow()
         {
-            ioService = new OrmTesterIOService();
+            ioService = new OrmTesterIOService(CultureInfo.CurrentUICulture);
             var appView = new ChooseApplicationModeView();
             ViewModel = new MainWindowViewModel();
             appView.ShowDialog();
@@ -64,12 +66,14 @@ namespace OrmTesterDesktop
 
             Task.Factory.StartNew(() =>
             {
-                var nHibernateTester = new NHibernateTestOperations(builder);
-                // var entityFrameworkTester = new EntityFrameworkTester(builder);
+                string efConnectionString = ConfigurationManager.ConnectionStrings["efConnectionString"].ConnectionString;
+                string nhConnectionString = ConfigurationManager.ConnectionStrings["nhConnectionString"].ConnectionString;
+                var entityFrameworkTester = new EntityFrameworkTester(builder,efConnectionString);
+                var nHibernateTester = new NHibernateTestOperations(builder, nhConnectionString);
+                var entityFrameworkTestResults = entityFrameworkTester.RunTests(entityFrameworkTester);
                 var nHibernateTestResults = nHibernateTester.RunTests(nHibernateTester);
-                //var entityFrameworkTestResults = entityFrameworkTester.RunTests(entityFrameworkTester);
-                StatisticParametersCalculator stat = new StatisticParametersCalculator();
-                this.ViewModel.TestResults = stat.CalculateStatisticParameters(nHibernateTestResults, nHibernateTestResults, CultureInfo.CurrentUICulture);
+                StatisticParametersCalculator stat = new StatisticParametersCalculator(CultureInfo.CurrentUICulture);
+                this.ViewModel.TestResults = stat.CalculateStatisticParameters(entityFrameworkTestResults, nHibernateTestResults);
                 Dispatcher.Invoke(() =>
                 {
                     if (sender is CButton button1)
