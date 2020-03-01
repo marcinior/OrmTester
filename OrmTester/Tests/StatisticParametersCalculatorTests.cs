@@ -5,6 +5,7 @@ using OrmTesterLib.StatisticParametersCalculator;
 using OrmTesterLib.TestCore;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace Tests
 {
@@ -70,7 +71,7 @@ namespace Tests
         [Test]
         public void CalculateStatisticParameters_AverageTest_IntegerResults()
         {
-            StatisticParametersCalculator calculator = new StatisticParametersCalculator();
+            StatisticParametersCalculator calculator = new StatisticParametersCalculator(CultureInfo.CurrentCulture);
             double actual = TestHelper.InvokePrivateMethod(calculator, "CalculateAverage", new object[] { integerTestResults });
             double expected = 3.33;
             Assert.AreEqual(expected, actual);
@@ -79,7 +80,7 @@ namespace Tests
         [Test]
         public void CalculateStatisticParameters_AverageTest_DoubleResults()
         {
-            StatisticParametersCalculator calculator = new StatisticParametersCalculator();
+            StatisticParametersCalculator calculator = new StatisticParametersCalculator(CultureInfo.CurrentCulture);
             double actual = TestHelper.InvokePrivateMethod(calculator, "CalculateAverage", new object[] { doubleTestResults });
             double expected = 3.71;
             Assert.AreEqual(expected, actual);
@@ -92,7 +93,7 @@ namespace Tests
         [TestCase(11.32, 11.39, 0.07)]
         public void CalculateStatisticParameters_DifferenceTest(double average1, double average2, double expected)
         {
-            StatisticParametersCalculator calculator = new StatisticParametersCalculator();
+            StatisticParametersCalculator calculator = new StatisticParametersCalculator(CultureInfo.CurrentCulture);
             double actual = TestHelper.InvokePrivateMethod(calculator, "CalculateDifference", new object[] { average1, average2 });
             Assert.AreEqual(expected, actual);
         }
@@ -100,7 +101,7 @@ namespace Tests
         [Test]
         public void CalculateStatisticParameters_StandardDeviationTest_IntegerResults()
         {
-            StatisticParametersCalculator calculator = new StatisticParametersCalculator();
+            StatisticParametersCalculator calculator = new StatisticParametersCalculator(CultureInfo.CurrentCulture);
             double actual = TestHelper.InvokePrivateMethod(calculator, "CalculateStandardDeviation", new object[] { integerTestResults, 3.33 });
             double expected = 1.25;
             Assert.AreEqual(expected, actual);
@@ -109,7 +110,7 @@ namespace Tests
         [Test]
         public void CalculateStatisticParameters_StandardDeviationTest_DoubleResults()
         {
-            StatisticParametersCalculator calculator = new StatisticParametersCalculator();
+            StatisticParametersCalculator calculator = new StatisticParametersCalculator(CultureInfo.CurrentCulture);
             double actual = TestHelper.InvokePrivateMethod(calculator, "CalculateStandardDeviation", new object[] { doubleTestResults, 3.71 });
             double expected = 1.06;
             Assert.AreEqual(expected, actual);
@@ -118,7 +119,7 @@ namespace Tests
         [Test]
         public void CalculateStatisticParameters_CoefficentOfVariationt_SingleResults()
         {
-            StatisticParametersCalculator calculator = new StatisticParametersCalculator();
+            StatisticParametersCalculator calculator = new StatisticParametersCalculator(CultureInfo.CurrentCulture);
             double actual = TestHelper.InvokePrivateMethod(calculator, "CalculateCoefficentOfVariation", new object[] { 1.25, 3.33 });
             double expected = 37.54;
             Assert.AreEqual(expected, actual);
@@ -127,7 +128,7 @@ namespace Tests
         [Test]
         public void CalculateStatisticParameters_CoefficentOfVariationt_DoubleResults()
         {
-            StatisticParametersCalculator calculator = new StatisticParametersCalculator();
+            StatisticParametersCalculator calculator = new StatisticParametersCalculator(CultureInfo.CurrentCulture);
             double actual = TestHelper.InvokePrivateMethod(calculator, "CalculateCoefficentOfVariation", new object[] { 1.06, 3.71 });
             double expected = 28.57;
             Assert.AreEqual(expected, actual);
@@ -136,7 +137,7 @@ namespace Tests
         [Test]
         public void CalculateStatisticParameters_CalculateStatisticsTest()
         {
-            StatisticParametersCalculator calculator = new StatisticParametersCalculator();
+            StatisticParametersCalculator calculator = new StatisticParametersCalculator(CultureInfo.CurrentCulture);
             var efTestResults = new List<TestResult>(integerTestResults);
             efTestResults.AddRange(doubleTestResults);
 

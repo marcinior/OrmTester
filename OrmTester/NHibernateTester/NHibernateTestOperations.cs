@@ -15,8 +15,9 @@ namespace NHibernateTester
     {
         private ISessionFactory _sessionFactory;
         private ISession session;
+        private readonly string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=NHibernate;Integrated Security=True";
 
-        public NHibernateTestOperations(TestParametersBuilder testParameters, string connectionString) : base(testParameters)
+        public NHibernateTestOperations(TestParametersBuilder testParameters) : base(testParameters)
         {
             var cfg = Fluently.Configure()
             .Database(MsSqlConfiguration.MsSql2012.ConnectionString(connectionString).ShowSql)
