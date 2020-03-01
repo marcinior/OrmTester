@@ -66,10 +66,8 @@ namespace OrmTesterDesktop
 
             Task.Factory.StartNew(() =>
             {
-                string efConnectionString = ConfigurationManager.ConnectionStrings["efConnectionString"].ConnectionString;
-                string nhConnectionString = ConfigurationManager.ConnectionStrings["nhConnectionString"].ConnectionString;
-                var entityFrameworkTester = new EntityFrameworkTester(builder,efConnectionString);
-                var nHibernateTester = new NHibernateTestOperations(builder, nhConnectionString);
+                var entityFrameworkTester = new EntityFrameworkTester(builder);
+                var nHibernateTester = new NHibernateTestOperations(builder);
                 var entityFrameworkTestResults = entityFrameworkTester.RunTests(entityFrameworkTester);
                 var nHibernateTestResults = nHibernateTester.RunTests(nHibernateTester);
                 StatisticParametersCalculator stat = new StatisticParametersCalculator(CultureInfo.CurrentUICulture);
