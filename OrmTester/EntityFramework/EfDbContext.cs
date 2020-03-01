@@ -5,15 +5,13 @@ namespace EntityFramework
 {
     public class EfDbContext : DbContext
     {
-        private readonly string connectionString;
+        private readonly string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=OrmTesterEfDb;Integrated Security=True";
 
-        public EfDbContext(DbContextOptions<EfDbContext> options) : base(options)
-        {
-        }
+        public EfDbContext(DbContextOptions<EfDbContext> options) : base(options) {}
 
-        public EfDbContext(string connectionString) : base()
+        public EfDbContext() : base()
         {
-            this.connectionString = connectionString;
+            this.Database.Migrate();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -91,6 +91,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EntityFramework\EntityFramework.csproj">
+      <Project>{96B3E413-DACF-4D41-873E-4BF5B5D4EFB3}</Project>
+      <Name>EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NHibernateTester\NHibernateTester.csproj">
+      <Project>{1716205F-EB97-42F6-996E-7AA2936297FE}</Project>
+      <Name>NHibernateTester</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OrmTesterLib\OrmTesterLib.csproj">
       <Project>{f50c4181-475d-4b34-bcc4-d184a8f3bf3a}</Project>
       <Name>OrmTesterLib</Name>
