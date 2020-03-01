@@ -24,6 +24,8 @@ namespace OrmTesterDesktop.Services
             {RelationshipType.None, Resources.None }
         };
 
+        private string allTestLabel = Resources.AllTests;
+
         public void GenerateAverageBarChart(OperationType type)
         {
             var createParameters = GetParamsByOperation(type);
@@ -33,7 +35,7 @@ namespace OrmTesterDesktop.Services
             var nHibernateResults = new ChartValues<double>();
             var efResults = new ChartValues<double>();
             var labels = new List<string>();
-            labels.Add("All tests");
+            labels.Add(allTestLabel);
             nHibernateResults.Add(fullAverage.Item1);
             efResults.Add(fullAverage.Item2);
 
@@ -84,6 +86,8 @@ namespace OrmTesterDesktop.Services
             var efResults = new ChartValues<double>();
             var labels = new List<string>();
 
+            labels.Add(allTestLabel);
+
             nHibernateResults.Add(fullAverage.Item1);
             efResults.Add(fullAverage.Item2);
 
@@ -133,6 +137,8 @@ namespace OrmTesterDesktop.Services
             var nHibernateResults = new ChartValues<double>();
             var efResults = new ChartValues<double>();
             var labels = new List<string>();
+
+            labels.Add(allTestLabel);
 
             nHibernateResults.Add(fullAverage.Item1);
             efResults.Add(fullAverage.Item2);

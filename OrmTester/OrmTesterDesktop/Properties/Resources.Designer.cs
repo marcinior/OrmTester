@@ -61,6 +61,15 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu All tests.
+        /// </summary>
+        public static string AllTests {
+            get {
+                return ResourceManager.GetString("AllTests", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Choose application mode.
         /// </summary>
         public static string AppMode {
