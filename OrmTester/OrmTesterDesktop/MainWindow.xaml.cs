@@ -23,6 +23,7 @@ namespace OrmTesterDesktop
     {
         public MainWindowViewModel ViewModel { get; set; }
         private OrmTesterIOService ioService;
+        
         public MainWindow()
         {
             ioService = new OrmTesterIOService(CultureInfo.CurrentUICulture);
@@ -41,6 +42,8 @@ namespace OrmTesterDesktop
             
             DataContext = this;
             InitializeComponent();
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.WindowState = WindowState.Maximized;
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
@@ -69,10 +72,10 @@ namespace OrmTesterDesktop
                 string nhConnectionString = ConfigurationManager.ConnectionStrings["nhConnectionString"].ConnectionString;
                 var entityFrameworkTester = new EntityFrameworkTester(builder,efConnectionString);
                 var nHibernateTester = new NHibernateTestOperations(builder, nhConnectionString);
-                var entityFrameworkTestResults = entityFrameworkTester.RunTests(entityFrameworkTester);
-                var nHibernateTestResults = nHibernateTester.RunTests(nHibernateTester);
+                ViewModel.EFResults = entityFrameworkTester.RunTests(entityFrameworkTester);
+                ViewModel.NHibernateResults = nHibernateTester.RunTests(nHibernateTester);
                 StatisticParametersCalculator stat = new StatisticParametersCalculator(CultureInfo.CurrentUICulture);
-                this.ViewModel.TestResults = stat.CalculateStatisticParameters(entityFrameworkTestResults, nHibernateTestResults);
+                this.ViewModel.TestResults = stat.CalculateStatisticParameters(ViewModel.EFResults, ViewModel.NHibernateResults);
                 Dispatcher.Invoke(() =>
                 {
                     if (sender is CButton button1)
@@ -477,7 +480,15 @@ namespace OrmTesterDesktop
 
         private void ExportToCsvButton_Click(object sender, RoutedEventArgs e)
         {
-
+            var dialog = new SaveFileDialog()
+            {
+                Filter = "Comma-Separated-Values (*.csv)| *.csv | Excel File (*.xlsx)|*.xlsx"
+            };
+            var dialogResult = dialog.ShowDialog();
+            if (dialogResult == System.Windows.Forms.DialogResult.OK)
+            {
+                ioService.SaveTestToExcel(dialog.FileName, ViewModel.EFResults, ViewModel.NHibernateResults);
+            }
         }
 
         private void TestTypeCheckbox_Click(object sender, RoutedEventArgs e)

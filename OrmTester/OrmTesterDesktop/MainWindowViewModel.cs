@@ -1,4 +1,5 @@
 ﻿using OrmTesterLib.StatisticParametersCalculator;
+using OrmTesterLib.TestCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,8 @@ namespace OrmTesterDesktop
         }
 
         private List<StatisticParameter> testResults;
+        public List<TestResult> NHibernateResults { get; set; }
+        public List<TestResult> EFResults { get; set; }
         private bool isExecuteButtonActive;
 
         public List<StatisticParameter> TestResults
