@@ -137,19 +137,19 @@
         <StackPanel Grid.Row="1" Grid.Column="1">
             <Label Content="{x:Static p:Resources.GenerateLabel}"/>
             <WrapPanel>
-                <Button Content="{x:Static p:Resources.AverageCreate}" Command="{Binding ViewModel.AverageCommand}" CommandParameter="{x:Static lib:OperationType.Create}" IsEnabled="{Binding ViewModel.AreCreateButtonsAvaileAble}"/>
-                <Button Content="{x:Static p:Resources.AverageDelete}" Command="{Binding ViewModel.AverageCommand}" CommandParameter="{x:Static lib:OperationType.Delete}" IsEnabled="{Binding ViewModel.AreDeleteButtonsAvaileAble}"/>
-                <Button Content="{x:Static p:Resources.AverageUpdate}" Command="{Binding ViewModel.AverageCommand}" CommandParameter="{x:Static lib:OperationType.Update}" IsEnabled="{Binding ViewModel.AreUpdateButtonsAvaileAble}"/>
+                <Button Content="{x:Static p:Resources.AverageCreate}" Command="{Binding ViewModel.AverageCommand}" CommandParameter="{x:Static lib:OperationType.Create}" IsEnabled="{Binding ViewModel.AreCreateButtonsAvailable}"/>
+                <Button Content="{x:Static p:Resources.AverageDelete}" Command="{Binding ViewModel.AverageCommand}" CommandParameter="{x:Static lib:OperationType.Delete}" IsEnabled="{Binding ViewModel.AreDeleteButtonsAvailable}"/>
+                <Button Content="{x:Static p:Resources.AverageUpdate}" Command="{Binding ViewModel.AverageCommand}" CommandParameter="{x:Static lib:OperationType.Update}" IsEnabled="{Binding ViewModel.AreUpdateButtonsAvailable}"/>
             </WrapPanel>
             <WrapPanel>
-                <Button Content="{x:Static p:Resources.SDCreate}" Command="{Binding ViewModel.SDCommand}" CommandParameter="{x:Static lib:OperationType.Create}" IsEnabled="{Binding ViewModel.AreCreateButtonsAvaileAble}"/>
-                <Button Content="{x:Static p:Resources.SDDelete}" Command="{Binding ViewModel.SDCommand}" CommandParameter="{x:Static lib:OperationType.Delete}" IsEnabled="{Binding ViewModel.AreDeleteButtonsAvaileAble}"/>
-                <Button Content="{x:Static p:Resources.SDUpdate}" Command="{Binding ViewModel.SDCommand}" CommandParameter="{x:Static lib:OperationType.Update}" IsEnabled="{Binding ViewModel.AreUpdateButtonsAvaileAble}"/>
+                <Button Content="{x:Static p:Resources.SDCreate}" Command="{Binding ViewModel.SDCommand}" CommandParameter="{x:Static lib:OperationType.Create}" IsEnabled="{Binding ViewModel.AreCreateButtonsAvailable}"/>
+                <Button Content="{x:Static p:Resources.SDDelete}" Command="{Binding ViewModel.SDCommand}" CommandParameter="{x:Static lib:OperationType.Delete}" IsEnabled="{Binding ViewModel.AreDeleteButtonsAvailable}"/>
+                <Button Content="{x:Static p:Resources.SDUpdate}" Command="{Binding ViewModel.SDCommand}" CommandParameter="{x:Static lib:OperationType.Update}" IsEnabled="{Binding ViewModel.AreUpdateButtonsAvailable}"/>
             </WrapPanel>
             <WrapPanel>
-                <Button Content="{x:Static p:Resources.CoVCreate}" Command="{Binding ViewModel.CoVCommand}" CommandParameter="{x:Static lib:OperationType.Create}" IsEnabled="{Binding ViewModel.AreCreateButtonsAvaileAble}"/>
-                <Button Content="{x:Static p:Resources.CoVDelete}" Command="{Binding ViewModel.CoVCommand}" CommandParameter="{x:Static lib:OperationType.Delete}" IsEnabled="{Binding ViewModel.AreDeleteButtonsAvaileAble}"/>
-                <Button Content="{x:Static p:Resources.CoVUpdate}" Command="{Binding ViewModel.CoVCommand}" CommandParameter="{x:Static lib:OperationType.Update}" IsEnabled="{Binding ViewModel.AreUpdateButtonsAvaileAble}"/>
+                <Button Content="{x:Static p:Resources.CoVCreate}" Command="{Binding ViewModel.CoVCommand}" CommandParameter="{x:Static lib:OperationType.Create}" IsEnabled="{Binding ViewModel.AreCreateButtonsAvailable}"/>
+                <Button Content="{x:Static p:Resources.CoVDelete}" Command="{Binding ViewModel.CoVCommand}" CommandParameter="{x:Static lib:OperationType.Delete}" IsEnabled="{Binding ViewModel.AreDeleteButtonsAvailable}"/>
+                <Button Content="{x:Static p:Resources.CoVUpdate}" Command="{Binding ViewModel.CoVCommand}" CommandParameter="{x:Static lib:OperationType.Update}" IsEnabled="{Binding ViewModel.AreUpdateButtonsAvailable}"/>
             </WrapPanel>
         </StackPanel>
     </Grid>

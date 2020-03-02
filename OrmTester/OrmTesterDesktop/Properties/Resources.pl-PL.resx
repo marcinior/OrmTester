@@ -124,13 +124,13 @@
     <value>Wybierz tryb działania aplikacji</value>
   </data>
   <data name="AverageCreate" xml:space="preserve">
-    <value>Wykres średnich operacji CREATE</value>
+    <value>Wykres średnich czasów wykonania operacji CREATE</value>
   </data>
   <data name="AverageDelete" xml:space="preserve">
-    <value>Wykres średnich operacji DELETE</value>
+    <value>Wykres średnich czasów wykonania operacji DELETE</value>
   </data>
   <data name="AverageUpdate" xml:space="preserve">
-    <value>Wykres średnich operacji UPDATE</value>
+    <value>Wykres średnich czasów wykonania operacji UPDATE</value>
   </data>
   <data name="Bulk" xml:space="preserve">
     <value>Grupowy</value>

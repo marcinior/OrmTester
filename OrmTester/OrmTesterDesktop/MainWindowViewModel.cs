@@ -23,9 +23,9 @@ namespace OrmTesterDesktop
             this.CoVCommand = new CreateChartCommand(chartGenerator.GenerateCoefficentOfVariationBarChart);
         }
 
-        public bool AreCreateButtonsAvaileAble { get => this.TestResults.Any(test => test.OperationType == OperationType.Create); }
-        public bool AreUpdateButtonsAvaileAble { get => this.TestResults.Any(test => test.OperationType == OperationType.Update); }
-        public bool AreDeleteButtonsAvaileAble { get => this.TestResults.Any(test => test.OperationType == OperationType.Delete); }
+        public bool AreCreateButtonsAvailable { get => this.TestResults.Any(test => test.OperationType == OperationType.Create); }
+        public bool AreUpdateButtonsAvailable { get => this.TestResults.Any(test => test.OperationType == OperationType.Update); }
+        public bool AreDeleteButtonsAvailable { get => this.TestResults.Any(test => test.OperationType == OperationType.Delete); }
 
         public CreateChartCommand AverageCommand { get; set; }
         public CreateChartCommand SDCommand { get; set; }
@@ -43,9 +43,9 @@ namespace OrmTesterDesktop
                 testResults = value;
                 this.chartGenerator.StatisticParameters = value;
                 NotifyPropertyChanged(nameof(TestResults));
-                NotifyPropertyChanged(nameof(AreCreateButtonsAvaileAble));
-                NotifyPropertyChanged(nameof(AreUpdateButtonsAvaileAble));
-                NotifyPropertyChanged(nameof(AreDeleteButtonsAvaileAble));
+                NotifyPropertyChanged(nameof(AreCreateButtonsAvailable));
+                NotifyPropertyChanged(nameof(AreUpdateButtonsAvailable));
+                NotifyPropertyChanged(nameof(AreDeleteButtonsAvailable));
             }
         }
 

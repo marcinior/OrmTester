@@ -24,7 +24,10 @@ namespace OrmTesterLib.IOService
             bitmap.Render(visual);
             var frame = BitmapFrame.Create(bitmap);
             encoder.Frames.Add(frame);
-            using (var stream = File.Create(fileName)) encoder.Save(stream);
+            using (var stream = File.Create(fileName)) 
+            {
+                encoder.Save(stream);
+            }
         }
     }
 }

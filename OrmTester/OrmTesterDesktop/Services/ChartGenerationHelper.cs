@@ -41,7 +41,7 @@ namespace OrmTesterDesktop.Services
 
             foreach (var relation in Enum.GetValues(typeof(RelationshipType)).Cast<RelationshipType>())
             {
-                try
+                if (createParameters.Any())
                 {
                     var averageForRelationship = GetAverageForRelationship(createParameters, relation);
                     nHibernateResults.Add(averageForRelationship.Item1);
@@ -51,7 +51,6 @@ namespace OrmTesterDesktop.Services
                         labels.Add(label);
                     }
                 }
-                catch { }
             }
 
             var nHibernateSeriesCollection = new ColumnSeries
@@ -93,8 +92,8 @@ namespace OrmTesterDesktop.Services
 
             foreach (var relation in Enum.GetValues(typeof(RelationshipType)).Cast<RelationshipType>())
             {
-                try
-                {
+                if (updateParameters.Any()) 
+                { 
                     var averageForRelationship = GetAverageStandardDeviationForRelationship(updateParameters, relation);
                     nHibernateResults.Add(averageForRelationship.Item1);
                     efResults.Add(averageForRelationship.Item2);
@@ -103,7 +102,6 @@ namespace OrmTesterDesktop.Services
                         labels.Add(label);
                     }
                 }
-                catch { }
             }
 
             var nHibernateSeriesCollection = new ColumnSeries
@@ -145,7 +143,7 @@ namespace OrmTesterDesktop.Services
 
             foreach (var relation in Enum.GetValues(typeof(RelationshipType)).Cast<RelationshipType>())
             {
-                try
+                if(updateParameters.Any())
                 {
                     var averageForRelationship = GetAverageCoefficientOfVariationForRelationship(updateParameters, relation);
                     nHibernateResults.Add(averageForRelationship.Item1);
@@ -155,7 +153,6 @@ namespace OrmTesterDesktop.Services
                         labels.Add(label);
                     }
                 }
-                catch { }
             }
 
             var nHibernateSeriesCollection = new ColumnSeries
@@ -180,12 +177,12 @@ namespace OrmTesterDesktop.Services
             chartView.ShowDialog();
         }        
 
-        private List<StatisticParameter> GetParamsByOperation(OperationType operationType)
+        private IEnumerable<StatisticParameter> GetParamsByOperation(OperationType operationType)
         {
-            return this.StatisticParameters.Where(param => param.OperationType == operationType).ToList();
+            return this.StatisticParameters.Where(param => param.OperationType == operationType);
         }
 
-        private Tuple<double,double> GetAverageForRelationship(List<StatisticParameter> statisticParameters, RelationshipType relationshipType)
+        private Tuple<double,double> GetAverageForRelationship(IEnumerable<StatisticParameter> statisticParameters, RelationshipType relationshipType)
         {
             return this.GetAverageForFrameworks(statisticParameters.Where(param => param.RelationshipType == relationshipType));
         }
@@ -198,7 +195,7 @@ namespace OrmTesterDesktop.Services
             return new Tuple<double, double>(nHibernateCreateAverage, efCreateAverage);
         }
 
-        private Tuple<double, double> GetAverageStandardDeviationForRelationship(List<StatisticParameter> statisticParameters, RelationshipType relationshipType)
+        private Tuple<double, double> GetAverageStandardDeviationForRelationship(IEnumerable<StatisticParameter> statisticParameters, RelationshipType relationshipType)
         {
             return this.GetAverageStandardDeviationForFrameworks(statisticParameters.Where(param => param.RelationshipType == relationshipType));
         }
@@ -211,7 +208,7 @@ namespace OrmTesterDesktop.Services
             return new Tuple<double, double>(nHibernateCreateAverage, efCreateAverage);
         }
 
-        private Tuple<double, double> GetAverageCoefficientOfVariationForRelationship(List<StatisticParameter> statisticParameters, RelationshipType relationshipType)
+        private Tuple<double, double> GetAverageCoefficientOfVariationForRelationship(IEnumerable<StatisticParameter> statisticParameters, RelationshipType relationshipType)
         {
             return this.GetAverageCoefficientOfVariationForFrameworks(statisticParameters.Where(param => param.RelationshipType == relationshipType));
         }
