@@ -117,11 +117,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AllTests" xml:space="preserve">
+    <value>Wszystkie testy</value>
+  </data>
   <data name="AppMode" xml:space="preserve">
     <value>Wybierz tryb działania aplikacji</value>
   </data>
+  <data name="AverageCreate" xml:space="preserve">
+    <value>Wykres średnich czasów wykonania operacji CREATE</value>
+  </data>
+  <data name="AverageDelete" xml:space="preserve">
+    <value>Wykres średnich czasów wykonania operacji DELETE</value>
+  </data>
+  <data name="AverageUpdate" xml:space="preserve">
+    <value>Wykres średnich czasów wykonania operacji UPDATE</value>
+  </data>
   <data name="Bulk" xml:space="preserve">
     <value>Grupowy</value>
+  </data>
+  <data name="CoVCreate" xml:space="preserve">
+    <value>Wykres średnich współczynników zmienności dla operacji CREATE</value>
+  </data>
+  <data name="CoVDelete" xml:space="preserve">
+    <value>Wykres średnich współczynników zmienności dla operacji DELETE</value>
+  </data>
+  <data name="CoVUpdate" xml:space="preserve">
+    <value>Wykres średnich współczynników zmienności dla operacji UPDATE</value>
   </data>
   <data name="CreateOperation" xml:space="preserve">
     <value>Operacja dodawania</value>
@@ -152,6 +173,9 @@
   </data>
   <data name="GenerateDiagram" xml:space="preserve">
     <value>Wygeneruj wykres</value>
+  </data>
+  <data name="GenerateLabel" xml:space="preserve">
+    <value>Wygeneruj</value>
   </data>
   <data name="LoadFile" xml:space="preserve">
     <value>Załaduj plik testu</value>
@@ -185,6 +209,21 @@
   </data>
   <data name="Repetitions" xml:space="preserve">
     <value>Powtórzenia</value>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>Wynik, ms</value>
+  </data>
+  <data name="SaveChart" xml:space="preserve">
+    <value>Zapisz wykres</value>
+  </data>
+  <data name="SDCreate" xml:space="preserve">
+    <value>Wykres średnich odchyleń standardowych dla operacji CREATE</value>
+  </data>
+  <data name="SDDelete" xml:space="preserve">
+    <value>Wykres średnich odchyleń standardowych dla operacji DELETE</value>
+  </data>
+  <data name="SDUpdate" xml:space="preserve">
+    <value>Wykres średnich odchyleń standardowych dla operacji UPDATE</value>
   </data>
   <data name="Single" xml:space="preserve">
     <value>Pojedynczy</value>
