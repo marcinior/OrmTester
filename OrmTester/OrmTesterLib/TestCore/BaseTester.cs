@@ -9,6 +9,7 @@ namespace OrmTesterLib.TestCore
     {
         private readonly TestParametersBuilder testParametersBuilder;
         private readonly TestParameters testParameters;
+        private ITestOperations testOperations;
 
         protected BaseTester(TestParametersBuilder testParametersBuilder)
         {
@@ -18,6 +19,7 @@ namespace OrmTesterLib.TestCore
 
         public List<TestResult> RunTests(ITestOperations testOperations)
         {
+            this.testOperations = testOperations;
             List<TestResult> testResults = new List<TestResult>();
 
             if (testParameters.SingleCreateNoRelationship?.Item1 == true)
@@ -184,6 +186,7 @@ namespace OrmTesterLib.TestCore
                 testResults.Add(testResult);
             }
 
+            this.testOperations.TruncateDatabase();
             return testResults;
         }
     }

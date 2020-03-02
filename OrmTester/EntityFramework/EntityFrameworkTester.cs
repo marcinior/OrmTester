@@ -15,6 +15,11 @@ namespace EntityFramework
         public EntityFrameworkTester(TestParametersBuilder testParametersBuilder) : base(testParametersBuilder)
         {
             db = new EfDbContext();
+            TruncateDatabase();
+        }
+
+        public void TruncateDatabase()
+        {
             db.Indexes.RemoveRange(db.Indexes);
             db.Classes.RemoveRange(db.Classes);
             db.StudentSubjects.RemoveRange(db.StudentSubjects);
