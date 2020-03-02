@@ -27,12 +27,7 @@ namespace NHibernateTester
 
             _sessionFactory = cfg.BuildSessionFactory();
             session = _sessionFactory.OpenSession();
-            session.Delete("from StudentSubject");
-            session.Delete("from Student");
-            session.Delete("from Class");
-            session.Delete("from Index");
-            session.Delete("from Subject");            
-            session.Flush();
+            TruncateDatabase();
         }
 
         public TimeSpan BulkCreateManyToMany()
@@ -563,6 +558,16 @@ namespace NHibernateTester
         public void Dispose()
         {
             session.Dispose();
+        }
+
+        public void TruncateDatabase()
+        {
+            session.Delete("from StudentSubject");
+            session.Delete("from Student");
+            session.Delete("from Class");
+            session.Delete("from Index");
+            session.Delete("from Subject");
+            session.Flush();
         }
 
         ~NHibernateTestOperations()

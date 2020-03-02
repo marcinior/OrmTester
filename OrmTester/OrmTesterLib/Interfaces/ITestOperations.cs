@@ -51,5 +51,7 @@ namespace OrmTesterLib.Interfaces
         TimeSpan BulkDeleteOneToMany();
 
         TimeSpan BulkDeleteManyToMany();
+
+        void TruncateDatabase();
     }
 }
