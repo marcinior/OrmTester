@@ -1,5 +1,6 @@
 ﻿using EntityFramework;
 using NHibernateTester;
+using OrmTesterDesktop.Services;
 using OrmTesterDesktop.Views;
 using OrmTesterLib.IOService;
 using OrmTesterLib.StatisticParametersCalculator;
@@ -68,10 +69,8 @@ namespace OrmTesterDesktop
 
             Task.Factory.StartNew(() =>
             {
-                string efConnectionString = ConfigurationManager.ConnectionStrings["efConnectionString"].ConnectionString;
-                string nhConnectionString = ConfigurationManager.ConnectionStrings["nhConnectionString"].ConnectionString;
-                var entityFrameworkTester = new EntityFrameworkTester(builder,efConnectionString);
-                var nHibernateTester = new NHibernateTestOperations(builder, nhConnectionString);
+                var entityFrameworkTester = new EntityFrameworkTester(builder);
+                var nHibernateTester = new NHibernateTestOperations(builder);
                 ViewModel.EFResults = entityFrameworkTester.RunTests(entityFrameworkTester);
                 ViewModel.NHibernateResults = nHibernateTester.RunTests(nHibernateTester);
                 StatisticParametersCalculator stat = new StatisticParametersCalculator(CultureInfo.CurrentUICulture);
@@ -82,6 +81,10 @@ namespace OrmTesterDesktop
                     {
                         button1.IsEnabled = true;
                     }
+                    ChartGenerationHelper service = new ChartGenerationHelper
+                    {
+                        StatisticParameters = this.ViewModel.TestResults
+                    };
                 });
             });            
         }
@@ -510,6 +513,11 @@ namespace OrmTesterDesktop
                 (OneToManyDelete.IsChecked == true && (OneToManyDeleteBulk.IsChecked == true || OneToManyDeleteSingle.IsChecked == true)) ||
                 (OneToOneDelete.IsChecked == true && (OneToOneDeleteBulk.IsChecked == true || OneToOneDeleteSingle.IsChecked == true)) ||
                 (NoneRelationshipDelete.IsChecked == true && (NoneRelationshipDeleteBulk.IsChecked == true || NoneRelationshipDeleteSingle.IsChecked == true));
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

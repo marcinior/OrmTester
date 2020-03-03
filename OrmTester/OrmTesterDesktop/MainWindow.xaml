@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrmTesterDesktop"
         xmlns:p="clr-namespace:OrmTesterDesktop.Properties"
+        xmlns:lib="clr-namespace:OrmTesterLib.Enums;assembly=OrmTesterLib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1600">
+        Title="MainWindow" Height="700" Width="1600">
     <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -14,6 +15,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="520"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <ScrollViewer>
             
@@ -131,7 +133,8 @@
                 </WrapPanel>
             </Grid>
         </ScrollViewer>
-        
+
+
         <ScrollViewer Grid.Row="0" Grid.Column="1">
             <DataGrid ItemsSource="{Binding ViewModel.TestResults}" Width="Auto" AutoGenerateColumns="False">
                 <DataGrid.Columns>
@@ -146,5 +149,24 @@
                 </DataGrid.Columns>
             </DataGrid>
         </ScrollViewer>
+
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <Label Content="{x:Static p:Resources.GenerateLabel}"/>
+            <WrapPanel>
+                <Button Content="{x:Static p:Resources.AverageCreate}" Command="{Binding ViewModel.AverageCommand}" CommandParameter="{x:Static lib:OperationType.Create}" IsEnabled="{Binding ViewModel.AreCreateButtonsAvailable}"/>
+                <Button Content="{x:Static p:Resources.AverageDelete}" Command="{Binding ViewModel.AverageCommand}" CommandParameter="{x:Static lib:OperationType.Delete}" IsEnabled="{Binding ViewModel.AreDeleteButtonsAvailable}"/>
+                <Button Content="{x:Static p:Resources.AverageUpdate}" Command="{Binding ViewModel.AverageCommand}" CommandParameter="{x:Static lib:OperationType.Update}" IsEnabled="{Binding ViewModel.AreUpdateButtonsAvailable}"/>
+            </WrapPanel>
+            <WrapPanel>
+                <Button Content="{x:Static p:Resources.SDCreate}" Command="{Binding ViewModel.SDCommand}" CommandParameter="{x:Static lib:OperationType.Create}" IsEnabled="{Binding ViewModel.AreCreateButtonsAvailable}"/>
+                <Button Content="{x:Static p:Resources.SDDelete}" Command="{Binding ViewModel.SDCommand}" CommandParameter="{x:Static lib:OperationType.Delete}" IsEnabled="{Binding ViewModel.AreDeleteButtonsAvailable}"/>
+                <Button Content="{x:Static p:Resources.SDUpdate}" Command="{Binding ViewModel.SDCommand}" CommandParameter="{x:Static lib:OperationType.Update}" IsEnabled="{Binding ViewModel.AreUpdateButtonsAvailable}"/>
+            </WrapPanel>
+            <WrapPanel>
+                <Button Content="{x:Static p:Resources.CoVCreate}" Command="{Binding ViewModel.CoVCommand}" CommandParameter="{x:Static lib:OperationType.Create}" IsEnabled="{Binding ViewModel.AreCreateButtonsAvailable}"/>
+                <Button Content="{x:Static p:Resources.CoVDelete}" Command="{Binding ViewModel.CoVCommand}" CommandParameter="{x:Static lib:OperationType.Delete}" IsEnabled="{Binding ViewModel.AreDeleteButtonsAvailable}"/>
+                <Button Content="{x:Static p:Resources.CoVUpdate}" Command="{Binding ViewModel.CoVCommand}" CommandParameter="{x:Static lib:OperationType.Update}" IsEnabled="{Binding ViewModel.AreUpdateButtonsAvailable}"/>
+            </WrapPanel>
+        </StackPanel>
     </Grid>
 </Window>

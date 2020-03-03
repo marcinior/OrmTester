@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OrmTesterLib.Enums;
+using System;
 
 namespace OrmTesterLib.StatisticParametersCalculator
 {
@@ -20,5 +21,11 @@ namespace OrmTesterLib.StatisticParametersCalculator
         public double EfCoefficentOfVariation { get; set; }
 
         public double NHibernateCoefficentOfVariation { get; set; }
+
+        public bool IsBulk { get; set; }
+
+        public RelationshipType RelationshipType { get; set; }
+
+        public OperationType OperationType { get; set; }
     }
 }

@@ -1,5 +1,7 @@
-﻿using FluentAssertions;
+﻿using EntityFramework;
+using FluentAssertions;
 using Moq;
+using NHibernateTester;
 using NUnit.Framework;
 using OrmTesterLib.Enums;
 using OrmTesterLib.Interfaces;
@@ -24,13 +26,13 @@ namespace Tests
 
             Assert.AreEqual(true, testParameters.BulkCreateManyToMany.Item1);
             Assert.AreEqual(15, testParameters.BulkCreateManyToMany.Item2);
-            Assert.AreEqual(true, testParameters.SingleCreateOneToOne);
+            Assert.AreEqual(true, testParameters.SingleCreateOneToOne.Item1);
             Assert.AreEqual(true, testParameters.BulkDeleteOneToOne.Item1);
             Assert.AreEqual(10, testParameters.BulkDeleteOneToOne.Item2);
         }
 
         [Test]
-        public void BaseTesterTest()
+        public void EntityFrameworkTest()
         {
             Mock<ITestOperations> sampleOrmImplementation = new Mock<ITestOperations>();
             sampleOrmImplementation
@@ -46,7 +48,33 @@ namespace Tests
                 .TestSingleCreateNoRelationship(2)
                 .TestBulkUpdateOneToOne(3);
 
-            BaseTester baseTester = new BaseTester(testParametersBuilder);
+            EntityFrameworkTester baseTester = new EntityFrameworkTester(testParametersBuilder);
+
+            var results = baseTester.RunTests(sampleOrmImplementation.Object);
+
+            results.Should().HaveCount(5)
+                .And.Contain(tr => tr.IsBulkTest == false && tr.OperationType == OperationType.Create && tr.RelationshipType == RelationshipType.None && tr.ExecutionTime.TotalMilliseconds == 120)
+                .And.Contain(tr => tr.IsBulkTest == true && tr.OperationType == OperationType.Update && tr.RelationshipType == RelationshipType.OneToOne && tr.ExecutionTime.TotalMilliseconds == 150);
+        }
+
+        [Test]
+        public void NHibernateTest()
+        {
+            Mock<ITestOperations> sampleOrmImplementation = new Mock<ITestOperations>();
+            sampleOrmImplementation
+                .Setup(o => o.SingleCreateWithoutRelationship())
+                .Returns(new TimeSpan(0, 0, 0, 0, 120));
+
+            sampleOrmImplementation
+                .Setup(o => o.BulkUpdateOneToOne())
+                .Returns(new TimeSpan(0, 0, 0, 0, 150));
+
+            TestParametersBuilder testParametersBuilder = new TestParametersBuilder();
+            testParametersBuilder
+                .TestSingleCreateNoRelationship(2)
+                .TestBulkUpdateOneToOne(3);
+
+            NHibernateTestOperations baseTester = new NHibernateTestOperations(testParametersBuilder);
 
             var results = baseTester.RunTests(sampleOrmImplementation.Object);
 

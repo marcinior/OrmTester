@@ -1,4 +1,7 @@
-﻿using OrmTesterLib.StatisticParametersCalculator;
+﻿using OrmTesterDesktop.Commands;
+using OrmTesterDesktop.Services;
+using OrmTesterLib.Enums;
+using OrmTesterLib.StatisticParametersCalculator;
 using OrmTesterLib.TestCore;
 using System;
 using System.Collections.Generic;
@@ -14,13 +17,26 @@ namespace OrmTesterDesktop
     {
         public MainWindowViewModel()
         {
-            this.TestResults = new List<StatisticParameter>();
+            this.chartGenerator = new ChartGenerationHelper();
+            this.TestResults = new List<StatisticParameter>();            
+            this.AverageCommand = new CreateChartCommand(chartGenerator.GenerateAverageBarChart);
+            this.SDCommand = new CreateChartCommand(chartGenerator.GenerateStandardDeviationBarChart);
+            this.CoVCommand = new CreateChartCommand(chartGenerator.GenerateCoefficentOfVariationBarChart);
         }
+
+        public bool AreCreateButtonsAvailable { get => this.TestResults.Any(test => test.OperationType == OperationType.Create); }
+        public bool AreUpdateButtonsAvailable { get => this.TestResults.Any(test => test.OperationType == OperationType.Update); }
+        public bool AreDeleteButtonsAvailable { get => this.TestResults.Any(test => test.OperationType == OperationType.Delete); }
+
+        public CreateChartCommand AverageCommand { get; set; }
+        public CreateChartCommand SDCommand { get; set; }
+        public CreateChartCommand CoVCommand { get; set; }
 
         private List<StatisticParameter> testResults;
         public List<TestResult> NHibernateResults { get; set; }
         public List<TestResult> EFResults { get; set; }
         private bool isExecuteButtonActive;
+        private ChartGenerationHelper chartGenerator;
 
         public List<StatisticParameter> TestResults
         {
@@ -28,7 +44,11 @@ namespace OrmTesterDesktop
             set
             {
                 testResults = value;
+                this.chartGenerator.StatisticParameters = value;
                 NotifyPropertyChanged(nameof(TestResults));
+                NotifyPropertyChanged(nameof(AreCreateButtonsAvailable));
+                NotifyPropertyChanged(nameof(AreUpdateButtonsAvailable));
+                NotifyPropertyChanged(nameof(AreDeleteButtonsAvailable));
             }
         }
 
