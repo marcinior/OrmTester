@@ -41,9 +41,9 @@ namespace OrmTesterDesktop.Services
 
             foreach (var relation in Enum.GetValues(typeof(RelationshipType)).Cast<RelationshipType>())
             {
-                if (createParameters.Any())
-                {
-                    var averageForRelationship = GetAverageForRelationship(createParameters, relation);
+                var averageForRelationship = GetAverageForRelationship(createParameters, relation);
+                if (averageForRelationship != null)
+                {                    
                     nHibernateResults.Add(averageForRelationship.Item1);
                     efResults.Add(averageForRelationship.Item2);
                     if (LabelsForRelationship.TryGetValue(relation, out var label))
@@ -79,7 +79,7 @@ namespace OrmTesterDesktop.Services
         {
             var updateParameters = GetParamsByOperation(type);
 
-            var fullAverage = GetAverageForFrameworks(updateParameters);
+            var fullAverage = GetAverageStandardDeviationForFrameworks(updateParameters);
 
             var nHibernateResults = new ChartValues<double>();
             var efResults = new ChartValues<double>();
@@ -92,9 +92,9 @@ namespace OrmTesterDesktop.Services
 
             foreach (var relation in Enum.GetValues(typeof(RelationshipType)).Cast<RelationshipType>())
             {
-                if (updateParameters.Any()) 
-                { 
-                    var averageForRelationship = GetAverageStandardDeviationForRelationship(updateParameters, relation);
+                var averageForRelationship = GetAverageStandardDeviationForRelationship(updateParameters, relation);
+                if (averageForRelationship != null) 
+                {                    
                     nHibernateResults.Add(averageForRelationship.Item1);
                     efResults.Add(averageForRelationship.Item2);
                     if (LabelsForRelationship.TryGetValue(relation, out var label))
@@ -130,7 +130,7 @@ namespace OrmTesterDesktop.Services
         {
             var updateParameters = GetParamsByOperation(type);
 
-            var fullAverage = GetAverageForFrameworks(updateParameters);
+            var fullAverage = GetAverageCoefficientOfVariationForFrameworks(updateParameters);
 
             var nHibernateResults = new ChartValues<double>();
             var efResults = new ChartValues<double>();
@@ -143,9 +143,9 @@ namespace OrmTesterDesktop.Services
 
             foreach (var relation in Enum.GetValues(typeof(RelationshipType)).Cast<RelationshipType>())
             {
-                if(updateParameters.Any())
-                {
-                    var averageForRelationship = GetAverageCoefficientOfVariationForRelationship(updateParameters, relation);
+                var averageForRelationship = GetAverageCoefficientOfVariationForRelationship(updateParameters, relation);
+                if(averageForRelationship != null)
+                {                    
                     nHibernateResults.Add(averageForRelationship.Item1);
                     efResults.Add(averageForRelationship.Item2);
                     if (LabelsForRelationship.TryGetValue(relation, out var label))
@@ -189,10 +189,16 @@ namespace OrmTesterDesktop.Services
 
         private Tuple<double,double> GetAverageForFrameworks(IEnumerable<StatisticParameter> statisticParameters)
         {
-
-            var nHibernateCreateAverage = statisticParameters.Average(createParameter => createParameter.NHibernateAverage);
-            var efCreateAverage = statisticParameters.Average(createParameter => createParameter.EfAverage);
-            return new Tuple<double, double>(nHibernateCreateAverage, efCreateAverage);
+            if (statisticParameters.Any())
+            {
+                var nHibernateCreateAverage = statisticParameters.Average(createParameter => createParameter.NHibernateAverage);
+                var efCreateAverage = statisticParameters.Average(createParameter => createParameter.EfAverage);
+                return new Tuple<double, double>(nHibernateCreateAverage, efCreateAverage);
+            }
+            else
+            {
+                return null;
+            }
         }
 
         private Tuple<double, double> GetAverageStandardDeviationForRelationship(IEnumerable<StatisticParameter> statisticParameters, RelationshipType relationshipType)
@@ -202,10 +208,16 @@ namespace OrmTesterDesktop.Services
 
         private Tuple<double, double> GetAverageStandardDeviationForFrameworks(IEnumerable<StatisticParameter> statisticParameters)
         {
-
-            var nHibernateCreateAverage = statisticParameters.Average(createParameter => createParameter.NHibernateStandardDeviation);
-            var efCreateAverage = statisticParameters.Average(createParameter => createParameter.EfStandardDeviation);
-            return new Tuple<double, double>(nHibernateCreateAverage, efCreateAverage);
+            if (statisticParameters.Any())
+            {
+                var nHibernateCreateAverage = statisticParameters.Average(createParameter => createParameter.NHibernateStandardDeviation);
+                var efCreateAverage = statisticParameters.Average(createParameter => createParameter.EfStandardDeviation);
+                return new Tuple<double, double>(nHibernateCreateAverage, efCreateAverage);
+            }
+            else
+            {
+                return null;
+            }
         }
 
         private Tuple<double, double> GetAverageCoefficientOfVariationForRelationship(IEnumerable<StatisticParameter> statisticParameters, RelationshipType relationshipType)
@@ -215,10 +227,16 @@ namespace OrmTesterDesktop.Services
 
         private Tuple<double, double> GetAverageCoefficientOfVariationForFrameworks(IEnumerable<StatisticParameter> statisticParameters)
         {
-
-            var nHibernateCreateAverage = statisticParameters.Average(createParameter => createParameter.NHibernateStandardDeviation);
-            var efCreateAverage = statisticParameters.Average(createParameter => createParameter.EfStandardDeviation);
-            return new Tuple<double, double>(nHibernateCreateAverage, efCreateAverage);
+            if (statisticParameters.Any())
+            {
+                var nHibernateCreateAverage = statisticParameters.Average(createParameter => createParameter.NHibernateCoefficentOfVariation);
+                var efCreateAverage = statisticParameters.Average(createParameter => createParameter.EfCoefficentOfVariation);
+                return new Tuple<double, double>(nHibernateCreateAverage, efCreateAverage);
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
