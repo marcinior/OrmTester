@@ -22,19 +22,11 @@ namespace EntityFramework
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Student>()
-                .HasIndex(s => s.Pesel)
-                .IsUnique(true);
-
-            builder.Entity<Student>()
                 .HasOne(s => s.Index)
                 .WithOne(i => i.Student)
                 .HasForeignKey<Student>(s => s.IndexForeignKey)
                 .IsRequired(false)
                 .OnDelete(DeleteBehavior.SetNull);
-
-            builder.Entity<Index>()
-                .HasIndex(i => i.IndexNumber)
-                .IsUnique(true);
 
             builder.Entity<Student>()
                 .HasOne(s => s.Class)
