@@ -7,8 +7,8 @@
         xmlns:p="clr-namespace:OrmTesterDesktop.Properties"
         xmlns:lib="clr-namespace:OrmTesterLib.Enums;assembly=OrmTesterLib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="1600">
-    <Grid >
+        Title="Orm Tester - Test Results" Height="700" Width="1600" ShowInTaskbar="False">
+    <Grid Background="#FF5CDB95" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>

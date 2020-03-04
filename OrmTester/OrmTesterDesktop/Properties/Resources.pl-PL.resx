@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AllTests" xml:space="preserve">
-    <value>Wszystkie testy</value>
+    <value>Wszystkie Testy</value>
   </data>
   <data name="AppMode" xml:space="preserve">
     <value>Wybierz tryb działania aplikacji</value>
@@ -133,7 +133,7 @@
     <value>Wykres średnich czasów wykonania operacji UPDATE</value>
   </data>
   <data name="Bulk" xml:space="preserve">
-    <value>Grupowy</value>
+    <value>Masowy</value>
   </data>
   <data name="CoVCreate" xml:space="preserve">
     <value>Wykres średnich współczynników zmienności dla operacji CREATE</value>
