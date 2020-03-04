@@ -5,9 +5,8 @@ using OrmTesterDesktop.Views;
 using OrmTesterLib.IOService;
 using OrmTesterLib.StatisticParametersCalculator;
 using OrmTesterLib.TestCore;
-using System;
-using System.Configuration;
 using System.Globalization;
+using System.IO;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,14 +23,14 @@ namespace OrmTesterDesktop
     {
         public MainWindowViewModel ViewModel { get; set; }
         private OrmTesterIOService ioService;
-        
+
         public MainWindow()
         {
             ioService = new OrmTesterIOService(CultureInfo.CurrentUICulture);
             var appView = new ChooseApplicationModeView();
             ViewModel = new MainWindowViewModel();
             appView.ShowDialog();
-            if(appView.DialogResult == false)
+            if (appView.DialogResult == false)
             {
                 this.Close();
             }
@@ -40,7 +39,7 @@ namespace OrmTesterDesktop
             {
                 this.ViewModel.TestResults = ioService.LoadTestFromFile(appView.FilePath);
             }
-            
+
             DataContext = this;
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
@@ -55,7 +54,7 @@ namespace OrmTesterDesktop
 
         private void ExecuteTestsButton_Click(object sender, RoutedEventArgs e)
         {
-            if(sender is CButton button)
+            if (sender is CButton button)
             {
                 button.IsEnabled = false;
             }
@@ -86,7 +85,7 @@ namespace OrmTesterDesktop
                         StatisticParameters = this.ViewModel.TestResults
                     };
                 });
-            });            
+            });
         }
 
         private void GatherCreateOperations(TestParametersBuilder builder)
@@ -215,7 +214,7 @@ namespace OrmTesterDesktop
                 }
             }
         }
-        
+
         private void GatherDeleteOperations(TestParametersBuilder builder)
         {
             GatherDeleteManyToManyOperation(builder);
@@ -342,7 +341,7 @@ namespace OrmTesterDesktop
                 }
             }
         }
-        
+
         private void GatherUpdateOperations(TestParametersBuilder builder)
         {
             GatherUpdateManyToManyOperation(builder);
@@ -473,12 +472,7 @@ namespace OrmTesterDesktop
 
         private void ExportToFileButton_Click(object sender, RoutedEventArgs e)
         {
-            var dialog = new FolderBrowserDialog();
-            var dialogResult = dialog.ShowDialog();
-            if(dialogResult == System.Windows.Forms.DialogResult.OK)
-            {
-                ioService.SaveTestToFile(dialog.SelectedPath, ViewModel.TestResults);
-            }
+            ioService.SaveTestToFile(Directory.GetCurrentDirectory(), ViewModel.TestResults);
         }
 
         private void ExportToCsvButton_Click(object sender, RoutedEventArgs e)

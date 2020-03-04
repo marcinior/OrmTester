@@ -211,7 +211,7 @@
     <value>Powtórzenia</value>
   </data>
   <data name="Result" xml:space="preserve">
-    <value>Wynik, ms</value>
+    <value>Czas wykonania [ms]</value>
   </data>
   <data name="SaveChart" xml:space="preserve">
     <value>Zapisz wykres</value>

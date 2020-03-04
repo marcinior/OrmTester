@@ -340,7 +340,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Result, ms.
+        ///   Looks up a localized string similar to Execution time [ms].
         /// </summary>
         public static string Result {
             get {
