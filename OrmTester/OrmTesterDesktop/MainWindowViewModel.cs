@@ -2,6 +2,7 @@
 using OrmTesterDesktop.Services;
 using OrmTesterLib.Enums;
 using OrmTesterLib.StatisticParametersCalculator;
+using OrmTesterLib.TestCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,6 +33,8 @@ namespace OrmTesterDesktop
         public CreateChartCommand CoVCommand { get; set; }
 
         private List<StatisticParameter> testResults;
+        public List<TestResult> NHibernateResults { get; set; }
+        public List<TestResult> EFResults { get; set; }
         private bool isExecuteButtonActive;
         private ChartGenerationHelper chartGenerator;
 
