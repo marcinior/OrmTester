@@ -40,7 +40,7 @@ namespace OrmTesterLib.IOService
             string currentDayTestDirectory = testDirectoryPath + "\\" + string.Format(CurrentDayTestDirectoryPattern, DateTime.Now.ToString("dd-MM-yyyy"));
 
             Directory.CreateDirectory(currentDayTestDirectory);
-            string filePath = testDirectoryPath + "\\" + string.Format(CurrentDayTestFilePattern, DateTime.Now.ToString("dd_MM_yyyy_HH_mm"));
+            string filePath = currentDayTestDirectory + "\\" + string.Format(CurrentDayTestFilePattern, DateTime.Now.ToString("dd_MM_yyyy_HH_mm"));
 
             using (FileStream fs = new FileStream(filePath, FileMode.Create))
             {
