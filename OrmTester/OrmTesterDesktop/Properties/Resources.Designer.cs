@@ -79,7 +79,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CREATE Average Chart.
+        ///   Looks up a localized string similar to CREATE Operation Average Chart.
         /// </summary>
         public static string AverageCreate {
             get {
@@ -88,7 +88,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DELETE Average Chart.
+        ///   Looks up a localized string similar to DELETE Operation Average Chart.
         /// </summary>
         public static string AverageDelete {
             get {
@@ -97,7 +97,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to UPDATE Average Chart.
+        ///   Looks up a localized string similar to UPDATE Operation Average Chart.
         /// </summary>
         public static string AverageUpdate {
             get {
@@ -115,7 +115,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CREATE Average Coefficent of Variation Chart.
+        ///   Looks up a localized string similar to CREATE Operation Average Coefficent of Variation Chart.
         /// </summary>
         public static string CoVCreate {
             get {
@@ -124,7 +124,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DELETE Average Coefficent of Variation Chart.
+        ///   Looks up a localized string similar to DELETE Operation Average Coefficent of Variation Chart.
         /// </summary>
         public static string CoVDelete {
             get {
@@ -133,7 +133,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to UPDATE Average Coefficent of Variation Chart.
+        ///   Looks up a localized string similar to UPDATE Operation Average Coefficent of Variation Chart.
         /// </summary>
         public static string CoVUpdate {
             get {
@@ -358,7 +358,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CREATE Average Standard Deviation Chart.
+        ///   Looks up a localized string similar to CREATE Operation Average Standard Deviation Chart.
         /// </summary>
         public static string SDCreate {
             get {
@@ -367,7 +367,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DELETE Average Standard Deviation Chart.
+        ///   Looks up a localized string similar to DELETE Operation Average Standard Deviation Chart.
         /// </summary>
         public static string SDDelete {
             get {
@@ -376,7 +376,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to UPDATE Average Standard Deviation Chart.
+        ///   Looks up a localized string similar to UPDATE Operation Average Standard Deviation Chart.
         /// </summary>
         public static string SDUpdate {
             get {

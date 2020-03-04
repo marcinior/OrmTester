@@ -124,25 +124,25 @@
     <value>Choose application mode</value>
   </data>
   <data name="AverageCreate" xml:space="preserve">
-    <value>CREATE Average Chart</value>
+    <value>CREATE Operation Average Chart</value>
   </data>
   <data name="AverageDelete" xml:space="preserve">
-    <value>DELETE Average Chart</value>
+    <value>DELETE Operation Average Chart</value>
   </data>
   <data name="AverageUpdate" xml:space="preserve">
-    <value>UPDATE Average Chart</value>
+    <value>UPDATE Operation Average Chart</value>
   </data>
   <data name="Bulk" xml:space="preserve">
     <value>Bulk</value>
   </data>
   <data name="CoVCreate" xml:space="preserve">
-    <value>CREATE Average Coefficent of Variation Chart</value>
+    <value>CREATE Operation Average Coefficent of Variation Chart</value>
   </data>
   <data name="CoVDelete" xml:space="preserve">
-    <value>DELETE Average Coefficent of Variation Chart</value>
+    <value>DELETE Operation Average Coefficent of Variation Chart</value>
   </data>
   <data name="CoVUpdate" xml:space="preserve">
-    <value>UPDATE Average Coefficent of Variation Chart</value>
+    <value>UPDATE Operation Average Coefficent of Variation Chart</value>
   </data>
   <data name="CreateOperation" xml:space="preserve">
     <value>Create Operation</value>
@@ -217,13 +217,13 @@
     <value>Save Chart</value>
   </data>
   <data name="SDCreate" xml:space="preserve">
-    <value>CREATE Average Standard Deviation Chart</value>
+    <value>CREATE Operation Average Standard Deviation Chart</value>
   </data>
   <data name="SDDelete" xml:space="preserve">
-    <value>DELETE Average Standard Deviation Chart</value>
+    <value>DELETE Operation Average Standard Deviation Chart</value>
   </data>
   <data name="SDUpdate" xml:space="preserve">
-    <value>UPDATE Average Standard Deviation Chart</value>
+    <value>UPDATE Operation Average Standard Deviation Chart</value>
   </data>
   <data name="Single" xml:space="preserve">
     <value>Single</value>
