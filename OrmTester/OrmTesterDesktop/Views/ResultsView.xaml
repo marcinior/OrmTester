@@ -1,0 +1,57 @@
+﻿<Window x:Class="OrmTesterDesktop.Views.ResultsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OrmTesterDesktop.Views"
+        xmlns:p="clr-namespace:OrmTesterDesktop.Properties"        
+        xmlns:lib="clr-namespace:OrmTesterLib.Enums;assembly=OrmTesterLib"
+        mc:Ignorable="d"
+        Title="ResultsView" Height="Auto" Width="Auto">
+    <Grid Background="#FF5CDB95">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer Grid.Row="0">
+            <DataGrid ItemsSource="{Binding TestResults}" Width="Auto" AutoGenerateColumns="False" Background="#FFEDF5E1" Foreground="#FF379683" EnableRowVirtualization="False" IsReadOnly="True" FontWeight="Bold" IsEnabled="False" BorderBrush="{x:Null}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{x:Static p:Resources.TestName}" Binding="{Binding TestName}"/>
+                    <DataGridTextColumn Header="{x:Static p:Resources.EfCoefficentOfVariation}" Binding="{Binding EfCoefficentOfVariation}"/>
+                    <DataGridTextColumn Header="{x:Static p:Resources.EfStandardDeviation}" Binding="{Binding EfStandardDeviation}"/>
+                    <DataGridTextColumn Header="{x:Static p:Resources.EfAverage}" Binding="{Binding EfAverage}"/>
+                    <DataGridTextColumn Header="{x:Static p:Resources.Difference}" Binding="{Binding Difference}"/>
+                    <DataGridTextColumn Header="{x:Static p:Resources.NHibernateAverage}" Binding="{Binding NHibernateAverage}"/>
+                    <DataGridTextColumn Header="{x:Static p:Resources.NHibernateStandardDeviation}" Binding="{Binding NHibernateStandardDeviation}"/>
+                    <DataGridTextColumn Header="{x:Static p:Resources.NHibernateCoefficentOfVariation}" Binding="{Binding NHibernateCoefficentOfVariation}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="{x:Static p:Resources.CreateOperation}" Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Center"/>
+            <Label Content="{x:Static p:Resources.DeleteOperation}" Grid.Row="0" Grid.Column="1" HorizontalContentAlignment="Center"/>
+            <Label Content="{x:Static p:Resources.UpdateOperation}" Grid.Row="0" Grid.Column="2" HorizontalContentAlignment="Center"/>
+            <Button Content="{x:Static p:Resources.AverageChart}" Command="{Binding AverageCommand}" CommandParameter="{x:Static lib:OperationType.Create}" IsEnabled="{Binding AreCreateButtonsAvailable}" Grid.Row="1" Grid.Column="0"/>
+            <Button Content="{x:Static p:Resources.AverageChart}" Command="{Binding AverageCommand}" CommandParameter="{x:Static lib:OperationType.Delete}" IsEnabled="{Binding AreDeleteButtonsAvailable}" Grid.Row="1" Grid.Column="1"/>
+            <Button Content="{x:Static p:Resources.AverageChart}" Command="{Binding AverageCommand}" CommandParameter="{x:Static lib:OperationType.Update}" IsEnabled="{Binding AreUpdateButtonsAvailable}" Grid.Row="1" Grid.Column="2"/>
+            <Button Content="{x:Static p:Resources.SDChart}" Command="{Binding SDCommand}" CommandParameter="{x:Static lib:OperationType.Create}" IsEnabled="{Binding AreCreateButtonsAvailable}" Grid.Row="2" Grid.Column="0"/>
+            <Button Content="{x:Static p:Resources.SDChart}" Command="{Binding SDCommand}" CommandParameter="{x:Static lib:OperationType.Delete}" IsEnabled="{Binding AreDeleteButtonsAvailable}" Grid.Row="2" Grid.Column="1"/>
+            <Button Content="{x:Static p:Resources.SDChart}" Command="{Binding SDCommand}" CommandParameter="{x:Static lib:OperationType.Update}" IsEnabled="{Binding AreUpdateButtonsAvailable}" Grid.Row="2" Grid.Column="2"/>
+            <Button Content="{x:Static p:Resources.CoVChart}" Command="{Binding CoVCommand}" CommandParameter="{x:Static lib:OperationType.Create}" IsEnabled="{Binding AreCreateButtonsAvailable}" Grid.Row="3" Grid.Column="0"/>
+            <Button Content="{x:Static p:Resources.CoVChart}" Command="{Binding CoVCommand}" CommandParameter="{x:Static lib:OperationType.Delete}" IsEnabled="{Binding AreDeleteButtonsAvailable}" Grid.Row="3" Grid.Column="1"/>
+            <Button Content="{x:Static p:Resources.CoVChart}" Command="{Binding CoVCommand}" CommandParameter="{x:Static lib:OperationType.Update}" IsEnabled="{Binding AreUpdateButtonsAvailable}" Grid.Row="3" Grid.Column="2"/>
+        </Grid>
+    </Grid>
+</Window>

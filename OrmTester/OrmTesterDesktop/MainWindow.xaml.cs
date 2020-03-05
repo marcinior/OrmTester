@@ -43,7 +43,6 @@ namespace OrmTesterDesktop
             DataContext = this;
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            this.WindowState = WindowState.Maximized;
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
@@ -80,10 +79,8 @@ namespace OrmTesterDesktop
                     {
                         button1.IsEnabled = true;
                     }
-                    ChartGenerationHelper service = new ChartGenerationHelper
-                    {
-                        StatisticParameters = this.ViewModel.TestResults
-                    };
+                    var view = new ResultsView(this.ViewModel);
+                    view.Show();
                 });
             });
         }
@@ -507,11 +504,6 @@ namespace OrmTesterDesktop
                 (OneToManyDelete.IsChecked == true && (OneToManyDeleteBulk.IsChecked == true || OneToManyDeleteSingle.IsChecked == true)) ||
                 (OneToOneDelete.IsChecked == true && (OneToOneDeleteBulk.IsChecked == true || OneToOneDeleteSingle.IsChecked == true)) ||
                 (NoneRelationshipDelete.IsChecked == true && (NoneRelationshipDeleteBulk.IsChecked == true || NoneRelationshipDeleteSingle.IsChecked == true));
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

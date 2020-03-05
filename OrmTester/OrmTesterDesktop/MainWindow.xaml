@@ -7,27 +7,25 @@
         xmlns:p="clr-namespace:OrmTesterDesktop.Properties"
         xmlns:lib="clr-namespace:OrmTesterLib.Enums;assembly=OrmTesterLib"
         mc:Ignorable="d"
-        Title="Orm Tester - Test Results" Height="700" Width="1600" ShowInTaskbar="False" ResizeMode="NoResize">
-    <Grid Background="#FF5CDB95" >
+        Title="Orm Tester - Test Results" Height="500" Width="400">
+    <Grid Background="#FF5CDB95">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="520"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ScrollViewer>
-            
-            <Grid Grid.Row="0" Grid.Column="0">
+
+        <Grid Height="Auto" Width="Auto" Grid.Row="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Row="0" Grid.Column="0">
                     <Label Content="{x:Static p:Resources.CreateOperation}"/>
@@ -125,48 +123,12 @@
                         <TextBox x:Name="NoneRelationshipUpdateRepetitionsSingle" PreviewTextInput="NumberValidationTextBox" IsEnabled="{Binding ElementName=NoneRelationshipUpdateSingle, Path=IsChecked}" Text="{x:Static p:Resources.Repetitions}"/>
                     </StackPanel>
                 </StackPanel>
-                <WrapPanel Grid.Row="1" Grid.ColumnSpan="3">
+
+            </Grid>
+            <WrapPanel Grid.Row="1">
                     <Button Content="{x:Static p:Resources.ExecuteTest}" Click="ExecuteTestsButton_Click" IsEnabled="{Binding ViewModel.IsExecuteButtonActive}"/>
                     <Button Content="{x:Static p:Resources.ExportToFile}" Click="ExportToFileButton_Click"/>
                     <Button Content="{x:Static p:Resources.ExportToCSV}" Click="ExportToCsvButton_Click"/>
-                
-                </WrapPanel>
-            </Grid>
-        </ScrollViewer>
-
-
-        <ScrollViewer Grid.Row="0" Grid.Column="1">
-            <DataGrid ItemsSource="{Binding ViewModel.TestResults}" Width="Auto" AutoGenerateColumns="False" Background="#FFEDF5E1" Foreground="#FF379683" EnableRowVirtualization="False" IsReadOnly="True" FontWeight="Bold" IsEnabled="False" BorderBrush="{x:Null}">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="{x:Static p:Resources.TestName}" Binding="{Binding TestName}"/>
-                    <DataGridTextColumn Header="{x:Static p:Resources.EfCoefficentOfVariation}" Binding="{Binding EfCoefficentOfVariation}"/>
-                    <DataGridTextColumn Header="{x:Static p:Resources.EfStandardDeviation}" Binding="{Binding EfStandardDeviation}"/>
-                    <DataGridTextColumn Header="{x:Static p:Resources.EfAverage}" Binding="{Binding EfAverage}"/>
-                    <DataGridTextColumn Header="{x:Static p:Resources.Difference}" Binding="{Binding Difference}"/>
-                    <DataGridTextColumn Header="{x:Static p:Resources.NHibernateAverage}" Binding="{Binding NHibernateAverage}"/>
-                    <DataGridTextColumn Header="{x:Static p:Resources.NHibernateStandardDeviation}" Binding="{Binding NHibernateStandardDeviation}"/>
-                    <DataGridTextColumn Header="{x:Static p:Resources.NHibernateCoefficentOfVariation}" Binding="{Binding NHibernateCoefficentOfVariation}"/>
-                </DataGrid.Columns>
-            </DataGrid>
-        </ScrollViewer>
-
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="10,0,208,0.4">
-            <Label Content="{x:Static p:Resources.GenerateLabel}"/>
-            <WrapPanel>
-                <Button Content="{x:Static p:Resources.AverageCreate}" Command="{Binding ViewModel.AverageCommand}" CommandParameter="{x:Static lib:OperationType.Create}" IsEnabled="{Binding ViewModel.AreCreateButtonsAvailable}"/>
-                <Button Content="{x:Static p:Resources.AverageDelete}" Command="{Binding ViewModel.AverageCommand}" CommandParameter="{x:Static lib:OperationType.Delete}" IsEnabled="{Binding ViewModel.AreDeleteButtonsAvailable}"/>
-                <Button Content="{x:Static p:Resources.AverageUpdate}" Command="{Binding ViewModel.AverageCommand}" CommandParameter="{x:Static lib:OperationType.Update}" IsEnabled="{Binding ViewModel.AreUpdateButtonsAvailable}"/>
-            </WrapPanel>
-            <WrapPanel>
-                <Button Content="{x:Static p:Resources.SDCreate}" Command="{Binding ViewModel.SDCommand}" CommandParameter="{x:Static lib:OperationType.Create}" IsEnabled="{Binding ViewModel.AreCreateButtonsAvailable}"/>
-                <Button Content="{x:Static p:Resources.SDDelete}" Command="{Binding ViewModel.SDCommand}" CommandParameter="{x:Static lib:OperationType.Delete}" IsEnabled="{Binding ViewModel.AreDeleteButtonsAvailable}"/>
-                <Button Content="{x:Static p:Resources.SDUpdate}" Command="{Binding ViewModel.SDCommand}" CommandParameter="{x:Static lib:OperationType.Update}" IsEnabled="{Binding ViewModel.AreUpdateButtonsAvailable}"/>
-            </WrapPanel>
-            <WrapPanel>
-                <Button Content="{x:Static p:Resources.CoVCreate}" Command="{Binding ViewModel.CoVCommand}" CommandParameter="{x:Static lib:OperationType.Create}" IsEnabled="{Binding ViewModel.AreCreateButtonsAvailable}"/>
-                <Button Content="{x:Static p:Resources.CoVDelete}" Command="{Binding ViewModel.CoVCommand}" CommandParameter="{x:Static lib:OperationType.Delete}" IsEnabled="{Binding ViewModel.AreDeleteButtonsAvailable}"/>
-                <Button Content="{x:Static p:Resources.CoVUpdate}" Command="{Binding ViewModel.CoVCommand}" CommandParameter="{x:Static lib:OperationType.Update}" IsEnabled="{Binding ViewModel.AreUpdateButtonsAvailable}"/>
-            </WrapPanel>
-        </StackPanel>
+        </WrapPanel>        
     </Grid>
 </Window>
