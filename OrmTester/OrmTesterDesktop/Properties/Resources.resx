@@ -147,6 +147,9 @@
   <data name="CreateOperation" xml:space="preserve">
     <value>Create Operation</value>
   </data>
+  <data name="DBException" xml:space="preserve">
+    <value>An error encountered during test. Please make sure that your configuration is proper.</value>
+  </data>
   <data name="DeleteOperation" xml:space="preserve">
     <value>Delete Operation</value>
   </data>

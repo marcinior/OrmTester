@@ -1,20 +1,7 @@
 ﻿using LiveCharts;
-using OrmTesterLib.StatisticParametersCalculator;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Forms;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace OrmTesterDesktop.Views
 {
@@ -28,19 +15,19 @@ namespace OrmTesterDesktop.Views
         public Func<double, string> Formatter { get; set; }
 
         public ChartView()
-        {            
+        {
             InitializeComponent();
             DataContext = this;
             SeriesCollection = new SeriesCollection();
-            Formatter = value => value.ToString("N");            
+            Formatter = value => value.ToString("N");
         }
 
         public void SaveChart()
         {
-            using (var dialog = new SaveFileDialog()) 
+            using (var dialog = new SaveFileDialog())
             {
                 dialog.Filter = "Images (*.png)|*.png";
-                
+
                 if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     OrmTesterLib.IOService.ChartService.SaveToPng(Chart, dialog.FileName);
@@ -48,7 +35,7 @@ namespace OrmTesterDesktop.Views
             }
         }
 
-        
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

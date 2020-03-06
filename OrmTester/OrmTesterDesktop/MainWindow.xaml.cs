@@ -1,6 +1,7 @@
 ﻿using EntityFramework;
 using NHibernateTester;
 using OrmTesterDesktop.Services;
+using OrmTesterDesktop.ViewModels;
 using OrmTesterDesktop.Views;
 using OrmTesterLib.IOService;
 using OrmTesterLib.StatisticParametersCalculator;
@@ -85,6 +86,21 @@ namespace OrmTesterDesktop
                         StatisticParameters = this.ViewModel.TestResults
                     };
                 });
+            }).ContinueWith(tsk =>
+            {
+                if (tsk.Exception != null)
+                {
+                    var errorMsg = new ErrorMsgViewModel
+                    {
+                        ErrorMsg = Properties.Resources.DBException
+                    };
+
+                    this.Dispatcher.Invoke(() =>
+                    {
+                        var errorView = new ErrorMsgView(errorMsg);
+                        errorView.ShowDialog();
+                    });
+                }
             });
         }
 
