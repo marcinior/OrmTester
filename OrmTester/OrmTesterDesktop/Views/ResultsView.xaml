@@ -7,9 +7,10 @@
         xmlns:p="clr-namespace:OrmTesterDesktop.Properties"        
         xmlns:lib="clr-namespace:OrmTesterLib.Enums;assembly=OrmTesterLib"
         mc:Ignorable="d"
-        Title="ResultsView" Height="Auto" Width="Auto">
+        Title="Orm Tester - ResultsView" Height="Auto" Width="Auto" ResizeMode="NoResize">
     <Grid Background="#FF5CDB95">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -53,5 +54,9 @@
             <Button Content="{x:Static p:Resources.CoVChart}" Command="{Binding CoVCommand}" CommandParameter="{x:Static lib:OperationType.Delete}" IsEnabled="{Binding AreDeleteButtonsAvailable}" Grid.Row="3" Grid.Column="1"/>
             <Button Content="{x:Static p:Resources.CoVChart}" Command="{Binding CoVCommand}" CommandParameter="{x:Static lib:OperationType.Update}" IsEnabled="{Binding AreUpdateButtonsAvailable}" Grid.Row="3" Grid.Column="2"/>
         </Grid>
+        <WrapPanel Grid.Row="2">
+            <Button Content="{x:Static p:Resources.ExportToFile}" Click="ExportToFileButton_Click"/>
+            <Button Content="{x:Static p:Resources.ExportToCSV}" Click="ExportToCsvButton_Click"/>
+        </WrapPanel>
     </Grid>
 </Window>

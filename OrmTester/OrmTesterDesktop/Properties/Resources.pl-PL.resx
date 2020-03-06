@@ -168,6 +168,9 @@
   <data name="LoadFile" xml:space="preserve">
     <value>Załaduj plik testu</value>
   </data>
+  <data name="MainMenu" xml:space="preserve">
+    <value>Powrót do menu głównego</value>
+  </data>
   <data name="ManyToMany" xml:space="preserve">
     <value>Wiele do wielu</value>
   </data>

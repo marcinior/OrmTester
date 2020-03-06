@@ -7,8 +7,6 @@ using OrmTesterLib.StatisticParametersCalculator;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrmTesterDesktop.Services
 {
@@ -43,7 +41,7 @@ namespace OrmTesterDesktop.Services
             {
                 var averageForRelationship = GetAverageForRelationship(createParameters, relation);
                 if (averageForRelationship != null)
-                {                    
+                {
                     nHibernateResults.Add(averageForRelationship.Item1);
                     efResults.Add(averageForRelationship.Item2);
                     if (LabelsForRelationship.TryGetValue(relation, out var label))
@@ -73,7 +71,7 @@ namespace OrmTesterDesktop.Services
             chartView.SeriesCollection.Add(nHibernateSeriesCollection);
             chartView.SeriesCollection.Add(efSeriesCollection);
             chartView.ShowDialog();
-        }        
+        }
 
         public void GenerateStandardDeviationBarChart(OperationType type)
         {
@@ -93,8 +91,8 @@ namespace OrmTesterDesktop.Services
             foreach (var relation in Enum.GetValues(typeof(RelationshipType)).Cast<RelationshipType>())
             {
                 var averageForRelationship = GetAverageStandardDeviationForRelationship(updateParameters, relation);
-                if (averageForRelationship != null) 
-                {                    
+                if (averageForRelationship != null)
+                {
                     nHibernateResults.Add(averageForRelationship.Item1);
                     efResults.Add(averageForRelationship.Item2);
                     if (LabelsForRelationship.TryGetValue(relation, out var label))
@@ -125,7 +123,7 @@ namespace OrmTesterDesktop.Services
             chartView.SeriesCollection.Add(efSeriesCollection);
             chartView.ShowDialog();
         }
-        
+
         public void GenerateCoefficentOfVariationBarChart(OperationType type)
         {
             var updateParameters = GetParamsByOperation(type);
@@ -144,8 +142,8 @@ namespace OrmTesterDesktop.Services
             foreach (var relation in Enum.GetValues(typeof(RelationshipType)).Cast<RelationshipType>())
             {
                 var averageForRelationship = GetAverageCoefficientOfVariationForRelationship(updateParameters, relation);
-                if(averageForRelationship != null)
-                {                    
+                if (averageForRelationship != null)
+                {
                     nHibernateResults.Add(averageForRelationship.Item1);
                     efResults.Add(averageForRelationship.Item2);
                     if (LabelsForRelationship.TryGetValue(relation, out var label))
@@ -175,19 +173,19 @@ namespace OrmTesterDesktop.Services
             chartView.SeriesCollection.Add(nHibernateSeriesCollection);
             chartView.SeriesCollection.Add(efSeriesCollection);
             chartView.ShowDialog();
-        }        
+        }
 
         private IEnumerable<StatisticParameter> GetParamsByOperation(OperationType operationType)
         {
             return this.StatisticParameters.Where(param => param.OperationType == operationType);
         }
 
-        private Tuple<double,double> GetAverageForRelationship(IEnumerable<StatisticParameter> statisticParameters, RelationshipType relationshipType)
+        private Tuple<double, double> GetAverageForRelationship(IEnumerable<StatisticParameter> statisticParameters, RelationshipType relationshipType)
         {
             return this.GetAverageForFrameworks(statisticParameters.Where(param => param.RelationshipType == relationshipType));
         }
 
-        private Tuple<double,double> GetAverageForFrameworks(IEnumerable<StatisticParameter> statisticParameters)
+        private Tuple<double, double> GetAverageForFrameworks(IEnumerable<StatisticParameter> statisticParameters)
         {
             if (statisticParameters.Any())
             {

@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OrmTesterLib.IOService;
+using System.Globalization;
+using System.IO;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.Windows.Forms;
 
 namespace OrmTesterDesktop.Views
 {
@@ -21,6 +13,7 @@ namespace OrmTesterDesktop.Views
     {
 
         public MainWindowViewModel ViewModel { get; set; }
+        private OrmTesterIOService ioService;
         public ResultsView()
         {
             InitializeComponent();
@@ -29,6 +22,25 @@ namespace OrmTesterDesktop.Views
         {
             ViewModel = viewModel;
             this.DataContext = viewModel;
+            ioService = new OrmTesterIOService(CultureInfo.CurrentUICulture);
+        }
+
+        private void ExportToFileButton_Click(object sender, RoutedEventArgs e)
+        {
+            ioService.SaveTestToFile(Directory.GetCurrentDirectory(), ViewModel.TestResults);
+        }
+
+        private void ExportToCsvButton_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new SaveFileDialog()
+            {
+                Filter = "Excel File (*.xlsx)|*.xlsx"
+            };
+            var dialogResult = dialog.ShowDialog();
+            if (dialogResult == System.Windows.Forms.DialogResult.OK)
+            {
+                ioService.SaveTestToExcel(dialog.FileName, ViewModel.EFResults, ViewModel.NHibernateResults);
+            }
         }
     }
 }

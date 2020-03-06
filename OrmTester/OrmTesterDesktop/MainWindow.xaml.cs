@@ -1,16 +1,13 @@
 ﻿using EntityFramework;
 using NHibernateTester;
-using OrmTesterDesktop.Services;
 using OrmTesterDesktop.Views;
 using OrmTesterLib.IOService;
 using OrmTesterLib.StatisticParametersCalculator;
 using OrmTesterLib.TestCore;
 using System.Globalization;
-using System.IO;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Forms;
 using System.Windows.Input;
 using CButton = System.Windows.Controls.Button;
 
@@ -26,9 +23,17 @@ namespace OrmTesterDesktop
 
         public MainWindow()
         {
-            ioService = new OrmTesterIOService(CultureInfo.CurrentUICulture);
-            var appView = new ChooseApplicationModeView();
+            ioService = new OrmTesterIOService(CultureInfo.CurrentUICulture);            
             ViewModel = new MainWindowViewModel();
+            ShowMainWindow();
+            DataContext = this;
+            InitializeComponent();
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+        }
+
+        private void ShowMainWindow()
+        {
+            var appView = new ChooseApplicationModeView();
             appView.ShowDialog();
             if (appView.DialogResult == false)
             {
@@ -38,11 +43,9 @@ namespace OrmTesterDesktop
             if (!string.IsNullOrEmpty(appView.FilePath))
             {
                 this.ViewModel.TestResults = ioService.LoadTestFromFile(appView.FilePath);
+                var view = new ResultsView(this.ViewModel);
+                view.Show();
             }
-
-            DataContext = this;
-            InitializeComponent();
-            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
@@ -467,24 +470,6 @@ namespace OrmTesterDesktop
             }
         }
 
-        private void ExportToFileButton_Click(object sender, RoutedEventArgs e)
-        {
-            ioService.SaveTestToFile(Directory.GetCurrentDirectory(), ViewModel.TestResults);
-        }
-
-        private void ExportToCsvButton_Click(object sender, RoutedEventArgs e)
-        {
-            var dialog = new SaveFileDialog()
-            {
-                Filter = "Comma-Separated-Values (*.csv)| *.csv | Excel File (*.xlsx)|*.xlsx"
-            };
-            var dialogResult = dialog.ShowDialog();
-            if (dialogResult == System.Windows.Forms.DialogResult.OK)
-            {
-                ioService.SaveTestToExcel(dialog.FileName, ViewModel.EFResults, ViewModel.NHibernateResults);
-            }
-        }
-
         private void TestTypeCheckbox_Click(object sender, RoutedEventArgs e)
         {
             this.ViewModel.IsExecuteButtonActive = CheckIfButtonShouldBeEnabled();
@@ -504,6 +489,18 @@ namespace OrmTesterDesktop
                 (OneToManyDelete.IsChecked == true && (OneToManyDeleteBulk.IsChecked == true || OneToManyDeleteSingle.IsChecked == true)) ||
                 (OneToOneDelete.IsChecked == true && (OneToOneDeleteBulk.IsChecked == true || OneToOneDeleteSingle.IsChecked == true)) ||
                 (NoneRelationshipDelete.IsChecked == true && (NoneRelationshipDeleteBulk.IsChecked == true || NoneRelationshipDeleteSingle.IsChecked == true));
+        }
+
+        private void MainMenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            foreach(var current in App.Current.Windows)
+            {
+                if(current != this && current is Window window)
+                {
+                    window.Close();
+                }
+            }
+            ShowMainWindow();
         }
     }
 }
