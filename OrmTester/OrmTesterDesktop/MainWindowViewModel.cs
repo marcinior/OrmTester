@@ -8,8 +8,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrmTesterDesktop
 {
@@ -18,7 +16,7 @@ namespace OrmTesterDesktop
         public MainWindowViewModel()
         {
             this.chartGenerator = new ChartGenerationHelper();
-            this.TestResults = new List<StatisticParameter>();            
+            this.TestResults = new List<StatisticParameter>();
             this.AverageCommand = new CreateChartCommand(chartGenerator.GenerateAverageBarChart);
             this.SDCommand = new CreateChartCommand(chartGenerator.GenerateStandardDeviationBarChart);
             this.CoVCommand = new CreateChartCommand(chartGenerator.GenerateCoefficentOfVariationBarChart);
@@ -52,13 +50,14 @@ namespace OrmTesterDesktop
             }
         }
 
-        public bool IsExecuteButtonActive { 
-            get => isExecuteButtonActive; 
-            set 
-            { 
+        public bool IsExecuteButtonActive
+        {
+            get => isExecuteButtonActive;
+            set
+            {
                 isExecuteButtonActive = value;
                 NotifyPropertyChanged(nameof(IsExecuteButtonActive));
-            } 
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
