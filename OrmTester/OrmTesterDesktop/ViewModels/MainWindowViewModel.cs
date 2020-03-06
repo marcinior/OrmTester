@@ -1,5 +1,5 @@
 ﻿using OrmTesterDesktop.Commands;
-using OrmTesterDesktop.Services;
+using OrmTesterDesktop.Utils;
 using OrmTesterLib.Enums;
 using OrmTesterLib.StatisticParametersCalculator;
 using OrmTesterLib.TestCore;

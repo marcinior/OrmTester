@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.IO;
+using System.Windows;
 using System.Windows.Forms;
 
 namespace OrmTesterDesktop.Views
@@ -18,7 +19,8 @@ namespace OrmTesterDesktop.Views
         {
             var dialog = new OpenFileDialog
             {
-                Filter = "Test data files (*.dat)|*.dat"
+                Filter = "Test data files (*.dat)|*.dat",
+                InitialDirectory = Directory.GetCurrentDirectory()
             };
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {

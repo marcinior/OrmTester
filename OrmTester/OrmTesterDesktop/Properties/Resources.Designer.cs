@@ -79,29 +79,11 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu CREATE Operation Average Chart.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Average Chart.
         /// </summary>
-        public static string AverageCreate {
+        public static string AverageChart {
             get {
-                return ResourceManager.GetString("AverageCreate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu DELETE Operation Average Chart.
-        /// </summary>
-        public static string AverageDelete {
-            get {
-                return ResourceManager.GetString("AverageDelete", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu UPDATE Operation Average Chart.
-        /// </summary>
-        public static string AverageUpdate {
-            get {
-                return ResourceManager.GetString("AverageUpdate", resourceCulture);
+                return ResourceManager.GetString("AverageChart", resourceCulture);
             }
         }
         
@@ -115,29 +97,11 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu CREATE Operation Average Coefficent of Variation Chart.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Average Coefficent of Variation Chart.
         /// </summary>
-        public static string CoVCreate {
+        public static string CoVChart {
             get {
-                return ResourceManager.GetString("CoVCreate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu DELETE Operation Average Coefficent of Variation Chart.
-        /// </summary>
-        public static string CoVDelete {
-            get {
-                return ResourceManager.GetString("CoVDelete", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu UPDATE Operation Average Coefficent of Variation Chart.
-        /// </summary>
-        public static string CoVUpdate {
-            get {
-                return ResourceManager.GetString("CoVUpdate", resourceCulture);
+                return ResourceManager.GetString("CoVChart", resourceCulture);
             }
         }
         
@@ -259,6 +223,15 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Back to Main Menu.
+        /// </summary>
+        public static string MainMenu {
+            get {
+                return ResourceManager.GetString("MainMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Many to Many.
         /// </summary>
         public static string ManyToMany {
@@ -367,29 +340,11 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu CREATE Operation Average Standard Deviation Chart.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Average Standard Deviation Chart.
         /// </summary>
-        public static string SDCreate {
+        public static string SDChart {
             get {
-                return ResourceManager.GetString("SDCreate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu DELETE Operation Average Standard Deviation Chart.
-        /// </summary>
-        public static string SDDelete {
-            get {
-                return ResourceManager.GetString("SDDelete", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu UPDATE Operation Average Standard Deviation Chart.
-        /// </summary>
-        public static string SDUpdate {
-            get {
-                return ResourceManager.GetString("SDUpdate", resourceCulture);
+                return ResourceManager.GetString("SDChart", resourceCulture);
             }
         }
         
