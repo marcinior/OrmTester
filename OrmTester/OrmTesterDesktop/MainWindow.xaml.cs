@@ -66,6 +66,7 @@ namespace OrmTesterDesktop
 
         private void ExecuteTestsButton_Click(object sender, RoutedEventArgs e)
         {
+            this.ViewModel.UIUnlocked = false;
             if (sender is CButton button)
             {
                 button.IsEnabled = false;
@@ -101,6 +102,7 @@ namespace OrmTesterDesktop
                 {
                     this.DisplayErrorMessage(Properties.Resources.DBException);
                 }
+                this.ViewModel.UIUnlocked = true;
             });
         }
 
