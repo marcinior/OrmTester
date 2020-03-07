@@ -136,7 +136,7 @@
     <value>Operacja dodawania</value>
   </data>
   <data name="DBException" xml:space="preserve">
-    <value>Wystąpił błąd w trakcie testów. Upewnij się że twoja konfiguracja jest poprawna.</value>
+    <value>Wystąpił błąd w trakcie testów. Upewnij się, że twoja konfiguracja jest poprawna.</value>
   </data>
   <data name="DeleteOperation" xml:space="preserve">
     <value>Operacja usuwania</value>

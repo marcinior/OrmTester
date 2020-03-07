@@ -115,7 +115,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu An error encountered during test. Please make sure that your configuration is proper..
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu An error has occurred during test. Please make sure that your configuration is proper..
         /// </summary>
         public static string DBException {
             get {
