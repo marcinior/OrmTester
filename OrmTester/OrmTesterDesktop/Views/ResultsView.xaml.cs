@@ -1,4 +1,6 @@
-﻿using OrmTesterLib.IOService;
+﻿using OrmTesterDesktop.ViewModels;
+using OrmTesterLib.IOService;
+using System;
 using System.Globalization;
 using System.IO;
 using System.Windows;
@@ -27,20 +29,48 @@ namespace OrmTesterDesktop.Views
 
         private void ExportToFileButton_Click(object sender, RoutedEventArgs e)
         {
-            ioService.SaveTestToFile(Directory.GetCurrentDirectory(), ViewModel.TestResults);
+            try
+            {
+                ioService.SaveTestToFile(Directory.GetCurrentDirectory(), ViewModel.TestResults);
+            }
+            catch(Exception ex)
+            {
+                this.DisplayErrorMessage(ex.Message);
+            }
         }
 
         private void ExportToCsvButton_Click(object sender, RoutedEventArgs e)
         {
-            var dialog = new SaveFileDialog()
+            try
             {
-                Filter = "Excel File (*.xlsx)|*.xlsx"
-            };
-            var dialogResult = dialog.ShowDialog();
-            if (dialogResult == System.Windows.Forms.DialogResult.OK)
-            {
-                ioService.SaveTestToExcel(dialog.FileName, ViewModel.EFResults, ViewModel.NHibernateResults);
+                var dialog = new SaveFileDialog()
+                {
+                    Filter = "Excel File (*.xlsx)|*.xlsx"
+                };
+                var dialogResult = dialog.ShowDialog();
+                if (dialogResult == System.Windows.Forms.DialogResult.OK)
+                {
+                    ioService.SaveTestToExcel(dialog.FileName, ViewModel.EFResults, ViewModel.NHibernateResults);
+                }
             }
+            catch (Exception ex)
+            {
+                DisplayErrorMessage(ex.Message);
+            }
+        }
+
+        private void DisplayErrorMessage(string message)
+        {
+            var errorMsg = new ErrorMsgViewModel
+            {
+                ErrorMsg = message
+            };
+
+            this.Dispatcher.Invoke(() =>
+            {
+                var errorView = new ErrorMsgView(errorMsg);
+                errorView.ShowDialog();
+            });
         }
     }
 }

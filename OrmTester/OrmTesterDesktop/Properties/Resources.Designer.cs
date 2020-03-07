@@ -115,6 +115,15 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu An error has occurred during test. Please make sure that your configuration is proper..
+        /// </summary>
+        public static string DBException {
+            get {
+                return ResourceManager.GetString("DBException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Delete Operation.
         /// </summary>
         public static string DeleteOperation {
