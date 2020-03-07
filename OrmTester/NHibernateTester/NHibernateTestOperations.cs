@@ -189,10 +189,12 @@ namespace NHibernateTester
                 foreach (var student in students)
                 {
                     foreach (var studentSubject in student.StudentSubject)
-                    {
+                    {                        
                         session.Delete(studentSubject);
                     }
+                    student.StudentSubject.Clear();
                 }
+                subjects.ForEach(subject => subject.StudentSubject.Clear());
                 var watch = new Stopwatch();
                 watch.Start();
                 transaction.Commit();
@@ -266,6 +268,7 @@ namespace NHibernateTester
                 {
                     session.Delete(student);
                 }
+                @class.Student.Clear();
                 var watch = new Stopwatch();
                 watch.Start();
                 transaction.Commit();
