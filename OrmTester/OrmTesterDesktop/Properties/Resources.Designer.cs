@@ -187,6 +187,15 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Export results to Excel operation was successful..
+        /// </summary>
+        public static string ExportToExcelSuccess {
+            get {
+                return ResourceManager.GetString("ExportToExcelSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Save Statistics.
         /// </summary>
         public static string ExportToFile {
@@ -336,6 +345,15 @@ namespace OrmTesterDesktop.Properties {
         public static string SaveChart {
             get {
                 return ResourceManager.GetString("SaveChart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Saving results file was successful..
+        /// </summary>
+        public static string SaveFileSuccess {
+            get {
+                return ResourceManager.GetString("SaveFileSuccess", resourceCulture);
             }
         }
         
