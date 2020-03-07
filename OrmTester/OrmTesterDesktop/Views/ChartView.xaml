@@ -7,8 +7,8 @@
         xmlns:local="clr-namespace:OrmTesterDesktop.Views"
         mc:Ignorable="d"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-        Title="ChartView" Height="450" Width="800">
-    <Grid>
+        Title="ChartView" Height="450" Width="800" ResizeMode="NoResize">
+    <Grid Background="#FF5CDB95">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>

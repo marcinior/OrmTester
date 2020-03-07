@@ -71,6 +71,9 @@
     <Compile Include="Views\ChooseApplicationModeView.xaml.cs">
       <DependentUpon>ChooseApplicationModeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ResultsView.xaml.cs">
+      <DependentUpon>ResultsView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -88,6 +91,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ChooseApplicationModeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ResultsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -123,26 +123,14 @@
   <data name="AppMode" xml:space="preserve">
     <value>Choose application mode</value>
   </data>
-  <data name="AverageCreate" xml:space="preserve">
-    <value>CREATE Operation Average Chart</value>
-  </data>
-  <data name="AverageDelete" xml:space="preserve">
-    <value>DELETE Operation Average Chart</value>
-  </data>
-  <data name="AverageUpdate" xml:space="preserve">
-    <value>UPDATE Operation Average Chart</value>
+  <data name="AverageChart" xml:space="preserve">
+    <value>Average Chart</value>
   </data>
   <data name="Bulk" xml:space="preserve">
     <value>Bulk</value>
   </data>
-  <data name="CoVCreate" xml:space="preserve">
-    <value>CREATE Operation Average Coefficent of Variation Chart</value>
-  </data>
-  <data name="CoVDelete" xml:space="preserve">
-    <value>DELETE Operation Average Coefficent of Variation Chart</value>
-  </data>
-  <data name="CoVUpdate" xml:space="preserve">
-    <value>UPDATE Operation Average Coefficent of Variation Chart</value>
+  <data name="CoVChart" xml:space="preserve">
+    <value>Average Coefficent of Variation Chart</value>
   </data>
   <data name="CreateOperation" xml:space="preserve">
     <value>Create Operation</value>
@@ -180,6 +168,9 @@
   <data name="LoadFile" xml:space="preserve">
     <value>Load File</value>
   </data>
+  <data name="MainMenu" xml:space="preserve">
+    <value>Back to Main Menu</value>
+  </data>
   <data name="ManyToMany" xml:space="preserve">
     <value>Many to Many</value>
   </data>
@@ -216,14 +207,8 @@
   <data name="SaveChart" xml:space="preserve">
     <value>Save Chart</value>
   </data>
-  <data name="SDCreate" xml:space="preserve">
-    <value>CREATE Operation Average Standard Deviation Chart</value>
-  </data>
-  <data name="SDDelete" xml:space="preserve">
-    <value>DELETE Operation Average Standard Deviation Chart</value>
-  </data>
-  <data name="SDUpdate" xml:space="preserve">
-    <value>UPDATE Operation Average Standard Deviation Chart</value>
+  <data name="SDChart" xml:space="preserve">
+    <value>Average Standard Deviation Chart</value>
   </data>
   <data name="Single" xml:space="preserve">
     <value>Single</value>
