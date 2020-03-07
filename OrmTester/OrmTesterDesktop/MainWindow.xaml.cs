@@ -1,9 +1,11 @@
 ﻿using EntityFramework;
 using NHibernateTester;
+using OrmTesterDesktop.ViewModels;
 using OrmTesterDesktop.Views;
 using OrmTesterLib.IOService;
 using OrmTesterLib.StatisticParametersCalculator;
 using OrmTesterLib.TestCore;
+using System;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -42,10 +44,17 @@ namespace OrmTesterDesktop
 
             if (!string.IsNullOrEmpty(appView.FilePath))
             {
-                this.ViewModel.TestResults = ioService.LoadTestFromFile(appView.FilePath);
-                var view = new ResultsView(this.ViewModel);
-                view.Show();
-                this.Close();
+                try
+                {
+                    this.ViewModel.TestResults = ioService.LoadTestFromFile(appView.FilePath);
+                    var view = new ResultsView(this.ViewModel);
+                    view.Show();
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    this.DisplayErrorMessage(ex.Message);
+                }
             }
         }
 
@@ -86,6 +95,26 @@ namespace OrmTesterDesktop
                     var view = new ResultsView(this.ViewModel);
                     view.Show();
                 });
+            }).ContinueWith(tsk =>
+            {
+                if (tsk.Exception != null)
+                {
+                    this.DisplayErrorMessage(Properties.Resources.DBException);
+                }
+            });
+        }
+
+        private void DisplayErrorMessage(string message)
+        {
+            var errorMsg = new ErrorMsgViewModel
+            {
+                ErrorMsg = message
+            };
+
+            this.Dispatcher.Invoke(() =>
+            {
+                var errorView = new ErrorMsgView(errorMsg);
+                errorView.ShowDialog();
             });
         }
 
