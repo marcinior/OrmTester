@@ -19,6 +19,7 @@ namespace OrmTesterDesktop.Views
         public ResultsView()
         {
             InitializeComponent();
+            this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
         }
         public ResultsView(MainWindowViewModel viewModel) : this()
         {

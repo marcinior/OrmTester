@@ -49,6 +49,7 @@ namespace OrmTesterDesktop
                     this.ViewModel.TestResults = ioService.LoadTestFromFile(appView.FilePath);
                     var view = new ResultsView(this.ViewModel);
                     view.Show();
+                    this.Close();
                 }
                 catch (Exception ex)
                 {
