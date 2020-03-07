@@ -61,6 +61,11 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
+        <Style x:Key="LabelCustomStyle" TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style x:Key="StackPanelCustomStyle" TargetType="StackPanel">
+            <Setter Property="Margin" Value="10,0,10,0"/>
+        </Style>
     </Application.Resources>
 </Application>

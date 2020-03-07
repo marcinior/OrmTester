@@ -133,7 +133,7 @@ namespace OrmTesterLib.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to None.
+        ///   Looks up a localized string similar to None Relationship.
         /// </summary>
         internal static string None {
             get {

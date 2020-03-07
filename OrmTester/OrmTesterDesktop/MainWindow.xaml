@@ -27,8 +27,8 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <StackPanel Grid.Row="0" Grid.Column="0" Margin="10,0,20,0">
-                    <Label Content="{x:Static p:Resources.CreateOperation}" FontWeight="Bold"/>
+                <StackPanel Grid.Row="0" Grid.Column="0" Style="{StaticResource StackPanelCustomStyle}">
+                    <Label Content="{x:Static p:Resources.CreateOperation}" Style="{StaticResource LabelCustomStyle}"/>
                     <Label Content="{x:Static p:Resources.RelationshipType}"/>
                     <CheckBox x:Name="ManyToMany" Content="{x:Static p:Resources.ManyToMany}" Click="TestTypeCheckbox_Click"/>
                     <StackPanel Margin="15,0,0,0" IsEnabled="{Binding ElementName=ManyToMany, Path=IsChecked}">
@@ -59,8 +59,8 @@
                     <TextBox x:Name="NoneRepetitionsSingle" PreviewTextInput="NumberValidationTextBox" IsEnabled="{Binding ElementName=NoneSingle, Path=IsChecked}" ToolTip="{x:Static p:Resources.Repetitions}"/>
                     </StackPanel>
                 </StackPanel>
-                <StackPanel Grid.Row="0" Grid.Column="1" Margin="0,0,20,0">
-                    <Label Content="{x:Static p:Resources.DeleteOperation}" FontWeight="Bold"/>
+                <StackPanel Grid.Row="0" Grid.Column="1" Style="{StaticResource StackPanelCustomStyle}">
+                <Label Content="{x:Static p:Resources.DeleteOperation}" Style="{StaticResource LabelCustomStyle}"/>
                     <Label Content="{x:Static p:Resources.RelationshipType}"/>
                     <CheckBox x:Name="ManyToManyDelete" Content="{x:Static p:Resources.ManyToMany}" Click="TestTypeCheckbox_Click"/>
                     <StackPanel Margin="15,0,0,0" IsEnabled="{Binding ElementName=ManyToManyDelete, Path=IsChecked}">
@@ -91,8 +91,8 @@
                     <TextBox x:Name="NoneRelationshipDeleteRepetitionsSingle" PreviewTextInput="NumberValidationTextBox" IsEnabled="{Binding ElementName=NoneRelationshipDeleteSingle, Path=IsChecked}" ToolTip="{x:Static p:Resources.Repetitions}"/>
                     </StackPanel>
                 </StackPanel>
-                <StackPanel Grid.Row="0" Grid.Column="2">
-                    <Label Content="{x:Static p:Resources.UpdateOperation}" FontWeight="Bold"/>
+                <StackPanel Grid.Row="0" Grid.Column="2" Style="{StaticResource StackPanelCustomStyle}">
+                <Label Content="{x:Static p:Resources.UpdateOperation}" Style="{StaticResource LabelCustomStyle}"/>
                     <Label Content="{x:Static p:Resources.RelationshipType}"/>
                     <CheckBox x:Name="ManyToManyUpdate" Content="{x:Static p:Resources.ManyToMany}" Click="TestTypeCheckbox_Click"/>
                     <StackPanel Margin="15,0,0,0" IsEnabled="{Binding ElementName=ManyToManyUpdate, Path=IsChecked}">
@@ -126,7 +126,7 @@
 
             </Grid>
             <WrapPanel Margin="10,29.6,0,25.4" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button Content="{x:Static p:Resources.ExecuteTest}" Click="ExecuteTestsButton_Click" IsEnabled="{Binding ViewModel.IsExecuteButtonActive}" Margin="0,0,30,0" Width="175" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Content="{x:Static p:Resources.ExecuteTest}" Click="ExecuteTestsButton_Click" IsEnabled="{Binding ViewModel.IsExecuteButtonActive}" Margin="0,0,25,0" Width="165" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <Button Content="{x:Static p:Resources.MainMenu}" Click="MainMenuButton_Click" IsEnabled="True" Height="41" Width="160" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         </WrapPanel>        
     </Grid>
