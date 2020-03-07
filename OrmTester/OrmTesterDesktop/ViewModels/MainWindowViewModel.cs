@@ -35,6 +35,7 @@ namespace OrmTesterDesktop
         public List<TestResult> EFResults { get; set; }
         private bool isExecuteButtonActive;
         private ChartGenerationHelper chartGenerator;
+        private bool uiUnlocked = true;
 
         public List<StatisticParameter> TestResults
         {
@@ -57,6 +58,16 @@ namespace OrmTesterDesktop
             {
                 isExecuteButtonActive = value;
                 NotifyPropertyChanged(nameof(IsExecuteButtonActive));
+            }
+        }
+
+        public bool UIUnlocked
+        {
+            get => uiUnlocked; 
+            set
+            {
+                uiUnlocked = value;
+                NotifyPropertyChanged(nameof(UIUnlocked));
             }
         }
 

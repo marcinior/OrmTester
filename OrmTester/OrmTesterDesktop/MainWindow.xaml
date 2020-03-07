@@ -6,9 +6,14 @@
         xmlns:local="clr-namespace:OrmTesterDesktop"
         xmlns:p="clr-namespace:OrmTesterDesktop.Properties"
         xmlns:lib="clr-namespace:OrmTesterLib.Enums;assembly=OrmTesterLib"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:converters="clr-namespace:OrmTesterDesktop.Converters"
         mc:Ignorable="d"
         Title="Orm Tester - Test Parameters" Height="500" Width="400" ResizeMode="NoResize">
     <Grid Background="#FF5CDB95">
+        <Grid.Resources>
+            <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        </Grid.Resources>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
@@ -16,8 +21,8 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
-        <Grid Height="Auto" Width="Auto" Grid.Row="0">
+        <fa:ImageAwesome Icon="Refresh" Spin="True" Height="48" Width="48" Panel.ZIndex="2" Visibility="{Binding ViewModel.UIUnlocked, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+        <Grid Height="Auto" Width="Auto" Grid.Row="0" IsEnabled="{Binding ViewModel.UIUnlocked}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
