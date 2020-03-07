@@ -9,6 +9,12 @@
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         Title="ChartView" Height="450" Width="800" ResizeMode="NoResize">
     <Grid Background="#FF5CDB95">
+        <Grid.Resources>
+            <Style TargetType="lvc:Separator">
+                <Setter Property="StrokeThickness" Value="1"></Setter>
+                <Setter Property="Stroke" Value="#FF43709D"></Setter>
+            </Style>
+        </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
