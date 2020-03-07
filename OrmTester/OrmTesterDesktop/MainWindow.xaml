@@ -78,9 +78,9 @@
                     </StackPanel>
                     <CheckBox x:Name="OneToOneDelete" Content="{x:Static p:Resources.OneToOne}" Click="TestTypeCheckbox_Click"/>
                     <StackPanel Margin="15,0,0,0" IsEnabled="{Binding ElementName=OneToOneDelete, Path=IsChecked}">
-                    <CheckBox x:Name="OneToOneDeleteBulk" Content="{x:Static p:Resources.Bulk}" Click="TestTypeCheckbox_Click" IsChecked="{Binding ElementName=OneToManyDelete, Path=IsChecked, Mode=OneWay}"/>
+                    <CheckBox x:Name="OneToOneDeleteBulk" Content="{x:Static p:Resources.Bulk}" Click="TestTypeCheckbox_Click" IsChecked="{Binding ElementName=OneToOneDelete, Path=IsChecked, Mode=OneWay}"/>
                     <TextBox x:Name="OneToOneDeleteRepetitionsBulk" PreviewTextInput="NumberValidationTextBox" IsEnabled="{Binding ElementName=OneToOneDeleteBulk, Path=IsChecked}" ToolTip="{x:Static p:Resources.Repetitions}"/>
-                    <CheckBox x:Name="OneToOneDeleteSingle" Content="{x:Static p:Resources.Single}" Click="TestTypeCheckbox_Click" IsChecked="{Binding ElementName=OneToManyDelete, Path=IsChecked, Mode=OneWay}"/>
+                    <CheckBox x:Name="OneToOneDeleteSingle" Content="{x:Static p:Resources.Single}" Click="TestTypeCheckbox_Click" IsChecked="{Binding ElementName=OneToOneDelete, Path=IsChecked, Mode=OneWay}"/>
                     <TextBox x:Name="OneToOneDeleteRepetitionsSingle" PreviewTextInput="NumberValidationTextBox" IsEnabled="{Binding ElementName=OneToOneDeleteSingle, Path=IsChecked}" ToolTip="{x:Static p:Resources.Repetitions}"/>
                     </StackPanel>
                     <CheckBox x:Name="NoneRelationshipDelete" Content="{x:Static p:Resources.None}" Click="TestTypeCheckbox_Click"/>
