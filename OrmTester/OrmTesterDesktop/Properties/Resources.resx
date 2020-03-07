@@ -213,6 +213,9 @@
   <data name="SaveChart" xml:space="preserve">
     <value>Save Chart</value>
   </data>
+  <data name="SaveChartSuccess" xml:space="preserve">
+    <value>Save chart operation was successful.</value>
+  </data>
   <data name="SaveFileSuccess" xml:space="preserve">
     <value>Saving results file was successful.</value>
   </data>

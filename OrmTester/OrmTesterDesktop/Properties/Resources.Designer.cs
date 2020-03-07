@@ -349,6 +349,15 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Save chart operation was successful..
+        /// </summary>
+        public static string SaveChartSuccess {
+            get {
+                return ResourceManager.GetString("SaveChartSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Saving results file was successful..
         /// </summary>
         public static string SaveFileSuccess {

@@ -1,4 +1,5 @@
 ﻿using LiveCharts;
+using OrmTesterDesktop.ViewModels;
 using System;
 using System.Windows;
 using System.Windows.Forms;
@@ -29,13 +30,33 @@ namespace OrmTesterDesktop.Views
                 dialog.Filter = "Images (*.png)|*.png";
 
                 if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
-                    OrmTesterLib.IOService.ChartService.SaveToPng(Chart, dialog.FileName);
+                {                    
+                    try
+                    {
+                        OrmTesterLib.IOService.ChartService.SaveToPng(Chart, dialog.FileName);
+                        this.DisplayMessage(Properties.Resources.SaveChartSuccess);
+                    }
+                    catch (Exception ex)
+                    {
+                        this.DisplayMessage(ex.Message);
+                    }
                 }
             }
         }
 
+        private void DisplayMessage(string message)
+        {
+            var errorMsg = new ErrorMsgViewModel
+            {
+                ErrorMsg = message
+            };
 
+            this.Dispatcher.Invoke(() =>
+            {
+                var errorView = new ErrorMsgView(errorMsg);
+                errorView.ShowDialog();
+            });
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
