@@ -217,7 +217,7 @@
     <value>Save chart operation was successful.</value>
   </data>
   <data name="SaveFileSuccess" xml:space="preserve">
-    <value>Saving results file was successful.</value>
+    <value>Save results operation file was successful.</value>
   </data>
   <data name="SDChart" xml:space="preserve">
     <value>Average Standard Deviation Chart</value>

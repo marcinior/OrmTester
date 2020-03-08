@@ -358,7 +358,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Saving results file was successful..
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Save results operation file was successful..
         /// </summary>
         public static string SaveFileSuccess {
             get {
