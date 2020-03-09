@@ -96,8 +96,7 @@ namespace OrmTesterLib.IOService
                     worksheet.Cells["A1"].Style.Font.Bold = true;
                     worksheet.Cells["B1"].Value = nhWorksheetHeader;
                     worksheet.Cells["B1"].Style.Font.Bold = true;
-                    worksheet.Cells["A2"].LoadFromCollection(efGroupedResults[i].Item2.Select(tr => tr.ExecutionTime.TotalMilliseconds.ToString()));
-                    worksheet.Cells["B2"].LoadFromCollection(nHiberanateGroupedResults[i].Item2.Select(tr => tr.ExecutionTime.TotalMilliseconds.ToString()));
+                    PopulateTestResults(worksheet, efGroupedResults[i].Item2, nHiberanateGroupedResults[i].Item2);
                     worksheet.Cells.AutoFitColumns();
                 }
 
@@ -106,6 +105,15 @@ namespace OrmTesterLib.IOService
 
                 FileInfo fileInfo = new FileInfo(path);
                 excel.SaveAs(fileInfo);
+            }
+        }
+
+        private void PopulateTestResults(ExcelWorksheet worksheet, IList<TestResult> efTestResults, IList<TestResult> nHibernateTestResults)
+        {
+            for(int i = 0; i < efTestResults.Count; i++)
+            {
+                worksheet.Cells[$"A{i + 2}"].Value = Convert.ToDecimal(efTestResults[i].ExecutionTime.TotalMilliseconds);
+                worksheet.Cells[$"B{i + 2}"].Value = Convert.ToDecimal(nHibernateTestResults[i].ExecutionTime.TotalMilliseconds);
             }
         }
     }
