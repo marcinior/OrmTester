@@ -162,6 +162,9 @@
   <data name="ExportToCSV" xml:space="preserve">
     <value>Wyeksportuj do excela</value>
   </data>
+  <data name="ExportToExcelSuccess" xml:space="preserve">
+    <value>Eksport wyników do Excela został zakończony sukcesem.</value>
+  </data>
   <data name="ExportToFile" xml:space="preserve">
     <value>Wyeksportuj do pliku</value>
   </data>
@@ -212,6 +215,12 @@
   </data>
   <data name="SaveChart" xml:space="preserve">
     <value>Zapisz wykres</value>
+  </data>
+  <data name="SaveChartSuccess" xml:space="preserve">
+    <value>Zapis wykresu został zakończony sukcesem.</value>
+  </data>
+  <data name="SaveFileSuccess" xml:space="preserve">
+    <value>Zapis wyników do pliku został zakończony sukcesem.</value>
   </data>
   <data name="SDChart" xml:space="preserve">
     <value>Wykres średnich odchyleń standardowych</value>
