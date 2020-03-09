@@ -192,6 +192,9 @@
   <data name="None" xml:space="preserve">
     <value>Brak</value>
   </data>
+  <data name="Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
   <data name="OneToMany" xml:space="preserve">
     <value>Jeden do wielu</value>
   </data>

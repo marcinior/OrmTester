@@ -3,11 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:OrmTesterDesktop.Views"
+        xmlns:local="clr-namespace:OrmTesterDesktop.Views"   
+        xmlns:p="clr-namespace:OrmTesterDesktop.Properties"
         mc:Ignorable="d"
-        Title="Orm tester - Error Window" Height="200" Width="500">
+        Title="Orm Tester - Message Window" Height="200" Width="600">
     <Grid Background="#FF5CDB95">
         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding ErrorMsg}"/>
-        <Button Content="Ok" Click="Button_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 15 15" Width="50"/>
+        <Button Content="{x:Static p:Resources.Ok}" Click="Button_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,14.6,10.4" Width="89" Height="22"/>
     </Grid>
 </Window>

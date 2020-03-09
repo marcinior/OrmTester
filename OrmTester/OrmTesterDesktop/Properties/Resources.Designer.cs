@@ -286,6 +286,15 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        public static string Ok {
+            get {
+                return ResourceManager.GetString("Ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to One to Many.
         /// </summary>
         public static string OneToMany {
