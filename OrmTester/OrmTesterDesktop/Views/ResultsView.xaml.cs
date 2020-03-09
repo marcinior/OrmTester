@@ -33,10 +33,11 @@ namespace OrmTesterDesktop.Views
             try
             {
                 ioService.SaveTestToFile(Directory.GetCurrentDirectory(), ViewModel.TestResults);
+                this.DisplayMessage(Properties.Resources.SaveFileSuccess);
             }
             catch(Exception ex)
             {
-                this.DisplayErrorMessage(ex.Message);
+                this.DisplayMessage(ex.Message);
             }
         }
 
@@ -52,15 +53,16 @@ namespace OrmTesterDesktop.Views
                 if (dialogResult == System.Windows.Forms.DialogResult.OK)
                 {
                     ioService.SaveTestToExcel(dialog.FileName, ViewModel.EFResults, ViewModel.NHibernateResults);
+                    this.DisplayMessage(Properties.Resources.ExportToExcelSuccess);
                 }
             }
             catch (Exception ex)
             {
-                DisplayErrorMessage(ex.Message);
+                DisplayMessage(ex.Message);
             }
         }
 
-        private void DisplayErrorMessage(string message)
+        private void DisplayMessage(string message)
         {
             var errorMsg = new ErrorMsgViewModel
             {

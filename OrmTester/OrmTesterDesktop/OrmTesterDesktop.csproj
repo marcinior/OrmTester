@@ -81,8 +81,8 @@
     <Compile Include="Views\ChooseApplicationModeView.xaml.cs">
       <DependentUpon>ChooseApplicationModeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ErrorMsgView.xaml.cs">
-      <DependentUpon>ErrorMsgView.xaml</DependentUpon>
+    <Compile Include="Views\MessgeView.xaml.cs">
+      <DependentUpon>MessgeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ResultsView.xaml.cs">
       <DependentUpon>ResultsView.xaml</DependentUpon>
@@ -107,7 +107,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ErrorMsgView.xaml">
+    <Page Include="Views\MessgeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

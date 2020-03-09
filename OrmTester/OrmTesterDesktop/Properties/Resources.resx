@@ -162,6 +162,9 @@
   <data name="ExportToCSV" xml:space="preserve">
     <value>Export Tests To Excel</value>
   </data>
+  <data name="ExportToExcelSuccess" xml:space="preserve">
+    <value>Export results to Excel operation was successful.</value>
+  </data>
   <data name="ExportToFile" xml:space="preserve">
     <value>Save Statistics</value>
   </data>
@@ -212,6 +215,12 @@
   </data>
   <data name="SaveChart" xml:space="preserve">
     <value>Save Chart</value>
+  </data>
+  <data name="SaveChartSuccess" xml:space="preserve">
+    <value>Save chart operation was successful.</value>
+  </data>
+  <data name="SaveFileSuccess" xml:space="preserve">
+    <value>Save results operation file was successful.</value>
   </data>
   <data name="SDChart" xml:space="preserve">
     <value>Average Standard Deviation Chart</value>
