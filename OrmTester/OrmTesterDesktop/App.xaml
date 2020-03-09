@@ -67,5 +67,9 @@
         <Style x:Key="StackPanelCustomStyle" TargetType="StackPanel">
             <Setter Property="Margin" Value="10,0,10,0"/>
         </Style>
+        <Style x:Key="CustomButtonResultView" TargetType="Button">
+            <Setter Property="Width" Value="230"/>
+            <Setter Property="Height" Value="35"/>
+        </Style>
     </Application.Resources>
 </Application>

@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:OrmTesterDesktop.Views"
         mc:Ignorable="d"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-        Title="ChartView" Height="450" Width="800" ResizeMode="NoResize">
+        Title="Orm Tester - Chart View" Height="450" Width="800" ResizeMode="NoResize">
     <Grid Background="#FF5CDB95">
         <Grid.Resources>
             <Style TargetType="lvc:Separator">
@@ -20,14 +20,14 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <WrapPanel Grid.Row="0">
-            <Button Click="Button_Click" Content="{x:Static p:Resources.SaveChart}"></Button>
+            <Button Click="Button_Click" Content="{x:Static p:Resources.SaveChart}" Height="35" Width="80" Margin="10,10,0,10"></Button>
         </WrapPanel>
         <lvc:CartesianChart x:Name="Chart" Series="{Binding SeriesCollection}" LegendLocation="Left" Grid.Row="1">
             <lvc:CartesianChart.AxisX>
-                <lvc:Axis Title="{x:Static p:Resources.RelationshipType}" Labels="{Binding Labels}"></lvc:Axis>
+                <lvc:Axis Title="{x:Static p:Resources.RelationshipType}" Labels="{Binding Labels}" Foreground="#FF43709D"></lvc:Axis>
             </lvc:CartesianChart.AxisX>
             <lvc:CartesianChart.AxisY>
-                <lvc:Axis Title="{x:Static p:Resources.Result}" LabelFormatter="{Binding Formatter}"></lvc:Axis>
+                <lvc:Axis Title="{x:Static p:Resources.Result}" LabelFormatter="{Binding Formatter}" Foreground="#FF43709D"></lvc:Axis>
             </lvc:CartesianChart.AxisY>
         </lvc:CartesianChart>
     </Grid>

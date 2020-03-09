@@ -7,14 +7,18 @@
         xmlns:p="clr-namespace:OrmTesterDesktop.Properties"        
         xmlns:lib="clr-namespace:OrmTesterLib.Enums;assembly=OrmTesterLib"
         mc:Ignorable="d"
-        Title="Orm Tester - ResultsView" Height="Auto" Width="Auto" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+        Title="Orm Tester - ResultsView" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid Background="#FF5CDB95">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ScrollViewer Grid.Row="0">
+        <GroupBox Header="{x:Static p:Resources.UpdateOperation}" HorizontalAlignment="Left" Height="190" Margin="620,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="300" Grid.RowSpan="2" FontWeight="Bold"/>
+
+        <GroupBox Header="{x:Static p:Resources.CreateOperation}" HorizontalAlignment="Left" Height="190" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="250" Grid.RowSpan="2" FontWeight="Bold"/>
+
+        <ScrollViewer Grid.Row="0" Height="500">
             <DataGrid ItemsSource="{Binding TestResults}" Width="Auto" AutoGenerateColumns="False" Background="#FFEDF5E1" Foreground="#FF379683" EnableRowVirtualization="False" IsReadOnly="True" FontWeight="Bold" IsEnabled="False" BorderBrush="{x:Null}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="{x:Static p:Resources.TestName}" Binding="{Binding TestName}"/>
@@ -28,8 +32,7 @@
                 </DataGrid.Columns>
             </DataGrid>
         </ScrollViewer>
-
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Margin="20,25,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -39,24 +42,24 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="108.4"/>
+                <ColumnDefinition Width="222"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Label Content="{x:Static p:Resources.CreateOperation}" Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Center"/>
-            <Label Content="{x:Static p:Resources.DeleteOperation}" Grid.Row="0" Grid.Column="1" HorizontalContentAlignment="Center"/>
-            <Label Content="{x:Static p:Resources.UpdateOperation}" Grid.Row="0" Grid.Column="2" HorizontalContentAlignment="Center"/>
-            <Button Content="{x:Static p:Resources.AverageChart}" Command="{Binding AverageCommand}" CommandParameter="{x:Static lib:OperationType.Create}" IsEnabled="{Binding AreCreateButtonsAvailable}" Grid.Row="1" Grid.Column="0"/>
-            <Button Content="{x:Static p:Resources.AverageChart}" Command="{Binding AverageCommand}" CommandParameter="{x:Static lib:OperationType.Delete}" IsEnabled="{Binding AreDeleteButtonsAvailable}" Grid.Row="1" Grid.Column="1"/>
-            <Button Content="{x:Static p:Resources.AverageChart}" Command="{Binding AverageCommand}" CommandParameter="{x:Static lib:OperationType.Update}" IsEnabled="{Binding AreUpdateButtonsAvailable}" Grid.Row="1" Grid.Column="2"/>
-            <Button Content="{x:Static p:Resources.SDChart}" Command="{Binding SDCommand}" CommandParameter="{x:Static lib:OperationType.Create}" IsEnabled="{Binding AreCreateButtonsAvailable}" Grid.Row="2" Grid.Column="0"/>
-            <Button Content="{x:Static p:Resources.SDChart}" Command="{Binding SDCommand}" CommandParameter="{x:Static lib:OperationType.Delete}" IsEnabled="{Binding AreDeleteButtonsAvailable}" Grid.Row="2" Grid.Column="1"/>
-            <Button Content="{x:Static p:Resources.SDChart}" Command="{Binding SDCommand}" CommandParameter="{x:Static lib:OperationType.Update}" IsEnabled="{Binding AreUpdateButtonsAvailable}" Grid.Row="2" Grid.Column="2"/>
-            <Button Content="{x:Static p:Resources.CoVChart}" Command="{Binding CoVCommand}" CommandParameter="{x:Static lib:OperationType.Create}" IsEnabled="{Binding AreCreateButtonsAvailable}" Grid.Row="3" Grid.Column="0"/>
-            <Button Content="{x:Static p:Resources.CoVChart}" Command="{Binding CoVCommand}" CommandParameter="{x:Static lib:OperationType.Delete}" IsEnabled="{Binding AreDeleteButtonsAvailable}" Grid.Row="3" Grid.Column="1"/>
-            <Button Content="{x:Static p:Resources.CoVChart}" Command="{Binding CoVCommand}" CommandParameter="{x:Static lib:OperationType.Update}" IsEnabled="{Binding AreUpdateButtonsAvailable}" Grid.Row="3" Grid.Column="2"/>
+            <GroupBox Grid.Column="4" Header="{x:Static p:Resources.Actions}" HorizontalAlignment="Left" Height="190" Margin="38,-15,-8.6,-15" Grid.RowSpan="4" VerticalAlignment="Top" Width="305" FontWeight="Bold"/>
+            <GroupBox Grid.Column="1" Header="{x:Static p:Resources.DeleteOperation}" HorizontalAlignment="Left" Height="190" Margin="38.8,-15,0,-15" Grid.RowSpan="4" VerticalAlignment="Top" Width="300" Grid.ColumnSpan="2" FontWeight="Bold"/>
+            <Button Content="{x:Static p:Resources.AverageChart}" Command="{Binding AverageCommand}" CommandParameter="{x:Static lib:OperationType.Create}" IsEnabled="{Binding AreCreateButtonsAvailable}" Grid.Row="1" Grid.Column="0" Width="230" Height="35" Margin="0,0,0,20" MaxHeight="35" MinHeight="35"/>
+            <Button Content="{x:Static p:Resources.AverageChart}" Command="{Binding AverageCommand}" CommandParameter="{x:Static lib:OperationType.Delete}" IsEnabled="{Binding AreDeleteButtonsAvailable}" Grid.Row="1" Grid.Column="1" Width="280" Margin="50,0,0,20" MaxHeight="35" Height="35"/>
+            <Button Content="{x:Static p:Resources.AverageChart}" Command="{Binding AverageCommand}" CommandParameter="{x:Static lib:OperationType.Update}" IsEnabled="{Binding AreUpdateButtonsAvailable}" Grid.Row="1" Grid.Column="2" Margin="50,0,0,20" Width="280" Height="35" MaxHeight="35" Grid.ColumnSpan="2"/>
+            <Button Content="{x:Static p:Resources.ExportToFile}" Click="ExportToFileButton_Click" Grid.Column="4" Grid.Row="1 " Margin="50,0,0,20" MinHeight="35" Height="35" Width="280"/>
+            <Button Content="{x:Static p:Resources.SDChart}" Command="{Binding SDCommand}" CommandParameter="{x:Static lib:OperationType.Create}" IsEnabled="{Binding AreCreateButtonsAvailable}" Grid.Row="2" Grid.Column="0" Width="230" Height="35" Margin="0,0,0,20" MinHeight="35"/>
+            <Button Content="{x:Static p:Resources.SDChart}" Command="{Binding SDCommand}" CommandParameter="{x:Static lib:OperationType.Delete}" IsEnabled="{Binding AreDeleteButtonsAvailable}" Grid.Row="2" Grid.Column="1" Margin="50,0.4,108,20" Grid.ColumnSpan="2" Height="35" MinHeight="35"/>
+            <Button Content="{x:Static p:Resources.SDChart}" Command="{Binding SDCommand}" CommandParameter="{x:Static lib:OperationType.Update}" IsEnabled="{Binding AreUpdateButtonsAvailable}" Grid.Row="2" Grid.Column="2" Width="280" Margin="50,0,0,20" Grid.ColumnSpan="2" Height="35" MinHeight="35"/>
+            <Button Content="{x:Static p:Resources.ExportToCSV}" Click="ExportToCsvButton_Click" Grid.Column="4" Grid.Row="2" Margin="50,0,0,20" Height="35" MaxHeight="36.3" Width="280" />
+            <Button Content="{x:Static p:Resources.CoVChart}" Command="{Binding CoVCommand}" CommandParameter="{x:Static lib:OperationType.Create}" IsEnabled="{Binding AreCreateButtonsAvailable}" Grid.Row="3" Grid.Column="0" Width="230" Height="35" Margin="0" MinHeight="35"/>
+            <Button Content="{x:Static p:Resources.CoVChart}" Command="{Binding CoVCommand}" CommandParameter="{x:Static lib:OperationType.Delete}" IsEnabled="{Binding AreDeleteButtonsAvailable}" Grid.Row="3" Grid.Column="1" Margin="49.8,0,108,0" Grid.ColumnSpan="2" Height="35" MinHeight="35"/>
+            <Button Content="{x:Static p:Resources.CoVChart}" Command="{Binding CoVCommand}" CommandParameter="{x:Static lib:OperationType.Update}" IsEnabled="{Binding AreUpdateButtonsAvailable}" Grid.Row="3" Grid.Column="2" Margin="50,0,0,0" Grid.ColumnSpan="2" Height="35" MinHeight="35"/>
         </Grid>
-        <WrapPanel Grid.Row="2">
-            <Button Content="{x:Static p:Resources.ExportToFile}" Click="ExportToFileButton_Click"/>
-            <Button Content="{x:Static p:Resources.ExportToCSV}" Click="ExportToCsvButton_Click"/>
-        </WrapPanel>
+        <Label Content="*None - None Relationship" HorizontalAlignment="Left" Margin="1277,19,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="#FF900000"/>
     </Grid>
 </Window>
