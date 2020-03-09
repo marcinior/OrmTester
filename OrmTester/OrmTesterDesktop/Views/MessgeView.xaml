@@ -5,10 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrmTesterDesktop.Views"
         mc:Ignorable="d"
-        Message Window" Height="200" Width="Auto">
         Title="Orm tester - Message Window" Height="200" Width="500">
     <Grid Background="#FF5CDB95">
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding ErrorMsg}"/>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding ErrorMsg}" TextWrapping="Wrap"/>
         <Button Content="Ok" Click="Button_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 15 15" Height="41" Width="160" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
     </Grid>
 </Window>
