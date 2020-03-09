@@ -196,7 +196,16 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Save Statistics.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Export results to Excel operation was successful..
+        /// </summary>
+        public static string ExportToExcelSuccess {
+            get {
+                return ResourceManager.GetString("ExportToExcelSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Save Statistics.
         /// </summary>
         public static string ExportToFile {
             get {
@@ -358,7 +367,25 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Average Standard Deviation Chart.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Save chart operation was successful..
+        /// </summary>
+        public static string SaveChartSuccess {
+            get {
+                return ResourceManager.GetString("SaveChartSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Save results operation file was successful..
+        /// </summary>
+        public static string SaveFileSuccess {
+            get {
+                return ResourceManager.GetString("SaveFileSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Average Standard Deviation Chart.
         /// </summary>
         public static string SDChart {
             get {
