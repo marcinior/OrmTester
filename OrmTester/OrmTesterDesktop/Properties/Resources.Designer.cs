@@ -376,7 +376,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Save statistics operation completed successfully.fsdsdffsdfbdsfusdfbtsdfstfsfsfbufdsfdsgfhsdgfdshfdsg ihfgf igfihsfg ihfs gidshg ih sd gisdg  sdifgdsfidsfgdsifgsdf ihfgisdfgfis gfifgihsdfgih gif gfihf gifshgi sfihf gsifdh gsihfg ihfs gifsdhgf ihdsgfhifsd gihdsfgfihdsgsifgiggg g gggggggg ggggggggg gg g g gg g g g g ggdfgdsisd.
+        ///   Looks up a localized string similar to Save statistics operation completed successfully..
         /// </summary>
         public static string SaveFileSuccess {
             get {
