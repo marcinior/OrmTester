@@ -196,7 +196,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Export results to Excel operation was successful..
+        ///   Looks up a localized string similar to Export results to Excel operation completed successfully..
         /// </summary>
         public static string ExportToExcelSuccess {
             get {
@@ -205,7 +205,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Save Statistics.
+        ///   Looks up a localized string similar to Save Statistics.
         /// </summary>
         public static string ExportToFile {
             get {
@@ -367,7 +367,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Save chart operation was successful..
+        ///   Looks up a localized string similar to Save chart operation completed successfully..
         /// </summary>
         public static string SaveChartSuccess {
             get {
@@ -376,7 +376,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Save results operation file was successful..
+        ///   Looks up a localized string similar to Save statistics operation completed successfully.fsdsdffsdfbdsfusdfbtsdfstfsfsfbufdsfdsgfhsdgfdshfdsg ihfgf igfihsfg ihfs gidshg ih sd gisdg  sdifgdsfidsfgdsifgsdf ihfgisdfgfis gfifgihsdfgih gif gfihf gifshgi sfihf gsifdh gsihfg ihfs gifsdhgf ihdsgfhifsd gihdsfgfihdsgsifgiggg g gggggggg ggggggggg gg g g gg g g g g ggdfgdsisd.
         /// </summary>
         public static string SaveFileSuccess {
             get {
@@ -385,7 +385,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Average Standard Deviation Chart.
+        ///   Looks up a localized string similar to Average Standard Deviation Chart.
         /// </summary>
         public static string SDChart {
             get {

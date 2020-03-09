@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:OrmTesterDesktop.Views"   
         xmlns:p="clr-namespace:OrmTesterDesktop.Properties"
         mc:Ignorable="d"
-        Title="Orm Tester - Message Window" Height="200" Width="600">
+        Title="Orm Tester - Message Window" Height="295" Width="500">
     <Grid Background="#FF5CDB95">
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding ErrorMsg}"/>
-        <Button Content="{x:Static p:Resources.Ok}" Click="Button_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,14.6,10.4" Width="89" Height="22"/>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding ErrorMsg}" TextWrapping="WrapWithOverflow" Margin="10,0,9.6,37.6"/>
+        <Button Content="{x:Static p:Resources.Ok}" Click="Button_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,9.6,10.4" Width="89" Height="22"/>
     </Grid>
 </Window>
