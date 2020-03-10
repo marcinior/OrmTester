@@ -26,16 +26,36 @@ namespace OrmTesterDesktop
         public bool AreUpdateButtonsAvailable { get => this.TestResults.Any(test => test.OperationType == OperationType.Update); }
         public bool AreDeleteButtonsAvailable { get => this.TestResults.Any(test => test.OperationType == OperationType.Delete); }
 
+        public bool ExportButtonAvailable =>NHibernateResults!=null && EFResults != null;
+
         public CreateChartCommand AverageCommand { get; set; }
         public CreateChartCommand SDCommand { get; set; }
         public CreateChartCommand CoVCommand { get; set; }
-
+        
+        public List<TestResult> NHibernateResults
+        {
+            get => nHibernateResults; set
+            {
+                nHibernateResults = value;
+                NotifyPropertyChanged(nameof(ExportButtonAvailable));
+            }
+        }
+        public List<TestResult> EFResults
+        {
+            get => eFResults; 
+            set
+            {
+                eFResults = value;
+                NotifyPropertyChanged(nameof(ExportButtonAvailable));
+            }
+        }
+        
         private List<StatisticParameter> testResults;
-        public List<TestResult> NHibernateResults { get; set; }
-        public List<TestResult> EFResults { get; set; }
         private bool isExecuteButtonActive;
         private ChartGenerationHelper chartGenerator;
         private bool uiUnlocked = true;
+        private List<TestResult> nHibernateResults;
+        private List<TestResult> eFResults;
 
         public List<StatisticParameter> TestResults
         {
@@ -63,7 +83,7 @@ namespace OrmTesterDesktop
 
         public bool UIUnlocked
         {
-            get => uiUnlocked; 
+            get => uiUnlocked;
             set
             {
                 uiUnlocked = value;
