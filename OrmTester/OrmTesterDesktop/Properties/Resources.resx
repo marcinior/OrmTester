@@ -177,11 +177,17 @@
   <data name="LoadFile" xml:space="preserve">
     <value>Load File</value>
   </data>
+  <data name="LoadStats" xml:space="preserve">
+    <value>LOAD TEST STATISTICS</value>
+  </data>
   <data name="MainMenu" xml:space="preserve">
     <value>Back to Main Menu</value>
   </data>
   <data name="ManyToMany" xml:space="preserve">
     <value>Many to Many</value>
+  </data>
+  <data name="NewTest" xml:space="preserve">
+    <value>NEW TEST</value>
   </data>
   <data name="NHibernateAverage" xml:space="preserve">
     <value>nHibernate Average Time</value>

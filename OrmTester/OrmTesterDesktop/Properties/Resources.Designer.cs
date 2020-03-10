@@ -241,6 +241,15 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to LOAD TEST STATISTICS.
+        /// </summary>
+        public static string LoadStats {
+            get {
+                return ResourceManager.GetString("LoadStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Back to Main Menu.
         /// </summary>
         public static string MainMenu {
@@ -255,6 +264,15 @@ namespace OrmTesterDesktop.Properties {
         public static string ManyToMany {
             get {
                 return ResourceManager.GetString("ManyToMany", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NEW TEST.
+        /// </summary>
+        public static string NewTest {
+            get {
+                return ResourceManager.GetString("NewTest", resourceCulture);
             }
         }
         

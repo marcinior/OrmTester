@@ -17,7 +17,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Button Grid.Column="1" Content="LOAD TEST" Click="LoadButton_Click" Margin="20,99.2,18.4,-142.8" Grid.Row="1" Height="50" FontWeight="Bold" Grid.ColumnSpan="3" Background="#FF05386B" RenderTransformOrigin="0.49,1.8" BorderThickness="0" ClipToBounds="True" Foreground="#FFEDF5E1"/>
-        <Button Content="START NEW TEST" Click="StartNewTestButton_Click" Margin="20,25.2,18.4,-68.8" Grid.Column="1" Grid.Row="1" Height="50" FontWeight="Bold" Grid.ColumnSpan="3" Background="#FF05386B" BorderThickness="0" SnapsToDevicePixels="True" Foreground="#FFEDF5E1"/>
+        <Button Content="{x:Static p:Resources.NewTest}" Click="StartNewTestButton_Click" Margin="20,25.2,18.4,-68.8" Grid.Column="1" Grid.Row="1" Height="50" FontWeight="Bold" Grid.ColumnSpan="3" Background="#FF05386B" BorderThickness="0" SnapsToDevicePixels="True" Foreground="#FFEDF5E1"/>
+        <Button Grid.Column="1" Content="{x:Static p:Resources.LoadStats}" Click="LoadButton_Click" Margin="20,99.2,18.4,-142.8" Grid.Row="1" Height="50" FontWeight="Bold" Grid.ColumnSpan="3" Background="#FF05386B" RenderTransformOrigin="0.49,1.8" BorderThickness="0" ClipToBounds="True" Foreground="#FFEDF5E1"/>
     </Grid>
 </Window>
