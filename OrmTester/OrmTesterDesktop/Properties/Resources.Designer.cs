@@ -196,7 +196,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Export results to Excel operation was successful..
+        ///   Looks up a localized string similar to Export results to Excel operation completed successfully..
         /// </summary>
         public static string ExportToExcelSuccess {
             get {
@@ -205,7 +205,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Save Statistics.
+        ///   Looks up a localized string similar to Save Statistics.
         /// </summary>
         public static string ExportToFile {
             get {
@@ -241,6 +241,15 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to LOAD TEST STATISTICS.
+        /// </summary>
+        public static string LoadStats {
+            get {
+                return ResourceManager.GetString("LoadStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Back to Main Menu.
         /// </summary>
         public static string MainMenu {
@@ -255,6 +264,15 @@ namespace OrmTesterDesktop.Properties {
         public static string ManyToMany {
             get {
                 return ResourceManager.GetString("ManyToMany", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NEW TEST.
+        /// </summary>
+        public static string NewTest {
+            get {
+                return ResourceManager.GetString("NewTest", resourceCulture);
             }
         }
         
@@ -291,6 +309,15 @@ namespace OrmTesterDesktop.Properties {
         public static string None {
             get {
                 return ResourceManager.GetString("None", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        public static string Ok {
+            get {
+                return ResourceManager.GetString("Ok", resourceCulture);
             }
         }
         
@@ -358,7 +385,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Save chart operation was successful..
+        ///   Looks up a localized string similar to Save chart operation completed successfully..
         /// </summary>
         public static string SaveChartSuccess {
             get {
@@ -367,7 +394,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Save results operation file was successful..
+        ///   Looks up a localized string similar to Save statistics operation completed successfully..
         /// </summary>
         public static string SaveFileSuccess {
             get {
@@ -376,7 +403,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Average Standard Deviation Chart.
+        ///   Looks up a localized string similar to Average Standard Deviation Chart.
         /// </summary>
         public static string SDChart {
             get {

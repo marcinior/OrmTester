@@ -142,7 +142,7 @@
     <value>Missing TestResult Collection. StatisticCalculators needs test results from Entity Framework and NHibernate both.</value>
   </data>
   <data name="None" xml:space="preserve">
-    <value>None*</value>
+    <value>None</value>
   </data>
   <data name="OneToMany" xml:space="preserve">
     <value>1:N</value>

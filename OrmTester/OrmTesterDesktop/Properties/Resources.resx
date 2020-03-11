@@ -163,7 +163,7 @@
     <value>Export Tests To Excel</value>
   </data>
   <data name="ExportToExcelSuccess" xml:space="preserve">
-    <value>Export results to Excel operation was successful.</value>
+    <value>Export results to Excel operation completed successfully.</value>
   </data>
   <data name="ExportToFile" xml:space="preserve">
     <value>Save Statistics</value>
@@ -177,11 +177,17 @@
   <data name="LoadFile" xml:space="preserve">
     <value>Load File</value>
   </data>
+  <data name="LoadStats" xml:space="preserve">
+    <value>LOAD TEST STATISTICS</value>
+  </data>
   <data name="MainMenu" xml:space="preserve">
     <value>Back to Main Menu</value>
   </data>
   <data name="ManyToMany" xml:space="preserve">
     <value>Many to Many</value>
+  </data>
+  <data name="NewTest" xml:space="preserve">
+    <value>NEW TEST</value>
   </data>
   <data name="NHibernateAverage" xml:space="preserve">
     <value>nHibernate Average Time</value>
@@ -194,6 +200,9 @@
   </data>
   <data name="None" xml:space="preserve">
     <value>None</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>OK</value>
   </data>
   <data name="OneToMany" xml:space="preserve">
     <value>One to Many</value>
@@ -217,10 +226,10 @@
     <value>Save Chart</value>
   </data>
   <data name="SaveChartSuccess" xml:space="preserve">
-    <value>Save chart operation was successful.</value>
+    <value>Save chart operation completed successfully.</value>
   </data>
   <data name="SaveFileSuccess" xml:space="preserve">
-    <value>Save results operation file was successful.</value>
+    <value>Save statistics operation completed successfully.</value>
   </data>
   <data name="SDChart" xml:space="preserve">
     <value>Average Standard Deviation Chart</value>

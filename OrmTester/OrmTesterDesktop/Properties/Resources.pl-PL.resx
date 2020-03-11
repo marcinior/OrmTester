@@ -177,11 +177,17 @@
   <data name="LoadFile" xml:space="preserve">
     <value>Załaduj plik testu</value>
   </data>
+  <data name="LoadStats" xml:space="preserve">
+    <value>WCZYTAJ STATYSTYKI TESTU</value>
+  </data>
   <data name="MainMenu" xml:space="preserve">
     <value>Powrót do menu głównego</value>
   </data>
   <data name="ManyToMany" xml:space="preserve">
     <value>Wiele do wielu</value>
+  </data>
+  <data name="NewTest" xml:space="preserve">
+    <value>NOWY TEST</value>
   </data>
   <data name="NHibernateAverage" xml:space="preserve">
     <value>nHibernate średni czas wykonania operacji</value>
@@ -194,6 +200,9 @@
   </data>
   <data name="None" xml:space="preserve">
     <value>Brak</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>OK</value>
   </data>
   <data name="OneToMany" xml:space="preserve">
     <value>Jeden do wielu</value>
