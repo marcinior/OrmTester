@@ -15,75 +15,75 @@ namespace OrmTesterLib.TestCore
         public TestParameters GetTestParameters() => this.testParameters;
 
 
-        public ITestParametersBuilder TestBulkCreateManyToMany(int testRepetitions = 10)
+        public ITestParametersBuilder TestBulkCreateManyToMany(int numberOfRecords)
         {
-            testParameters.BulkCreateManyToMany = (true, testRepetitions).ToTuple();
+            testParameters.BulkCreateManyToMany = (true, numberOfRecords).ToTuple();
             return this;
         }
 
-        public ITestParametersBuilder TestBulkCreateNoRelationship(int testRepetitions = 10)
+        public ITestParametersBuilder TestBulkCreateNoRelationship(int numberOfRecords)
         {
-            testParameters.BulkCreateNoRelationship = (true, testRepetitions).ToTuple();
+            testParameters.BulkCreateNoRelationship = (true, numberOfRecords).ToTuple();
             return this;
         }
 
-        public ITestParametersBuilder TestBulkCreateOneToMany(int testRepetitions = 10)
+        public ITestParametersBuilder TestBulkCreateOneToMany(int numberOfRecords)
         {
-            testParameters.BulkCreateOneToMany = (true, testRepetitions).ToTuple();
+            testParameters.BulkCreateOneToMany = (true, numberOfRecords).ToTuple();
             return this;
         }
 
-        public ITestParametersBuilder TestBulkCreateOneToOne(int testRepetitions = 10)
+        public ITestParametersBuilder TestBulkCreateOneToOne(int numberOfRecords)
         {
-            testParameters.BulkCreateOneToOne = (true, testRepetitions).ToTuple();
+            testParameters.BulkCreateOneToOne = (true, numberOfRecords).ToTuple();
             return this;
         }
 
-        public ITestParametersBuilder TestBulkDeleteManyToMany(int testRepetitions = 10)
+        public ITestParametersBuilder TestBulkDeleteManyToMany(int numberOfRecords)
         {
-            testParameters.BulkDeleteManyToMany = (true, testRepetitions).ToTuple();
+            testParameters.BulkDeleteManyToMany = (true, numberOfRecords).ToTuple();
             return this;
         }
 
-        public ITestParametersBuilder TestBulkDeleteNoRelationship(int testRepetitions = 10)
+        public ITestParametersBuilder TestBulkDeleteNoRelationship(int numberOfRecords)
         {
-            testParameters.BulkDeleteNoRelationship = (true, testRepetitions).ToTuple();
+            testParameters.BulkDeleteNoRelationship = (true, numberOfRecords).ToTuple();
             return this;
         }
 
-        public ITestParametersBuilder TestBulkDeleteOneToMany(int testRepetitions = 10)
+        public ITestParametersBuilder TestBulkDeleteOneToMany(int numberOfRecords)
         {
-            testParameters.BulkDeleteOneToMany = (true, testRepetitions).ToTuple();
+            testParameters.BulkDeleteOneToMany = (true, numberOfRecords).ToTuple();
             return this;
         }
 
-        public ITestParametersBuilder TestBulkDeleteOneToOne(int testRepetitions = 10)
+        public ITestParametersBuilder TestBulkDeleteOneToOne(int numberOfRecords)
         {
-            testParameters.BulkDeleteOneToOne = (true, testRepetitions).ToTuple();
+            testParameters.BulkDeleteOneToOne = (true, numberOfRecords).ToTuple();
             return this;
         }
 
-        public ITestParametersBuilder TestBulkUpdateManyToMany(int testRepetitions = 10)
+        public ITestParametersBuilder TestBulkUpdateManyToMany(int numberOfRecords)
         {
-            testParameters.BulkUpdateManyToMany = (true, testRepetitions).ToTuple();
+            testParameters.BulkUpdateManyToMany = (true, numberOfRecords).ToTuple();
             return this;
         }
 
-        public ITestParametersBuilder TestBulkUpdateNoRelationship(int testRepetitions = 10)
+        public ITestParametersBuilder TestBulkUpdateNoRelationship(int numberOfRecords)
         {
-            testParameters.BulkUpdateNoRelationship = (true, testRepetitions).ToTuple();
+            testParameters.BulkUpdateNoRelationship = (true, numberOfRecords).ToTuple();
             return this;
         }
 
-        public ITestParametersBuilder TestBulkUpdateOneToOne(int testRepetitions = 10)
+        public ITestParametersBuilder TestBulkUpdateOneToOne(int numberOfRecords)
         {
-            testParameters.BulkUpdateOneToOne = (true, testRepetitions).ToTuple();
+            testParameters.BulkUpdateOneToOne = (true, numberOfRecords).ToTuple();
             return this;
         }
 
-        public ITestParametersBuilder TestBulkUpdateOneToMany(int testRepetitions = 10)
+        public ITestParametersBuilder TestBulkUpdateOneToMany(int numberOfRecords)
         {
-            testParameters.BulkUpdateOneToMany = (true, testRepetitions).ToTuple();
+            testParameters.BulkUpdateOneToMany = (true, numberOfRecords).ToTuple();
             return this;
         }
 

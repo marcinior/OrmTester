@@ -3,6 +3,7 @@ using NHibernateTester;
 using OrmTesterLib.StatisticParametersCalculator;
 using OrmTesterLib.TestCore;
 using System;
+using System.Globalization;
 
 namespace ConsoleTester
 {
@@ -12,37 +13,37 @@ namespace ConsoleTester
         {
             TestParametersBuilder testParametersBuilder = new TestParametersBuilder();
             testParametersBuilder
-                .TestSingleCreateNoRelationship(5)
-                .TestSingleUpdateNoRelationship(5)
-                .TestSingleDeleteNoRelationship(5)
-                .TestBulkCreateNoRelationship(2)
-                .TestBulkUpdateNoRelationship(2)
-                .TestBulkDeleteNoRelationship(2)
-                .TestSingleCreateOneToOne()
-                .TestSingleUpdateOneToOne()
-                .TestSingleDeleteOneToOne()
-                .TestBulkCreateOneToOne(1)
-                .TestBulkUpdateOneToOne(1)
-                .TestBulkDeleteOneToOne(1)
-                .TestSingleCreateOneToMany()
-                .TestSingleUpdateOneToMany()
-                .TestSingleDeleteOneToMany()
-                .TestBulkCreateOneToMany(1)
-                .TestBulkUpdateOneToMany(1)
-                .TestBulkDeleteOneToMany(1)
-                .TestSingleCreateManyToMany()
-                .TestSingleUpdateManyToMany()
-                .TestSingleDeleteManyToMany()
-                .TestBulkCreateManyToMany(1)
-                .TestBulkUpdateManyToMany(1)
-                .TestBulkDeleteManyToMany(1);
+                .TestSingleCreateNoRelationship(10)
+                .TestSingleUpdateNoRelationship(10)
+                .TestSingleDeleteNoRelationship(10)
+                .TestBulkCreateNoRelationship(10)
+                .TestBulkUpdateNoRelationship(10)
+                .TestBulkDeleteNoRelationship(10)
+                .TestSingleCreateOneToOne(10)
+                .TestSingleUpdateOneToOne(10)
+                .TestSingleDeleteOneToOne(10)
+                .TestBulkCreateOneToOne(10)
+                .TestBulkUpdateOneToOne(10)
+                .TestBulkDeleteOneToOne(10)
+                .TestSingleCreateOneToMany(10)
+                .TestSingleUpdateOneToMany(10)
+                .TestSingleDeleteOneToMany(10)
+                .TestBulkCreateOneToMany(10)
+                .TestBulkUpdateOneToMany(10)
+                .TestBulkDeleteOneToMany(10)
+                .TestSingleCreateManyToMany(10)
+                .TestSingleUpdateManyToMany(10)
+                .TestSingleDeleteManyToMany(10)
+                .TestBulkCreateManyToMany(10)
+                .TestBulkUpdateManyToMany(10)
+                .TestBulkDeleteManyToMany(10);
 
-            NHibernateTester.NHibernateTestOperations entityFrameworkTester = new NHibernateTestOperations(testParametersBuilder);
+            EntityFrameworkTester entityFrameworkTester = new EntityFrameworkTester(testParametersBuilder);
             var results = entityFrameworkTester.RunTests(entityFrameworkTester);
             results.ForEach(r => Console.WriteLine($"Operation: {r.OperationType} IsBulk: {r.IsBulkTest} Realationship: {r.RelationshipType} Execution Time: {r.ExecutionTime.TotalMilliseconds}"));
 
-            StatisticParametersCalculator stat = new StatisticParametersCalculator();
-            stat.CalculateStatisticParameters(results, results, null /*new System.Globalization.CultureInfo("pl-PL")*/);
+            StatisticParametersCalculator stat = new StatisticParametersCalculator(CultureInfo.CurrentCulture);
+            stat.CalculateStatisticParameters(results, results);
             Console.ReadKey();
         }
     }

@@ -12,13 +12,13 @@ namespace OrmTesterLib.Interfaces
 
         TimeSpan SingleCreateManyToMany();
 
-        TimeSpan BulkCreateWithoutRelationship();
+        TimeSpan BulkCreateWithoutRelationship(int numberOfRecords);
 
-        TimeSpan BulkCreateOneToOne();
+        TimeSpan BulkCreateOneToOne(int numberOfRecords);
 
-        TimeSpan BulkCreateOneToMany();
+        TimeSpan BulkCreateOneToMany(int numberOfRecords);
 
-        TimeSpan BulkCreateManyToMany();
+        TimeSpan BulkCreateManyToMany(int numberOfRecords);
 
         TimeSpan SingleUpdateWithoutRelationship();
 
@@ -28,13 +28,13 @@ namespace OrmTesterLib.Interfaces
 
         TimeSpan SingleUpdateManyToMany();
 
-        TimeSpan BulkUpdateWithoutRelationship();
+        TimeSpan BulkUpdateWithoutRelationship(int numberOfRecords);
 
-        TimeSpan BulkUpdateOneToOne();
+        TimeSpan BulkUpdateOneToOne(int numberOfRecords);
 
-        TimeSpan BulkUpdateOneToMany();
+        TimeSpan BulkUpdateOneToMany(int numberOfRecords);
 
-        TimeSpan BulkUpdateManyToMany();
+        TimeSpan BulkUpdateManyToMany(int numberOfRecords);
 
         TimeSpan SingleDeleteWithoutRelationship();
 
@@ -44,13 +44,13 @@ namespace OrmTesterLib.Interfaces
 
         TimeSpan SingleDeleteManyToMany();
 
-        TimeSpan BulkDeleteWithoutRelationship();
+        TimeSpan BulkDeleteWithoutRelationship(int numberOfRecords);
 
-        TimeSpan BulkDeleteOneToOne();
+        TimeSpan BulkDeleteOneToOne(int numberOfRecords);
 
-        TimeSpan BulkDeleteOneToMany();
+        TimeSpan BulkDeleteOneToMany(int numberOfRecords);
 
-        TimeSpan BulkDeleteManyToMany();
+        TimeSpan BulkDeleteManyToMany(int numberOfRecords);
 
         void TruncateDatabase();
     }

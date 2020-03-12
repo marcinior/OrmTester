@@ -12,5 +12,7 @@ namespace OrmTesterLib.TestCore
         public OperationType OperationType { get; set; }
 
         public RelationshipType RelationshipType { get; set; }
+
+        public int NumberOfRecords { get; set; }
     }
 }
