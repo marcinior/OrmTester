@@ -27,5 +27,7 @@ namespace OrmTesterLib.StatisticParametersCalculator
         public RelationshipType RelationshipType { get; set; }
 
         public OperationType OperationType { get; set; }
+
+        public double ExecutionTimePerRecord { get; set; }
     }
 }

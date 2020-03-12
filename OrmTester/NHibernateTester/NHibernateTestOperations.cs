@@ -11,7 +11,7 @@ using System.Diagnostics;
 
 namespace NHibernateTester
 {
-    public class NHibernateTestOperations : BaseTester, ITestOperations, IDisposable
+    public class NHibernateTestOperations : BaseTester, IDisposable
     {
         private ISessionFactory _sessionFactory;
         private ISession session;
