@@ -141,10 +141,6 @@ namespace OrmTesterDesktop
                     {
                         builder.TestBulkCreateManyToMany(repetitions);
                     }
-                    else
-                    {
-                        builder.TestBulkCreateManyToMany();
-                    }
                 }
                 if (ManyToManySingle.IsChecked == true)
                 {
@@ -169,10 +165,6 @@ namespace OrmTesterDesktop
                     if (int.TryParse(OneToManyRepetitionsBulk.Text, out var repetitions))
                     {
                         builder.TestBulkCreateOneToMany(repetitions);
-                    }
-                    else
-                    {
-                        builder.TestBulkCreateOneToMany();
                     }
                 }
                 if (OneToManySingle.IsChecked == true)
@@ -199,10 +191,6 @@ namespace OrmTesterDesktop
                     {
                         builder.TestBulkCreateOneToOne(repetitions);
                     }
-                    else
-                    {
-                        builder.TestBulkCreateOneToOne();
-                    }
                 }
                 if (OneToOneSingle.IsChecked == true)
                 {
@@ -227,10 +215,6 @@ namespace OrmTesterDesktop
                     if (int.TryParse(NoneRepetitionsBulk.Text, out var repetitions))
                     {
                         builder.TestBulkCreateNoRelationship(repetitions);
-                    }
-                    else
-                    {
-                        builder.TestBulkCreateNoRelationship();
                     }
                 }
                 if (NoneSingle.IsChecked == true)
@@ -268,10 +252,6 @@ namespace OrmTesterDesktop
                     {
                         builder.TestBulkDeleteManyToMany(repetitions);
                     }
-                    else
-                    {
-                        builder.TestBulkDeleteManyToMany();
-                    }
                 }
                 if (ManyToManyDeleteSingle.IsChecked == true)
                 {
@@ -296,10 +276,6 @@ namespace OrmTesterDesktop
                     if (int.TryParse(OneToManyDeleteRepetitionsBulk.Text, out var repetitions))
                     {
                         builder.TestBulkDeleteOneToMany(repetitions);
-                    }
-                    else
-                    {
-                        builder.TestBulkDeleteOneToMany();
                     }
                 }
                 if (OneToManyDeleteSingle.IsChecked == true)
@@ -326,10 +302,6 @@ namespace OrmTesterDesktop
                     {
                         builder.TestBulkDeleteOneToOne(repetitions);
                     }
-                    else
-                    {
-                        builder.TestBulkDeleteOneToOne();
-                    }
                 }
                 if (OneToOneDeleteSingle.IsChecked == true)
                 {
@@ -354,10 +326,6 @@ namespace OrmTesterDesktop
                     if (int.TryParse(NoneRelationshipDeleteRepetitionsBulk.Text, out var repetitions))
                     {
                         builder.TestBulkDeleteNoRelationship(repetitions);
-                    }
-                    else
-                    {
-                        builder.TestBulkDeleteNoRelationship();
                     }
                 }
                 if (NoneRelationshipDeleteSingle.IsChecked == true)
@@ -396,10 +364,6 @@ namespace OrmTesterDesktop
                     {
                         builder.TestBulkUpdateManyToMany(repetitions);
                     }
-                    else
-                    {
-                        builder.TestBulkUpdateManyToMany();
-                    }
                 }
                 if (ManyToManyUpdateSingle.IsChecked == true)
                 {
@@ -424,10 +388,6 @@ namespace OrmTesterDesktop
                     if (int.TryParse(OneToManyUpdateRepetitionsBulk.Text, out var repetitions))
                     {
                         builder.TestBulkUpdateOneToMany(repetitions);
-                    }
-                    else
-                    {
-                        builder.TestBulkUpdateOneToMany();
                     }
                 }
                 if (OneToManyUpdateSingle.IsChecked == true)
@@ -454,10 +414,6 @@ namespace OrmTesterDesktop
                     {
                         builder.TestBulkUpdateOneToOne(repetitions);
                     }
-                    else
-                    {
-                        builder.TestBulkUpdateOneToOne();
-                    }
                 }
                 if (OneToOneUpdateSingle.IsChecked == true)
                 {
@@ -482,10 +438,6 @@ namespace OrmTesterDesktop
                     if (int.TryParse(NoneRelationshipUpdateRepetitionsBulk.Text, out var repetitions))
                     {
                         builder.TestBulkUpdateNoRelationship(repetitions);
-                    }
-                    else
-                    {
-                        builder.TestBulkUpdateNoRelationship();
                     }
                 }
                 if (NoneRelationshipUpdateSingle.IsChecked == true)
