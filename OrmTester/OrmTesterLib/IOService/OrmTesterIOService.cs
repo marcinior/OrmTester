@@ -18,8 +18,10 @@ namespace OrmTesterLib.IOService
         private string CurrentDayTestFilePattern = "TestResult_{0}.dat";
         private const string MissingTestResultsError = "MissingTestResultsError";
         private const string DifferentCountOfGroupsError = "DifferentCountOfGroupsError";
-        private readonly string efWorksheetHeader = "Entity Framework execution time [ms]";
-        private readonly string nhWorksheetHeader = "nHibernate execution time [ms]";
+        private readonly string efWorksheetHeader = "Entity Framework Execution Time [ms]";
+        private readonly string nhWorksheetHeader = "nHibernate Execution Time [ms]";
+        private readonly string efSumHeader = "Entity Framework Execution Time Sum";
+        private readonly string nhSumHeader = "nHibernate Execution Time Sum";
         private readonly ResourceManager resourceManager;
         private BinaryFormatter binaryFormatter;
         private readonly CultureInfo cultureInfo;
@@ -96,7 +98,15 @@ namespace OrmTesterLib.IOService
                     worksheet.Cells["A1"].Style.Font.Bold = true;
                     worksheet.Cells["B1"].Value = nhWorksheetHeader;
                     worksheet.Cells["B1"].Style.Font.Bold = true;
+                    worksheet.Cells["C1"].Value = efSumHeader;
+                    worksheet.Cells["C1"].Style.Font.Bold = true;
+                    worksheet.Cells["D1"].Value = nhSumHeader;
+                    worksheet.Cells["D1"].Style.Font.Bold = true;
+
                     PopulateTestResults(worksheet, efGroupedResults[i].Item2, nHiberanateGroupedResults[i].Item2);
+
+                    worksheet.Cells["C2"].Value = efGroupedResults[i].Item2.Sum(tr => tr.ExecutionTime.TotalMilliseconds);
+                    worksheet.Cells["D2"].Value = nHiberanateGroupedResults[i].Item2.Sum(tr => tr.ExecutionTime.TotalMilliseconds);
                     worksheet.Cells.AutoFitColumns();
                 }
 
