@@ -222,6 +222,9 @@
   <data name="Result" xml:space="preserve">
     <value>Execution time [ms]</value>
   </data>
+  <data name="RowCount" xml:space="preserve">
+    <value>Row count</value>
+  </data>
   <data name="SaveChart" xml:space="preserve">
     <value>Save Chart</value>
   </data>
