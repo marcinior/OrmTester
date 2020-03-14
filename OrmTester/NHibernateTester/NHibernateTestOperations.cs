@@ -11,7 +11,7 @@ using System.Diagnostics;
 
 namespace NHibernateTester
 {
-    public class NHibernateTestOperations : BaseTester, IDisposable
+    public class NHibernateTestOperations : BaseTester, ITestOperations, IDisposable
     {
         private ISessionFactory _sessionFactory;
         private ISession session;
@@ -30,12 +30,12 @@ namespace NHibernateTester
             TruncateDatabase();
         }
 
-        public TimeSpan BulkCreateManyToMany()
+        public TimeSpan BulkCreateManyToMany(int records)
         {
-            return CreateManyToMany(3);
+            return CreateManyToMany(records);
         }
 
-        private TimeSpan CreateManyToMany(int repetitions = 1)
+        private TimeSpan CreateManyToMany(int repetitions)
         {
             var students = NHibernateDataGenerator.GetStudents(repetitions);
             var subjects = NHibernateDataGenerator.GetSubjects(repetitions);
@@ -68,12 +68,12 @@ namespace NHibernateTester
 
         }
 
-        public TimeSpan BulkCreateOneToMany()
+        public TimeSpan BulkCreateOneToMany(int records)
         {
-            return CreateOneToMany(500);
+            return CreateOneToMany(records);
         }
 
-        private TimeSpan CreateOneToMany(int repetitions = 1)
+        private TimeSpan CreateOneToMany(int repetitions)
         {
             var students = NHibernateDataGenerator.GetStudents(repetitions);
             var @class = NHibernateDataGenerator.GetClass();
@@ -97,12 +97,12 @@ namespace NHibernateTester
         }
 
 
-        public TimeSpan BulkCreateOneToOne()
+        public TimeSpan BulkCreateOneToOne(int records)
         {
-            return CreateOneToOne(500);
+            return CreateOneToOne(records);
         }
 
-        private TimeSpan CreateOneToOne(int repetitions = 1)
+        private TimeSpan CreateOneToOne(int repetitions)
         {
             var students = NHibernateDataGenerator.GetStudents(repetitions);
             var indices = NHibernateDataGenerator.GetIndices(repetitions);
@@ -127,12 +127,12 @@ namespace NHibernateTester
         }
 
 
-        public TimeSpan BulkCreateWithoutRelationship()
+        public TimeSpan BulkCreateWithoutRelationship(int records)
         {
-            return CreateWithoutRelationship(500);
+            return CreateWithoutRelationship(records);
         }
 
-        private TimeSpan CreateWithoutRelationship(int repetitions = 1)
+        private TimeSpan CreateWithoutRelationship(int repetitions)
         {
             var classes = NHibernateDataGenerator.GetClasses(repetitions);
 
@@ -152,12 +152,12 @@ namespace NHibernateTester
         }
 
 
-        public TimeSpan BulkDeleteManyToMany()
+        public TimeSpan BulkDeleteManyToMany(int records)
         {
-            return DeleteManyToMany(3);
+            return DeleteManyToMany(records);
         }
 
-        private TimeSpan DeleteManyToMany(int repetitions = 1)
+        private TimeSpan DeleteManyToMany(int repetitions)
         {
             var students = NHibernateDataGenerator.GetStudents(repetitions);
             var subjects = NHibernateDataGenerator.GetSubjects(repetitions);
@@ -204,12 +204,12 @@ namespace NHibernateTester
 
         }
 
-        public TimeSpan BulkDeleteWithoutRelationship()
+        public TimeSpan BulkDeleteWithoutRelationship(int records)
         {
-            return DeleteNoRelationship(500);
+            return DeleteNoRelationship(records);
         }
 
-        private TimeSpan DeleteNoRelationship(int repetitions = 1)
+        private TimeSpan DeleteNoRelationship(int repetitions)
         {
             var classes = NHibernateDataGenerator.GetClasses(repetitions);
 
@@ -239,12 +239,12 @@ namespace NHibernateTester
 
         }
 
-        public TimeSpan BulkDeleteOneToMany()
+        public TimeSpan BulkDeleteOneToMany(int records)
         {
-            return DeleteOneToMany(500);
+            return DeleteOneToMany(records);
         }
 
-        private TimeSpan DeleteOneToMany(int repetitions = 1)
+        private TimeSpan DeleteOneToMany(int repetitions)
         {
             var students = NHibernateDataGenerator.GetStudents(repetitions);
             var @class = NHibernateDataGenerator.GetClass();
@@ -278,12 +278,12 @@ namespace NHibernateTester
 
         }
 
-        public TimeSpan BulkDeleteOneToOne()
+        public TimeSpan BulkDeleteOneToOne(int records)
         {
-            return DeleteOneToOne(500);
+            return DeleteOneToOne(records);
         }
 
-        private TimeSpan DeleteOneToOne(int repetitions = 1)
+        private TimeSpan DeleteOneToOne(int repetitions)
         {
             var students = NHibernateDataGenerator.GetStudents(repetitions);
             var indices = NHibernateDataGenerator.GetIndices(repetitions);
@@ -318,12 +318,12 @@ namespace NHibernateTester
 
         }
 
-        public TimeSpan BulkUpdateManyToMany()
+        public TimeSpan BulkUpdateManyToMany(int records)
         {
-            return UpdateManyToMany(3);
+            return UpdateManyToMany(records);
         }
 
-        private TimeSpan UpdateManyToMany(int repetitions = 1)
+        private TimeSpan UpdateManyToMany(int repetitions)
         {
             var students = NHibernateDataGenerator.GetStudents(repetitions);
             var subjects = NHibernateDataGenerator.GetSubjects(repetitions);
@@ -378,12 +378,12 @@ namespace NHibernateTester
         }
 
 
-        public TimeSpan BulkUpdateOneToMany()
+        public TimeSpan BulkUpdateOneToMany(int records)
         {
-            return UpdateOneToMany(500);
+            return UpdateOneToMany(records);
         }
 
-        private TimeSpan UpdateOneToMany(int repetitions = 1)
+        private TimeSpan UpdateOneToMany(int repetitions)
         {
             var students = NHibernateDataGenerator.GetStudents(repetitions);
             var @class = NHibernateDataGenerator.GetClass();
@@ -419,12 +419,12 @@ namespace NHibernateTester
             }
         }
 
-        public TimeSpan BulkUpdateOneToOne()
+        public TimeSpan BulkUpdateOneToOne(int records)
         {
-            return UpdateOneToOne(500);
+            return UpdateOneToOne(records);
         }
 
-        private TimeSpan UpdateOneToOne(int repetitions = 1)
+        private TimeSpan UpdateOneToOne(int repetitions)
         {
             var students = NHibernateDataGenerator.GetStudents(repetitions);
             var indices = NHibernateDataGenerator.GetIndices(repetitions);
@@ -459,12 +459,12 @@ namespace NHibernateTester
         }
 
 
-        public TimeSpan BulkUpdateWithoutRelationship()
+        public TimeSpan BulkUpdateWithoutRelationship(int records)
         {
-            return UpdateWithoutRelationship(500);
+            return UpdateWithoutRelationship(records);
         }
 
-        private TimeSpan UpdateWithoutRelationship(int repetitions = 1)
+        private TimeSpan UpdateWithoutRelationship(int repetitions)
         {
             var classes = NHibernateDataGenerator.GetClasses(repetitions);
 
@@ -500,62 +500,62 @@ namespace NHibernateTester
 
         public TimeSpan SingleCreateManyToMany()
         {
-            return CreateManyToMany();
+            return CreateManyToMany(1);
         }
 
         public TimeSpan SingleCreateOneToMany()
         {
-            return CreateOneToMany();
+            return CreateOneToMany(1);
         }
 
         public TimeSpan SingleCreateOneToOne()
         {
-            return CreateOneToOne();
+            return CreateOneToOne(1);
         }
 
         public TimeSpan SingleCreateWithoutRelationship()
         {
-            return CreateWithoutRelationship();
+            return CreateWithoutRelationship(1);
         }
 
         public TimeSpan SingleDeleteManyToMany()
         {
-            return DeleteManyToMany();
+            return DeleteManyToMany(1);
         }
 
         public TimeSpan SingleDeleteOneToMany()
         {
-            return DeleteOneToMany();
+            return DeleteOneToMany(1);
         }
 
         public TimeSpan SingleDeleteOneToOne()
         {
-            return DeleteOneToOne();
+            return DeleteOneToOne(1);
         }
 
         public TimeSpan SingleDeleteWithoutRelationship()
         {
-            return DeleteNoRelationship();
+            return DeleteNoRelationship(1);
         }
 
         public TimeSpan SingleUpdateManyToMany()
         {
-            return UpdateManyToMany();
+            return UpdateManyToMany(1);
         }
 
         public TimeSpan SingleUpdateOneToMany()
         {
-            return UpdateOneToMany();
+            return UpdateOneToMany(1);
         }
 
         public TimeSpan SingleUpdateOneToOne()
         {
-            return UpdateOneToOne();
+            return UpdateOneToOne(1);
         }
 
         public TimeSpan SingleUpdateWithoutRelationship()
         {
-            return UpdateWithoutRelationship();
+            return UpdateWithoutRelationship(1);
         }
 
         public void Dispose()
