@@ -139,7 +139,15 @@ namespace Tests
         {
             StatisticParametersCalculator calculator = new StatisticParametersCalculator(CultureInfo.CurrentCulture);
             var efTestResults = new List<TestResult>(integerTestResults);
-            efTestResults.AddRange(doubleTestResults);
+            efTestResults.Add(
+                new TestResult()
+                {
+                    OperationType = OperationType.Update,
+                    IsBulkTest = true,
+                    RelationshipType = RelationshipType.OneToMany,
+                    ExecutionTime = TimeSpan.FromMilliseconds(2).AddMicroseconds(7000),
+                    NumberOfRecords = 11
+                });
 
             var nHibernateTestResults = new List<TestResult>()
             {
@@ -148,21 +156,8 @@ namespace Tests
                     OperationType = OperationType.Update,
                     IsBulkTest = true,
                     RelationshipType = RelationshipType.OneToMany,
-                    ExecutionTime = TimeSpan.FromMilliseconds(2).AddMicroseconds(1100)
-                },
-                new TestResult()
-                {
-                    OperationType = OperationType.Update,
-                    IsBulkTest = true,
-                    RelationshipType = RelationshipType.OneToMany,
-                    ExecutionTime = TimeSpan.FromMilliseconds(3).AddMicroseconds(5800)
-                },
-                new TestResult()
-                {
-                    OperationType = OperationType.Update,
-                    IsBulkTest = true,
-                    RelationshipType = RelationshipType.OneToMany,
-                    ExecutionTime = TimeSpan.FromMilliseconds(5).AddMicroseconds(900)
+                    ExecutionTime = TimeSpan.FromMilliseconds(2).AddMicroseconds(1100),
+                    NumberOfRecords = 11
                 },
                 new TestResult()
                 {
@@ -196,13 +191,15 @@ namespace Tests
                                             sp.NHibernateCoefficentOfVariation == 12.81 &&
                                             sp.Difference == 0.34 &&
                                             sp.TestName == "Single Create 1:1")
-                .And.ContainSingle(sp => sp.EfAverage == 3.71 &&
-                                            sp.EfStandardDeviation == 1.06 &&
-                                            sp.EfCoefficentOfVariation == 28.57 &&
-                                            sp.NHibernateAverage == 3.59 &&
-                                            sp.NHibernateStandardDeviation == 1.22 &&
-                                            sp.NHibernateCoefficentOfVariation == 33.98 &&
-                                            sp.Difference == 0.12 &&
+                .And.ContainSingle(sp => sp.EfAverage == 2.7 &&
+                                            sp.EfStandardDeviation == 0 &&
+                                            sp.EfCoefficentOfVariation == 0 &&
+                                            sp.EfExecutionTimePerRecord == 0.25 &&
+                                            sp.NHibernateAverage == 2.11 &&
+                                            sp.NHibernateStandardDeviation == 0 &&
+                                            sp.NHibernateCoefficentOfVariation == 0 &&
+                                            sp.Difference == 0.59 &&
+                                            sp.nHibernateExecutionTimePerRecord == 0.19 &&
                                             sp.TestName == "Bulk Update 1:N");
         }
     }

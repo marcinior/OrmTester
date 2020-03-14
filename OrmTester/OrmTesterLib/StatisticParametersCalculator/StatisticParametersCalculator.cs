@@ -50,6 +50,13 @@ namespace OrmTesterLib.StatisticParametersCalculator
                 statParam.EfCoefficentOfVariation = CalculateCoefficentOfVariation(statParam.EfStandardDeviation, statParam.EfAverage);
                 statParam.NHibernateCoefficentOfVariation = CalculateCoefficentOfVariation(statParam.NHibernateStandardDeviation, statParam.NHibernateAverage);
 
+                if (statParam.IsBulk)
+                {
+                    int numberOfRecords = efGroupedResults[i].Item2.First().NumberOfRecords;
+                    statParam.EfExecutionTimePerRecord = Math.Round(statParam.EfAverage / numberOfRecords, 2);
+                    statParam.nHibernateExecutionTimePerRecord = Math.Round(statParam.NHibernateAverage / numberOfRecords, 2);
+                }
+
                 statisticParameters.Add(statParam);
             }
 

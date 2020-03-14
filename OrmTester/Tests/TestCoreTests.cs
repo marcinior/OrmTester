@@ -19,16 +19,17 @@ namespace Tests
             TestParametersBuilder testParametersBuilder = new TestParametersBuilder();
             testParametersBuilder
                 .TestBulkCreateManyToMany(15)
-                .TestSingleCreateOneToOne()
-                .TestBulkDeleteOneToOne();
+                .TestSingleCreateOneToOne(100)
+                .TestBulkDeleteOneToOne(500);
 
             TestParameters testParameters = testParametersBuilder.GetTestParameters();
 
             Assert.AreEqual(true, testParameters.BulkCreateManyToMany.Item1);
             Assert.AreEqual(15, testParameters.BulkCreateManyToMany.Item2);
             Assert.AreEqual(true, testParameters.SingleCreateOneToOne.Item1);
+            Assert.AreEqual(100, testParameters.SingleCreateOneToOne.Item2);
             Assert.AreEqual(true, testParameters.BulkDeleteOneToOne.Item1);
-            Assert.AreEqual(10, testParameters.BulkDeleteOneToOne.Item2);
+            Assert.AreEqual(500, testParameters.BulkDeleteOneToOne.Item2);
         }
 
         [Test]
@@ -40,7 +41,7 @@ namespace Tests
                 .Returns(new TimeSpan(0, 0, 0, 0, 120));
 
             sampleOrmImplementation
-                .Setup(o => o.BulkUpdateOneToOne())
+                .Setup(o => o.BulkUpdateOneToOne(3))
                 .Returns(new TimeSpan(0, 0, 0, 0, 150));
 
             TestParametersBuilder testParametersBuilder = new TestParametersBuilder();
@@ -52,9 +53,9 @@ namespace Tests
 
             var results = baseTester.RunTests(sampleOrmImplementation.Object);
 
-            results.Should().HaveCount(5)
+            results.Should().HaveCount(3)
                 .And.Contain(tr => tr.IsBulkTest == false && tr.OperationType == OperationType.Create && tr.RelationshipType == RelationshipType.None && tr.ExecutionTime.TotalMilliseconds == 120)
-                .And.Contain(tr => tr.IsBulkTest == true && tr.OperationType == OperationType.Update && tr.RelationshipType == RelationshipType.OneToOne && tr.ExecutionTime.TotalMilliseconds == 150);
+                .And.Contain(tr => tr.IsBulkTest == true && tr.OperationType == OperationType.Update && tr.RelationshipType == RelationshipType.OneToOne && tr.ExecutionTime.TotalMilliseconds == 150 && tr.NumberOfRecords == 3);
         }
 
         [Test]
@@ -66,7 +67,7 @@ namespace Tests
                 .Returns(new TimeSpan(0, 0, 0, 0, 120));
 
             sampleOrmImplementation
-                .Setup(o => o.BulkUpdateOneToOne())
+                .Setup(o => o.BulkUpdateOneToOne(3))
                 .Returns(new TimeSpan(0, 0, 0, 0, 150));
 
             TestParametersBuilder testParametersBuilder = new TestParametersBuilder();
@@ -78,9 +79,9 @@ namespace Tests
 
             var results = baseTester.RunTests(sampleOrmImplementation.Object);
 
-            results.Should().HaveCount(5)
+            results.Should().HaveCount(3)
                 .And.Contain(tr => tr.IsBulkTest == false && tr.OperationType == OperationType.Create && tr.RelationshipType == RelationshipType.None && tr.ExecutionTime.TotalMilliseconds == 120)
-                .And.Contain(tr => tr.IsBulkTest == true && tr.OperationType == OperationType.Update && tr.RelationshipType == RelationshipType.OneToOne && tr.ExecutionTime.TotalMilliseconds == 150);
+                .And.Contain(tr => tr.IsBulkTest == true && tr.OperationType == OperationType.Update && tr.RelationshipType == RelationshipType.OneToOne && tr.ExecutionTime.TotalMilliseconds == 150 && tr.NumberOfRecords == 3);
         }
     }
 }
