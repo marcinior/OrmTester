@@ -137,9 +137,9 @@ namespace OrmTesterDesktop
             {
                 if (ManyToManyBulk.IsChecked == true)
                 {
-                    if (int.TryParse(ManyToManyRepetitionsBulk.Text, out var repetitions))
+                    if (int.TryParse(ManyToManyRepetitionsBulk.Text, out var RowsCount))
                     {
-                        builder.TestBulkCreateManyToMany(repetitions);
+                        builder.TestBulkCreateManyToMany(RowsCount);
                     }
                 }
                 if (ManyToManySingle.IsChecked == true)
@@ -162,9 +162,9 @@ namespace OrmTesterDesktop
             {
                 if (OneToManyBulk.IsChecked == true)
                 {
-                    if (int.TryParse(OneToManyRepetitionsBulk.Text, out var repetitions))
+                    if (int.TryParse(OneToManyRepetitionsBulk.Text, out var RowsCount))
                     {
-                        builder.TestBulkCreateOneToMany(repetitions);
+                        builder.TestBulkCreateOneToMany(RowsCount);
                     }
                 }
                 if (OneToManySingle.IsChecked == true)
@@ -187,9 +187,9 @@ namespace OrmTesterDesktop
             {
                 if (OneToOneBulk.IsChecked == true)
                 {
-                    if (int.TryParse(OneToOneRepetitionsBulk.Text, out var repetitions))
+                    if (int.TryParse(OneToOneRepetitionsBulk.Text, out var RowsCount))
                     {
-                        builder.TestBulkCreateOneToOne(repetitions);
+                        builder.TestBulkCreateOneToOne(RowsCount);
                     }
                 }
                 if (OneToOneSingle.IsChecked == true)
@@ -212,9 +212,9 @@ namespace OrmTesterDesktop
             {
                 if (NoneBulk.IsChecked == true)
                 {
-                    if (int.TryParse(NoneRepetitionsBulk.Text, out var repetitions))
+                    if (int.TryParse(NoneRepetitionsBulk.Text, out var RowsCount))
                     {
-                        builder.TestBulkCreateNoRelationship(repetitions);
+                        builder.TestBulkCreateNoRelationship(RowsCount);
                     }
                 }
                 if (NoneSingle.IsChecked == true)
@@ -248,9 +248,9 @@ namespace OrmTesterDesktop
             {
                 if (ManyToManyDeleteBulk.IsChecked == true)
                 {
-                    if (int.TryParse(ManyToManyDeleteRepetitionsBulk.Text, out var repetitions))
+                    if (int.TryParse(ManyToManyDeleteRepetitionsBulk.Text, out var RowsCount))
                     {
-                        builder.TestBulkDeleteManyToMany(repetitions);
+                        builder.TestBulkDeleteManyToMany(RowsCount);
                     }
                 }
                 if (ManyToManyDeleteSingle.IsChecked == true)
@@ -273,9 +273,9 @@ namespace OrmTesterDesktop
             {
                 if (OneToManyDeleteBulk.IsChecked == true)
                 {
-                    if (int.TryParse(OneToManyDeleteRepetitionsBulk.Text, out var repetitions))
+                    if (int.TryParse(OneToManyDeleteRepetitionsBulk.Text, out var RowsCount))
                     {
-                        builder.TestBulkDeleteOneToMany(repetitions);
+                        builder.TestBulkDeleteOneToMany(RowsCount);
                     }
                 }
                 if (OneToManyDeleteSingle.IsChecked == true)
@@ -298,9 +298,9 @@ namespace OrmTesterDesktop
             {
                 if (OneToOneDeleteBulk.IsChecked == true)
                 {
-                    if (int.TryParse(OneToOneDeleteRepetitionsBulk.Text, out var repetitions))
+                    if (int.TryParse(OneToOneDeleteRepetitionsBulk.Text, out var RowsCount))
                     {
-                        builder.TestBulkDeleteOneToOne(repetitions);
+                        builder.TestBulkDeleteOneToOne(RowsCount);
                     }
                 }
                 if (OneToOneDeleteSingle.IsChecked == true)
@@ -323,9 +323,9 @@ namespace OrmTesterDesktop
             {
                 if (NoneRelationshipDeleteBulk.IsChecked == true)
                 {
-                    if (int.TryParse(NoneRelationshipDeleteRepetitionsBulk.Text, out var repetitions))
+                    if (int.TryParse(NoneRelationshipDeleteRepetitionsBulk.Text, out var RowsCount))
                     {
-                        builder.TestBulkDeleteNoRelationship(repetitions);
+                        builder.TestBulkDeleteNoRelationship(RowsCount);
                     }
                 }
                 if (NoneRelationshipDeleteSingle.IsChecked == true)
@@ -360,9 +360,9 @@ namespace OrmTesterDesktop
             {
                 if (ManyToManyUpdateBulk.IsChecked == true)
                 {
-                    if (int.TryParse(ManyToManyUpdateRepetitionsBulk.Text, out var repetitions))
+                    if (int.TryParse(ManyToManyUpdateRepetitionsBulk.Text, out var RowsCount))
                     {
-                        builder.TestBulkUpdateManyToMany(repetitions);
+                        builder.TestBulkUpdateManyToMany(RowsCount);
                     }
                 }
                 if (ManyToManyUpdateSingle.IsChecked == true)
@@ -385,9 +385,9 @@ namespace OrmTesterDesktop
             {
                 if (OneToManyUpdateBulk.IsChecked == true)
                 {
-                    if (int.TryParse(OneToManyUpdateRepetitionsBulk.Text, out var repetitions))
+                    if (int.TryParse(OneToManyUpdateRepetitionsBulk.Text, out var RowsCount))
                     {
-                        builder.TestBulkUpdateOneToMany(repetitions);
+                        builder.TestBulkUpdateOneToMany(RowsCount);
                     }
                 }
                 if (OneToManyUpdateSingle.IsChecked == true)
@@ -410,9 +410,9 @@ namespace OrmTesterDesktop
             {
                 if (OneToOneUpdateBulk.IsChecked == true)
                 {
-                    if (int.TryParse(OneToOneUpdateRepetitionsBulk.Text, out var repetitions))
+                    if (int.TryParse(OneToOneUpdateRepetitionsBulk.Text, out var RowsCount))
                     {
-                        builder.TestBulkUpdateOneToOne(repetitions);
+                        builder.TestBulkUpdateOneToOne(RowsCount);
                     }
                 }
                 if (OneToOneUpdateSingle.IsChecked == true)
@@ -435,9 +435,9 @@ namespace OrmTesterDesktop
             {
                 if (NoneRelationshipUpdateBulk.IsChecked == true)
                 {
-                    if (int.TryParse(NoneRelationshipUpdateRepetitionsBulk.Text, out var repetitions))
+                    if (int.TryParse(NoneRelationshipUpdateRepetitionsBulk.Text, out var RowsCount))
                     {
-                        builder.TestBulkUpdateNoRelationship(repetitions);
+                        builder.TestBulkUpdateNoRelationship(RowsCount);
                     }
                 }
                 if (NoneRelationshipUpdateSingle.IsChecked == true)
