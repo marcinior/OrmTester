@@ -1,5 +1,6 @@
 ﻿using EntityFramework.Entity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace EntityFramework
 {
@@ -7,16 +8,20 @@ namespace EntityFramework
     {
         private readonly string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=OrmTesterEfDb;Integrated Security=True";
 
-        public EfDbContext(DbContextOptions<EfDbContext> options) : base(options) {}
+        public EfDbContext(DbContextOptions<EfDbContext> options) : base(options) { }
 
         public EfDbContext() : base()
         {
             this.Database.Migrate();
         }
 
+        public static readonly LoggerFactory MyLoggerFactory = new LoggerFactory(new[] {new Microsoft.Extensions.Logging.Debug.DebugLoggerProvider()});
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(connectionString);
+            optionsBuilder
+                .UseLoggerFactory(MyLoggerFactory)
+                .UseSqlServer(connectionString);
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
