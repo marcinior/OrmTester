@@ -22,25 +22,16 @@ namespace OrmTesterDesktop
             this.CoVCommand = new CreateChartCommand(chartGenerator.GenerateCoefficentOfVariationBarChart);
         }
 
-        public int RowCount
-        {
-            get => rowCount;
-            set
-            {
-                rowCount = value;
-                this.NotifyPropertyChanged(nameof(RowCount));
-            }
-        }
         public bool AreCreateButtonsAvailable { get => this.TestResults.Any(test => test.OperationType == OperationType.Create); }
         public bool AreUpdateButtonsAvailable { get => this.TestResults.Any(test => test.OperationType == OperationType.Update); }
         public bool AreDeleteButtonsAvailable { get => this.TestResults.Any(test => test.OperationType == OperationType.Delete); }
 
-        public bool ExportButtonAvailable => NHibernateResults != null && EFResults != null;
+        public bool ExportButtonAvailable =>NHibernateResults!=null && EFResults != null;
 
         public CreateChartCommand AverageCommand { get; set; }
         public CreateChartCommand SDCommand { get; set; }
         public CreateChartCommand CoVCommand { get; set; }
-
+        
         public List<TestResult> NHibernateResults
         {
             get => nHibernateResults; set
@@ -51,21 +42,20 @@ namespace OrmTesterDesktop
         }
         public List<TestResult> EFResults
         {
-            get => eFResults;
+            get => eFResults; 
             set
             {
                 eFResults = value;
                 NotifyPropertyChanged(nameof(ExportButtonAvailable));
             }
         }
-
+        
         private List<StatisticParameter> testResults;
         private bool isExecuteButtonActive;
         private ChartGenerationHelper chartGenerator;
         private bool uiUnlocked = true;
         private List<TestResult> nHibernateResults;
         private List<TestResult> eFResults;
-        private int rowCount = 500;
 
         public List<StatisticParameter> TestResults
         {
