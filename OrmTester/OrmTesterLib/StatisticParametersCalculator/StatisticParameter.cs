@@ -28,6 +28,8 @@ namespace OrmTesterLib.StatisticParametersCalculator
 
         public OperationType OperationType { get; set; }
 
-        public double ExecutionTimePerRecord { get; set; }
+        public double EfExecutionTimePerRecord { get; set; }
+
+        public double nHibernateExecutionTimePerRecord { get; set; }
     }
 }
