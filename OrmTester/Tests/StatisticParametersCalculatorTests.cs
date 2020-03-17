@@ -9,6 +9,7 @@ using System.Globalization;
 
 namespace Tests
 {
+    /*ExecutonTimes represents sample operation execution time and are base to test statistic parameters calculation corectness*/
     class StatisticParametersCalculatorTests
     {
         private List<TestResult> integerTestResults;
