@@ -31,7 +31,7 @@ namespace EntityFramework
                 .WithOne(i => i.Student)
                 .HasForeignKey<Student>(s => s.IndexForeignKey)
                 .IsRequired(false)
-                .OnDelete(DeleteBehavior.SetNull);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.Entity<Student>()
                 .HasOne(s => s.Class)
