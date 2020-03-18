@@ -305,7 +305,7 @@ namespace OrmTesterDesktop
                 }
                 if (OneToOneDeleteSingle.IsChecked == true)
                 {
-                    if (int.TryParse(OneToOneRepetitionsSingle.Text, out var repetitions))
+                    if (int.TryParse(OneToOneDeleteRepetitionsSingle.Text, out var repetitions))
                     {
                         builder.TestSingleDeleteOneToOne(repetitions);
                     }
