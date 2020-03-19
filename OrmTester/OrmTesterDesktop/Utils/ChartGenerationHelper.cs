@@ -20,7 +20,7 @@ namespace OrmTesterDesktop.Utils
             {RelationshipType.OneToMany, Resources.OneToMany },
             {RelationshipType.OneToOne, Resources.OneToOne },
             {RelationshipType.None, Resources.None }
-        };
+        };        
 
         private string allTestLabel = Resources.AllTests;
 
@@ -46,8 +46,12 @@ namespace OrmTesterDesktop.Utils
                     efResults.Add(averageForRelationship.Item2);
                     if (LabelsForRelationship.TryGetValue(relation, out var label))
                     {
-                        labels.Add(label);
+                        labels.Add(label + " " + Resources.Bulk);
                     }
+
+                    nHibernateResults.Add(averageForRelationship.Item3);
+                    efResults.Add(averageForRelationship.Item4);
+                    labels.Add(label + " " + Resources.Single);
                 }
             }
 
@@ -64,7 +68,7 @@ namespace OrmTesterDesktop.Utils
             };
 
 
-            var chartView = new ChartView
+            var chartView = new ChartView(true)
             {
                 Labels = labels.ToArray()
             };
@@ -77,7 +81,7 @@ namespace OrmTesterDesktop.Utils
         {
             var updateParameters = GetParamsByOperation(type);
 
-            var fullAverage = GetAverageStandardDeviationForFrameworks(updateParameters);
+            var fullAverage = GetAverageStandardDeviationForFrameworks(updateParameters.Where(param => !param.IsBulk));
 
             var nHibernateResults = new ChartValues<double>();
             var efResults = new ChartValues<double>();
@@ -128,7 +132,7 @@ namespace OrmTesterDesktop.Utils
         {
             var updateParameters = GetParamsByOperation(type);
 
-            var fullAverage = GetAverageCoefficientOfVariationForFrameworks(updateParameters);
+            var fullAverage = GetAverageCoefficientOfVariationForFrameworks(updateParameters.Where(param => !param.IsBulk));
 
             var nHibernateResults = new ChartValues<double>();
             var efResults = new ChartValues<double>();
@@ -180,18 +184,20 @@ namespace OrmTesterDesktop.Utils
             return this.StatisticParameters.Where(param => param.OperationType == operationType);
         }
 
-        private Tuple<double, double> GetAverageForRelationship(IEnumerable<StatisticParameter> statisticParameters, RelationshipType relationshipType)
+        private Tuple<double, double, double, double> GetAverageForRelationship(IEnumerable<StatisticParameter> statisticParameters, RelationshipType relationshipType)
         {
             return this.GetAverageForFrameworks(statisticParameters.Where(param => param.RelationshipType == relationshipType));
         }
 
-        private Tuple<double, double> GetAverageForFrameworks(IEnumerable<StatisticParameter> statisticParameters)
+        private Tuple<double, double, double, double> GetAverageForFrameworks(IEnumerable<StatisticParameter> statisticParameters)
         {
             if (statisticParameters.Any())
             {
-                var nHibernateCreateAverage = statisticParameters.Average(createParameter => createParameter.NHibernateAverage);
-                var efCreateAverage = statisticParameters.Average(createParameter => createParameter.EfAverage);
-                return new Tuple<double, double>(nHibernateCreateAverage, efCreateAverage);
+                var nHibernateCreateAverageBulk = statisticParameters.Where(param => param.IsBulk).Average(createParameter => createParameter.nHibernateExecutionTimePerRecord);
+                var efCreateAverageBulk = statisticParameters.Where(param => param.IsBulk).Average(createParameter => createParameter.EfExecutionTimePerRecord);
+                var nHibernateCreateAverageSingle = statisticParameters.Where(param => !param.IsBulk).Average(createParameter => createParameter.nHibernateExecutionTimePerRecord);
+                var efCreateAverageSingle = statisticParameters.Where(param => !param.IsBulk).Average(createParameter => createParameter.EfExecutionTimePerRecord);
+                return new Tuple<double, double, double, double>(nHibernateCreateAverageBulk, efCreateAverageBulk, nHibernateCreateAverageSingle, efCreateAverageSingle);
             }
             else
             {
@@ -201,7 +207,7 @@ namespace OrmTesterDesktop.Utils
 
         private Tuple<double, double> GetAverageStandardDeviationForRelationship(IEnumerable<StatisticParameter> statisticParameters, RelationshipType relationshipType)
         {
-            return this.GetAverageStandardDeviationForFrameworks(statisticParameters.Where(param => param.RelationshipType == relationshipType));
+            return this.GetAverageStandardDeviationForFrameworks(statisticParameters.Where(param => param.RelationshipType == relationshipType && !param.IsBulk));
         }
 
         private Tuple<double, double> GetAverageStandardDeviationForFrameworks(IEnumerable<StatisticParameter> statisticParameters)
@@ -220,7 +226,7 @@ namespace OrmTesterDesktop.Utils
 
         private Tuple<double, double> GetAverageCoefficientOfVariationForRelationship(IEnumerable<StatisticParameter> statisticParameters, RelationshipType relationshipType)
         {
-            return this.GetAverageCoefficientOfVariationForFrameworks(statisticParameters.Where(param => param.RelationshipType == relationshipType));
+            return this.GetAverageCoefficientOfVariationForFrameworks(statisticParameters.Where(param => param.RelationshipType == relationshipType && !param.IsBulk));
         }
 
         private Tuple<double, double> GetAverageCoefficientOfVariationForFrameworks(IEnumerable<StatisticParameter> statisticParameters)

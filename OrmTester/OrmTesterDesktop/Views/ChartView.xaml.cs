@@ -15,12 +15,16 @@ namespace OrmTesterDesktop.Views
         public string[] Labels { get; set; }
         public Func<double, string> Formatter { get; set; }
 
-        public ChartView()
+        public ChartView(bool maximize = false)
         {
             InitializeComponent();
             DataContext = this;
             SeriesCollection = new SeriesCollection();
             Formatter = value => value.ToString("N");
+            if (maximize)
+            {
+                this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
+            }
         }
 
         public void SaveChart()

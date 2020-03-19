@@ -88,7 +88,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Average Chart.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Time per Record Chart.
         /// </summary>
         public static string AverageChart {
             get {
