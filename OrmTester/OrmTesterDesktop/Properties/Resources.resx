@@ -127,7 +127,7 @@
     <value>Choose application mode</value>
   </data>
   <data name="AverageChart" xml:space="preserve">
-    <value>Average Chart</value>
+    <value>Time per record chart</value>
   </data>
   <data name="Bulk" xml:space="preserve">
     <value>Bulk</value>
