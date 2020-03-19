@@ -189,8 +189,8 @@ namespace OrmTesterDesktop.Utils
         {
             if (statisticParameters.Any())
             {
-                var nHibernateCreateAverage = statisticParameters.Average(createParameter => createParameter.NHibernateAverage);
-                var efCreateAverage = statisticParameters.Average(createParameter => createParameter.EfAverage);
+                var nHibernateCreateAverage = statisticParameters.Average(createParameter => createParameter.nHibernateExecutionTimePerRecord);
+                var efCreateAverage = statisticParameters.Average(createParameter => createParameter.EfExecutionTimePerRecord);
                 return new Tuple<double, double>(nHibernateCreateAverage, efCreateAverage);
             }
             else
