@@ -77,7 +77,7 @@ namespace OrmTesterDesktop.Utils
         {
             var updateParameters = GetParamsByOperation(type);
 
-            var fullAverage = GetAverageStandardDeviationForFrameworks(updateParameters);
+            var fullAverage = GetAverageStandardDeviationForFrameworks(updateParameters.Where(param => !param.IsBulk));
 
             var nHibernateResults = new ChartValues<double>();
             var efResults = new ChartValues<double>();
@@ -128,7 +128,7 @@ namespace OrmTesterDesktop.Utils
         {
             var updateParameters = GetParamsByOperation(type);
 
-            var fullAverage = GetAverageCoefficientOfVariationForFrameworks(updateParameters);
+            var fullAverage = GetAverageCoefficientOfVariationForFrameworks(updateParameters.Where(param => !param.IsBulk));
 
             var nHibernateResults = new ChartValues<double>();
             var efResults = new ChartValues<double>();
@@ -201,7 +201,7 @@ namespace OrmTesterDesktop.Utils
 
         private Tuple<double, double> GetAverageStandardDeviationForRelationship(IEnumerable<StatisticParameter> statisticParameters, RelationshipType relationshipType)
         {
-            return this.GetAverageStandardDeviationForFrameworks(statisticParameters.Where(param => param.RelationshipType == relationshipType));
+            return this.GetAverageStandardDeviationForFrameworks(statisticParameters.Where(param => param.RelationshipType == relationshipType && !param.IsBulk));
         }
 
         private Tuple<double, double> GetAverageStandardDeviationForFrameworks(IEnumerable<StatisticParameter> statisticParameters)
@@ -220,7 +220,7 @@ namespace OrmTesterDesktop.Utils
 
         private Tuple<double, double> GetAverageCoefficientOfVariationForRelationship(IEnumerable<StatisticParameter> statisticParameters, RelationshipType relationshipType)
         {
-            return this.GetAverageCoefficientOfVariationForFrameworks(statisticParameters.Where(param => param.RelationshipType == relationshipType));
+            return this.GetAverageCoefficientOfVariationForFrameworks(statisticParameters.Where(param => param.RelationshipType == relationshipType && !param.IsBulk));
         }
 
         private Tuple<double, double> GetAverageCoefficientOfVariationForFrameworks(IEnumerable<StatisticParameter> statisticParameters)
