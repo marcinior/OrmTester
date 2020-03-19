@@ -46,12 +46,12 @@ namespace OrmTesterDesktop.Utils
                     efResults.Add(averageForRelationship.Item2);
                     if (LabelsForRelationship.TryGetValue(relation, out var label))
                     {
-                        labels.Add(label + Resources.Bulk);
+                        labels.Add(label + " " + Resources.Bulk);
                     }
 
                     nHibernateResults.Add(averageForRelationship.Item3);
                     efResults.Add(averageForRelationship.Item4);
-                    labels.Add(label + Resources.Single);
+                    labels.Add(label + " " + Resources.Single);
                 }
             }
 
@@ -68,7 +68,7 @@ namespace OrmTesterDesktop.Utils
             };
 
 
-            var chartView = new ChartView
+            var chartView = new ChartView(true)
             {
                 Labels = labels.ToArray()
             };
