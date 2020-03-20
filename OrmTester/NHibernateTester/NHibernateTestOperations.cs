@@ -572,10 +572,5 @@ namespace NHibernateTester
             session.Delete("from Subject");
             session.Flush();
         }
-
-        ~NHibernateTestOperations()
-        {
-            this.Dispose();
-        }
     }
 }

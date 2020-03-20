@@ -81,10 +81,13 @@ namespace OrmTesterDesktop
 
             Task.Factory.StartNew(() =>
             {
-                var entityFrameworkTester = new EntityFrameworkTester(builder);
-                var nHibernateTester = new NHibernateTestOperations(builder);
-                ViewModel.EFResults = entityFrameworkTester.RunTests(entityFrameworkTester);
-                ViewModel.NHibernateResults = nHibernateTester.RunTests(nHibernateTester);
+                using (var entityFrameworkTester = new EntityFrameworkTester(builder))
+                using (var nHibernateTester = new NHibernateTestOperations(builder))
+                {
+                    ViewModel.EFResults = entityFrameworkTester.RunTests(entityFrameworkTester);
+                    ViewModel.NHibernateResults = nHibernateTester.RunTests(nHibernateTester);
+                }
+
                 StatisticParametersCalculator stat = new StatisticParametersCalculator(CultureInfo.CurrentUICulture);
                 this.ViewModel.TestResults = stat.CalculateStatisticParameters(ViewModel.EFResults, ViewModel.NHibernateResults);
                 Dispatcher.Invoke(() =>
