@@ -7,8 +7,8 @@ namespace NHibernateTester.Entities
         public StudentSubjectMapper()
         {
             Id(studentSubject => studentSubject.Id);
-            References(studentSubject => studentSubject.StudentId).Not.Nullable();
-            References(studentSubject => studentSubject.SubjectId).Not.Nullable();
+            References(studentSubject => studentSubject.StudentId).Not.Nullable().Index("IX_StudentSubject_StudentId");
+            References(studentSubject => studentSubject.SubjectId).Not.Nullable().Index("IX_StudentSubject_SubjectId");
         }
     }
 }
