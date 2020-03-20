@@ -1,4 +1,5 @@
 ﻿using EntityFramework.Entity;
+using Microsoft.EntityFrameworkCore;
 using OrmTesterLib.Interfaces;
 using OrmTesterLib.TestCore;
 using System;
@@ -8,13 +9,14 @@ using System.Linq;
 
 namespace EntityFramework
 {
-    public class EntityFrameworkTester : BaseTester, ITestOperations
+    public class EntityFrameworkTester : BaseTester, ITestOperations, IDisposable
     {
         private EfDbContext db;
 
         public EntityFrameworkTester(TestParametersBuilder testParametersBuilder) : base(testParametersBuilder)
         {
             db = new EfDbContext();
+            db.Database.OpenConnection();
             TruncateDatabase();
         }
 
@@ -26,11 +28,6 @@ namespace EntityFramework
             db.Students.RemoveRange(db.Students);
             db.Subjects.RemoveRange(db.Subjects);
             db.SaveChanges();
-        }
-
-        ~EntityFrameworkTester()
-        {
-            db.Dispose();
         }
 
         public TimeSpan BulkCreateManyToMany(int numberOfRecords)
@@ -581,6 +578,12 @@ namespace EntityFramework
             stopwatch.Stop();
 
             return stopwatch.Elapsed;
+        }
+
+        public void Dispose()
+        {
+            db.Database.CloseConnection();
+            db.Dispose();
         }
     }
 }
