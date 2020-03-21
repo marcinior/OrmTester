@@ -193,9 +193,9 @@ namespace OrmTesterDesktop.Utils
         {
             if (statisticParameters.Any())
             {
-                var nHibernateCreateAverageBulk = statisticParameters.Where(param => param.IsBulk).Average(createParameter => createParameter.nHibernateExecutionTimePerRecord);
+                var nHibernateCreateAverageBulk = statisticParameters.Where(param => param.IsBulk).Average(createParameter => createParameter.NHibernateExecutionTimePerRecord);
                 var efCreateAverageBulk = statisticParameters.Where(param => param.IsBulk).Average(createParameter => createParameter.EfExecutionTimePerRecord);
-                var nHibernateCreateAverageSingle = statisticParameters.Where(param => !param.IsBulk).Average(createParameter => createParameter.nHibernateExecutionTimePerRecord);
+                var nHibernateCreateAverageSingle = statisticParameters.Where(param => !param.IsBulk).Average(createParameter => createParameter.NHibernateExecutionTimePerRecord);
                 var efCreateAverageSingle = statisticParameters.Where(param => !param.IsBulk).Average(createParameter => createParameter.EfExecutionTimePerRecord);
                 return new Tuple<double, double, double, double>(nHibernateCreateAverageBulk, efCreateAverageBulk, nHibernateCreateAverageSingle, efCreateAverageSingle);
             }

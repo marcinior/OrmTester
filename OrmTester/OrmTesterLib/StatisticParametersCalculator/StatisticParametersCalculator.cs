@@ -1,4 +1,5 @@
-﻿using OrmTesterLib.TestCore;
+﻿using OrmTesterLib.Enums;
+using OrmTesterLib.TestCore;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -53,8 +54,16 @@ namespace OrmTesterLib.StatisticParametersCalculator
                 if (statParam.IsBulk)
                 {
                     int numberOfRecords = efGroupedResults[i].Item2.First().NumberOfRecords;
+                    if (statParam.RelationshipType == RelationshipType.ManyToMany)
+                        numberOfRecords *= 2;
+
                     statParam.EfExecutionTimePerRecord = Math.Round(statParam.EfAverage / numberOfRecords, 2);
-                    statParam.nHibernateExecutionTimePerRecord = Math.Round(statParam.NHibernateAverage / numberOfRecords, 2);
+                    statParam.NHibernateExecutionTimePerRecord = Math.Round(statParam.NHibernateAverage / numberOfRecords, 2);
+                }
+                else
+                {
+                    statParam.EfExecutionTimePerRecord = statParam.EfAverage;
+                    statParam.NHibernateExecutionTimePerRecord = statParam.NHibernateAverage;
                 }
 
                 statisticParameters.Add(statParam);
