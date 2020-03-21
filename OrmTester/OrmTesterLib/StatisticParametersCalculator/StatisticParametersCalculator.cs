@@ -57,8 +57,9 @@ namespace OrmTesterLib.StatisticParametersCalculator
                     if (statParam.RelationshipType == RelationshipType.ManyToMany)
                         numberOfRecords *= numberOfRecords;
 
-                    statParam.EfExecutionTimePerRecord = Math.Round(statParam.EfAverage / numberOfRecords, 2);
-                    statParam.NHibernateExecutionTimePerRecord = Math.Round(statParam.NHibernateAverage / numberOfRecords, 2);
+                    statParam.NumberOfRecords = numberOfRecords;
+                    statParam.EfExecutionTimePerRecord = Math.Round(statParam.EfAverage / numberOfRecords, 3);
+                    statParam.NHibernateExecutionTimePerRecord = Math.Round(statParam.NHibernateAverage / numberOfRecords, 3);
                 }
                 else
                 {
@@ -74,12 +75,12 @@ namespace OrmTesterLib.StatisticParametersCalculator
 
         private double CalculateDifference(double firstAverage, double secondAverage)
         {
-            return Math.Round(Math.Abs(firstAverage - secondAverage), 2);
+            return Math.Round(Math.Abs(firstAverage - secondAverage), 3);
         }
 
         private double CalculateAverage(List<TestResult> testResults)
         {
-            return Math.Round(testResults.Average(tr => tr.ExecutionTime.TotalMilliseconds), 2);
+            return Math.Round(testResults.Average(tr => tr.ExecutionTime.TotalMilliseconds), 3);
         }
 
         //odchylenie standardowe z populacji
