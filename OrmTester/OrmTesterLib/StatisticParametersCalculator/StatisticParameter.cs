@@ -31,5 +31,7 @@ namespace OrmTesterLib.StatisticParametersCalculator
         public double EfExecutionTimePerRecord { get; set; }
 
         public double NHibernateExecutionTimePerRecord { get; set; }
+
+        public int NumberOfRecords { get; set; } = 1;
     }
 }
