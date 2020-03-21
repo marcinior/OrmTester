@@ -55,7 +55,7 @@ namespace OrmTesterLib.StatisticParametersCalculator
                 {
                     int numberOfRecords = efGroupedResults[i].Item2.First().NumberOfRecords;
                     if (statParam.RelationshipType == RelationshipType.ManyToMany)
-                        numberOfRecords *= 2;
+                        numberOfRecords *= numberOfRecords;
 
                     statParam.EfExecutionTimePerRecord = Math.Round(statParam.EfAverage / numberOfRecords, 2);
                     statParam.NHibernateExecutionTimePerRecord = Math.Round(statParam.NHibernateAverage / numberOfRecords, 2);
