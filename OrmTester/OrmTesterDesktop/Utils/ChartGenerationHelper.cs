@@ -196,8 +196,8 @@ namespace OrmTesterDesktop.Utils
             var efCreateAverageBulk = 0.0;
             if (bulkResults.Any())
             {
-                nHibernateCreateAverageBulk = bulkResults.Average(createParameter => createParameter.NHibernateExecutionTimePerRecord);
-                efCreateAverageBulk = bulkResults.Average(createParameter => createParameter.EfExecutionTimePerRecord);                
+                nHibernateCreateAverageBulk = bulkResults.FirstOrDefault().NHibernateExecutionTimePerRecord;
+                efCreateAverageBulk = bulkResults.FirstOrDefault().EfExecutionTimePerRecord;                
                 
             }
             var singleResutls = statisticParameters.Where(param => !param.IsBulk);
@@ -205,8 +205,8 @@ namespace OrmTesterDesktop.Utils
             var efCreateAverageSingle = 0.0;
             if (singleResutls.Any())
             {
-                nHibernateCreateAverageSingle = statisticParameters.Where(param => !param.IsBulk).Average(createParameter => createParameter.NHibernateAverage);
-                efCreateAverageSingle = statisticParameters.Where(param => !param.IsBulk).Average(createParameter => createParameter.EfAverage);
+                nHibernateCreateAverageSingle = singleResutls.FirstOrDefault().NHibernateAverage;
+                efCreateAverageSingle = singleResutls.FirstOrDefault().EfAverage;
             }
 
             return new Tuple<double, double, double, double>(nHibernateCreateAverageBulk, efCreateAverageBulk, nHibernateCreateAverageSingle, efCreateAverageSingle);
