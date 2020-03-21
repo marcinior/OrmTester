@@ -150,8 +150,14 @@
   <data name="EfAverage" xml:space="preserve">
     <value>Entity Framework Average Time</value>
   </data>
+  <data name="EFAveragePerRecord" xml:space="preserve">
+    <value>Entity Framewrok Time per Record</value>
+  </data>
   <data name="EfCoefficentOfVariation" xml:space="preserve">
     <value>Entity Framework Coefficient of Variation</value>
+  </data>
+  <data name="EfExecutionTime" xml:space="preserve">
+    <value>Entity Framework Execution Time</value>
   </data>
   <data name="EfStandardDeviation" xml:space="preserve">
     <value>Entity Framework Standard Deviation</value>
@@ -192,8 +198,14 @@
   <data name="NHibernateAverage" xml:space="preserve">
     <value>nHibernate Average Time</value>
   </data>
+  <data name="NHibernateAveragePerRecord" xml:space="preserve">
+    <value>nHibernate Time per Record</value>
+  </data>
   <data name="NHibernateCoefficentOfVariation" xml:space="preserve">
     <value>nHibernate Coefficient of Variation</value>
+  </data>
+  <data name="NHibernateExectutionTime" xml:space="preserve">
+    <value>nHibernate Exectution Time</value>
   </data>
   <data name="NHibernateStandardDeviation" xml:space="preserve">
     <value>nHibernate Standard Deviation</value>
@@ -242,6 +254,9 @@
   </data>
   <data name="StartNewTest" xml:space="preserve">
     <value>Start New Test</value>
+  </data>
+  <data name="TestedRowCount" xml:space="preserve">
+    <value>Tested Rows Count</value>
   </data>
   <data name="TestName" xml:space="preserve">
     <value>Test Name</value>

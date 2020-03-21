@@ -57,6 +57,9 @@ namespace OrmTesterDesktop
         private List<TestResult> nHibernateResults;
         private List<TestResult> eFResults;
 
+        public IEnumerable<StatisticParameter> SingleTestResults => testResults.Where(param => !param.IsBulk);
+        public IEnumerable<StatisticParameter> BulkTestResults => testResults.Where(param => param.IsBulk);
+
         public List<StatisticParameter> TestResults
         {
             get => testResults;
@@ -65,6 +68,8 @@ namespace OrmTesterDesktop
                 testResults = value;
                 this.chartGenerator.StatisticParameters = value;
                 NotifyPropertyChanged(nameof(TestResults));
+                NotifyPropertyChanged(nameof(SingleTestResults));
+                NotifyPropertyChanged(nameof(BulkTestResults));
                 NotifyPropertyChanged(nameof(AreCreateButtonsAvailable));
                 NotifyPropertyChanged(nameof(AreUpdateButtonsAvailable));
                 NotifyPropertyChanged(nameof(AreDeleteButtonsAvailable));
