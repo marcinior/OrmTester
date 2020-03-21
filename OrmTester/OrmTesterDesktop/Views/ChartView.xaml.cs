@@ -20,7 +20,6 @@ namespace OrmTesterDesktop.Views
             InitializeComponent();
             DataContext = this;
             SeriesCollection = new SeriesCollection();
-            Formatter = value => value.ToString("N");
             if (maximize)
             {
                 this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
