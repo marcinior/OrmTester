@@ -30,6 +30,6 @@ namespace OrmTesterLib.StatisticParametersCalculator
 
         public double EfExecutionTimePerRecord { get; set; }
 
-        public double nHibernateExecutionTimePerRecord { get; set; }
+        public double NHibernateExecutionTimePerRecord { get; set; }
     }
 }

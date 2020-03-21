@@ -200,7 +200,7 @@ namespace Tests
                                             sp.NHibernateStandardDeviation == 0 &&
                                             sp.NHibernateCoefficentOfVariation == 0 &&
                                             sp.Difference == 0.59 &&
-                                            sp.nHibernateExecutionTimePerRecord == 0.19 &&
+                                            sp.NHibernateExecutionTimePerRecord == 0.19 &&
                                             sp.TestName == "Bulk Update 1:N");
         }
     }
