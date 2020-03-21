@@ -36,9 +36,9 @@
         <ScrollViewer Grid.Row="1" Height="250">
             <DataGrid ItemsSource="{Binding BulkTestResults}" Width="Auto" AutoGenerateColumns="False" Background="#FFEDF5E1" Foreground="#FF379683" EnableRowVirtualization="False" IsReadOnly="True" FontWeight="Bold" IsEnabled="False" BorderBrush="{x:Null}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="{x:Static p:Resources.TestName}" Binding="{Binding TestName}"/>                    
-                    <DataGridTextColumn Header="{x:Static p:Resources.EfExecutionTime}" Binding="{Binding EfExecutionTimePerRecord}"/>
-                    <DataGridTextColumn Header="{x:Static p:Resources.EFAveragePerRecord}" Binding="{Binding EfAverage}"/>
+                    <DataGridTextColumn Header="{x:Static p:Resources.TestName}" Binding="{Binding TestName}"/>
+                    <DataGridTextColumn Header="{x:Static p:Resources.EfExecutionTime}" Binding="{Binding EfAverage}"/>
+                    <DataGridTextColumn Header="{x:Static p:Resources.EFAveragePerRecord}" Binding="{Binding EfExecutionTimePerRecord}"/>
                     <DataGridTextColumn Header="{x:Static p:Resources.TestedRowCount}" Binding="{Binding NumberOfRecords}"/>
                     <DataGridTextColumn Header="{x:Static p:Resources.NHibernateAveragePerRecord}" Binding="{Binding NHibernateExecutionTimePerRecord}"/>
                     <DataGridTextColumn Header="{x:Static p:Resources.NHibernateExectutionTime}" Binding="{Binding NHibernateAverage}"/>
