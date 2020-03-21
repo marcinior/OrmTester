@@ -160,11 +160,29 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Entity Framewrok Time per Record.
+        /// </summary>
+        public static string EFAveragePerRecord {
+            get {
+                return ResourceManager.GetString("EFAveragePerRecord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Entity Framework Coefficient of Variation.
         /// </summary>
         public static string EfCoefficentOfVariation {
             get {
                 return ResourceManager.GetString("EfCoefficentOfVariation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Entity Framework Execution Time.
+        /// </summary>
+        public static string EfExecutionTime {
+            get {
+                return ResourceManager.GetString("EfExecutionTime", resourceCulture);
             }
         }
         
@@ -286,11 +304,29 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu nHibernate Time per Record.
+        /// </summary>
+        public static string NHibernateAveragePerRecord {
+            get {
+                return ResourceManager.GetString("NHibernateAveragePerRecord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu nHibernate Coefficient of Variation.
         /// </summary>
         public static string NHibernateCoefficentOfVariation {
             get {
                 return ResourceManager.GetString("NHibernateCoefficentOfVariation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu nHibernate Exectution Time.
+        /// </summary>
+        public static string NHibernateExectutionTime {
+            get {
+                return ResourceManager.GetString("NHibernateExectutionTime", resourceCulture);
             }
         }
         
@@ -435,6 +471,15 @@ namespace OrmTesterDesktop.Properties {
         public static string StartNewTest {
             get {
                 return ResourceManager.GetString("StartNewTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Tested Rows Count.
+        /// </summary>
+        public static string TestedRowCount {
+            get {
+                return ResourceManager.GetString("TestedRowCount", resourceCulture);
             }
         }
         

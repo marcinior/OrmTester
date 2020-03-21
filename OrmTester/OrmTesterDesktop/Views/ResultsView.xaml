@@ -12,14 +12,15 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <GroupBox Header="{x:Static p:Resources.UpdateOperation}" HorizontalAlignment="Left" Height="190" Margin="620,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="300" Grid.RowSpan="2" FontWeight="Bold"/>
+        <GroupBox Header="{x:Static p:Resources.UpdateOperation}" HorizontalAlignment="Left" Height="190" Margin="620,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="300" Grid.RowSpan="2" FontWeight="Bold"/>
 
-        <GroupBox Header="{x:Static p:Resources.CreateOperation}" HorizontalAlignment="Left" Height="190" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="250" Grid.RowSpan="2" FontWeight="Bold"/>
+        <GroupBox Header="{x:Static p:Resources.CreateOperation}" HorizontalAlignment="Left" Height="190" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="250" Grid.RowSpan="2" FontWeight="Bold"/>
 
-        <ScrollViewer Grid.Row="0" Height="500">
-            <DataGrid ItemsSource="{Binding TestResults}" Width="Auto" AutoGenerateColumns="False" Background="#FFEDF5E1" Foreground="#FF379683" EnableRowVirtualization="False" IsReadOnly="True" FontWeight="Bold" IsEnabled="False" BorderBrush="{x:Null}">
+        <ScrollViewer Grid.Row="0" Height="250">
+            <DataGrid ItemsSource="{Binding SingleTestResults}" Width="Auto" AutoGenerateColumns="False" Background="#FFEDF5E1" Foreground="#FF379683" EnableRowVirtualization="False" IsReadOnly="True" FontWeight="Bold" IsEnabled="False" BorderBrush="{x:Null}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="{x:Static p:Resources.TestName}" Binding="{Binding TestName}"/>
                     <DataGridTextColumn Header="{x:Static p:Resources.EfCoefficentOfVariation}" Binding="{Binding EfCoefficentOfVariation}"/>
@@ -32,7 +33,19 @@
                 </DataGrid.Columns>
             </DataGrid>
         </ScrollViewer>
-        <Grid Grid.Row="1" Margin="20,25,0,0">
+        <ScrollViewer Grid.Row="1" Height="250">
+            <DataGrid ItemsSource="{Binding BulkTestResults}" Width="Auto" AutoGenerateColumns="False" Background="#FFEDF5E1" Foreground="#FF379683" EnableRowVirtualization="False" IsReadOnly="True" FontWeight="Bold" IsEnabled="False" BorderBrush="{x:Null}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{x:Static p:Resources.TestName}" Binding="{Binding TestName}"/>                    
+                    <DataGridTextColumn Header="{x:Static p:Resources.EfExecutionTime}" Binding="{Binding EfExecutionTimePerRecord}"/>
+                    <DataGridTextColumn Header="{x:Static p:Resources.EFAveragePerRecord}" Binding="{Binding EfAverage}"/>
+                    <DataGridTextColumn Header="{x:Static p:Resources.TestedRowCount}" Binding="{Binding NumberOfRecords}"/>
+                    <DataGridTextColumn Header="{x:Static p:Resources.NHibernateAveragePerRecord}" Binding="{Binding NHibernateExecutionTimePerRecord}"/>
+                    <DataGridTextColumn Header="{x:Static p:Resources.NHibernateExectutionTime}" Binding="{Binding NHibernateAverage}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+        <Grid Grid.Row="2" Margin="20,25,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -60,6 +73,6 @@
             <Button Content="{x:Static p:Resources.CoVChart}" Command="{Binding CoVCommand}" CommandParameter="{x:Static lib:OperationType.Delete}" IsEnabled="{Binding AreDeleteButtonsAvailable}" Grid.Row="3" Grid.Column="1" Margin="49.8,0,108,0" Grid.ColumnSpan="2" Height="35" MinHeight="35"/>
             <Button Content="{x:Static p:Resources.CoVChart}" Command="{Binding CoVCommand}" CommandParameter="{x:Static lib:OperationType.Update}" IsEnabled="{Binding AreUpdateButtonsAvailable}" Grid.Row="3" Grid.Column="2" Margin="50,0,0,0" Grid.ColumnSpan="2" Height="35" MinHeight="35"/>
         </Grid>
-        <Label Content="*None - None Relationship" HorizontalAlignment="Left" Margin="1277,19,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="#FF900000"/>
+        <Label Content="*None - None Relationship" HorizontalAlignment="Left" Margin="1277,19,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="#FF900000"/>
     </Grid>
 </Window>
