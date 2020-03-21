@@ -133,7 +133,7 @@
     <value>Bulk</value>
   </data>
   <data name="CoVChart" xml:space="preserve">
-    <value>Average Coefficent of Variation Chart</value>
+    <value>Coefficent of Variation Chart</value>
   </data>
   <data name="CreateOperation" xml:space="preserve">
     <value>Create Operation</value>
@@ -247,7 +247,7 @@
     <value>Save statistics operation completed successfully.</value>
   </data>
   <data name="SDChart" xml:space="preserve">
-    <value>Average Standard Deviation Chart</value>
+    <value>Standard Deviation Chart</value>
   </data>
   <data name="Single" xml:space="preserve">
     <value>Single</value>

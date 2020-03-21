@@ -133,7 +133,7 @@
     <value>Masowy</value>
   </data>
   <data name="CoVChart" xml:space="preserve">
-    <value>Wykres średnich współczynników zmienności</value>
+    <value>Wykres współczynników zmienności</value>
   </data>
   <data name="CreateOperation" xml:space="preserve">
     <value>Operacja dodawania</value>
@@ -247,7 +247,7 @@
     <value>Zapis wyników do pliku został zakończony sukcesem.</value>
   </data>
   <data name="SDChart" xml:space="preserve">
-    <value>Wykres średnich odchyleń standardowych</value>
+    <value>Wykres odchyleń standardowych</value>
   </data>
   <data name="Single" xml:space="preserve">
     <value>Pojedynczy</value>
