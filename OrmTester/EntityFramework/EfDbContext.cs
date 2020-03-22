@@ -33,13 +33,6 @@ namespace EntityFramework
                 .IsRequired(false)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.Entity<Index>()
-                .HasOne(i => i.Student)
-                .WithOne(s => s.Index)
-                .HasForeignKey<Index>(i => i.StudentId)
-                .IsRequired(false)
-                .OnDelete(DeleteBehavior.Cascade);
-
             builder.Entity<Student>()
                 .HasOne(s => s.Class)
                 .WithMany(c => c.Students)
