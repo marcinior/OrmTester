@@ -6,7 +6,7 @@ namespace EntityFramework
 {
     public class EfDbContext : DbContext
     {
-        private readonly string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=OrmTesterEfDb;Integrated Security=True";
+        private readonly string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=EntityFramework;Integrated Security=True";
 
         public EfDbContext(DbContextOptions<EfDbContext> options) : base(options) { }
 
