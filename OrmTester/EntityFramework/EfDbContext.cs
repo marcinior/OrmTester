@@ -6,7 +6,7 @@ namespace EntityFramework
 {
     public class EfDbContext : DbContext
     {
-        private readonly string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=OrmTesterEfDb;Integrated Security=True";
+        private readonly string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=EntityFramework;Integrated Security=True";
 
         public EfDbContext(DbContextOptions<EfDbContext> options) : base(options) { }
 
@@ -30,6 +30,13 @@ namespace EntityFramework
                 .HasOne(s => s.Index)
                 .WithOne(i => i.Student)
                 .HasForeignKey<Student>(s => s.IndexForeignKey)
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Entity<Index>()
+                .HasOne(i => i.Student)
+                .WithOne(s => s.Index)
+                .HasForeignKey<Index>(i => i.StudentId)
                 .IsRequired(false)
                 .OnDelete(DeleteBehavior.Cascade);
 
