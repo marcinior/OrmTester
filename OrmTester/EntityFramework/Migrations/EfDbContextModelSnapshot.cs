@@ -54,15 +54,9 @@ namespace EntityFramework.Migrations
                         .IsRequired()
                         .HasMaxLength(7);
 
-                    b.Property<int?>("StudentId");
-
                     b.Property<DateTime>("UpdatedAt");
 
                     b.HasKey("IndexId");
-
-                    b.HasIndex("StudentId")
-                        .IsUnique()
-                        .HasFilter("[StudentId] IS NOT NULL");
 
                     b.ToTable("Indexes");
                 });
@@ -99,6 +93,10 @@ namespace EntityFramework.Migrations
                     b.HasKey("StudentId");
 
                     b.HasIndex("ClassId");
+
+                    b.HasIndex("IndexForeignKey")
+                        .IsUnique()
+                        .HasFilter("[IndexForeignKey] IS NOT NULL");
 
                     b.ToTable("Students");
                 });
@@ -147,19 +145,16 @@ namespace EntityFramework.Migrations
                     b.ToTable("Subjects");
                 });
 
-            modelBuilder.Entity("EntityFramework.Entity.Index", b =>
-                {
-                    b.HasOne("EntityFramework.Entity.Student", "Student")
-                        .WithOne("Index")
-                        .HasForeignKey("EntityFramework.Entity.Index", "StudentId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
             modelBuilder.Entity("EntityFramework.Entity.Student", b =>
                 {
                     b.HasOne("EntityFramework.Entity.Class", "Class")
                         .WithMany("Students")
                         .HasForeignKey("ClassId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.HasOne("EntityFramework.Entity.Index", "Index")
+                        .WithOne("Student")
+                        .HasForeignKey("EntityFramework.Entity.Student", "IndexForeignKey")
                         .OnDelete(DeleteBehavior.SetNull);
                 });
 

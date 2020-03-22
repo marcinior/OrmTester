@@ -19,8 +19,7 @@ namespace EntityFramework.Entity
         [Required]
         public DateTime UpdatedAt { get; set; }
 
+        [Required]
         public Student Student { get; set; }
-
-        public int? StudentId { get; set; }
     }
 }
