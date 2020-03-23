@@ -17,7 +17,6 @@ namespace EntityFramework
         {
             db = new EfDbContext();
             db.Database.OpenConnection();
-            TruncateDatabase();
         }
 
         public void TruncateDatabase()
@@ -33,9 +32,13 @@ namespace EntityFramework
         public TimeSpan BulkCreateManyToMany(int numberOfRecords)
         {
             var students = TestDataFactory.GetStudents(numberOfRecords);
+            var subjects = TestDataFactory.GetSubjects(numberOfRecords);
+
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             db.Students.AddRange(students);
 
-            var subjects = TestDataFactory.GetSubjects(numberOfRecords);
             subjects.ForEach(s =>
             {
                 s.StudentSubjects = new List<StudentSubject>();
@@ -48,10 +51,8 @@ namespace EntityFramework
             });
 
             db.Subjects.AddRange(subjects);
-
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
             db.SaveChanges();
+
             stopwatch.Stop();
 
             return stopwatch.Elapsed;
@@ -60,15 +61,16 @@ namespace EntityFramework
         public TimeSpan BulkCreateOneToMany(int numberOfRecords)
         {
             var students = TestDataFactory.GetStudents(numberOfRecords);
-            db.Students.AddRange(students);
-
             Class @class = TestDataFactory.GetClass();
-            @class.Students = new List<Student>(students);
-            db.Classes.Add(@class);
 
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
+
+            db.Students.AddRange(students);
+            @class.Students = new List<Student>(students);
+            db.Classes.Add(@class);
             db.SaveChanges();
+
             stopwatch.Stop();
 
             return stopwatch.Elapsed;
@@ -77,17 +79,18 @@ namespace EntityFramework
         public TimeSpan BulkCreateOneToOne(int numberOfRecords)
         {
             var indexes = TestDataFactory.GetIndexes(numberOfRecords);
-            db.Indexes.AddRange(indexes);
-
             var students = TestDataFactory.GetStudents(numberOfRecords);
+
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            db.Indexes.AddRange(indexes);
             for (int i = 0; i < students.Count; i++)
                 students[i].Index = indexes[i];
 
             db.Students.AddRange(students);
-
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
             db.SaveChanges();
+
             stopwatch.Stop();
 
             return stopwatch.Elapsed;
@@ -96,11 +99,13 @@ namespace EntityFramework
         public TimeSpan BulkCreateWithoutRelationship(int numberOfRecords)
         {
             var classes = TestDataFactory.GetClasses(numberOfRecords);
-            db.Classes.AddRange(classes);
 
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
+
+            db.Classes.AddRange(classes);
             db.SaveChanges();
+
             stopwatch.Stop();
 
             return stopwatch.Elapsed;
@@ -127,11 +132,13 @@ namespace EntityFramework
             db.SaveChanges();
 
             var studentSubjects = db.StudentSubjects.Where(ss => students.Contains(ss.Student));
-            db.StudentSubjects.RemoveRange(studentSubjects);
 
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
+
+            db.StudentSubjects.RemoveRange(studentSubjects);
             db.SaveChanges();
+
             stopwatch.Stop();
 
             return stopwatch.Elapsed;
@@ -145,8 +152,10 @@ namespace EntityFramework
 
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
+
             db.Classes.RemoveRange(classes);
             db.SaveChanges();
+
             stopwatch.Stop();
 
             return stopwatch.Elapsed;
@@ -162,11 +171,12 @@ namespace EntityFramework
             db.Classes.Add(@class);
             db.SaveChanges();
 
-            db.Students.RemoveRange(students);
-
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
+
+            db.Students.RemoveRange(students);
             db.SaveChanges();
+
             stopwatch.Stop();
 
             return stopwatch.Elapsed;
@@ -184,11 +194,12 @@ namespace EntityFramework
             db.Students.AddRange(students);
             db.SaveChanges();
 
-            db.Indexes.RemoveRange(indexes);
-
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
+
+            db.Indexes.RemoveRange(indexes);
             db.SaveChanges();
+
             stopwatch.Stop();
 
             return stopwatch.Elapsed;
@@ -214,6 +225,10 @@ namespace EntityFramework
             db.Subjects.AddRange(subjects);
             db.SaveChanges();
 
+
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             students.ForEach(s =>
             {
                 s.FirstName = "Name";
@@ -233,10 +248,8 @@ namespace EntityFramework
 
             db.Students.UpdateRange(students);
             db.Subjects.UpdateRange(subjects);
-
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
             db.SaveChanges();
+
             stopwatch.Stop();
 
             return stopwatch.Elapsed;
@@ -252,6 +265,9 @@ namespace EntityFramework
             db.Classes.Add(@class);
             db.SaveChanges();
 
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             students.ForEach(s =>
             {
                 s.FirstName = "Name";
@@ -260,10 +276,8 @@ namespace EntityFramework
                 s.UpdatedAt = DateTime.Now.AddDays(1);
             });
             db.Students.UpdateRange(students);
-
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
             db.SaveChanges();
+
             stopwatch.Stop();
 
             return stopwatch.Elapsed;
@@ -281,12 +295,13 @@ namespace EntityFramework
             db.Students.AddRange(students);
             db.SaveChanges();
 
-            indexes.ForEach(i => i.UpdatedAt = DateTime.Now.AddDays(1));
-            db.Indexes.UpdateRange(indexes);
-
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
+
+            indexes.ForEach(i => i.UpdatedAt = DateTime.Now.AddDays(1));
+            db.Indexes.UpdateRange(indexes);
             db.SaveChanges();
+
             stopwatch.Stop();
 
             return stopwatch.Elapsed;
@@ -298,6 +313,9 @@ namespace EntityFramework
             db.Classes.AddRange(classes);
             db.SaveChanges();
 
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             classes.ForEach(c =>
             {
                 c.DegreeCourse = "Elektrotechnika";
@@ -306,10 +324,9 @@ namespace EntityFramework
                 c.GroupNumber = 11;
             });
 
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
             db.Classes.UpdateRange(classes);
             db.SaveChanges();
+
             stopwatch.Stop();
 
             return stopwatch.Elapsed;
@@ -318,9 +335,13 @@ namespace EntityFramework
         public TimeSpan SingleCreateManyToMany()
         {
             Student student = TestDataFactory.GetStudent();
-            db.Students.Add(student);
-
             Subject subject = TestDataFactory.GetSubject();
+
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            db.Students.Add(student);
+            db.Subjects.Add(subject);
             subject.StudentSubjects = new List<StudentSubject>
             {
                 new StudentSubject()
@@ -329,11 +350,8 @@ namespace EntityFramework
                     Subject = subject
                 }
             };
-            db.Subjects.Add(subject);
-
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
             db.SaveChanges();
+
             stopwatch.Stop();
 
             return stopwatch.Elapsed;
@@ -342,18 +360,16 @@ namespace EntityFramework
         public TimeSpan SingleCreateOneToMany()
         {
             Student student = TestDataFactory.GetStudent();
-            db.Students.Add(student);
-
             Class @class = TestDataFactory.GetClass();
-            @class.Students = new List<Student>
-            {
-                student
-            };
-            db.Classes.Add(@class);
 
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
+
+            db.Students.Add(student);
+            @class.Students = new List<Student> { student };
+            db.Classes.Add(@class);
             db.SaveChanges();
+
             stopwatch.Stop();
 
             return stopwatch.Elapsed;
@@ -362,15 +378,16 @@ namespace EntityFramework
         public TimeSpan SingleCreateOneToOne()
         {
             Index index = TestDataFactory.GetIndex();
-            db.Indexes.Add(index);
-
             Student student = TestDataFactory.GetStudent();
-            student.Index = index;
-            db.Students.Add(student);
 
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
+
+            db.Indexes.Add(index);
+            db.Students.Add(student);
+            student.Index = index;
             db.SaveChanges();
+
             stopwatch.Stop();
 
             return stopwatch.Elapsed;
@@ -379,10 +396,11 @@ namespace EntityFramework
         public TimeSpan SingleCreateWithoutRelationship()
         {
             Class c = TestDataFactory.GetClass();
-            db.Classes.Add(c);
 
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
+
+            db.Classes.Add(c);
             db.SaveChanges();
             stopwatch.Stop();
 
@@ -408,10 +426,12 @@ namespace EntityFramework
             db.Subjects.Add(subject);
             db.SaveChanges();
 
-            db.StudentSubjects.Remove(studentSubject);
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
+
+            db.StudentSubjects.Remove(studentSubject);
             db.SaveChanges();
+
             stopwatch.Stop();
 
             return stopwatch.Elapsed;
@@ -430,10 +450,12 @@ namespace EntityFramework
             db.Classes.Add(@class);
             db.SaveChanges();
 
-            db.Students.Remove(student);
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
+
+            db.Students.Remove(student);
             db.SaveChanges();
+
             stopwatch.Stop();
 
             return stopwatch.Elapsed;
@@ -449,10 +471,12 @@ namespace EntityFramework
             db.Students.Add(student);
             db.SaveChanges();
 
-            db.Indexes.Remove(index);
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
+
+            db.Indexes.Remove(index);
             db.SaveChanges();
+
             stopwatch.Stop();
 
             return stopwatch.Elapsed;
@@ -465,9 +489,11 @@ namespace EntityFramework
             db.SaveChanges();
 
             Stopwatch stopwatch = new Stopwatch();
-            db.Classes.Remove(@class);
             stopwatch.Start();
+
+            db.Classes.Remove(@class);
             db.SaveChanges();
+
             stopwatch.Stop();
 
             return stopwatch.Elapsed;
@@ -490,6 +516,9 @@ namespace EntityFramework
             db.Subjects.Add(subject);
             db.SaveChanges();
 
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             student.FirstName = "Name";
             student.LastName = "Surname";
             student.BirthDate = DateTime.Now.AddYears(-25);
@@ -503,10 +532,8 @@ namespace EntityFramework
 
             db.Students.Update(student);
             db.Subjects.Update(subject);
-
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
             db.SaveChanges();
+
             stopwatch.Stop();
 
             return stopwatch.Elapsed;
@@ -525,15 +552,17 @@ namespace EntityFramework
             db.Classes.Add(@class);
             db.SaveChanges();
 
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             student.FirstName = "Name";
             student.LastName = "Surname";
             student.BirthDate = DateTime.Now.AddYears(-25);
             student.UpdatedAt = DateTime.Now.AddDays(1);
 
             db.Students.Update(student);
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
             db.SaveChanges();
+
             stopwatch.Stop();
 
             return stopwatch.Elapsed;
@@ -549,12 +578,13 @@ namespace EntityFramework
             db.Students.Add(student);
             db.SaveChanges();
 
-            index.UpdatedAt = DateTime.Now.AddDays(1);
-            db.Indexes.Update(index);
-
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
+
+            index.UpdatedAt = DateTime.Now.AddDays(1);
+            db.Indexes.Update(index);
             db.SaveChanges();
+
             stopwatch.Stop();
 
             return stopwatch.Elapsed;
@@ -566,15 +596,17 @@ namespace EntityFramework
             db.Classes.Add(@class);
             db.SaveChanges();
 
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             @class.DegreeCourse = "Elektrotechnika";
             @class.GroupNumber = 11;
             @class.UpdatedAt = DateTime.Now.AddDays(1);
             @class.Year = 6;
 
-            Stopwatch stopwatch = new Stopwatch();
             db.Classes.Update(@class);
-            stopwatch.Start();
             db.SaveChanges();
+
             stopwatch.Stop();
 
             return stopwatch.Elapsed;
