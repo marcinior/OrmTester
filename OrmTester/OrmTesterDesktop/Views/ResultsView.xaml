@@ -40,6 +40,7 @@
                     <DataGridTextColumn Header="{x:Static p:Resources.EfExecutionTime}" Binding="{Binding EfAverage}"/>
                     <DataGridTextColumn Header="{x:Static p:Resources.EFAveragePerRecord}" Binding="{Binding EfExecutionTimePerRecord}"/>
                     <DataGridTextColumn Header="{x:Static p:Resources.TestedRowCount}" Binding="{Binding NumberOfRecords}"/>
+                    <DataGridTextColumn Header="{x:Static p:Resources.DifferenceBetweenTimePerRecord}" Binding="{Binding DifferenceBetweenTimePerRecord}"/>
                     <DataGridTextColumn Header="{x:Static p:Resources.NHibernateAveragePerRecord}" Binding="{Binding NHibernateExecutionTimePerRecord}"/>
                     <DataGridTextColumn Header="{x:Static p:Resources.NHibernateExectutionTime}" Binding="{Binding NHibernateAverage}"/>
                 </DataGrid.Columns>

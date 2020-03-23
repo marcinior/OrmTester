@@ -147,6 +147,9 @@
   <data name="Difference" xml:space="preserve">
     <value>Różnica średnich</value>
   </data>
+  <data name="DifferenceBetweenTimePerRecord" xml:space="preserve">
+    <value>Rożnica pomiędzy czasem wykonania dla pojedynczego rekordu</value>
+  </data>
   <data name="EfAverage" xml:space="preserve">
     <value>Entity Framework średni czas wykonania operacji</value>
   </data>

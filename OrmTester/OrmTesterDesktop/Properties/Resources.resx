@@ -147,6 +147,9 @@
   <data name="Difference" xml:space="preserve">
     <value>Difference Between Averages</value>
   </data>
+  <data name="DifferenceBetweenTimePerRecord" xml:space="preserve">
+    <value>Difference Between Time Per Record</value>
+  </data>
   <data name="EfAverage" xml:space="preserve">
     <value>Entity Framework Average Time</value>
   </data>
