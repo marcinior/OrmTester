@@ -166,6 +166,9 @@ namespace OrmTesterLib.TestCore
                     ExecuteMultipleTests(OperationType.Delete, RelationshipType.ManyToMany, testParameters.BulkDeleteManyToMany.Item2, testOperations.BulkDeleteManyToMany));
             }
 
+
+            this.testOperations.TruncateDatabase();
+
             return testResults;
         }
 
@@ -186,7 +189,6 @@ namespace OrmTesterLib.TestCore
                 testResults.Add(testResult);
             }
 
-            this.testOperations.TruncateDatabase();
             return testResults;
         }
 
@@ -202,7 +204,6 @@ namespace OrmTesterLib.TestCore
                 ExecutionTime = testMethod.Invoke(numberOfRecords)
             };
 
-            this.testOperations.TruncateDatabase();
             return testResult;
         }
     }

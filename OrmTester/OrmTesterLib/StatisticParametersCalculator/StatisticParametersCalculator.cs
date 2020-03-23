@@ -67,6 +67,7 @@ namespace OrmTesterLib.StatisticParametersCalculator
                     statParam.NHibernateExecutionTimePerRecord = statParam.NHibernateAverage;
                 }
 
+                statParam.DifferenceBetweenTimePerRecord = Math.Round(Math.Abs(statParam.EfExecutionTimePerRecord - statParam.NHibernateExecutionTimePerRecord), 3);
                 statisticParameters.Add(statParam);
             }
 

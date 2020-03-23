@@ -33,5 +33,7 @@ namespace OrmTesterLib.StatisticParametersCalculator
         public double NHibernateExecutionTimePerRecord { get; set; }
 
         public int NumberOfRecords { get; set; } = 1;
+
+        public double DifferenceBetweenTimePerRecord { get; set; }
     }
 }
