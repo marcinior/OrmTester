@@ -151,6 +151,15 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Difference Between Time Per Record.
+        /// </summary>
+        public static string DifferenceBetweenTimePerRecord {
+            get {
+                return ResourceManager.GetString("DifferenceBetweenTimePerRecord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Entity Framework Average Time.
         /// </summary>
         public static string EfAverage {

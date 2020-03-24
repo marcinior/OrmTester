@@ -185,6 +185,7 @@ namespace Tests
                                             sp.NHibernateExecutionTimePerRecord == 3.667 &&
                                             sp.Difference == 0.334 &&
                                             sp.NumberOfRecords == 1 &&
+                                            sp.DifferenceBetweenTimePerRecord == 0.334 && 
                                             sp.TestName == "Single Create 1:1")
                 .And.ContainSingle(sp => sp.EfAverage == 2.711 &&
                                             sp.EfStandardDeviation == 0 &&
@@ -197,6 +198,7 @@ namespace Tests
                                             sp.Difference == 0.601 &&
                                             sp.NHibernateExecutionTimePerRecord == 0.192 &&
                                             sp.NumberOfRecords == 11 &&
+                                            sp.DifferenceBetweenTimePerRecord == 0.054 && 
                                             sp.TestName == "Bulk Update 1:N");
         }
     }
