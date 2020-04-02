@@ -189,8 +189,8 @@ namespace OrmTesterDesktop.Utils
 
         public Tuple<double, double> GetFullAverage(IEnumerable<StatisticParameter> statisticParameters)
         {
-            var nHibernateCreateAverageBulk = statisticParameters.Average(param => param.NHibernateAverage);
-            var efCreateAverageBulk = statisticParameters.Average(param => param.EfAverage);
+            var nHibernateCreateAverageBulk = statisticParameters.Average(param => param.NHibernateExecutionTimePerRecord);
+            var efCreateAverageBulk = statisticParameters.Average(param => param.EfExecutionTimePerRecord);
             return new Tuple<double, double>(nHibernateCreateAverageBulk, efCreateAverageBulk);
         }
 
