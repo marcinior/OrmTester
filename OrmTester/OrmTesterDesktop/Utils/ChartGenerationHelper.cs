@@ -28,7 +28,7 @@ namespace OrmTesterDesktop.Utils
         {
             var createParameters = GetParamsByOperation(type);
 
-            var fullAverage = GetAverageForFrameworks(createParameters);
+            var fullAverage = GetFullAverage(createParameters);
 
             var nHibernateResults = new ChartValues<double>();
             var efResults = new ChartValues<double>();
@@ -42,16 +42,19 @@ namespace OrmTesterDesktop.Utils
                 var averageForRelationship = GetAverageForRelationship(createParameters, relation);
                 if (averageForRelationship != null)
                 {
-                    nHibernateResults.Add(averageForRelationship.Item1);
-                    efResults.Add(averageForRelationship.Item2);
-                    if (LabelsForRelationship.TryGetValue(relation, out var label))
+                    if (LabelsForRelationship.TryGetValue(relation, out var label) && averageForRelationship.Item1.HasValue)
                     {
+                        nHibernateResults.Add(averageForRelationship.Item1.Value);
+                        efResults.Add(averageForRelationship.Item2.Value);                    
                         labels.Add(label + " " + Resources.Bulk);
                     }
 
-                    nHibernateResults.Add(averageForRelationship.Item3);
-                    efResults.Add(averageForRelationship.Item4);
-                    labels.Add(label + " " + Resources.Single);
+                    if (averageForRelationship.Item3.HasValue)
+                    {
+                        nHibernateResults.Add(averageForRelationship.Item3.Value);
+                        efResults.Add(averageForRelationship.Item4.Value);
+                        labels.Add(label + " " + Resources.Single);
+                    }                    
                 }
             }
 
@@ -184,32 +187,39 @@ namespace OrmTesterDesktop.Utils
             return this.StatisticParameters.Where(param => param.OperationType == operationType);
         }
 
-        private Tuple<double, double, double, double> GetAverageForRelationship(IEnumerable<StatisticParameter> statisticParameters, RelationshipType relationshipType)
+        public Tuple<double, double> GetFullAverage(IEnumerable<StatisticParameter> statisticParameters)
+        {
+            var nHibernateCreateAverageBulk = statisticParameters.Average(param => param.NHibernateExecutionTimePerRecord);
+            var efCreateAverageBulk = statisticParameters.Average(param => param.EfExecutionTimePerRecord);
+            return new Tuple<double, double>(nHibernateCreateAverageBulk, efCreateAverageBulk);
+        }
+
+        private Tuple<double?, double?, double?, double?> GetAverageForRelationship(IEnumerable<StatisticParameter> statisticParameters, RelationshipType relationshipType)
         {
             return this.GetAverageForFrameworks(statisticParameters.Where(param => param.RelationshipType == relationshipType));
         }
 
-        private Tuple<double, double, double, double> GetAverageForFrameworks(IEnumerable<StatisticParameter> statisticParameters)
+        private Tuple<double?, double?, double?, double?> GetAverageForFrameworks(IEnumerable<StatisticParameter> statisticParameters)
         {
             var bulkResults = statisticParameters.Where(param => param.IsBulk);
-            var nHibernateCreateAverageBulk = 0.0;
-            var efCreateAverageBulk = 0.0;
+            double? nHibernateCreateAverageBulk = null;
+            double? efCreateAverageBulk = null;
             if (bulkResults.Any())
             {
                 nHibernateCreateAverageBulk = bulkResults.FirstOrDefault().NHibernateExecutionTimePerRecord;
-                efCreateAverageBulk = bulkResults.FirstOrDefault().EfExecutionTimePerRecord;                
+                efCreateAverageBulk = bulkResults.FirstOrDefault().EfExecutionTimePerRecord;               
                 
             }
             var singleResutls = statisticParameters.Where(param => !param.IsBulk);
-            var nHibernateCreateAverageSingle = 0.0;
-            var efCreateAverageSingle = 0.0;
+            double? nHibernateCreateAverageSingle = null;
+            double? efCreateAverageSingle = null;
             if (singleResutls.Any())
             {
                 nHibernateCreateAverageSingle = singleResutls.FirstOrDefault().NHibernateAverage;
                 efCreateAverageSingle = singleResutls.FirstOrDefault().EfAverage;
             }
 
-            return new Tuple<double, double, double, double>(nHibernateCreateAverageBulk, efCreateAverageBulk, nHibernateCreateAverageSingle, efCreateAverageSingle);
+            return new Tuple<double?, double?, double?, double?>(nHibernateCreateAverageBulk, efCreateAverageBulk, nHibernateCreateAverageSingle, efCreateAverageSingle);
         }
 
         private Tuple<double, double> GetAverageStandardDeviationForRelationship(IEnumerable<StatisticParameter> statisticParameters, RelationshipType relationshipType)
