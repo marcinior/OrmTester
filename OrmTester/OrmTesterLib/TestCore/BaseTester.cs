@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace OrmTesterLib.TestCore
 {
-    public class BaseTester
+    public abstract class BaseTester
     {
         private readonly TestParametersBuilder testParametersBuilder;
         private readonly TestParameters testParameters;
