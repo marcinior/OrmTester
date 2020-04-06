@@ -82,7 +82,7 @@ namespace OrmTesterDesktop
             Task.Factory.StartNew(() =>
             {
                 using (var entityFrameworkTester = new EntityFrameworkTester(builder))
-                using (var nHibernateTester = new NHibernateTestOperations(builder))
+                using (var nHibernateTester = new NHibernateTester.NHibernateTester(builder))
                 {
                     ViewModel.EFResults = entityFrameworkTester.RunTests(entityFrameworkTester);
                     ViewModel.NHibernateResults = nHibernateTester.RunTests(nHibernateTester);
