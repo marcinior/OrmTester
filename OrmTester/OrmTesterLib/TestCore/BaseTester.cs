@@ -7,14 +7,12 @@ namespace OrmTesterLib.TestCore
 {
     public abstract class BaseTester
     {
-        private readonly TestParametersBuilder testParametersBuilder;
         private readonly TestParameters testParameters;
         private ITestOperations testOperations;
 
-        protected BaseTester(TestParametersBuilder testParametersBuilder)
+        protected BaseTester(TestParameters testParameters)
         {
-            this.testParametersBuilder = testParametersBuilder ?? throw new ArgumentNullException("TestParametersBuilder is necessary to run tests");
-            testParameters = this.testParametersBuilder.GetTestParameters();
+            this.testParameters = testParameters ?? throw new ArgumentNullException("TestParameters object is necessary to run tests");
         }
 
         public List<TestResult> RunTests(ITestOperations testOperations)
@@ -97,73 +95,73 @@ namespace OrmTesterLib.TestCore
             if (testParameters.BulkCreateNoRelationship?.Item1 == true)
             {
                 testResults.Add(
-                    ExecuteMultipleTests(OperationType.Create, RelationshipType.None, testParameters.BulkCreateNoRelationship.Item2, testOperations.BulkCreateWithoutRelationship));
+                    ExecuteBulkTests(OperationType.Create, RelationshipType.None, testParameters.BulkCreateNoRelationship.Item2, testOperations.BulkCreateWithoutRelationship));
             }
 
             if (testParameters.BulkCreateOneToOne?.Item1 == true)
             {
                 testResults.Add(
-                    ExecuteMultipleTests(OperationType.Create, RelationshipType.OneToOne, testParameters.BulkCreateOneToOne.Item2, testOperations.BulkCreateOneToOne));
+                    ExecuteBulkTests(OperationType.Create, RelationshipType.OneToOne, testParameters.BulkCreateOneToOne.Item2, testOperations.BulkCreateOneToOne));
             }
 
             if (testParameters.BulkCreateOneToMany?.Item1 == true)
             {
                 testResults.Add(
-                    ExecuteMultipleTests(OperationType.Create, RelationshipType.OneToMany, testParameters.BulkCreateOneToMany.Item2, testOperations.BulkCreateOneToMany));
+                    ExecuteBulkTests(OperationType.Create, RelationshipType.OneToMany, testParameters.BulkCreateOneToMany.Item2, testOperations.BulkCreateOneToMany));
             }
 
             if (testParameters.BulkCreateManyToMany?.Item1 == true)
             {
                 testResults.Add(
-                    ExecuteMultipleTests(OperationType.Create, RelationshipType.ManyToMany, testParameters.BulkCreateManyToMany.Item2, testOperations.BulkCreateManyToMany));
+                    ExecuteBulkTests(OperationType.Create, RelationshipType.ManyToMany, testParameters.BulkCreateManyToMany.Item2, testOperations.BulkCreateManyToMany));
             }
 
             if (testParameters.BulkUpdateNoRelationship?.Item1 == true)
             {
                 testResults.Add(
-                    ExecuteMultipleTests(OperationType.Update, RelationshipType.None, testParameters.BulkUpdateNoRelationship.Item2, testOperations.BulkUpdateWithoutRelationship));
+                    ExecuteBulkTests(OperationType.Update, RelationshipType.None, testParameters.BulkUpdateNoRelationship.Item2, testOperations.BulkUpdateWithoutRelationship));
             }
 
             if (testParameters.BulkUpdateOneToOne?.Item1 == true)
             {
                 testResults.Add(
-                    ExecuteMultipleTests(OperationType.Update, RelationshipType.OneToOne, testParameters.BulkUpdateOneToOne.Item2, testOperations.BulkUpdateOneToOne));
+                    ExecuteBulkTests(OperationType.Update, RelationshipType.OneToOne, testParameters.BulkUpdateOneToOne.Item2, testOperations.BulkUpdateOneToOne));
             }
 
             if (testParameters.BulkUpdateOneToMany?.Item1 == true)
             {
                 testResults.Add(
-                    ExecuteMultipleTests(OperationType.Update, RelationshipType.OneToMany, testParameters.BulkUpdateOneToMany.Item2, testOperations.BulkUpdateOneToMany));
+                    ExecuteBulkTests(OperationType.Update, RelationshipType.OneToMany, testParameters.BulkUpdateOneToMany.Item2, testOperations.BulkUpdateOneToMany));
             }
 
             if (testParameters.BulkUpdateManyToMany?.Item1 == true)
             {
                 testResults.Add(
-                    ExecuteMultipleTests(OperationType.Update, RelationshipType.ManyToMany, testParameters.BulkUpdateManyToMany.Item2, testOperations.BulkUpdateManyToMany));
+                    ExecuteBulkTests(OperationType.Update, RelationshipType.ManyToMany, testParameters.BulkUpdateManyToMany.Item2, testOperations.BulkUpdateManyToMany));
             }
 
             if (testParameters.BulkDeleteNoRelationship?.Item1 == true)
             {
                 testResults.Add(
-                    ExecuteMultipleTests(OperationType.Delete, RelationshipType.None, testParameters.BulkDeleteNoRelationship.Item2, testOperations.BulkDeleteWithoutRelationship));
+                    ExecuteBulkTests(OperationType.Delete, RelationshipType.None, testParameters.BulkDeleteNoRelationship.Item2, testOperations.BulkDeleteWithoutRelationship));
             }
 
             if (testParameters.BulkDeleteOneToOne?.Item1 == true)
             {
                 testResults.Add(
-                    ExecuteMultipleTests(OperationType.Delete, RelationshipType.OneToOne, testParameters.BulkDeleteOneToOne.Item2, testOperations.BulkDeleteOneToOne));
+                    ExecuteBulkTests(OperationType.Delete, RelationshipType.OneToOne, testParameters.BulkDeleteOneToOne.Item2, testOperations.BulkDeleteOneToOne));
             }
 
             if (testParameters.BulkDeleteOneToMany?.Item1 == true)
             {
                 testResults.Add(
-                    ExecuteMultipleTests(OperationType.Delete, RelationshipType.OneToMany, testParameters.BulkDeleteOneToMany.Item2, testOperations.BulkDeleteOneToMany));
+                    ExecuteBulkTests(OperationType.Delete, RelationshipType.OneToMany, testParameters.BulkDeleteOneToMany.Item2, testOperations.BulkDeleteOneToMany));
             }
 
             if (testParameters.BulkDeleteManyToMany?.Item1 == true)
             {
                 testResults.Add(
-                    ExecuteMultipleTests(OperationType.Delete, RelationshipType.ManyToMany, testParameters.BulkDeleteManyToMany.Item2, testOperations.BulkDeleteManyToMany));
+                    ExecuteBulkTests(OperationType.Delete, RelationshipType.ManyToMany, testParameters.BulkDeleteManyToMany.Item2, testOperations.BulkDeleteManyToMany));
             }
 
 
@@ -172,7 +170,10 @@ namespace OrmTesterLib.TestCore
             return testResults;
         }
 
-        private List<TestResult> ExecuteSingleTests(OperationType operationType, RelationshipType relationshipType, int repetitions, Func<TimeSpan> testMethod)
+        private List<TestResult> ExecuteSingleTests(OperationType operationType,
+            RelationshipType relationshipType,
+            int repetitions,
+            Func<TimeSpan> testMethod)
         {
             List<TestResult> testResults = new List<TestResult>();
 
@@ -192,7 +193,10 @@ namespace OrmTesterLib.TestCore
             return testResults;
         }
 
-        private TestResult ExecuteMultipleTests(OperationType operationType, RelationshipType relationshipType, int numberOfRecords, Func<int, TimeSpan> testMethod)
+        private TestResult ExecuteBulkTests(OperationType operationType,
+            RelationshipType relationshipType,
+            int numberOfRecords,
+            Func<int, TimeSpan> testMethod)
         {
 
             TestResult testResult = new TestResult

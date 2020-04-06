@@ -12,7 +12,7 @@ namespace OrmTesterLib.TestCore
             this.testParameters = new TestParameters();
         }
 
-        public TestParameters GetTestParameters() => this.testParameters;
+        public TestParameters Build () => this.testParameters;
 
 
         public ITestParametersBuilder TestBulkCreateManyToMany(int numberOfRecords)

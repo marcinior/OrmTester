@@ -13,7 +13,7 @@ namespace EntityFramework
     {
         private EfDbContext db;
 
-        public EntityFrameworkTester(TestParametersBuilder testParametersBuilder) : base(testParametersBuilder)
+        public EntityFrameworkTester(TestParameters testParameters) : base(testParameters)
         {
             db = new EfDbContext();
             db.Database.OpenConnection();

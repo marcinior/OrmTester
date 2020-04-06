@@ -11,8 +11,7 @@ namespace ConsoleTester
     {
         static void Main(string[] args)
         {
-            TestParametersBuilder testParametersBuilder = new TestParametersBuilder();
-            testParametersBuilder
+            TestParameters testParameters = new TestParametersBuilder()
                 .TestSingleCreateNoRelationship(10)
                 .TestSingleUpdateNoRelationship(10)
                 .TestSingleDeleteNoRelationship(10)
@@ -36,9 +35,10 @@ namespace ConsoleTester
                 .TestSingleDeleteManyToMany(10)
                 .TestBulkCreateManyToMany(10)
                 .TestBulkUpdateManyToMany(10)
-                .TestBulkDeleteManyToMany(10);
+                .TestBulkDeleteManyToMany(10)
+                .Build();
 
-            EntityFrameworkTester entityFrameworkTester = new EntityFrameworkTester(testParametersBuilder);
+            EntityFrameworkTester entityFrameworkTester = new EntityFrameworkTester(testParameters);
             var results = entityFrameworkTester.RunTests(entityFrameworkTester);
             results.ForEach(r => Console.WriteLine($"Operation: {r.OperationType} IsBulk: {r.IsBulkTest} Realationship: {r.RelationshipType} Execution Time: {r.ExecutionTime.TotalMilliseconds}"));
 
