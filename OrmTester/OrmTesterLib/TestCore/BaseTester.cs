@@ -7,14 +7,12 @@ namespace OrmTesterLib.TestCore
 {
     public abstract class BaseTester
     {
-        private readonly TestParametersBuilder testParametersBuilder;
         private readonly TestParameters testParameters;
         private ITestOperations testOperations;
 
-        protected BaseTester(TestParametersBuilder testParametersBuilder)
+        protected BaseTester(TestParameters testParameters)
         {
-            this.testParametersBuilder = testParametersBuilder ?? throw new ArgumentNullException("TestParametersBuilder is necessary to run tests");
-            testParameters = this.testParametersBuilder.GetTestParameters();
+            this.testParameters = testParameters ?? throw new ArgumentNullException("TestParameters object is necessary to run tests");
         }
 
         public List<TestResult> RunTests(ITestOperations testOperations)

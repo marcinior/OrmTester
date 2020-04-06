@@ -1,8 +1,11 @@
-﻿namespace OrmTesterLib.Interfaces
+﻿using OrmTesterLib.TestCore;
+
+namespace OrmTesterLib.Interfaces
 {
     public interface ITestParametersBuilder
     {
-
+        TestParameters Build();
+        
         ITestParametersBuilder TestBulkCreateNoRelationship(int numberOfRecords);
 
         ITestParametersBuilder TestBulkUpdateNoRelationship(int numberOfRecords);
