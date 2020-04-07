@@ -83,7 +83,7 @@ namespace OrmTesterDesktop
             {
                 TestParameters testParameters = builder.Build();
                 using (var entityFrameworkTester = new EntityFrameworkTester(testParameters))
-                using (var nHibernateTester = new NHibernateTestOperations(testParameters))
+                using (var nHibernateTester = new NHibernateTester.NHibernateTester(testParameters))
                 {
                     ViewModel.EFResults = entityFrameworkTester.RunTests(entityFrameworkTester);
                     ViewModel.NHibernateResults = nHibernateTester.RunTests(nHibernateTester);

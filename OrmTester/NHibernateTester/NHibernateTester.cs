@@ -11,13 +11,13 @@ using System.Diagnostics;
 
 namespace NHibernateTester
 {
-    public class NHibernateTestOperations : BaseTester, ITestOperations, IDisposable
+    public class NHibernateTester : BaseTester, ITestOperations, IDisposable
     {
         private ISessionFactory _sessionFactory;
         private ISession session;
         private readonly string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=NHibernate;Integrated Security=True";
 
-        public NHibernateTestOperations(TestParameters testParameters) : base(testParameters)
+        public NHibernateTester(TestParameters testParameters) : base(testParameters)
         {
             var cfg = Fluently.Configure()
             .Database(MsSqlConfiguration.MsSql2012.ConnectionString(connectionString).ShowSql)
@@ -31,13 +31,8 @@ namespace NHibernateTester
 
         public TimeSpan BulkCreateManyToMany(int records)
         {
-            return CreateManyToMany(records);
-        }
-
-        private TimeSpan CreateManyToMany(int repetitions)
-        {
-            var students = NHibernateDataGenerator.GetStudents(repetitions);
-            var subjects = NHibernateDataGenerator.GetSubjects(repetitions);
+            var students = NHibernateDataGenerator.GetStudents(records);
+            var subjects = NHibernateDataGenerator.GetSubjects(records);
 
             var watch = new Stopwatch();
             watch.Start();
@@ -70,12 +65,7 @@ namespace NHibernateTester
 
         public TimeSpan BulkCreateOneToMany(int records)
         {
-            return CreateOneToMany(records);
-        }
-
-        private TimeSpan CreateOneToMany(int repetitions)
-        {
-            var students = NHibernateDataGenerator.GetStudents(repetitions);
+            var students = NHibernateDataGenerator.GetStudents(records);
             var @class = NHibernateDataGenerator.GetClass();
 
             var watch = new Stopwatch();
@@ -97,16 +87,10 @@ namespace NHibernateTester
             return watch.Elapsed;
         }
 
-
         public TimeSpan BulkCreateOneToOne(int records)
         {
-            return CreateOneToOne(records);
-        }
-
-        private TimeSpan CreateOneToOne(int repetitions)
-        {
-            var students = NHibernateDataGenerator.GetStudents(repetitions);
-            var indices = NHibernateDataGenerator.GetIndices(repetitions);
+            var students = NHibernateDataGenerator.GetStudents(records);
+            var indices = NHibernateDataGenerator.GetIndices(records);
 
             var watch = new Stopwatch();
             watch.Start();
@@ -132,12 +116,7 @@ namespace NHibernateTester
 
         public TimeSpan BulkCreateWithoutRelationship(int records)
         {
-            return CreateWithoutRelationship(records);
-        }
-
-        private TimeSpan CreateWithoutRelationship(int repetitions)
-        {
-            var classes = NHibernateDataGenerator.GetClasses(repetitions);
+            var classes = NHibernateDataGenerator.GetClasses(records);
 
             Stopwatch watch = new Stopwatch();
             watch.Start();
@@ -156,16 +135,10 @@ namespace NHibernateTester
             return watch.Elapsed;
         }
 
-
         public TimeSpan BulkDeleteManyToMany(int records)
         {
-            return DeleteManyToMany(records);
-        }
-
-        private TimeSpan DeleteManyToMany(int repetitions)
-        {
-            var students = NHibernateDataGenerator.GetStudents(repetitions);
-            var subjects = NHibernateDataGenerator.GetSubjects(repetitions);
+            var students = NHibernateDataGenerator.GetStudents(records);
+            var subjects = NHibernateDataGenerator.GetSubjects(records);
 
             using (var transaction = session.BeginTransaction())
             {
@@ -212,12 +185,7 @@ namespace NHibernateTester
 
         public TimeSpan BulkDeleteWithoutRelationship(int records)
         {
-            return DeleteNoRelationship(records);
-        }
-
-        private TimeSpan DeleteNoRelationship(int repetitions)
-        {
-            var classes = NHibernateDataGenerator.GetClasses(repetitions);
+            var classes = NHibernateDataGenerator.GetClasses(records);
 
             using (var transaction = session.BeginTransaction())
             {
@@ -248,12 +216,7 @@ namespace NHibernateTester
 
         public TimeSpan BulkDeleteOneToMany(int records)
         {
-            return DeleteOneToMany(records);
-        }
-
-        private TimeSpan DeleteOneToMany(int repetitions)
-        {
-            var students = NHibernateDataGenerator.GetStudents(repetitions);
+            var students = NHibernateDataGenerator.GetStudents(records);
             var @class = NHibernateDataGenerator.GetClass();
 
             using (var transaction = session.BeginTransaction())
@@ -284,18 +247,12 @@ namespace NHibernateTester
 
             watch.Stop();
             return watch.Elapsed;
-
         }
 
         public TimeSpan BulkDeleteOneToOne(int records)
         {
-            return DeleteOneToOne(records);
-        }
-
-        private TimeSpan DeleteOneToOne(int repetitions)
-        {
-            var students = NHibernateDataGenerator.GetStudents(repetitions);
-            var indices = NHibernateDataGenerator.GetIndices(repetitions);
+            var students = NHibernateDataGenerator.GetStudents(records);
+            var indices = NHibernateDataGenerator.GetIndices(records);
 
             using (var transaction = session.BeginTransaction())
             {
@@ -330,13 +287,8 @@ namespace NHibernateTester
 
         public TimeSpan BulkUpdateManyToMany(int records)
         {
-            return UpdateManyToMany(records);
-        }
-
-        private TimeSpan UpdateManyToMany(int repetitions)
-        {
-            var students = NHibernateDataGenerator.GetStudents(repetitions);
-            var subjects = NHibernateDataGenerator.GetSubjects(repetitions);
+            var students = NHibernateDataGenerator.GetStudents(records);
+            var subjects = NHibernateDataGenerator.GetSubjects(records);
 
             using (var transaction = session.BeginTransaction())
             {
@@ -390,15 +342,9 @@ namespace NHibernateTester
             return watch.Elapsed;
         }
 
-
         public TimeSpan BulkUpdateOneToMany(int records)
         {
-            return UpdateOneToMany(records);
-        }
-
-        private TimeSpan UpdateOneToMany(int repetitions)
-        {
-            var students = NHibernateDataGenerator.GetStudents(repetitions);
+            var students = NHibernateDataGenerator.GetStudents(records);
             var @class = NHibernateDataGenerator.GetClass();
 
             using (var transaction = session.BeginTransaction())
@@ -436,13 +382,8 @@ namespace NHibernateTester
 
         public TimeSpan BulkUpdateOneToOne(int records)
         {
-            return UpdateOneToOne(records);
-        }
-
-        private TimeSpan UpdateOneToOne(int repetitions)
-        {
-            var students = NHibernateDataGenerator.GetStudents(repetitions);
-            var indices = NHibernateDataGenerator.GetIndices(repetitions);
+            var students = NHibernateDataGenerator.GetStudents(records);
+            var indices = NHibernateDataGenerator.GetIndices(records);
 
             using (var transaction = session.BeginTransaction())
             {
@@ -475,15 +416,9 @@ namespace NHibernateTester
             return watch.Elapsed;
         }
 
-
         public TimeSpan BulkUpdateWithoutRelationship(int records)
         {
-            return UpdateWithoutRelationship(records);
-        }
-
-        private TimeSpan UpdateWithoutRelationship(int repetitions)
-        {
-            var classes = NHibernateDataGenerator.GetClasses(repetitions);
+            var classes = NHibernateDataGenerator.GetClasses(records);
 
             using (var transaction = session.BeginTransaction())
             {
@@ -514,67 +449,374 @@ namespace NHibernateTester
 
             watch.Stop();
             return watch.Elapsed;
-
         }
 
         public TimeSpan SingleCreateManyToMany()
         {
-            return CreateManyToMany(1);
+            var student = NHibernateDataGenerator.GetStudent();
+            var subject = NHibernateDataGenerator.GetSubject();
+
+            var watch = new Stopwatch();
+            watch.Start();
+
+            using (var transaction = session.BeginTransaction())
+            {
+
+                session.Save(student);
+                session.Save(subject);
+                var studentSubject = new StudentSubject
+                {
+                    StudentId = student,
+                    SubjectId = subject
+                };
+
+                subject.StudentSubject.Add(studentSubject);
+                session.Save(studentSubject);
+
+
+
+                transaction.Commit();
+            }
+
+            watch.Stop();
+            return watch.Elapsed;
         }
 
         public TimeSpan SingleCreateOneToMany()
         {
-            return CreateOneToMany(1);
+            var student = NHibernateDataGenerator.GetStudent();
+            var @class = NHibernateDataGenerator.GetClass();
+
+            var watch = new Stopwatch();
+            watch.Start();
+
+            using (var transaction = session.BeginTransaction())
+            {
+
+                session.Save(student);
+                @class.Student.Add(student);
+
+
+                session.Save(@class);
+                transaction.Commit();
+            }
+
+            watch.Stop();
+            return watch.Elapsed;
         }
 
         public TimeSpan SingleCreateOneToOne()
         {
-            return CreateOneToOne(1);
+            var student = NHibernateDataGenerator.GetStudent();
+            var index = NHibernateDataGenerator.GetIndex(1);
+
+            var watch = new Stopwatch();
+            watch.Start();
+
+            using (var transaction = session.BeginTransaction())
+            {
+
+                student.IndexId = index;
+                session.Save(index);
+                session.Save(student);
+
+                transaction.Commit();
+            }
+
+            watch.Stop();
+            return watch.Elapsed;
         }
 
         public TimeSpan SingleCreateWithoutRelationship()
         {
-            return CreateWithoutRelationship(1);
+            var @class = NHibernateDataGenerator.GetClass();
+
+            Stopwatch watch = new Stopwatch();
+            watch.Start();
+
+            using (var transaction = session.BeginTransaction())
+            {
+                session.Save(@class);
+
+                transaction.Commit();
+            }
+
+            watch.Stop();
+            return watch.Elapsed;
         }
 
         public TimeSpan SingleDeleteManyToMany()
         {
-            return DeleteManyToMany(1);
+            var student = NHibernateDataGenerator.GetStudent();
+            var subject = NHibernateDataGenerator.GetSubject();
+
+            using (var transaction = session.BeginTransaction())
+            {
+
+                session.Save(student);
+
+                session.Save(subject);
+                var studentSubject = new StudentSubject
+                {
+                    StudentId = student,
+                    SubjectId = subject
+                };
+                student.StudentSubject.Add(studentSubject);
+                subject.StudentSubject.Add(studentSubject);
+                session.Save(studentSubject);
+
+
+                transaction.Commit();
+            }
+
+            var watch = new Stopwatch();
+            watch.Start();
+
+            using (var transaction = session.BeginTransaction())
+            {
+                foreach (var studetSubject in student.StudentSubject)
+                {
+                    session.Delete(studetSubject);
+                }
+
+                student.StudentSubject.Clear();
+
+                subject.StudentSubject.Clear();
+                transaction.Commit();
+            }
+
+            watch.Stop();
+            return watch.Elapsed;
         }
 
         public TimeSpan SingleDeleteOneToMany()
         {
-            return DeleteOneToMany(1);
+            var student = NHibernateDataGenerator.GetStudent();
+            var @class = NHibernateDataGenerator.GetClass();
+
+            using (var transaction = session.BeginTransaction())
+            {
+
+                session.Save(student);
+                @class.Student.Add(student);
+                session.Save(@class);
+
+
+                transaction.Commit();
+            }
+
+            var watch = new Stopwatch();
+            watch.Start();
+
+            using (var transaction = session.BeginTransaction())
+            {
+
+                session.Delete(student);
+
+                @class.Student.Clear();
+
+                transaction.Commit();
+            }
+
+            watch.Stop();
+            return watch.Elapsed;
         }
 
         public TimeSpan SingleDeleteOneToOne()
         {
-            return DeleteOneToOne(1);
+            var student = NHibernateDataGenerator.GetStudent();
+            var index = NHibernateDataGenerator.GetIndex(1);
+
+            using (var transaction = session.BeginTransaction())
+            {
+                student.IndexId = index;
+                session.Save(index);
+                session.Save(student);
+
+
+                transaction.Commit();
+            }
+
+            var watch = new Stopwatch();
+            watch.Start();
+
+            using (var transaction = session.BeginTransaction())
+            {
+
+                session.Delete(student);
+
+                transaction.Commit();
+            }
+
+            watch.Stop();
+            return watch.Elapsed;
         }
 
         public TimeSpan SingleDeleteWithoutRelationship()
         {
-            return DeleteNoRelationship(1);
+            var @class = NHibernateDataGenerator.GetClass();
+
+            using (var transaction = session.BeginTransaction())
+            {
+                session.Save(@class);
+
+
+                transaction.Commit();
+            }
+
+            var watch = new Stopwatch();
+            watch.Start();
+
+            using (var transaction = session.BeginTransaction())
+            {
+                session.Delete(@class);
+
+                transaction.Commit();
+            }
+
+            watch.Stop();
+            return watch.Elapsed;
         }
 
         public TimeSpan SingleUpdateManyToMany()
         {
-            return UpdateManyToMany(1);
+            var student = NHibernateDataGenerator.GetStudent();
+            var subject = NHibernateDataGenerator.GetSubject();
+
+            using (var transaction = session.BeginTransaction())
+            {
+                session.Save(student);
+
+                session.Save(subject);
+                var studentSubject = new StudentSubject
+                {
+                    StudentId = student,
+                    SubjectId = subject
+                };
+                student.StudentSubject.Add(studentSubject);
+                subject.StudentSubject.Add(studentSubject);
+                session.Save(studentSubject);
+
+                transaction.Commit();
+            }
+
+            var watch = new Stopwatch();
+            watch.Start();
+
+            using (var transaction = session.BeginTransaction())
+            {
+
+                student.FirstName = "Name";
+                student.LastName = "Surname";
+                student.BirthDate = DateTime.Now.AddYears(-25);
+                student.UpdatedAt = DateTime.Now.AddDays(1);
+                session.Update(student);
+
+                subject.ClassesYear = 1;
+                subject.Ects = 8;
+                subject.ExamType = ExamType.PROJECT;
+                subject.SubjectName = "New Subject";
+                subject.UpdatedAt = DateTime.Now.AddDays(1);
+
+                transaction.Commit();
+            }
+
+            watch.Stop();
+            return watch.Elapsed;
         }
 
         public TimeSpan SingleUpdateOneToMany()
         {
-            return UpdateOneToMany(1);
+            var student = NHibernateDataGenerator.GetStudent();
+            var @class = NHibernateDataGenerator.GetClass();
+
+            using (var transaction = session.BeginTransaction())
+            {
+                session.Save(student);
+                @class.Student.Add(student);
+                session.Save(@class);
+
+                transaction.Commit();
+            }
+
+            var watch = new Stopwatch();
+            watch.Start();
+
+            using (var transaction = session.BeginTransaction())
+            {
+                student.FirstName = "Name";
+                student.LastName = "Surname";
+                student.BirthDate = DateTime.Now.AddYears(-25);
+                student.UpdatedAt = DateTime.Now.AddDays(1);
+                session.Update(student);
+
+                transaction.Commit();
+            }
+
+            watch.Stop();
+            return watch.Elapsed;
         }
 
         public TimeSpan SingleUpdateOneToOne()
         {
-            return UpdateOneToOne(1);
+            var student = NHibernateDataGenerator.GetStudent();
+            var index = NHibernateDataGenerator.GetIndex(1);
+
+            using (var transaction = session.BeginTransaction())
+            {
+
+                student.IndexId = index;
+                session.Save(index);
+                session.Save(student);
+
+                transaction.Commit();
+            }
+
+            var watch = new Stopwatch();
+            watch.Start();
+
+            using (var transaction = session.BeginTransaction())
+            {
+
+                index.UpdatedAt = DateTime.Now.AddDays(1);
+
+                transaction.Commit();
+            }
+
+            watch.Stop();
+            return watch.Elapsed;
         }
 
         public TimeSpan SingleUpdateWithoutRelationship()
         {
-            return UpdateWithoutRelationship(1);
+            var @class = NHibernateDataGenerator.GetClass();
+
+            using (var transaction = session.BeginTransaction())
+            {
+
+                session.Save(@class);
+
+
+                transaction.Commit();
+            }
+
+            var watch = new Stopwatch();
+            watch.Start();
+
+            using (var transaction = session.BeginTransaction())
+            {
+
+                @class.DegreeCourse = "Elektrotechnika";
+                @class.UpdatedAt = DateTime.Now.AddDays(1);
+                @class.Year = 6;
+                @class.GroupNumber = 11;
+                session.Update(@class);
+
+                transaction.Commit();
+            }
+
+            watch.Stop();
+            return watch.Elapsed;
         }
 
         public void Dispose()
