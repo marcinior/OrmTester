@@ -199,19 +199,19 @@
     <value>NEW TEST</value>
   </data>
   <data name="NHibernateAverage" xml:space="preserve">
-    <value>nHibernate Average Time</value>
+    <value>NHibernate Average Time</value>
   </data>
   <data name="NHibernateAveragePerRecord" xml:space="preserve">
-    <value>nHibernate Time per Record</value>
+    <value>NHibernate Time per Record</value>
   </data>
   <data name="NHibernateCoefficentOfVariation" xml:space="preserve">
-    <value>nHibernate Coefficient of Variation</value>
+    <value>NHibernate Coefficient of Variation</value>
   </data>
   <data name="NHibernateExectutionTime" xml:space="preserve">
-    <value>nHibernate Exectution Time</value>
+    <value>NHibernate Exectution Time</value>
   </data>
   <data name="NHibernateStandardDeviation" xml:space="preserve">
-    <value>nHibernate Standard Deviation</value>
+    <value>NHibernate Standard Deviation</value>
   </data>
   <data name="None" xml:space="preserve">
     <value>None</value>

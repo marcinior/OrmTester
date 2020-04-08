@@ -60,7 +60,7 @@ namespace OrmTesterDesktop.Utils
 
             var nHibernateSeriesCollection = new ColumnSeries
             {
-                Title = "nHibernate",
+                Title = "NHibernate",
                 Values = nHibernateResults
             };
 
@@ -111,7 +111,7 @@ namespace OrmTesterDesktop.Utils
 
             var nHibernateSeriesCollection = new ColumnSeries
             {
-                Title = "nHibernate",
+                Title = "NHibernate",
                 Values = nHibernateResults
             };
 
@@ -162,7 +162,7 @@ namespace OrmTesterDesktop.Utils
 
             var nHibernateSeriesCollection = new ColumnSeries
             {
-                Title = "nHibernate",
+                Title = "NHibernate",
                 Values = nHibernateResults
             };
 

@@ -304,7 +304,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to nHibernate Average Time.
+        ///   Looks up a localized string similar to NHibernate Average Time.
         /// </summary>
         public static string NHibernateAverage {
             get {
@@ -313,7 +313,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to nHibernate Time per Record.
+        ///   Looks up a localized string similar to NHibernate Time per Record.
         /// </summary>
         public static string NHibernateAveragePerRecord {
             get {
@@ -322,7 +322,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to nHibernate Coefficient of Variation.
+        ///   Looks up a localized string similar to NHibernate Coefficient of Variation.
         /// </summary>
         public static string NHibernateCoefficentOfVariation {
             get {
@@ -331,7 +331,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to nHibernate Exectution Time.
+        ///   Looks up a localized string similar to NHibernate Exectution Time.
         /// </summary>
         public static string NHibernateExectutionTime {
             get {
@@ -340,7 +340,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to nHibernate Standard Deviation.
+        ///   Looks up a localized string similar to NHibernate Standard Deviation.
         /// </summary>
         public static string NHibernateStandardDeviation {
             get {
