@@ -7,7 +7,7 @@
         xmlns:p="clr-namespace:OrmTesterDesktop.Properties"        
         xmlns:lib="clr-namespace:OrmTesterLib.Enums;assembly=OrmTesterLib"
         mc:Ignorable="d"
-        Title="Orm Tester - ResultsView" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+        Title="Orm Tester - Results View" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid Background="#FF5CDB95">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
