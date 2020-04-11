@@ -15,8 +15,11 @@ namespace OrmTesterDesktop.Views
         public string[] Labels { get; set; }
         public Func<double, string> Formatter { get; set; }
 
-        public ChartView(bool maximize = false)
+        public string YAxisLabel { get; set; }
+
+        public ChartView(string yAxisLabel, bool maximize = false)
         {
+            YAxisLabel = yAxisLabel;
             InitializeComponent();
             DataContext = this;
             SeriesCollection = new SeriesCollection();

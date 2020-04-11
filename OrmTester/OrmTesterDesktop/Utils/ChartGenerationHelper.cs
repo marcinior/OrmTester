@@ -71,7 +71,7 @@ namespace OrmTesterDesktop.Utils
             };
 
 
-            var chartView = new ChartView(true)
+            var chartView = new ChartView(Resources.Result ,true)
             {
                 Labels = labels.ToArray()
             };
@@ -122,7 +122,7 @@ namespace OrmTesterDesktop.Utils
             };
 
 
-            var chartView = new ChartView
+            var chartView = new ChartView(Resources.StandardDeviationChartLabel)
             {
                 Labels = labels.ToArray()
             };
@@ -173,7 +173,7 @@ namespace OrmTesterDesktop.Utils
             };
 
 
-            var chartView = new ChartView
+            var chartView = new ChartView(Resources.CoefficientOfVariationChartLabel)
             {
                 Labels = labels.ToArray()
             };
