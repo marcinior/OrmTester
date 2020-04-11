@@ -132,6 +132,9 @@
   <data name="Bulk" xml:space="preserve">
     <value>Bulk</value>
   </data>
+  <data name="CoefficientOfVariationChartLabel" xml:space="preserve">
+    <value>Coefficient of Variation [%]</value>
+  </data>
   <data name="CoVChart" xml:space="preserve">
     <value>Coefficent of Variation Chart</value>
   </data>
@@ -254,6 +257,9 @@
   </data>
   <data name="Single" xml:space="preserve">
     <value>Single</value>
+  </data>
+  <data name="StandardDeviationChartLabel" xml:space="preserve">
+    <value>Standard Deviation, [ms]</value>
   </data>
   <data name="StartNewTest" xml:space="preserve">
     <value>Start New Test</value>
