@@ -20,7 +20,8 @@ namespace OrmTesterLib.IOService
 
         private static void EncodeVisual(FrameworkElement visual, string fileName, BitmapEncoder encoder)
         {
-            var bitmap = new RenderTargetBitmap((int)visual.ActualWidth, (int)visual.ActualHeight, 96, 96, PixelFormats.Pbgra32);
+            var scale = visual.DesiredSize.Height / visual.DesiredSize.Width;
+            var bitmap = new RenderTargetBitmap((int)visual.ActualWidth, (int)(visual.ActualWidth * scale), 96, 96, PixelFormats.Pbgra32);
             bitmap.Render(visual);
             var frame = BitmapFrame.Create(bitmap);
             encoder.Frames.Add(frame);
