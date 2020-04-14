@@ -22,7 +22,7 @@ namespace Tests
                 .TestSingleCreateOneToOne(100)
                 .TestBulkDeleteOneToOne(500);
 
-            TestParameters testParameters = testParametersBuilder.GetTestParameters();
+            TestParameters testParameters = testParametersBuilder.Build();
 
             Assert.AreEqual(true, testParameters.BulkCreateManyToMany.Item1);
             Assert.AreEqual(15, testParameters.BulkCreateManyToMany.Item2);
@@ -49,7 +49,7 @@ namespace Tests
                 .TestSingleCreateNoRelationship(2)
                 .TestBulkUpdateOneToOne(3);
 
-            EntityFrameworkTester baseTester = new EntityFrameworkTester(testParametersBuilder);
+            EntityFrameworkTester baseTester = new EntityFrameworkTester(testParametersBuilder.Build());
 
             var results = baseTester.RunTests(sampleOrmImplementation.Object);
 
@@ -75,7 +75,7 @@ namespace Tests
                 .TestSingleCreateNoRelationship(2)
                 .TestBulkUpdateOneToOne(3);
 
-            NHibernateTestOperations baseTester = new NHibernateTestOperations(testParametersBuilder);
+            NHibernateTester.NHibernateTester baseTester = new NHibernateTester.NHibernateTester(testParametersBuilder.Build());
 
             var results = baseTester.RunTests(sampleOrmImplementation.Object);
 

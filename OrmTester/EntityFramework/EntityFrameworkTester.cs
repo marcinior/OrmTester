@@ -31,8 +31,8 @@ namespace EntityFramework
 
         public TimeSpan BulkCreateManyToMany(int numberOfRecords)
         {
-            var students = TestDataFactory.GetStudents(numberOfRecords);
-            var subjects = TestDataFactory.GetSubjects(numberOfRecords);
+            var students = numberOfRecords < 100 ? TestDataFactory.GetStudents(numberOfRecords) : TestDataFactory.GetStudents(100);
+            var subjects = numberOfRecords < 100 ? TestDataFactory.GetSubjects(1) : TestDataFactory.GetSubjects(numberOfRecords / 100);
 
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -113,10 +113,10 @@ namespace EntityFramework
 
         public TimeSpan BulkDeleteManyToMany(int numberOfRecords)
         {
-            var students = TestDataFactory.GetStudents(numberOfRecords);
+            var students = numberOfRecords < 100 ? TestDataFactory.GetStudents(numberOfRecords) : TestDataFactory.GetStudents(100);
+            var subjects = numberOfRecords < 100 ? TestDataFactory.GetSubjects(1) : TestDataFactory.GetSubjects(numberOfRecords / 100);
             db.Students.AddRange(students);
 
-            var subjects = TestDataFactory.GetSubjects(numberOfRecords);
             subjects.ForEach(s =>
             {
                 s.StudentSubjects = new List<StudentSubject>();
@@ -207,10 +207,10 @@ namespace EntityFramework
 
         public TimeSpan BulkUpdateManyToMany(int numberOfRecords)
         {
-            var students = TestDataFactory.GetStudents(numberOfRecords);
+            var students = numberOfRecords < 100 ? TestDataFactory.GetStudents(numberOfRecords) : TestDataFactory.GetStudents(100);
+            var subjects = numberOfRecords < 100 ? TestDataFactory.GetSubjects(1) : TestDataFactory.GetSubjects(numberOfRecords / 100);
             db.Students.AddRange(students);
 
-            var subjects = TestDataFactory.GetSubjects(numberOfRecords);
             subjects.ForEach(s =>
             {
                 s.StudentSubjects = new List<StudentSubject>();

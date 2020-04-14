@@ -31,8 +31,8 @@ namespace NHibernateTester
 
         public TimeSpan BulkCreateManyToMany(int records)
         {
-            var students = NHibernateDataGenerator.GetStudents(records);
-            var subjects = NHibernateDataGenerator.GetSubjects(records);
+            var students = records < 100 ? NHibernateDataGenerator.GetStudents(records) : NHibernateDataGenerator.GetStudents(100);
+            var subjects = records < 100 ? NHibernateDataGenerator.GetSubjects(1) : NHibernateDataGenerator.GetSubjects(records / 100);
 
             var watch = new Stopwatch();
             watch.Start();
@@ -137,8 +137,8 @@ namespace NHibernateTester
 
         public TimeSpan BulkDeleteManyToMany(int records)
         {
-            var students = NHibernateDataGenerator.GetStudents(records);
-            var subjects = NHibernateDataGenerator.GetSubjects(records);
+            var students = records < 100 ? NHibernateDataGenerator.GetStudents(records) : NHibernateDataGenerator.GetStudents(100);
+            var subjects = records < 100 ? NHibernateDataGenerator.GetSubjects(1) : NHibernateDataGenerator.GetSubjects(records / 100);
 
             using (var transaction = session.BeginTransaction())
             {
@@ -287,8 +287,8 @@ namespace NHibernateTester
 
         public TimeSpan BulkUpdateManyToMany(int records)
         {
-            var students = NHibernateDataGenerator.GetStudents(records);
-            var subjects = NHibernateDataGenerator.GetSubjects(records);
+            var students = records < 100 ? NHibernateDataGenerator.GetStudents(records) : NHibernateDataGenerator.GetStudents(100);
+            var subjects = records < 100 ? NHibernateDataGenerator.GetSubjects(1) : NHibernateDataGenerator.GetSubjects(records / 100);
 
             using (var transaction = session.BeginTransaction())
             {
