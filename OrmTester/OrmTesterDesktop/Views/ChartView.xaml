@@ -24,10 +24,10 @@
         </WrapPanel>
         <lvc:CartesianChart x:Name="Chart" Series="{Binding SeriesCollection}" LegendLocation="Left" Grid.Row="1">
             <lvc:CartesianChart.AxisX>
-                <lvc:Axis Title="{x:Static p:Resources.RelationshipType}" Labels="{Binding Labels}" Foreground="#FF43709D"></lvc:Axis>
+                <lvc:Axis Title="{x:Static p:Resources.RelationshipType}" Labels="{Binding Labels}" FontSize="20" FontWeight="Bold" Foreground="#FF43709D"></lvc:Axis>
             </lvc:CartesianChart.AxisX>
             <lvc:CartesianChart.AxisY>
-                <lvc:Axis Title="{Binding YAxisLabel}" LabelFormatter="{Binding Formatter}" Foreground="#FF43709D"></lvc:Axis>
+                <lvc:Axis Title="{x:Static p:Resources.Result}" LabelFormatter="{Binding Formatter}" FontSize="20" FontWeight="Bold" Foreground="#FF43709D"></lvc:Axis>
             </lvc:CartesianChart.AxisY>
         </lvc:CartesianChart>
     </Grid>
