@@ -198,6 +198,9 @@
   <data name="ManyToMany" xml:space="preserve">
     <value>Many to Many</value>
   </data>
+  <data name="ManyToManyShort" xml:space="preserve">
+    <value>M:N</value>
+  </data>
   <data name="NewTest" xml:space="preserve">
     <value>NEW TEST</value>
   </data>
@@ -225,8 +228,14 @@
   <data name="OneToMany" xml:space="preserve">
     <value>One to Many</value>
   </data>
+  <data name="OneToManyShort" xml:space="preserve">
+    <value>1:N</value>
+  </data>
   <data name="OneToOne" xml:space="preserve">
     <value>One to One</value>
+  </data>
+  <data name="OneToOneShort" xml:space="preserve">
+    <value>1:1</value>
   </data>
   <data name="OperationType" xml:space="preserve">
     <value>Operation Type</value>

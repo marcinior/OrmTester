@@ -16,9 +16,9 @@ namespace OrmTesterDesktop.Utils
 
         public readonly Dictionary<RelationshipType, string> LabelsForRelationship = new Dictionary<RelationshipType, string>
         {
-            {RelationshipType.ManyToMany, Resources.ManyToMany },
-            {RelationshipType.OneToMany, Resources.OneToMany },
-            {RelationshipType.OneToOne, Resources.OneToOne },
+            {RelationshipType.ManyToMany, Resources.ManyToManyShort },
+            {RelationshipType.OneToMany, Resources.OneToManyShort },
+            {RelationshipType.OneToOne, Resources.OneToOneShort },
             {RelationshipType.None, Resources.None }
         };        
 
