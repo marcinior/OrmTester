@@ -448,7 +448,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Execution time [ms].
+        ///   Looks up a localized string similar to Execution Time [ms].
         /// </summary>
         public static string Result {
             get {
@@ -511,7 +511,7 @@ namespace OrmTesterDesktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Standard Deviation, [ms].
+        ///   Looks up a localized string similar to Standard Deviation [ms].
         /// </summary>
         public static string StandardDeviationChartLabel {
             get {

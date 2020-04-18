@@ -247,7 +247,7 @@
     <value>Repetitions</value>
   </data>
   <data name="Result" xml:space="preserve">
-    <value>Execution time [ms]</value>
+    <value>Execution Time [ms]</value>
   </data>
   <data name="RowCount" xml:space="preserve">
     <value>Row count</value>
@@ -268,7 +268,7 @@
     <value>Single</value>
   </data>
   <data name="StandardDeviationChartLabel" xml:space="preserve">
-    <value>Standard Deviation, [ms]</value>
+    <value>Standard Deviation [ms]</value>
   </data>
   <data name="StartNewTest" xml:space="preserve">
     <value>Start New Test</value>

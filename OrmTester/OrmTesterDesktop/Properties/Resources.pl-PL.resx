@@ -133,7 +133,7 @@
     <value>Masowy</value>
   </data>
   <data name="CoefficientOfVariationChartLabel" xml:space="preserve">
-    <value>Współczynnik zmienności, [%]</value>
+    <value>Współczynnik zmienności [%]</value>
   </data>
   <data name="CoVChart" xml:space="preserve">
     <value>Wykres współczynników zmienności</value>
@@ -268,7 +268,7 @@
     <value>Pojedynczy</value>
   </data>
   <data name="StandardDeviationChartLabel" xml:space="preserve">
-    <value>Odchylenie standardowe, [ms]</value>
+    <value>Odchylenie standardowe [ms]</value>
   </data>
   <data name="StartNewTest" xml:space="preserve">
     <value>Rozpocznij nowy test</value>
