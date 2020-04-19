@@ -29,7 +29,7 @@ namespace OrmTesterLib.StatisticParametersCalculator
             var efGroupedResults = efTestResults.GetGroupedTestResults(cultureInfo);
             var nHiberanateGroupedResults = nHibernateResults.GetGroupedTestResults(cultureInfo);
 
-            if (efGroupedResults.Count != nHiberanateGroupedResults.Count)
+            if (efGroupedResults.Count != nHiberanateGroupedResults.Count)  
                 throw new ArgumentException(resourceManager.GetString(DifferentCountOfGroupsError, cultureInfo));
 
             List<StatisticParameter> statisticParameters = new List<StatisticParameter>();
@@ -64,7 +64,8 @@ namespace OrmTesterLib.StatisticParametersCalculator
                     statParam.NHibernateExecutionTimePerRecord = statParam.NHibernateAverage;
                 }
 
-                statParam.DifferenceBetweenTimePerRecord = Math.Round(Math.Abs(statParam.EfExecutionTimePerRecord - statParam.NHibernateExecutionTimePerRecord), 3);
+                statParam.DifferenceBetweenTimePerRecord = Math.Round(
+                    Math.Abs(statParam.EfExecutionTimePerRecord - statParam.NHibernateExecutionTimePerRecord), 3);
                 statisticParameters.Add(statParam);
             }
 
